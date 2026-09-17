@@ -535,7 +535,7 @@ function renderStamp(){
 }
 
 /* ---------- map ---------- */
-const LABEL_POS={"DO":[20,34,"start"],"MX-CUN":[-22,-4,"end"],"MX-SJD":[22,-4,"start"],"JM":[-6,40,"middle"],"BS":[24,-8,"start"],"PR":[18,-18,"start"],"CU":[-10,-30,"middle"],"AW":[-14,24,"end"],"CW":[12,30,"start"],"BB":[-2,40,"end"],"LC":[-16,-8,"end"],"TC":[18,-22,"start"],"KY":[-14,-14,"end"],"CR":[-18,6,"end"],"PA":[20,-6,"start"]};
+const LABEL_POS={"DO":[20,34,"start"],"MX-CUN":[-22,-4,"end"],"MX-SJD":[22,-4,"start"],"JM":[-6,40,"middle"],"BS":[24,-8,"start"],"PR":[18,-18,"start"],"CU":[-10,-30,"middle"],"AW":[-14,24,"end"],"CW":[12,30,"start"],"BB":[-2,40,"end"],"LC":[-16,-8,"end"],"TC":[18,-22,"start"],"KY":[-14,-14,"end"],"CR":[-18,6,"end"],"PA":[20,-6,"start"],"CO-CTG":[-8,30,"middle"]};
 const FOCUS_COUNTRY={"DO":"Dominican Rep.","JM":"Jamaica","BS":"Bahamas","MX-CUN":"Mexico","MX-SJD":"Mexico"};
 function merc(lat){return Math.log(Math.tan(Math.PI/4+lat*Math.PI/360));}
 function proj(lon,lat){const B=DATA.basemap,[L0,L1,A0,A1]=B.bbox;return[(lon-L0)/(L1-L0)*B.w,(merc(A1)-merc(lat))/(merc(A1)-merc(A0))*B.h];}

@@ -36,6 +36,7 @@ EXTRACTORS = [
     ('KY', 'KY_extract.py', 'Islas Caimán · Department of Tourism (requiere navegador headless)'),
     ('CR', 'CR_extract.py', 'Costa Rica · ICT + BCCR'),
     ('PA', 'PA_extract.py', 'Panamá · INEC'),
+    ('CO', 'CO_extract.py', 'Cartagena · MinCIT/Migración Colombia, Aerocivil, DANE'),
     ('AIR_bts', 'AIR_bts.py', 'Conectividad · US DOT T-100'),
     ('AIR_national', 'AIR_national.py', 'Conectividad · JAC (RD) y AFAC (México)'),
 ]

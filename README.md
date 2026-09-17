@@ -8,8 +8,9 @@ de turismo, institutos de estadística y autoridades de aviación civil.
 
 ## Qué contiene
 
-- **15 destinos**: República Dominicana, Cancún, Los Cabos, Jamaica, Bahamas, Puerto Rico,
-  Cuba, Aruba, Curazao, Barbados, Santa Lucía, Turcas y Caicos, Islas Caimán, Costa Rica y Panamá.
+- **16 destinos**: República Dominicana, Cancún, Los Cabos, Cartagena, Jamaica, Bahamas,
+  Puerto Rico, Cuba, Aruba, Curazao, Barbados, Santa Lucía, Turcas y Caicos, Islas Caimán,
+  Costa Rica y Panamá.
 - **Llegadas mensuales** desde 2019 con la definición oficial de cada país.
 - **Gasto turístico**: cuenta «Viajes» de la balanza de pagos o la estimación oficial
   equivalente, más gasto medio y estadía donde se publiquen.
@@ -70,6 +71,8 @@ siguiente. En resumen:
 | DataTur y migración de México | Mensual | 5–7 semanas |
 | AFAC México (operaciones) | Mensual | 4 semanas |
 | Ministerio de Turismo de Bahamas | Mensual | 6–7 semanas |
+| Migración Colombia y MinCIT (Cartagena) | Mensual | 7–8 semanas |
+| Aerocivil y DANE (Cartagena) | Mensual | 5–7 semanas |
 | US DOT T-100 (conectividad) | Mensual | ~3 meses |
 | Bancos centrales (gasto, balanza de pagos) | Trimestral o anual | 3–5 meses |
 
@@ -92,6 +95,10 @@ siguiente. En resumen:
 - **Islas Caimán** publica las llegadas solo en un tablero Tableau sin descarga; requiere
   navegador headless, y es el extractor más frágil.
 - **Los Cabos** no tiene gasto a nivel destino; solo existe el dato nacional de México.
+- **Cartagena** tampoco: ni MinCIT, ni DANE, ni Corpoturismo publican gasto por ciudad, así que
+  solo está el dato nacional de Colombia (anual). Sus llegadas miden extranjeros no residentes
+  por ciudad de destino declarada, todas las vías, así que no son el mismo concepto que las de
+  Cancún (turistas extranjeros por aeropuerto); las variaciones sí son comparables.
 - **Ningún país publica gasto turístico por zona o polo.** En RD el detalle por polo llega
   hasta ocupación, habitaciones y llegadas por aeropuerto.
 - Los niveles de llegadas **no son comparables entre destinos** porque cada país mide algo
@@ -100,7 +107,7 @@ siguiente. En resumen:
 
 ## Proyecciones
 
-`pipeline/project.py` calcula proyecciones a 12 meses para RD, Cancún, Los Cabos,
+`pipeline/project.py` calcula proyecciones a 12 meses para RD, Cancún, Los Cabos, Cartagena,
 Bahamas y Jamaica, y las guarda junto a los datos en cada corrida, así que toda cifra
 proyectada es trazable a la corrida que la generó.
 
@@ -117,7 +124,7 @@ orígenes y se toman los percentiles 10 y 90 de los errores relativos reales por
 El valor central se corrige por el sesgo medido, con un tope de ±10%. Los meses de pandemia
 (2020-03 a 2021-06) se excluyen del cálculo estacional.
 
-Error del método a 1 mes, medido: RD 3.5%, Cancún 6.3%, Los Cabos 7.6%, Bahamas 8.7%,
+Error del método a 1 mes, medido: RD 3.5%, Cancún 6.3%, Los Cabos 7.6%, Cartagena 8.3%, Bahamas 8.7%,
 Jamaica 17.6% (marcada como alta incertidumbre por el efecto del huracán Melissa).
 
 En el dashboard la proyección va integrada en la gráfica del destino, siempre diferenciada:
