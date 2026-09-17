@@ -97,3 +97,31 @@ siguiente. En resumen:
 - Los niveles de llegadas **no son comparables entre destinos** porque cada país mide algo
   distinto (no residentes por vía aérea, turistas stopover, visitantes totales). Las
   variaciones sí lo son.
+
+## Proyecciones
+
+`pipeline/project.py` calcula proyecciones a 12 meses para RD, Cancún, Los Cabos,
+Bahamas y Jamaica, y las guarda junto a los datos en cada corrida, así que toda cifra
+proyectada es trazable a la corrida que la generó.
+
+Tres métodos, según la serie:
+
+| Método | Cuándo se usa | Cómo |
+|---|---|---|
+| Nowcast | hay un indicador oficial que se publica antes (RD: Junta de Aviación Civil) | razón media de los últimos 12 meses solapados |
+| Estacional | la serie tiene 48+ meses de historia | participación media de cada mes en su año (3 años) sobre el nivel de los últimos 12 meses, con el crecimiento amortiguado a la mitad y topado en ±15% |
+| Encadenada | la serie es corta (Cancún y Los Cabos arrancan en 2023) | se proyecta la serie larga de AFAC y se convierte con la razón histórica |
+
+Las bandas salen del backtest, no de un supuesto: el método se corre hacia atrás en 24
+orígenes y se toman los percentiles 10 y 90 de los errores relativos reales por horizonte.
+El valor central se corrige por el sesgo medido, con un tope de ±10%. Los meses de pandemia
+(2020-03 a 2021-06) se excluyen del cálculo estacional.
+
+Error del método a 1 mes, medido: RD 3.5%, Cancún 6.3%, Los Cabos 7.6%, Bahamas 8.7%,
+Jamaica 17.6% (marcada como alta incertidumbre por el efecto del huracán Melissa).
+
+En el dashboard la proyección va integrada en la gráfica del destino, siempre diferenciada:
+zona sombreada, línea discontinua, banda de error, regla vertical en el último dato oficial
+y etiqueta "proy." en la tarjeta de cierre de año. Las proyecciones **no entran** en la tabla
+comparativa, el ranking ni la cuota de mercado. Los escenarios (demanda de EE.UU., capacidad
+aérea con elasticidad supuesta de 0.6, y choque) se ajustan en la página y no alteran los datos.

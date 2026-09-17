@@ -121,8 +121,29 @@ td.note-cell{white-space:normal;text-align:left;color:var(--muted);font-size:12.
 
 /* detail */
 .detail-head{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
-.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:10px;overflow:hidden;margin-block:14px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:10px;overflow:hidden;margin-block:14px}
 @media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi.proj{background:repeating-linear-gradient(135deg,var(--surface),var(--surface) 7px,var(--accent-wash) 7px,var(--accent-wash) 14px)}
+.tag-proj{display:inline-block;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--accent);border:1px dashed var(--accent);border-radius:4px;padding:0 4px;margin-left:6px;vertical-align:1px}
+.scen{border-top:1px dashed var(--hair);margin-top:10px;padding-top:10px}
+.scen-head{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:baseline;justify-content:space-between;margin-bottom:8px}
+.scen-head b{font-family:var(--display);font-stretch:85%;font-size:14px}
+.scen-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px 16px}
+.lever label{display:block;font-size:11px;color:var(--muted);font-weight:600}
+.lever .lv{display:flex;align-items:baseline;gap:6px;font-size:12.5px}
+.lever .lv b{font-variant-numeric:tabular-nums;font-size:13px}
+.lever input[type=range]{width:100%;accent-color:var(--accent);margin:2px 0 0}
+.scen-out{font-size:12.5px;color:var(--ink-2);margin-top:8px;display:flex;flex-wrap:wrap;gap:4px 14px;align-items:baseline}
+.scen-out b{color:var(--ink);font-variant-numeric:tabular-nums}
+.btn-reset{border:1px solid var(--hair);background:var(--surface);border-radius:7px;padding:4px 10px;font-size:12px;font-weight:600;cursor:pointer;color:var(--ink-2)}
+.btn-reset:hover{border-color:var(--accent);color:var(--ink)}
+details.how-proj{margin-top:10px;font-size:12.5px}
+details.how-proj summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:12px}
+details.how-proj div{color:var(--ink-2);margin-top:6px;max-width:80ch}
+details.how-proj table{margin-top:8px;width:auto}
+details.how-proj td,details.how-proj th{padding:3px 12px 3px 0;font-size:12px;border:0;text-align:right;white-space:nowrap}
+details.how-proj td:first-child,details.how-proj th:first-child{text-align:left}
+.unc{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;background:var(--warn-bg);color:var(--warn-ink)}
 .kpi{background:var(--surface);padding:14px 16px;min-width:0}
 .kpi .k-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .kpi .k-val{font-family:var(--display);font-stretch:80%;font-weight:700;font-size:clamp(22px,2.8vw,30px);line-height:1.15;margin-top:4px;overflow-wrap:anywhere}
@@ -270,14 +291,30 @@ footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-si
       <div class="panel chart-card">
         <div class="chart-top">
           <h3 id="histTitle">Evolución</h3>
-          <div class="seg" id="rangeSeg">
-            <button type="button" id="range-all" data-range="all" aria-pressed="true">Desde 2019</button>
-            <button type="button" id="range-3y" data-range="3y" aria-pressed="false">3 años</button>
+          <div style="display:flex;gap:8px;flex-wrap:wrap">
+            <div class="seg" id="rangeSeg">
+              <button type="button" id="range-all" data-range="all" aria-pressed="true">Desde 2019</button>
+              <button type="button" id="range-3y" data-range="3y" aria-pressed="false">3 años</button>
+            </div>
+            <div class="seg" id="projSeg" hidden>
+              <button type="button" id="proj-on" data-proj="1" aria-pressed="true">Con proyección</button>
+              <button type="button" id="proj-off" data-proj="0" aria-pressed="false">Solo real</button>
+            </div>
           </div>
         </div>
         <div class="legend" id="histLegend"></div>
         <div class="chart-box" id="histBox"></div>
         <div class="src-line" id="histSrc"></div>
+        <div class="scen" id="scen" hidden>
+          <div class="scen-head">
+            <b>Escenario</b>
+            <span id="scenBadge"></span>
+            <button type="button" class="btn-reset" id="scenReset">Volver al escenario base</button>
+          </div>
+          <div class="scen-grid" id="scenGrid"></div>
+          <div class="scen-out" id="scenOut"></div>
+          <details class="how-proj" id="howProj"><summary>Cómo se calcula esta proyección</summary><div id="howProjBody"></div></details>
+        </div>
       </div>
       <div class="panel chart-card">
         <div class="chart-top"><h3 id="seasTitle">Estacionalidad por año</h3></div>
@@ -477,9 +514,9 @@ function freshness(s,lagDays){
 
 /* ---------- state ---------- */
 const DESTS=DATA.destinations;const BYID=Object.fromEntries(DESTS.map(d=>[d.id,d]));
-const state={mode:"arrivals",scope:"focus",sel:"DO",seriesKey:null,range:"all",stripAll:false};
-try{const saved=JSON.parse(localStorage.getItem("radar-state")||"null");if(saved){["mode","scope","range"].forEach(k=>saved[k]&&(state[k]=saved[k]));if(saved.sel&&BYID[saved.sel])state.sel=saved.sel;}}catch(e){}
-function save(){try{localStorage.setItem("radar-state",JSON.stringify({mode:state.mode,scope:state.scope,sel:state.sel,range:state.range}));}catch(e){}}
+const state={mode:"arrivals",scope:"focus",sel:"DO",seriesKey:null,range:"all",stripAll:false,proj:true,scen:{us:0,cap:0,shock:0}};
+try{const saved=JSON.parse(localStorage.getItem("radar-state")||"null");if(saved){["mode","scope","range"].forEach(k=>saved[k]&&(state[k]=saved[k]));if(typeof saved.proj==="boolean")state.proj=saved.proj;if(saved.sel&&BYID[saved.sel])state.sel=saved.sel;}}catch(e){}
+function save(){try{localStorage.setItem("radar-state",JSON.stringify({mode:state.mode,scope:state.scope,sel:state.sel,range:state.range,proj:state.proj}));}catch(e){}}
 function visible(){return DESTS.filter(d=>state.scope==="all"||d.focus);}
 function sOf(d,key){return key?d.series.find(s=>s.key===key):null;}
 function head(d,mode){return sOf(d,d.headline[mode||state.mode]);}
@@ -587,6 +624,80 @@ function alt19(d){
 function shortLabel(l){return l.replace(/\s*\(.*?\)\s*/g," ").replace(/\s+–.*$/,"").trim();}
 function rowEl(d,cells){const r=el("tr",{class:d.id===state.sel?"sel":"",tabindex:0},cells);r.addEventListener("click",()=>select(d.id,true));r.addEventListener("keydown",e=>{if(e.key==="Enter"){select(d.id,true);}});return r;}
 
+/* ---------- projections ---------- */
+const CAP_ELASTICITY=0.6;   // supuesto: 1% más de asientos mueve 0.6% las llegadas
+function projOf(d,s){
+  const pr=d.projection;
+  if(!pr||!s||pr.series_key!==s.key)return null;
+  return pr;
+}
+function scenMult(pr,kind){
+  const sc=state.scen;const us=(pr.us_market&&pr.us_market.share)||0;
+  // el nowcast está anclado en capacidad ya publicada: sólo lo mueve el choque
+  if(kind==="nowcast")return 1+sc.shock/100;
+  return 1+(sc.us/100)*us+(sc.cap/100)*CAP_ELASTICITY+sc.shock/100;
+}
+function scenActive(){return state.scen.us!==0||state.scen.cap!==0||state.scen.shock!==0;}
+function projPoints(pr){
+  return pr.points.map(([p,p50,lo,hi,kind])=>{const k=scenMult(pr,kind);
+    return{p,q:parseP(p),v:p50*k,lo:lo!=null?lo*k:null,hi:hi!=null?hi*k:null,kind};});
+}
+function projClose(pr){
+  if(!pr.year_close)return null;
+  const c=pr.year_close,pts=projPoints(pr).filter(x=>x.q.y===c.year);
+  if(!pts.length)return null;
+  const add=(f)=>pts.reduce((a,x)=>a+(x[f]??0),0);
+  return{year:c.year,p50:c.actual_ytd+add("v"),
+    lo:pts.every(x=>x.lo!=null)?c.actual_ytd+add("lo"):null,
+    hi:pts.every(x=>x.hi!=null)?c.actual_ytd+add("hi"):null,
+    base:c.p50,prev:c.prev_year,months:c.actual_months};
+}
+function uncertain(pr){const e=pr.backtest.mape_h1_3||pr.backtest.mape_h1;return e!=null&&e>0.12;}
+function renderScen(d,s){
+  const pr=projOf(d,s),box=$("scen");
+  if(!pr||!state.proj){box.hidden=true;return;}
+  box.hidden=false;
+  const unit=pr.unit;
+  const levers=[
+    {k:"us",label:"Demanda desde EE.UU.",min:-25,max:25,
+     note:pr.us_market?"pesa "+nf0.format(pr.us_market.share*100)+"% de esta serie":"sin peso conocido"},
+    {k:"cap",label:"Capacidad aérea (asientos)",min:-25,max:25,note:"elasticidad supuesta 0.6"},
+    {k:"shock",label:"Choque (clima, evento)",min:-40,max:10,note:"afecta todos los meses"}];
+  const grid=$("scenGrid");grid.replaceChildren();
+  levers.forEach(L=>{
+    const val=state.scen[L.k];
+    const out=el("b",{text:(val>0?"+":"")+val+"%"});
+    const inp=el("input",{type:"range",id:"lever-"+L.k,min:String(L.min),max:String(L.max),step:"1",value:String(val),"aria-label":L.label});
+    inp.addEventListener("input",e=>{state.scen[L.k]=+e.target.value;out.textContent=(state.scen[L.k]>0?"+":"")+state.scen[L.k]+"%";
+      renderHist(d,s);renderKpis(d,s);scenOut(d,s);});
+    grid.append(el("div",{class:"lever"},[el("label",{for:"lever-"+L.k,text:L.label}),
+      el("div",{class:"lv"},[out,el("span",{class:"na",text:L.note})]),inp]));
+  });
+  $("scenBadge").replaceChildren(uncertain(pr)?el("span",{class:"unc",text:"Alta incertidumbre: error del método "+nf1.format((pr.backtest.mape_h1_3||pr.backtest.mape_h1)*100)+"% a 3 meses"}):el("span",{class:"na",text:"Error del método "+nf1.format((pr.backtest.mape_h1_3||pr.backtest.mape_h1)*100)+"% a 3 meses, "+nf1.format((pr.backtest.mape_h12||0)*100)+"% a 12"}));
+  scenOut(d,s);
+  // cómo se calcula
+  const m=pr.method,bt=pr.backtest,body=$("howProjBody");
+  const bits=[];
+  if(m.nowcast)bits.push(el("p",{text:"Mes en curso (nowcast): se estima con "+m.nowcast_lead_label+", que se publica antes. Se aplica la razón media de los últimos "+m.nowcast.ratio_window+" meses solapados ("+nf2.format(m.nowcast.ratio)+"), con variación de "+nf1.format((m.nowcast.ratio_cv||0)*100)+"%."}));
+  if(m.chained_from)bits.push(el("p",{text:"Esta serie tiene historia corta, así que se proyecta "+m.chained_from+" y se convierte con la razón media de los últimos meses solapados ("+nf2.format(bt.chained.ratio)+", variación "+nf1.format((bt.chained.ratio_cv||0)*100)+"%). La banda viene del backtest de esa serie larga."}));
+  if(m.seasonal)bits.push(el("p",{text:"Meses siguientes: participación media de cada mes dentro de su año, calculada con "+(m.seasonal.years_used||[]).join(", ")+", aplicada sobre el nivel de los últimos 12 meses ("+nf0.format(m.seasonal.ttm)+") con el crecimiento reciente amortiguado a la mitad ("+pct(m.seasonal.growth_damped)+" anual)."}));
+  bits.push(el("p",{text:"La banda no es teórica: el método se corrió hacia atrás en "+bt.origins+" meses distintos y se tomaron los percentiles 10 y 90 de los errores reales. El valor central también se corrige por el sesgo medido, con un tope de 10%."}));
+  const rows=[1,3,6,12].filter(h=>bt.seasonal_bands&&bt.seasonal_bands[h]).map(h=>{const b2=bt.seasonal_bands[h];
+    return el("tr",null,[el("td",{text:h+" mes"+(h>1?"es":"")}),el("td",{text:nf1.format(b2.mape*100)+"%"}),el("td",{text:String(b2.n)})]);});
+  if(rows.length)bits.push(el("table",null,[el("thead",null,[el("tr",null,[el("th",{text:"Horizonte"}),el("th",{text:"Error medio"}),el("th",{text:"Casos"})])]),el("tbody",null,rows)]));
+  bits.push(el("p",{text:"Ningún método anticipa huracanes ni cierres: el paso de Melissa por Jamaica y el cierre de 2020 son el recordatorio. El horizonte se limita a 12 meses y las proyecciones no entran en la tabla comparativa ni en el ranking, que sólo muestran datos publicados."}));
+  body.replaceChildren(...bits);
+}
+function scenOut(d,s){
+  const pr=projOf(d,s),c=projClose(pr);const out=$("scenOut");out.replaceChildren();
+  if(!c)return;
+  const parts=[el("span",null,["Cierre ",el("b",{text:String(c.year)}),": ",el("b",{text:fmt(c.p50,pr.unit,true)})])];
+  if(c.lo!=null)parts.push(el("span",{class:"na",text:"rango "+fmt(c.lo,pr.unit,true)+" – "+fmt(c.hi,pr.unit,true)}));
+  if(c.prev)parts.push(el("span",null,["vs ",String(c.year-1),": ",deltaEl(c.p50/c.prev-1)]));
+  if(scenActive())parts.push(el("span",{class:"na",text:"escenario base: "+fmt(c.base,pr.unit,true)}));
+  out.replaceChildren(...parts);
+}
+
 /* ---------- detail ---------- */
 const CAT_ES={arrivals:"Llegadas",spending:"Gasto turístico",hotels:"Hotelería",air:"Conectividad aérea",investment:"Inversión (IED)"};
 function renderDetail(){
@@ -605,7 +716,10 @@ function renderDetail(){
         ? (d.headline.arrivals_note||"No hay serie principal de llegadas.")+" "+(d.headline.arrivals_proxy===state.seriesKey?"Se usa como sustituto: "+s.label+".":"Se muestra otra serie disponible: "+s.label+".")
         : (d.headline.spending_note||"No hay serie principal de gasto.")+" Se muestra otra serie disponible: "+s.label+".")
     : s.label;
-  renderKpis(d,s);renderStrip(d,s);renderHist(d,s);renderSeas(d,s);
+  const pr=projOf(d,s);
+  $("projSeg").hidden=!pr;
+  setPressed("projSeg","proj",state.proj?"1":"0");
+  renderKpis(d,s);renderStrip(d,s);renderHist(d,s);renderSeas(d,s);renderScen(d,s);
 }
 function renderStrip(d,active){
   const box=$("strip");const items=[];
@@ -653,6 +767,15 @@ function renderKpis(d,s){
     tiles.push(kpi("Máximo de la serie",fmt(mx,m.unit),pLabel(mxP)));
     tiles.push(kpi("Promedio 2019",avg19!=null?fmt(avg19,m.unit):"—",avg19!=null&&m.t!=="A"?[deltaEl(m.last/avg19-1)," último vs 2019"]:(avg19!=null?[deltaEl(m.last/avg19-1)," vs 2019"]:"sin dato 2019")));
   }
+  const pr=projOf(d,s);
+  if(pr&&state.proj){
+    const c=projClose(pr);
+    if(c)tiles.push(el("div",{class:"kpi proj"},[
+      el("div",{class:"k-label"},[document.createTextNode("Cierre "+c.year),el("span",{class:"tag-proj",text:"proy."})]),
+      el("div",{class:"k-val num",text:fmt(c.p50,pr.unit,true)}),
+      el("div",{class:"k-sub"},[c.lo!=null?document.createTextNode(fmt(c.lo,pr.unit,true)+" – "+fmt(c.hi,pr.unit,true)+" · "):null,
+        c.prev?deltaEl(c.p50/c.prev-1):null,c.prev?document.createTextNode(" vs "+(c.year-1)):null])]));
+  }
   box.replaceChildren(...tiles);
 }
 function srcLine(s,extra){
@@ -677,11 +800,13 @@ function renderHist(d,s){
   const monthly=pts[0].q.t==="M";const additiveZero=isCount(s.unit)||/millones/.test(s.unit);
   const m=toMap(s);
   const prior=monthly&&state.range==="3y"?pts.map(x=>({p:x.p,q:x.q,v:m.get(x.q.idx-12)})).filter(x=>x.v!=null):[];
+  const pr=projOf(d,s);const pp=(pr&&state.proj&&monthly)?projPoints(pr):[];
   const legend=$("histLegend");legend.replaceChildren(el("span",null,[el("i",{style:"border-top-color:var(--s1)"}),shortLabel(s.label)]));
   if(prior.length)legend.append(el("span",null,[el("i",{class:"dash",style:"border-top-color:var(--s-base)"}),"Mismo mes, año anterior"]));
+  if(pp.length)legend.append(el("span",null,[el("i",{class:"dash",style:"border-top-color:var(--s1)"}),"Proyección"+(scenActive()?" (escenario ajustado)":"")+" con banda de error"]));
   const M={l:52,r:18,t:14,b:26};const iw=W-M.l-M.r,ih=H-M.t-M.b;
-  const x0=pts[0].q.idx,x1=pts[pts.length-1].q.idx+(monthly?0:pts[0].q.span);
-  const all=pts.map(x=>x.v).concat(prior.map(x=>x.v));
+  const x0=pts[0].q.idx,x1=(pp.length?pp[pp.length-1].q.idx:pts[pts.length-1].q.idx)+(monthly?0:pts[0].q.span);
+  const all=pts.map(x=>x.v).concat(prior.map(x=>x.v)).concat(pp.map(x=>x.hi!=null?x.hi:x.v));
   let lo=additiveZero?0:Math.min(...all),hi=Math.max(...all);if(!additiveZero){const pad=(hi-lo)*.12||1;lo=Math.max(0,lo-pad);hi+=pad;}
   const nt=niceTicks(lo,hi,4);lo=nt.lo;hi=nt.hi;
   const X=i=>M.l+(x1===x0?iw/2:(i-x0)/(x1-x0)*iw),Y=v=>M.t+ih-(v-lo)/(hi-lo)*ih;
@@ -711,16 +836,41 @@ function renderHist(d,s){
     [...svg.querySelectorAll("text.tick")].filter(t=>+t.getAttribute("y")===H-6).forEach(t=>t.remove());
     const every=Math.ceil(n/(W<520?5:9));pts.forEach((x,i)=>{if((n-1-i)%every)return;svg.append(sv("text",{x:M.l+(i+.5)*(iw/n),y:H-6,"text-anchor":"middle",class:"tick",text:x.q.t==="A"?String(x.q.y):pLabel(x.p).replace(" 20"," ’")}));});
   }
+  if(pp.length){
+    const lastAct=pts[pts.length-1];
+    // zona de proyección: fondo tenue para que no se confunda con el dato real
+    svg.append(sv("rect",{x:X(lastAct.q.idx),y:M.t,width:Math.max(0,W-M.r-X(lastAct.q.idx)),height:ih,fill:"var(--accent)","fill-opacity":.05}));
+    // banda de error
+    const hasBand=pp.every(x=>x.lo!=null&&x.hi!=null);
+    if(hasBand){
+      const up=pp.map(x=>X(x.q.idx).toFixed(1)+","+Y(x.hi).toFixed(1));
+      const dn=pp.slice().reverse().map(x=>X(x.q.idx).toFixed(1)+","+Y(x.lo).toFixed(1));
+      svg.append(sv("path",{d:"M"+X(lastAct.q.idx).toFixed(1)+","+Y(lastAct.v).toFixed(1)+"L"+up.join("L")+"L"+dn.join("L")+"Z",
+        fill:"var(--s1)","fill-opacity":.13,stroke:"none"}));
+    }
+    svg.append(sv("path",{d:"M"+X(lastAct.q.idx).toFixed(1)+","+Y(lastAct.v).toFixed(1)+"L"+pp.map(x=>X(x.q.idx).toFixed(1)+","+Y(x.v).toFixed(1)).join("L"),
+      fill:"none",stroke:"var(--s1)","stroke-width":2,"stroke-dasharray":"5 4","stroke-linejoin":"round"}));
+    // regla vertical: fin del dato oficial
+    svg.append(sv("line",{x1:X(lastAct.q.idx),x2:X(lastAct.q.idx),y1:M.t,y2:M.t+ih,stroke:"var(--axis)","stroke-width":1}));
+    svg.append(sv("text",{x:X(lastAct.q.idx)+4,y:M.t+10,class:"tick",style:"fill:var(--accent);font-weight:700;letter-spacing:.06em","font-size":9.5,text:"PROYECCIÓN"}));
+    pp.forEach(x=>ptsXY.push({x:X(x.q.idx),p:x.p,v:x.v,lo:x.lo,hi:x.hi,kind:x.kind,proj:true}));
+  }
   const lastPt=ptsXY[ptsXY.length-1];
-  svg.append(sv("text",{x:Math.min(lastPt.x,W-M.r),y:Math.max(12,Y(pts[pts.length-1].v)-10),"text-anchor":"end",class:"tick",style:"fill:var(--ink);font-weight:600",text:fmt(lastPt.v,s.unit,true)}));
+  const endAct=pts[pts.length-1];
+  svg.append(sv("text",{x:Math.min(X(endAct.q.idx)+(pp.length?0:0),W-M.r),y:Math.max(12,Y(endAct.v)-10),"text-anchor":pp.length?"middle":"end",class:"tick",style:"fill:var(--ink);font-weight:600",text:fmt(endAct.v,s.unit,true)}));
   // hover layer
   const cross=sv("line",{y1:M.t,y2:M.t+ih,stroke:"var(--ink-2)","stroke-width":1,"stroke-dasharray":"2 2",visibility:"hidden"});
   const hit=sv("rect",{x:M.l,y:M.t,width:iw,height:ih,fill:"transparent"});
   svg.append(cross,hit);
   const move=(cx,cy)=>{let best=ptsXY[0];ptsXY.forEach(p=>{if(Math.abs(p.x-cx)<Math.abs(best.x-cx))best=p;});
     cross.setAttribute("x1",best.x);cross.setAttribute("x2",best.x);cross.setAttribute("visibility","visible");
-    const rows=[el("div",{class:"t-h",text:pLabel(best.p,true)}),tr(shortLabel(s.label).slice(0,34),fmt(best.v,s.unit),"var(--s1)")];
-    if(best.pv!=null){rows.push(tr("Año anterior",fmt(best.pv,s.unit),"var(--s-base)",true));rows.push(tr("Var. interanual",pct(best.v/best.pv-1)));}
+    const KIND={nowcast:"estimación con indicador adelantado",seasonal:"proyección estacional",chained:"proyección encadenada"};
+    const rows=[el("div",{class:"t-h",text:pLabel(best.p,true)+(best.proj?" · PROYECCIÓN":"")}),
+      tr(shortLabel(s.label).slice(0,34),fmt(best.v,s.unit),"var(--s1)")];
+    if(best.proj){
+      if(best.lo!=null)rows.push(tr("Rango",fmt(best.lo,s.unit,true)+" – "+fmt(best.hi,s.unit,true)));
+      rows.push(el("div",{class:"t-r"},[el("span",{class:"na",text:KIND[best.kind]||"proyección"})]));
+    }else if(best.pv!=null){rows.push(tr("Año anterior",fmt(best.pv,s.unit),"var(--s-base)",true));rows.push(tr("Var. interanual",pct(best.v/best.pv-1)));}
     const scale=box.clientWidth/W;showTip(box,best.x*scale,cy*scale,rows);};
   hit.addEventListener("pointermove",e=>{const r=svg.getBoundingClientRect();move((e.clientX-r.left)*W/r.width,(e.clientY-r.top)*W/r.width);});
   hit.addEventListener("pointerleave",()=>{cross.setAttribute("visibility","hidden");hideTip();});
@@ -1064,6 +1214,8 @@ function renderAll(){
 $("modeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.mode=b.dataset.mode;state.seriesKey=null;save();renderAll();});
 $("scopeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.scope=b.dataset.scope;save();renderAll();});
 $("rangeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.range=b.dataset.range;save();setPressed("rangeSeg","range",state.range);const d=BYID[state.sel];renderHist(d,sOf(d,state.seriesKey));});
+$("projSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.proj=b.dataset.proj==="1";save();renderDetail();});
+$("scenReset").addEventListener("click",()=>{state.scen={us:0,cap:0,shock:0};const d=BYID[state.sel],s=sOf(d,state.seriesKey);renderScen(d,s);renderHist(d,s);renderKpis(d,s);});
 $("destSel").addEventListener("change",e=>select(e.target.value,false));
 $("seriesSel").addEventListener("change",e=>{state.seriesKey=e.target.value;renderDetail();});
 $("scope-focus").textContent="Foco ("+DESTS.filter(d=>d.focus).length+")";

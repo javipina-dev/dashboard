@@ -268,5 +268,30 @@
     "PR": "usa registros hoteleros como proxy",
     "JM": "sin serie mensual accesible",
     "TC": "sin datos mensuales de 2026"
+  },
+  "project": {
+    "DO": {
+      "series": "arrivals_air_nonresident",
+      "lead": "air_passengers_arrivals"
+    },
+    "MX-CUN": {
+      "series": "arrivals_air_international",
+      "lead": "passengers_air_international_total"
+    },
+    "MX-SJD": {
+      "series": "arrivals_air_international",
+      "lead": "passengers_air_international_total"
+    },
+    "BS": {
+      "series": "arrivals_stopover",
+      "lead": null,
+      "us_share_from": "air_us_passengers"
+    },
+    "JM": {
+      "series": "air_us_passengers",
+      "lead": null,
+      "us_share_fixed": 1.0,
+      "us_share_note": "la serie es tráfico desde EE.UU., así que la palanca la afecta por completo"
+    }
   }
 }

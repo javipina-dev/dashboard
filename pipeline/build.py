@@ -1,5 +1,6 @@
 """Merge data/<ID>.json + config.json + basemap into dist/index.html (template.html)."""
 import json, os, sys, datetime, copy
+import project as projection
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, '..', 'data')
 cfg = json.load(open(os.path.join(ROOT, 'config.json')))
@@ -45,6 +46,17 @@ for did in cfg['order']:
     if os.path.exists(mp):
         d['markets'] = json.load(open(mp))['markets']
         print(f'  {did}: mercados de origen ({len(d["markets"]["data"])} mercados)')
+    pcfg = cfg.get('project', {}).get(did)
+    if pcfg:
+        pr = projection.build_projection(d, pcfg, d.get('markets'))
+        if pr and not pr.get('skipped'):
+            d['projection'] = pr
+            e = pr['backtest'].get('mape_h1')
+            err = 'n/d' if e is None else f'{e * 100:.1f}%'
+            print(f'  {did}: proyeccion {pr["last_actual"]} -> {pr["points"][-1][0]}'
+                  f' ({len(pr["points"])} meses, error h1 {err})')
+        else:
+            print(f'  {did}: sin proyeccion ({pr.get("skipped") if pr else "n/d"})')
     d['short'] = cfg['short'].get(did, d['name'])
     d['focus'] = did in cfg['focus']
     d['headline'] = h
