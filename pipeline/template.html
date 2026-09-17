@@ -1,0 +1,1074 @@
+<title>Radar Turístico del Caribe</title>
+<meta name="description" content="Llegadas mensuales de turistas y gasto turístico en el Caribe, Cancún y Los Cabos, con datos oficiales.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  color-scheme: light;
+  --ground:#EDF2F2; --surface:#FAFCFC; --raised:#FFFFFF;
+  --ink:#0E2530; --ink-2:#4A5F67; --muted:#7A8B91;
+  --hair:#D6E0E2; --axis:#B5C4C8;
+  --accent:#0A6B74; --accent-ink:#FFFFFF; --accent-wash:rgba(10,107,116,.09);
+  --water:#DCE8EB; --land:#F7FAF9; --land-stroke:#B3C5C9; --land-focus:#C9DFE0;
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s-base:#9AA7AB;
+  --good:#006300; --bad:#c23434; --warn-bg:#FFF1CC; --warn-ink:#7A5200;
+  --good-bg:#E1F2E1; --bad-bg:#FBE3E1; --idle-bg:#E8EEEF;
+  --shadow:0 1px 2px rgba(14,37,48,.06),0 8px 24px -12px rgba(14,37,48,.18);
+  --display:"Archivo", "Arial Narrow", system-ui, sans-serif;
+  --body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#091317; --surface:#0E1B21; --raised:#132329;
+    --ink:#E6EFF0; --ink-2:#A6B8BD; --muted:#7A8D93;
+    --hair:#1F3139; --axis:#2F454D;
+    --accent:#4DB6BE; --accent-ink:#06191C; --accent-wash:rgba(77,182,190,.12);
+    --water:#0C1A20; --land:#17292F; --land-stroke:#2B424A; --land-focus:#1E3D42;
+    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s-base:#62747A;
+    --good:#3DBA3D; --bad:#EF7B7B; --warn-bg:#3A2E0E; --warn-ink:#F2C45C;
+    --good-bg:#11301A; --bad-bg:#3A1717; --idle-bg:#1A2A30;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#091317; --surface:#0E1B21; --raised:#132329;
+  --ink:#E6EFF0; --ink-2:#A6B8BD; --muted:#7A8D93;
+  --hair:#1F3139; --axis:#2F454D;
+  --accent:#4DB6BE; --accent-ink:#06191C; --accent-wash:rgba(77,182,190,.12);
+  --water:#0C1A20; --land:#17292F; --land-stroke:#2B424A; --land-focus:#1E3D42;
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s-base:#62747A;
+  --good:#3DBA3D; --bad:#EF7B7B; --warn-bg:#3A2E0E; --warn-ink:#F2C45C;
+  --good-bg:#11301A; --bad-bg:#3A1717; --idle-bg:#1A2A30;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);
+}
+*{box-sizing:border-box}
+body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.5;padding-inline:16px;padding-block:0 48px}
+.wrap{max-width:1240px;margin:0 auto}
+a{color:var(--accent)}
+button,select{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+
+/* header */
+.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-block:28px 18px;border-bottom:1px solid var(--hair)}
+.brand small{display:block;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+h1{font-family:var(--display);font-stretch:72%;font-weight:750;font-size:clamp(30px,4.4vw,46px);line-height:1;letter-spacing:-.01em;margin:6px 0 0;text-wrap:balance}
+h1 span{color:var(--accent)}
+.stamp{display:flex;flex-wrap:wrap;gap:6px 16px;color:var(--ink-2);font-size:12.5px}
+.stamp b{color:var(--ink);font-weight:600}
+
+/* controls */
+.controls{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;padding-block:16px;position:sticky;top:env(safe-area-inset-top,0px);background:var(--ground);z-index:5;border-bottom:1px solid var(--hair)}
+.seg{display:inline-flex;background:var(--surface);border:1px solid var(--hair);border-radius:8px;padding:3px}
+.seg button{border:0;background:transparent;padding:6px 12px;border-radius:6px;cursor:pointer;color:var(--ink-2);font-weight:600;font-size:13px}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--accent-ink)}
+.seg button:not([aria-pressed="true"]):hover{background:var(--accent-wash);color:var(--ink)}
+.ctl-label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-right:6px}
+select{background:var(--surface);border:1px solid var(--hair);border-radius:8px;padding:6px 28px 6px 10px;font-size:13px;font-weight:600;max-width:100%}
+
+/* sections */
+section{padding-block:26px 6px}
+.sec-head{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 18px;margin-bottom:14px}
+h2{font-family:var(--display);font-stretch:80%;font-weight:700;font-size:22px;margin:0;letter-spacing:-.005em}
+h3{font-family:var(--display);font-stretch:88%;font-weight:650;font-size:15px;margin:0}
+.lede{color:var(--ink-2);font-size:13px;max-width:68ch;margin:0}
+.panel{background:var(--surface);border:1px solid var(--hair);border-radius:10px}
+
+/* overview */
+.overview{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
+@media (max-width:960px){.overview{grid-template-columns:1fr}}
+.map-panel{padding:0;overflow:hidden;position:relative}
+#mapBox svg{display:block;width:100%;height:auto;overflow:hidden}
+.map-foot{display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:space-between;padding:8px 14px;border-top:1px solid var(--hair);font-size:11.5px;color:var(--muted)}
+.land{fill:var(--land);stroke:var(--land-stroke);stroke-width:.7;vector-effect:non-scaling-stroke}
+.land.hl{fill:var(--land-focus)}
+.graticule{stroke:var(--land-stroke);stroke-opacity:.35;stroke-width:.6;stroke-dasharray:2 4;fill:none;vector-effect:non-scaling-stroke}
+.bub{fill:var(--accent);fill-opacity:.22;stroke:var(--accent);stroke-width:1.5;cursor:pointer;vector-effect:non-scaling-stroke;transition:fill-opacity .15s}
+.bub:hover,.bub.sel{fill-opacity:.45}
+.bub.sel{stroke-width:2.5}
+.bub.nodata{fill:none;stroke-dasharray:3 3;stroke:var(--muted)}
+.bub-core{fill:var(--accent)}
+.map-label{font-family:var(--display);font-stretch:85%;font-weight:700;fill:var(--ink);paint-order:stroke;stroke:var(--water);stroke-width:4px;stroke-linejoin:round;pointer-events:none}
+.map-sub{font-family:var(--body);font-weight:600;paint-order:stroke;stroke:var(--water);stroke-width:4px;stroke-linejoin:round;pointer-events:none}
+.map-sub.up{fill:var(--good)} .map-sub.down{fill:var(--bad)} .map-sub.flat{fill:var(--muted)}
+
+/* ranking table */
+.rank{padding:4px 0 0;overflow:hidden}
+.table-scroll{overflow-x:auto}
+table{border-collapse:collapse;width:100%}
+th{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;text-align:right;padding:8px 10px;border-bottom:1px solid var(--hair);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+td{padding:8px 10px;border-bottom:1px solid var(--hair);text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:0}
+.rank tbody tr{cursor:pointer}
+.rank tbody tr:hover{background:var(--accent-wash)}
+.rank tbody tr.sel{background:var(--accent-wash);box-shadow:inset 3px 0 0 var(--accent)}
+.dname{font-weight:600;color:var(--ink)}
+.dmeta{display:block;font-size:11px;color:var(--muted);font-weight:400;white-space:normal;max-width:22ch;line-height:1.3}
+td.note-cell{white-space:normal;text-align:left;color:var(--muted);font-size:12.5px}
+.delta{font-weight:600}
+.delta.up{color:var(--good)} .delta.down{color:var(--bad)} .delta.flat{color:var(--muted)}
+.na{color:var(--muted)}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.ok{background:var(--good-bg);color:var(--good)}
+.pill.due{background:var(--warn-bg);color:var(--warn-ink)}
+.pill.late{background:var(--bad-bg);color:var(--bad)}
+.pill.none{background:var(--idle-bg);color:var(--muted)}
+
+/* detail */
+.detail-head{display:flex;flex-wrap:wrap;gap:10px 16px;align-items:center;justify-content:space-between}
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:10px;overflow:hidden;margin-block:14px}
+@media (max-width:760px){.kpis{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.kpi{background:var(--surface);padding:14px 16px;min-width:0}
+.kpi .k-label{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.kpi .k-val{font-family:var(--display);font-stretch:80%;font-weight:700;font-size:clamp(22px,2.8vw,30px);line-height:1.15;margin-top:4px;overflow-wrap:anywhere}
+.kpi .k-sub{font-size:12px;color:var(--ink-2);margin-top:2px}
+.strip{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+.chip{display:flex;flex-direction:column;gap:1px;background:var(--surface);border:1px solid var(--hair);border-radius:8px;padding:7px 11px;cursor:pointer;text-align:left;min-width:0}
+.chip:hover{border-color:var(--accent)}
+.chip[aria-pressed="true"]{border-color:var(--accent);background:var(--accent-wash)}
+.chip.derived{cursor:default;border-style:dashed}
+.chip.derived:hover{border-color:var(--hair)}
+.chip .c-l{font-size:11px;color:var(--muted);font-weight:600;max-width:28ch;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.chip .c-v{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;display:flex;gap:7px;align-items:baseline}
+.chip .c-v span{font-size:11.5px}
+.strip-title{width:100%;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin-bottom:-2px}
+.compare{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.charts{display:grid;grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:16px}
+@media (max-width:960px){.charts{grid-template-columns:1fr}}
+.chart-card{padding:14px 16px 10px;min-width:0}
+.chart-top{display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center;justify-content:space-between;margin-bottom:6px}
+.chart-top .seg button{padding:4px 10px;font-size:12px}
+.chart-box{position:relative;width:100%}
+.chart-box svg{display:block;width:100%;overflow:visible}
+.legend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink-2);margin:2px 0 6px}
+.legend i{display:inline-block;width:14px;height:0;border-top:2px solid;vertical-align:middle;margin-right:5px}
+.legend i.dash{border-top-style:dashed}
+.src-line{font-size:11.5px;color:var(--muted);margin-top:6px;line-height:1.45}
+.src-line a{color:var(--ink-2)}
+.tick{font-size:11px;fill:var(--muted);font-variant-numeric:tabular-nums}
+.grid{stroke:var(--hair);stroke-width:1}
+.base{stroke:var(--axis);stroke-width:1}
+.tip{position:absolute;pointer-events:none;background:var(--raised);border:1px solid var(--hair);box-shadow:var(--shadow);border-radius:8px;padding:8px 10px;font-size:12px;min-width:140px;z-index:4;white-space:nowrap}
+.tip .t-h{color:var(--muted);font-size:11px;margin-bottom:3px}
+.tip .t-r{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.tip .t-r span:first-child{color:var(--ink-2);display:flex;align-items:center;gap:6px}
+.tip .t-r b{font-variant-numeric:tabular-nums}
+.tip i{display:inline-block;width:12px;border-top:2px solid}
+.empty{padding:36px 12px;text-align:center;color:var(--muted);font-size:13px}
+
+/* comparison */
+.hbar-list{display:grid;gap:7px;margin-top:10px}
+.hbar{display:grid;grid-template-columns:minmax(92px,128px) minmax(0,1fr) auto;gap:10px;align-items:center;font-size:12.5px;cursor:pointer;border-radius:6px;padding:2px 4px}
+.hbar.wide{grid-template-columns:minmax(92px,124px) minmax(0,1fr) auto 58px}
+#polesRooms .hbar,#polesPressure .hbar{grid-template-columns:minmax(120px,150px) minmax(0,1fr) auto}
+#polesRooms .hb-val small,#polesPressure .hb-val small{color:var(--muted)}
+.map-note{font-family:var(--body);font-size:13px;font-weight:600;fill:var(--muted);letter-spacing:.06em;text-transform:uppercase;pointer-events:none}
+.hbar.wide .hb-val small{display:block;color:var(--muted)}
+.sub-h{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600;margin:14px 0 2px}
+.sub-h:first-child{margin-top:4px}
+#poleMapBox svg{display:block;width:100%;height:auto;overflow:hidden}
+.pin{fill:var(--accent);stroke:var(--surface);stroke-width:1.5;cursor:pointer}
+.pin.dim{fill:var(--s-base)}
+.pin-n{fill:var(--accent-ink);font-family:var(--body);font-weight:700;pointer-events:none}
+.pole-rank{display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;border-radius:5px;background:var(--accent);color:var(--accent-ink);font-size:11px;font-weight:700;margin-right:7px}
+.pole-rank.dim{background:var(--s-base)}
+tr.total-row td{font-weight:600;background:var(--accent-wash);border-top:2px solid var(--accent)}
+.hbar:hover{background:var(--accent-wash)}
+.hbar.sel .hb-name{color:var(--accent)}
+.hb-name{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.hb-track{height:14px;position:relative}
+.hb-fill{position:absolute;left:0;top:0;bottom:0;background:var(--s1);border-radius:0 4px 4px 0;min-width:2px}
+.hb-fill.focus{background:var(--accent)}
+.hb-ref{position:absolute;top:-3px;bottom:-3px;border-left:1px dashed var(--ink-2)}
+.hb-val{font-variant-numeric:tabular-nums;text-align:right;white-space:nowrap}
+.hb-val small{color:var(--muted);margin-left:4px}
+
+/* sources */
+.cal td,.cal th{text-align:left;vertical-align:top}
+.cal td{white-space:normal}
+.cal .src-org{font-weight:600;color:var(--ink)}
+.cal .src-sub{display:block;color:var(--muted);font-size:11.5px}
+details.dsrc{border-top:1px solid var(--hair)}
+details.dsrc:first-of-type{border-top:0}
+details.dsrc summary{cursor:pointer;padding:12px 16px;display:flex;gap:10px;align-items:baseline;list-style:none}
+details.dsrc summary::-webkit-details-marker{display:none}
+details.dsrc summary::before{content:"+";font-family:var(--display);font-weight:700;color:var(--accent);width:12px}
+details.dsrc[open] summary::before{content:"–"}
+details.dsrc summary span{color:var(--muted);font-size:12px}
+.dsrc-body{padding:0 16px 16px}
+.dsrc-body table td{font-size:12.5px;white-space:normal;text-align:left;vertical-align:top}
+.dsrc-body table th{text-align:left}
+.dsrc-body ul{margin:10px 0 0;padding-left:18px;color:var(--ink-2);font-size:12.5px;max-width:110ch}
+.dsrc-body li{margin-bottom:4px}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+@media (max-width:860px){.how{grid-template-columns:1fr}}
+.how .panel{padding:14px 16px}
+.how p{margin:6px 0 0;color:var(--ink-2);font-size:13px}
+.note{border-left:3px solid var(--accent);padding:8px 12px;background:var(--accent-wash);border-radius:0 8px 8px 0;font-size:12.5px;color:var(--ink-2);margin-top:12px;max-width:110ch}
+footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-size:12px;color:var(--muted)}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <small>Llegadas y gasto turístico · fuentes oficiales</small>
+      <h1>Radar Turístico <span>del Caribe</span></h1>
+    </div>
+    <div class="stamp" id="stamp"></div>
+  </header>
+
+  <div class="controls" role="toolbar" aria-label="Filtros">
+    <div><span class="ctl-label">Métrica</span>
+      <div class="seg" id="modeSeg">
+        <button type="button" id="mode-arrivals" data-mode="arrivals" aria-pressed="true">Llegadas</button>
+        <button type="button" id="mode-spending" data-mode="spending" aria-pressed="false">Gasto turístico</button>
+      </div>
+    </div>
+    <div><span class="ctl-label">Destinos</span>
+      <div class="seg" id="scopeSeg">
+        <button type="button" id="scope-focus" data-scope="focus" aria-pressed="true">Foco (5)</button>
+        <button type="button" id="scope-all" data-scope="all" aria-pressed="false">Todos</button>
+      </div>
+    </div>
+    <div><label class="ctl-label" for="destSel">Detalle</label><select id="destSel"></select></div>
+  </div>
+
+  <section id="overview">
+    <div class="sec-head">
+      <h2 id="ovTitle">Panorama</h2>
+      <p class="lede" id="ovLede"></p>
+    </div>
+    <div class="overview">
+      <div class="panel map-panel">
+        <div class="chart-box" id="mapBox"></div>
+        <div class="map-foot"><span id="mapLegend"></span><span>Clic en un destino para ver su detalle</span></div>
+      </div>
+      <div class="panel rank">
+        <div class="table-scroll"><table id="rankTable"></table></div>
+      </div>
+    </div>
+    <p class="note" id="compNote"></p>
+  </section>
+
+  <section id="detail">
+    <div class="detail-head">
+      <div>
+        <h2 id="dTitle"></h2>
+        <p class="lede" id="dLede"></p>
+      </div>
+      <div><label class="ctl-label" for="seriesSel">Serie</label><select id="seriesSel"></select></div>
+    </div>
+    <div class="kpis" id="kpis"></div>
+    <div class="strip" id="strip"></div>
+    <div class="charts">
+      <div class="panel chart-card">
+        <div class="chart-top">
+          <h3 id="histTitle">Evolución</h3>
+          <div class="seg" id="rangeSeg">
+            <button type="button" id="range-all" data-range="all" aria-pressed="true">Desde 2019</button>
+            <button type="button" id="range-3y" data-range="3y" aria-pressed="false">3 años</button>
+          </div>
+        </div>
+        <div class="legend" id="histLegend"></div>
+        <div class="chart-box" id="histBox"></div>
+        <div class="src-line" id="histSrc"></div>
+      </div>
+      <div class="panel chart-card">
+        <div class="chart-top"><h3 id="seasTitle">Estacionalidad por año</h3></div>
+        <div class="legend" id="seasLegend"></div>
+        <div class="chart-box" id="seasBox"></div>
+        <div class="src-line" id="seasNote"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="markets" hidden>
+    <div class="sec-head">
+      <h2 id="mkTitle">Mercados de origen</h2>
+      <p class="lede" id="mkLede"></p>
+    </div>
+    <div class="charts">
+      <div class="panel chart-card">
+        <div class="chart-top"><h3>Principales mercados, ventana de 12 meses</h3></div>
+        <div class="legend" id="mkLegend"></div>
+        <div class="chart-box" id="mkBox"></div>
+        <div class="src-line" id="mkSrc"></div>
+      </div>
+      <div class="panel chart-card">
+        <h3>Todos los mercados</h3>
+        <p class="src-line" id="mkBarsSub"></p>
+        <div class="hbar-list" id="mkBars"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="poles" hidden>
+    <div class="sec-head">
+      <h2 id="polesTitle">Polos turísticos</h2>
+      <p class="lede" id="polesLede"></p>
+    </div>
+    <div class="charts">
+      <div class="panel map-panel">
+        <div class="chart-box" id="poleMapBox"></div>
+        <div class="map-foot"><span>Numerados por inventario de habitaciones</span><span id="poleMapFoot"></span></div>
+      </div>
+      <div class="panel chart-card">
+        <h3>Oferta contra demanda</h3>
+        <div class="sub-h" id="polesOfertaH">Inventario de habitaciones</div>
+        <div class="hbar-list" id="polesRooms"></div>
+        <div class="sub-h">Llegadas por habitación, últimos 12 meses (polos de resort)</div>
+        <div class="hbar-list" id="polesPressure"></div>
+        <p class="src-line" id="polesChartNote"></p>
+      </div>
+    </div>
+    <div class="panel" style="margin-top:16px"><div class="table-scroll"><table class="cal" id="polesTable"></table></div></div>
+    <p class="note" id="polesNote"></p>
+  </section>
+
+  <section id="share">
+    <div class="sec-head">
+      <h2>Cuota de mercado</h2>
+      <p class="lede" id="shareLede"></p>
+    </div>
+    <div class="charts">
+      <div class="panel chart-card">
+        <div class="chart-top"><h3 id="shareTitle">Participación en las llegadas de la región</h3></div>
+        <div class="legend" id="shareLegend"></div>
+        <div class="chart-box" id="shareBox"></div>
+        <div class="src-line" id="shareNote"></div>
+      </div>
+      <div class="panel chart-card">
+        <h3 id="shareBarsTitle">Cuota del último mes comparable</h3>
+        <p class="src-line" id="shareBarsSub"></p>
+        <div class="hbar-list" id="shareBars"></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="sec-head">
+      <h2>Comparativa regional</h2>
+      <p class="lede" id="cmpLede"></p>
+    </div>
+    <div class="compare">
+      <div class="panel chart-card"><h3 id="cmpA-t"></h3><p class="src-line" id="cmpA-s"></p><div class="hbar-list" id="cmpA"></div></div>
+      <div class="panel chart-card"><h3 id="cmpB-t"></h3><p class="src-line" id="cmpB-s"></p><div class="hbar-list" id="cmpB"></div></div>
+      <div class="panel chart-card" id="cmpC-card"><h3 id="cmpC-t"></h3><p class="src-line" id="cmpC-s"></p><div class="hbar-list" id="cmpC"></div></div>
+    </div>
+  </section>
+
+  <section id="sources">
+    <div class="sec-head">
+      <h2>Fuentes y calendario de publicación</h2>
+      <p class="lede">Cuándo publica cada fuente, cuál es el último dato disponible y cuándo se espera el siguiente. La fecha esperada se calcula con el rezago habitual de cada organismo.</p>
+    </div>
+    <div class="panel"><div class="table-scroll"><table class="cal" id="calTable"></table></div></div>
+    <div class="sec-head" style="margin-top:22px"><h3>Todas las series, método de acceso y notas metodológicas</h3></div>
+    <div class="panel" id="srcDetails"></div>
+  </section>
+
+  <section id="how">
+    <div class="sec-head"><h2>Cómo se mantiene al día</h2></div>
+    <div class="how">
+      <div class="panel"><h3>Descarga directa de la fuente</h3><p>Un script por destino baja el archivo oficial (Excel, PDF, API o CSV) desde la URL del organismo y lo procesa. No se usan agregadores ni prensa.</p></div>
+      <div class="panel"><h3>Validación</h3><p>Antes de publicar, cada serie se contrasta con los totales anuales que publica la misma fuente. Si una cifra no cuadra, esa actualización se detiene.</p></div>
+      <div class="panel"><h3>Revisión semanal</h3><p>Una tarea automática revisa cada semana si hay publicaciones nuevas y actualiza esta página. Las cifras preliminares se reemplazan cuando el organismo las revisa.</p></div>
+    </div>
+  </section>
+
+  <footer id="foot"></footer>
+</div>
+
+<script>
+const DATA = /*__DATA__*/null;
+(function(){
+"use strict";
+const MES=["ene","feb","mar","abr","may","jun","jul","ago","sep","oct","nov","dic"];
+const $=id=>document.getElementById(id);
+const nf0=new Intl.NumberFormat("en-US",{maximumFractionDigits:0});
+const nf1=new Intl.NumberFormat("en-US",{minimumFractionDigits:1,maximumFractionDigits:1});
+const nf2=new Intl.NumberFormat("en-US",{minimumFractionDigits:2,maximumFractionDigits:2});
+const TODAY=new Date();
+const SVGNS="http://www.w3.org/2000/svg";
+function el(tag,attrs,children){const e=document.createElement(tag);if(attrs)for(const k in attrs){if(k==="text")e.textContent=attrs[k];else if(k==="class")e.className=attrs[k];else e.setAttribute(k,attrs[k]);}(children||[]).forEach(c=>c!=null&&e.append(c));return e;}
+function sv(tag,attrs,children){const e=document.createElementNS(SVGNS,tag);if(attrs)for(const k in attrs){if(k==="text")e.textContent=attrs[k];else e.setAttribute(k,attrs[k]);}(children||[]).forEach(c=>c&&e.append(c));return e;}
+
+/* ---------- periods ---------- */
+function parseP(p){
+  let m;
+  if((m=/^(\d{4})-(\d{2})$/.exec(p)))return{t:"M",y:+m[1],n:+m[2],idx:+m[1]*12+(+m[2]-1),span:1};
+  if((m=/^(\d{4})-Q(\d)$/.exec(p)))return{t:"Q",y:+m[1],n:+m[2],idx:+m[1]*12+(+m[2]-1)*3,span:3};
+  if((m=/^(\d{4})-H(\d)$/.exec(p)))return{t:"H",y:+m[1],n:+m[2],idx:+m[1]*12+(+m[2]-1)*6,span:6};
+  if((m=/^(\d{4})$/.exec(p)))return{t:"A",y:+m[1],n:1,idx:+m[1]*12,span:12};
+  return null;
+}
+function pLabel(p,long){const q=parseP(p);if(!q)return p;
+  if(q.t==="M")return MES[q.n-1]+" "+q.y;
+  if(q.t==="Q")return (long?q.n+"er trim. ":"T"+q.n+" ")+q.y;
+  if(q.t==="H")return "S"+q.n+" "+q.y;
+  return String(q.y);}
+function periodEnd(p){const q=parseP(p);return new Date(Date.UTC(Math.floor((q.idx+q.span)/12),(q.idx+q.span)%12,0));}
+function nextPeriodEnd(p){const q=parseP(p);const i=q.idx+q.span;return new Date(Date.UTC(Math.floor((i+q.span)/12),(i+q.span)%12,0));}
+const FREQ_ES={monthly:"Mensual",quarterly:"Trimestral",annual:"Anual",semiannual:"Semestral"};
+const DEFAULT_LAG={M:60,Q:120,H:120,A:240};
+
+/* ---------- formatting ---------- */
+function isCount(u){return /personas|pasajeros|habitaciones/.test(u||"");}
+function fmt(v,u,compact){
+  if(v==null||!isFinite(v))return "—";
+  u=u||"";
+  if(/^US\$ millones/.test(u)||/millones/.test(u)&&/US\$|balboas/.test(u))return compact?"US$ "+nf0.format(v)+" M":"US$ "+nf1.format(v)+" M";
+  if(/US\$ por d/.test(u))return "US$ "+nf0.format(v)+"/día";
+  if(/^US\$/.test(u))return "US$ "+nf0.format(v);
+  if(u==="%")return nf1.format(v)+"%";
+  if(/noches|d[ií]as/.test(u))return nf1.format(v)+(compact?"":" noches");
+  if(isCount(u))return compact?compactNum(v):nf0.format(v);
+  if(/millones/.test(u))return nf1.format(v)+" M";
+  return nf1.format(v);
+}
+function nf0f(v){return nf0.format(v);}
+function compactNum(v){const a=Math.abs(v);if(a>=1e6)return (v/1e6).toFixed(a>=1e7?0:1).replace(/\.0$/,"")+" M";if(a>=1e3)return Math.round(v/1e3)+" k";return nf0.format(v);}
+function axisFmt(v,u){if(/US\$/.test(u)||/balboas/.test(u)){return (/millones/.test(u)?"":"")+compactNum(v);}if(u==="%")return nf0.format(v)+"%";if(/noches|d[ií]as/.test(u))return nf1.format(v);return compactNum(v);}
+function pct(v){if(v==null||!isFinite(v))return "—";const s=(v*100);return (s>0?"+":s<0?"−":"")+nf1.format(Math.abs(s))+"%";}
+function dcls(v){if(v==null||!isFinite(v))return "flat";return v>0.0005?"up":v<-0.0005?"down":"flat";}
+function deltaEl(v,tag){return el(tag||"span",{class:"delta "+dcls(v),text:(v==null?"—":(v>0.0005?"▲ ":v<-0.0005?"▼ ":"")+pct(v))});}
+function dateEs(d){return d.getUTCDate()+" "+MES[d.getUTCMonth()]+" "+d.getUTCFullYear();}
+function monthEs(d){return MES[d.getUTCMonth()]+" "+d.getUTCFullYear();}
+
+/* ---------- metrics ---------- */
+function toMap(s){const m=new Map();s.data.forEach(([p,v])=>{const q=parseP(p);if(q)m.set(q.idx,v);});return m;}
+function sumRange(m,from,to,step){let s=0;for(let i=from;i<=to;i+=step){if(!m.has(i))return null;s+=m.get(i);}return s;}
+function metrics(s){
+  if(!s||!s.data.length)return null;
+  const m=toMap(s);const last=s.data[s.data.length-1];const lq=parseP(last[0]);const step=lq.span;
+  const r={series:s,lastP:last[0],last:last[1],t:lq.t,unit:s.unit,additive:isCount(s.unit)||/millones/.test(s.unit)};
+  const prev=m.get(lq.idx-12);r.yoy=prev!=null&&prev!==0?last[1]/prev-1:null;r.prev=prev;
+  if(r.additive){
+    const n=12/step;
+    r.ttm=sumRange(m,lq.idx-12+step,lq.idx,step);
+    const tp=sumRange(m,lq.idx-24+step,lq.idx-12,step);r.ttmYoy=r.ttm!=null&&tp?r.ttm/tp-1:null;
+    const y0=lq.y*12;r.ytd=sumRange(m,y0,lq.idx,step);const yp=sumRange(m,y0-12,lq.idx-12,step);r.ytdYoy=r.ytd!=null&&yp?r.ytd/yp-1:null;
+    const b19=sumRange(m,2019*12,2019*12+11,step);r.base19=b19;
+    // same months of 2019 as the trailing 12
+    r.vs19=r.ttm!=null&&b19?r.ttm/b19-1:null;
+    // latest complete calendar year
+    for(let y=lq.y;y>=2019;y--){const v=sumRange(m,y*12,y*12+11,step);if(v!=null){r.fullYear=y;r.fullYearVal=v;const pv=sumRange(m,(y-1)*12,(y-1)*12+11,step);r.fullYearYoy=pv?v/pv-1:null;break;}}
+    if(lq.t==="A"){r.fullYear=lq.y;r.fullYearVal=last[1];r.fullYearYoy=r.yoy;}
+  }
+  return r;
+}
+function freshness(s,lagDays){
+  if(!s||!s.data.length)return{cls:"none",label:"Sin datos"};
+  const last=s.data[s.data.length-1][0];const q=parseP(last);
+  const lag=lagDays||DEFAULT_LAG[q.t];
+  const exp=new Date(nextPeriodEnd(last).getTime()+lag*864e5);
+  const days=(TODAY-exp)/864e5;
+  let cls="ok",label="Al día";
+  if(days>45){cls="late";label="Con retraso";}
+  else if(days>-7){cls="due";label="Por publicarse";}
+  return{cls,label,expected:exp,last};
+}
+
+/* ---------- state ---------- */
+const DESTS=DATA.destinations;const BYID=Object.fromEntries(DESTS.map(d=>[d.id,d]));
+const state={mode:"arrivals",scope:"focus",sel:"DO",seriesKey:null,range:"all",stripAll:false};
+try{const saved=JSON.parse(localStorage.getItem("radar-state")||"null");if(saved){["mode","scope","range"].forEach(k=>saved[k]&&(state[k]=saved[k]));if(saved.sel&&BYID[saved.sel])state.sel=saved.sel;}}catch(e){}
+function save(){try{localStorage.setItem("radar-state",JSON.stringify({mode:state.mode,scope:state.scope,sel:state.sel,range:state.range}));}catch(e){}}
+function visible(){return DESTS.filter(d=>state.scope==="all"||d.focus);}
+function sOf(d,key){return key?d.series.find(s=>s.key===key):null;}
+function head(d,mode){return sOf(d,d.headline[mode||state.mode]);}
+function lag(d,mode){return (d.headline.lag_days||{})[mode];}
+
+/* ---------- header ---------- */
+function renderStamp(){
+  const g=new Date(DATA.generated_at);
+  let latest=null;DESTS.forEach(d=>{const s=head(d,"arrivals");if(s&&s.data.length){const p=s.data[s.data.length-1][0];if(!latest||p>latest)latest=p;}});
+  $("stamp").replaceChildren(
+    el("span",null,["Actualizado ",el("b",{text:dateEs(g)})]),
+    el("span",null,["Dato mensual más reciente ",el("b",{text:latest?pLabel(latest):"—"})]),
+    el("span",null,[el("b",{text:String(DESTS.length)})," destinos · ",el("b",{text:String(DESTS.reduce((a,d)=>a+d.series.length,0))})," series"])
+  );
+  $("foot").textContent="Radar Turístico del Caribe · Solo fuentes oficiales: bancos centrales, ministerios y autoridades de turismo, institutos de estadística y autoridades aeroportuarias. Montos en moneda local convertidos a US$ con su paridad fija oficial. Generado el "+dateEs(g)+".";
+}
+
+/* ---------- map ---------- */
+const LABEL_POS={"DO":[20,34,"start"],"MX-CUN":[-22,-4,"end"],"MX-SJD":[22,-4,"start"],"JM":[-6,40,"middle"],"BS":[24,-8,"start"],"PR":[18,-18,"start"],"CU":[-10,-30,"middle"],"AW":[-14,24,"end"],"CW":[12,30,"start"],"BB":[-2,40,"end"],"LC":[-16,-8,"end"],"TC":[18,-22,"start"],"KY":[-14,-14,"end"],"CR":[-18,6,"end"],"PA":[20,-6,"start"]};
+const FOCUS_COUNTRY={"DO":"Dominican Rep.","JM":"Jamaica","BS":"Bahamas","MX-CUN":"Mexico","MX-SJD":"Mexico"};
+function merc(lat){return Math.log(Math.tan(Math.PI/4+lat*Math.PI/360));}
+function proj(lon,lat){const B=DATA.basemap,[L0,L1,A0,A1]=B.bbox;return[(lon-L0)/(L1-L0)*B.w,(merc(A1)-merc(lat))/(merc(A1)-merc(A0))*B.h];}
+function mapValue(d){
+  if(state.mode==="arrivals"){const m=metrics(head(d,"arrivals"));return m?{size:m.ttm,delta:m.yoy,m}:null;}
+  const m=metrics(head(d,"spending"));return m&&m.fullYearVal!=null?{size:m.fullYearVal,delta:m.fullYearYoy,m}:null;
+}
+let tipEl=null;
+function showTip(box,x,y,build){if(!tipEl){tipEl=el("div",{class:"tip",role:"status"});}box.append(tipEl);tipEl.replaceChildren(...build);tipEl.hidden=false;const bw=box.clientWidth;const tw=tipEl.offsetWidth;let left=x+14;if(left+tw>bw)left=Math.max(0,x-tw-14);tipEl.style.left=left+"px";tipEl.style.top=Math.max(0,y-10)+"px";}
+function hideTip(){if(tipEl)tipEl.hidden=true;}
+function renderMap(){
+  const B=DATA.basemap;const box=$("mapBox");
+  const svg=sv("svg",{viewBox:`0 0 ${B.w} ${B.h}`,role:"img","aria-label":"Mapa del Caribe con los destinos"});
+  svg.append(sv("rect",{x:0,y:0,width:B.w,height:B.h,fill:"var(--water)"}));
+  const g=sv("g");
+  for(let lat=10;lat<=30;lat+=5){const y=proj(-100,lat)[1];g.append(sv("line",{x1:0,x2:B.w,y1:y,y2:y,class:"graticule"}));}
+  for(let lon=-115;lon<=-60;lon+=5){const x=proj(lon,20)[0];g.append(sv("line",{x1:x,x2:x,y1:0,y2:B.h,class:"graticule"}));}
+  svg.append(g);
+  const hl=new Set(visible().map(d=>FOCUS_COUNTRY[d.id]||d.name));
+  B.paths.forEach(p=>svg.append(sv("path",{d:p.d,class:"land"+(hl.has(p.name)||[...hl].some(h=>p.name&&p.name.startsWith(h.split(" ")[0])&&h.length>3&&d0(p.name,h))?" hl":"")})));
+  const vis=visible();const vals=vis.map(d=>[d,mapValue(d)]);const max=Math.max(1,...vals.map(v=>v[1]?v[1].size:0));
+  const bubbles=sv("g"),labels=sv("g");
+  vals.sort((a,b)=>(b[1]?b[1].size:0)-(a[1]?a[1].size:0)).forEach(([d,v])=>{
+    const[x,y]=proj(d.lon,d.lat);const r=v?6+Math.sqrt(v.size/max)*40:9;
+    const c=sv("circle",{cx:x,cy:y,r,class:"bub"+(v?"":" nodata")+(d.id===state.sel?" sel":""),tabindex:0,role:"button","aria-label":d.short});
+    c.addEventListener("click",()=>select(d.id,true));
+    c.addEventListener("keydown",e=>{if(e.key==="Enter"||e.key===" "){e.preventDefault();select(d.id,true);}});
+    const tipBuild=()=>{const rows=[el("div",{class:"t-h",text:d.name})];
+      if(state.mode==="arrivals"){const m=v&&v.m;if(!m)rows.push(el("div",{text:d.headline.arrivals_note||"Sin serie mensual de llegadas"}));else{rows.push(tr(pLabel(m.lastP),fmt(m.last,m.unit)),tr("Var. interanual",pct(m.yoy)),tr("Últimos 12 meses",fmt(m.ttm,m.unit)));}}
+      else{const m=v&&v.m;if(!m)rows.push(el("div",{text:d.headline.spending_note||"Sin serie de gasto"}));else rows.push(tr("Año "+m.fullYear,fmt(m.fullYearVal,m.unit)),tr("Var. vs año previo",pct(m.fullYearYoy)));}
+      return rows;};
+    const onMove=e=>{const rb=box.getBoundingClientRect();showTip(box,e.clientX-rb.left,e.clientY-rb.top,tipBuild());};
+    c.addEventListener("pointermove",onMove);c.addEventListener("pointerleave",hideTip);
+    c.addEventListener("focus",()=>{const rb=box.getBoundingClientRect(),cb=c.getBoundingClientRect();showTip(box,cb.right-rb.left,cb.top-rb.top,tipBuild());});
+    c.addEventListener("blur",hideTip);
+    bubbles.append(c);
+    if(v)bubbles.append(sv("circle",{cx:x,cy:y,r:2.2,class:"bub-core","pointer-events":"none"}));
+    const lp=LABEL_POS[d.id]||[12,-8,"start"];const big=d.focus;
+    const lx=x+lp[0]*(big?1.25:1),ly=y+lp[1]*(big?1.1:1);
+    labels.append(sv("text",{x:lx,y:ly,"text-anchor":lp[2],class:"map-label","font-size":big?24:17,text:d.short}));
+    if(v&&v.delta!=null)labels.append(sv("text",{x:lx,y:ly+(big?22:17),"text-anchor":lp[2],class:"map-sub "+dcls(v.delta),"font-size":big?19:14,text:pct(v.delta)}));
+    else if(!v)labels.append(sv("text",{x:lx,y:ly+(big?22:17),"text-anchor":lp[2],class:"map-sub flat","font-size":big?17:13,text:"sin datos"}));
+  });
+  svg.append(bubbles,labels);
+  box.replaceChildren(svg);
+  $("mapLegend").textContent=state.mode==="arrivals"?"Tamaño: llegadas de los últimos 12 meses · % : variación interanual del último mes":"Tamaño: gasto del último año completo (US$) · % : variación contra el año previo";
+}
+function d0(a,b){return a===b;}
+function tr(k,v,color,dash){return el("div",{class:"t-r"},[el("span",null,[color?el("i",{style:`border-top-color:${color};${dash?"border-top-style:dashed":""}`}):null,k]),el("b",{text:v})]);}
+
+/* ---------- ranking ---------- */
+function renderRank(){
+  const t=$("rankTable");const vis=visible();
+  const thead=el("thead");const tb=el("tbody");
+  if(state.mode==="arrivals"){
+    thead.append(el("tr",null,["Destino","Último mes","Var. i.a.","12 meses","Fuente"].map(h=>el("th",{text:h}))));
+    const rows=vis.map(d=>{
+      let s=head(d,"arrivals"),proxy=false;
+      if(!s&&d.headline.arrivals_proxy){s=sOf(d,d.headline.arrivals_proxy);proxy=!!s;}
+      return{d,s,proxy,m:metrics(s),f:freshness(s,lag(d,"arrivals"))};}).sort((a,b)=>(b.m?b.m.ttm||0:-1)-(a.m?a.m.ttm||0:-1));
+    rows.forEach(({d,s,proxy,m,f})=>{
+      const name=el("td",null,[el("span",{class:"dname",text:d.short}),el("span",{class:"dmeta",text:proxy?d.headline.arrivals_proxy_note:(d.headline.arrivals_measure||d.headline.arrivals_note||"")})]);
+      const cells=m?[el("td",null,[el("div",{text:fmt(m.last,m.unit)}),el("span",{class:"dmeta",style:"margin-left:auto",text:pLabel(m.lastP)})]),el("td",null,[deltaEl(m.yoy)]),el("td",null,[el("div",{text:fmt(m.ttm,m.unit,true)}),el("span",{class:"dmeta",style:"margin-left:auto"},m.vs19!=null?[deltaEl(m.vs19)," vs 2019"]:(alt19(d)?[deltaEl(alt19(d).v)," vs 2019 ("+alt19(d).note+")"]:["sin base 2019"]))])]:[el("td",{class:"note-cell",colspan:3,text:d.headline.arrivals_note||"Sin serie"})];
+      tb.append(rowEl(d,[name,...cells,el("td",null,[el("span",{class:"pill "+(proxy?"none":f.cls),text:proxy?"Proxy":f.label})])]));
+    });
+  }else{
+    thead.append(el("tr",null,["Destino","Último dato","Var. i.a.","Último año","Fuente"].map(h=>el("th",{text:h}))));
+    const rows=vis.map(d=>{const s=head(d,"spending");return{d,s,m:metrics(s),f:freshness(s,lag(d,"spending"))};}).sort((a,b)=>(b.m&&b.m.fullYearVal||-1)-(a.m&&a.m.fullYearVal||-1));
+    rows.forEach(({d,s,m,f})=>{
+      const name=el("td",null,[el("span",{class:"dname",text:d.short}),el("span",{class:"dmeta",text:s?(FREQ_ES[s.frequency]||s.frequency)+" · "+shortLabel(s.label).slice(0,40):(d.headline.spending_note||"")})]);
+      const cells=m?[el("td",null,[el("div",{text:fmt(m.last,m.unit)}),el("span",{class:"dmeta",text:pLabel(m.lastP)})]),el("td",null,[deltaEl(m.yoy)]),el("td",null,[el("div",{text:fmt(m.fullYearVal,m.unit,true)}),el("span",{class:"dmeta",style:"margin-left:auto"},m.fullYear?[String(m.fullYear)+" · ",deltaEl(m.fullYearYoy)]:[""])])]:[el("td",{class:"note-cell",colspan:3,text:d.headline.spending_note||"Sin serie"})];
+      tb.append(rowEl(d,[name,...cells,el("td",null,[el("span",{class:"pill "+f.cls,text:f.label})])]));
+    });
+  }
+  t.replaceChildren(thead,tb);
+  $("ovTitle").textContent=state.mode==="arrivals"?"Panorama de llegadas":"Panorama del gasto turístico";
+  $("ovLede").textContent=state.mode==="arrivals"?"Último mes publicado por cada fuente oficial, ordenado por llegadas de los últimos 12 meses.":"Ingresos por turismo de balanza de pagos o estimación oficial de gasto de visitantes, en US$.";
+  $("compNote").textContent=state.mode==="arrivals"
+    ?"Cada país mide las llegadas de forma distinta: RD cuenta no residentes por vía aérea, México los turistas extranjeros por aeropuerto y la mayoría de las islas los turistas stopover. Las variaciones son comparables; los niveles, solo como referencia."
+    :"El gasto proviene sobre todo de la cuenta «Viajes» de la balanza de pagos (bancos centrales). Cancún usa la derrama estimada por SEDETUR Quintana Roo y Santa Lucía el gasto total de visitantes del ECCB, así que su cobertura no es idéntica. Las monedas locales se convierten con su paridad fija.";
+}
+function alt19(d){
+  const k=d.headline.vs2019_alt;if(!k)return null;const m=metrics(sOf(d,k));
+  if(!m||m.ttm==null||!m.base19)return null;return{v:m.ttm/m.base19-1,note:d.headline.vs2019_alt_note||"otra base"};
+}
+function shortLabel(l){return l.replace(/\s*\(.*?\)\s*/g," ").replace(/\s+–.*$/,"").trim();}
+function rowEl(d,cells){const r=el("tr",{class:d.id===state.sel?"sel":"",tabindex:0},cells);r.addEventListener("click",()=>select(d.id,true));r.addEventListener("keydown",e=>{if(e.key==="Enter"){select(d.id,true);}});return r;}
+
+/* ---------- detail ---------- */
+const CAT_ES={arrivals:"Llegadas",spending:"Gasto turístico",hotels:"Hotelería",air:"Conectividad aérea",investment:"Inversión (IED)"};
+function renderDetail(){
+  const d=BYID[state.sel];
+  $("dTitle").textContent=d.name;
+  const sel=$("seriesSel");sel.replaceChildren();
+  const groups={};d.series.forEach(s=>{(groups[s.category]=groups[s.category]||[]).push(s);});
+  ["arrivals","spending","hotels","air","investment"].concat(Object.keys(groups)).filter((c,i,a)=>groups[c]&&a.indexOf(c)===i).forEach(c=>{
+    const og=el("optgroup",{label:CAT_ES[c]||c});groups[c].forEach(s=>og.append(el("option",{value:s.key,text:s.label})));sel.append(og);});
+  if(!state.seriesKey||!sOf(d,state.seriesKey))state.seriesKey=d.headline[state.mode]||(sOf(d,d.headline[state.mode+"_detail"])||d.series.find(s=>s.category===state.mode)||d.series[0]).key;
+  sel.value=state.seriesKey;
+  const s=sOf(d,state.seriesKey);
+  const noHead=!d.headline[state.mode];
+  $("dLede").textContent=noHead
+    ? (state.mode==="arrivals"
+        ? (d.headline.arrivals_note||"No hay serie principal de llegadas.")+" "+(d.headline.arrivals_proxy===state.seriesKey?"Se usa como sustituto: "+s.label+".":"Se muestra otra serie disponible: "+s.label+".")
+        : (d.headline.spending_note||"No hay serie principal de gasto.")+" Se muestra otra serie disponible: "+s.label+".")
+    : s.label;
+  renderKpis(d,s);renderStrip(d,s);renderHist(d,s);renderSeas(d,s);
+}
+function renderStrip(d,active){
+  const box=$("strip");const items=[];
+  const CAP=8;
+  const usable=d.series.filter(sr=>metrics(sr));
+  const shown=state.stripAll?usable:usable.slice(0,CAP);
+  items.push(el("div",{class:"strip-title",text:"Otras series oficiales de este destino · clic para graficarla"}));
+  shown.forEach(sr=>{
+    const m=metrics(sr);if(!m)return;
+    const b=el("button",{type:"button",class:"chip","aria-pressed":String(sr.key===(active&&active.key)),title:sr.label+" — "+(CAT_ES[sr.category]||sr.category)},[
+      el("span",{class:"c-l",text:shortLabel(sr.label)}),
+      el("span",{class:"c-v"},[document.createTextNode(fmt(m.last,m.unit,true)),el("span",{class:"delta "+dcls(m.yoy),text:m.yoy==null?pLabel(m.lastP):pct(m.yoy)})])]);
+    b.addEventListener("click",()=>{state.seriesKey=sr.key;renderDetail();});
+    items.push(b);
+  });
+  if(usable.length>CAP){
+    const more=el("button",{type:"button",class:"chip",style:"justify-content:center"},[
+      el("span",{class:"c-l",text:state.stripAll?"Ver menos":"Ver todas"}),
+      el("span",{class:"c-v",text:state.stripAll?String(CAP)+" de "+usable.length:"+"+(usable.length-CAP)})]);
+    more.addEventListener("click",()=>{state.stripAll=!state.stripAll;renderStrip(d,active);});
+    items.push(more);
+  }
+  // derived indicator: arrivals per available room
+  const rooms=d.series.find(x=>x.key==="hotel_rooms");const arr=head(d,"arrivals");
+  if(rooms&&arr){const ma=metrics(arr),mr=metrics(rooms);
+    if(ma&&ma.ttm&&mr&&mr.last)items.push(el("div",{class:"chip derived",title:"Llegadas de los últimos 12 meses divididas entre las habitaciones hoteleras del último trimestre publicado. Indicador calculado."},[
+      el("span",{class:"c-l",text:"Llegadas por habitación (12 meses)"}),
+      el("span",{class:"c-v"},[document.createTextNode(nf0.format(Math.round(ma.ttm/mr.last))),el("span",{class:"na",text:"calculado"})])]));}
+  box.replaceChildren(...items);
+}
+function kpi(label,val,sub){return el("div",{class:"kpi"},[el("div",{class:"k-label",text:label}),el("div",{class:"k-val num",text:val}),sub?el("div",{class:"k-sub"},Array.isArray(sub)?sub:[sub]):null]);}
+function renderKpis(d,s){
+  const m=metrics(s);const box=$("kpis");
+  if(!m){box.replaceChildren(el("div",{class:"kpi",style:"grid-column:1/-1"},[el("div",{class:"empty",text:"Sin datos"})]));return;}
+  const tiles=[];const perLabel={M:"Último mes",Q:"Último trimestre",A:"Último año",H:"Último semestre"}[m.t];
+  tiles.push(kpi(perLabel,fmt(m.last,m.unit),pLabel(m.lastP,true)));
+  tiles.push(kpi("Variación interanual",pct(m.yoy),m.prev!=null?["vs ",fmt(m.prev,m.unit)]:"sin dato comparable"));
+  if(m.additive&&m.t!=="A"){
+    if(m.t==="M")tiles.push(kpi("Acumulado "+parseP(m.lastP).y,fmt(m.ytd,m.unit,true),[deltaEl(m.ytdYoy)," vs mismo período"]));
+    else tiles.push(kpi("Último año completo",m.fullYear?fmt(m.fullYearVal,m.unit):"—",m.fullYear?[String(m.fullYear)," · ",deltaEl(m.fullYearYoy)]:""));
+    tiles.push(kpi(m.t==="M"?"Últimos 12 meses":"Últimos 4 trimestres",fmt(m.ttm,m.unit,true),m.vs19!=null?[deltaEl(m.vs19)," vs 2019"]:[deltaEl(m.ttmYoy)," vs 12 meses previos"]));
+  }else{
+    const vals=s.data.map(x=>x[1]);const mx=Math.max(...vals);const mxP=s.data[vals.indexOf(mx)][0];
+    const v19=s.data.filter(x=>parseP(x[0]).y===2019).map(x=>x[1]);const avg19=v19.length?v19.reduce((a,b)=>a+b,0)/v19.length:null;
+    tiles.push(kpi("Máximo de la serie",fmt(mx,m.unit),pLabel(mxP)));
+    tiles.push(kpi("Promedio 2019",avg19!=null?fmt(avg19,m.unit):"—",avg19!=null&&m.t!=="A"?[deltaEl(m.last/avg19-1)," último vs 2019"]:(avg19!=null?[deltaEl(m.last/avg19-1)," vs 2019"]:"sin dato 2019")));
+  }
+  box.replaceChildren(...tiles);
+}
+function srcLine(s,extra){
+  const src=s.source||{};const parts=[];
+  parts.push("Fuente: ");
+  parts.push(src.page_url?el("a",{href:src.page_url,target:"_blank",rel:"noopener",text:src.org||"fuente"}):src.org||"—");
+  parts.push(" · "+(FREQ_ES[s.frequency]||src.update_frequency||"")+(src.release_lag?" · rezago "+src.release_lag.replace(/^~/,"≈ "):""));
+  if(s.fx_note)parts.push(" · "+s.fx_note);
+  if(extra)parts.push(" · "+extra);
+  return parts;
+}
+function niceMax(v){if(v<=0)return 1;const e=Math.pow(10,Math.floor(Math.log10(v)));const f=v/e;return (f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10)*e;}
+function niceTicks(lo,hi,n){const span=hi-lo;const raw=span/n;const e=Math.pow(10,Math.floor(Math.log10(raw)));const f=raw/e;const step=(f<=1?1:f<=2?2:f<=2.5?2.5:f<=5?5:10)*e;const t=[];for(let v=Math.ceil(lo/step)*step;v<=hi+step*1e-6;v+=step)t.push(+v.toFixed(10));return{ticks:t,lo:Math.floor(lo/step)*step,hi:Math.ceil(hi/step)*step};}
+
+function renderHist(d,s){
+  const box=$("histBox");const W=Math.max(300,box.clientWidth||600);const H=W<520?220:280;
+  $("histTitle").textContent="Evolución"+(s?" · "+(FREQ_ES[s.frequency]||"").toLowerCase():"");
+  if(!s||!s.data.length){box.replaceChildren(el("div",{class:"empty",text:"Sin datos"}));return;}
+  let pts=s.data.map(([p,v])=>({p,q:parseP(p),v}));
+  const lastIdx=pts[pts.length-1].q.idx;
+  if(state.range==="3y")pts=pts.filter(x=>x.q.idx>lastIdx-36);
+  const monthly=pts[0].q.t==="M";const additiveZero=isCount(s.unit)||/millones/.test(s.unit);
+  const m=toMap(s);
+  const prior=monthly&&state.range==="3y"?pts.map(x=>({p:x.p,q:x.q,v:m.get(x.q.idx-12)})).filter(x=>x.v!=null):[];
+  const legend=$("histLegend");legend.replaceChildren(el("span",null,[el("i",{style:"border-top-color:var(--s1)"}),shortLabel(s.label)]));
+  if(prior.length)legend.append(el("span",null,[el("i",{class:"dash",style:"border-top-color:var(--s-base)"}),"Mismo mes, año anterior"]));
+  const M={l:52,r:18,t:14,b:26};const iw=W-M.l-M.r,ih=H-M.t-M.b;
+  const x0=pts[0].q.idx,x1=pts[pts.length-1].q.idx+(monthly?0:pts[0].q.span);
+  const all=pts.map(x=>x.v).concat(prior.map(x=>x.v));
+  let lo=additiveZero?0:Math.min(...all),hi=Math.max(...all);if(!additiveZero){const pad=(hi-lo)*.12||1;lo=Math.max(0,lo-pad);hi+=pad;}
+  const nt=niceTicks(lo,hi,4);lo=nt.lo;hi=nt.hi;
+  const X=i=>M.l+(x1===x0?iw/2:(i-x0)/(x1-x0)*iw),Y=v=>M.t+ih-(v-lo)/(hi-lo)*ih;
+  const svg=sv("svg",{viewBox:`0 0 ${W} ${H}`,height:H,role:"img","aria-label":s.label});
+  nt.ticks.forEach(t=>{svg.append(sv("line",{x1:M.l,x2:W-M.r,y1:Y(t),y2:Y(t),class:t===lo?"base":"grid"}));svg.append(sv("text",{x:M.l-8,y:Y(t)+4,"text-anchor":"end",class:"tick",text:axisFmt(t,s.unit)}));});
+  // x ticks
+  const yrs=[];for(let y=Math.ceil(x0/12);y*12<=x1;y++)yrs.push(y);
+  const span=(x1-x0)/12;
+  if(monthly&&span<=3.2){for(let i=Math.ceil(x0/3)*3;i<=x1;i+=3){const lab=(i%12===0?MES[0]+" "+String(Math.floor(i/12)).slice(2):MES[i%12]);svg.append(sv("text",{x:X(i),y:H-6,"text-anchor":"middle",class:"tick",text:lab}));if(i%12===0)svg.append(sv("line",{x1:X(i),x2:X(i),y1:M.t,y2:M.t+ih,class:"grid"}));}}
+  else yrs.forEach(y=>{const xi=monthly?y*12:y*12+6;if(xi<x0||xi>x1)return;svg.append(sv("text",{x:X(monthly?y*12+6>x1?y*12:y*12+6:xi),y:H-6,"text-anchor":"middle",class:"tick",text:String(y)}));if(monthly)svg.append(sv("line",{x1:X(y*12),x2:X(y*12),y1:M.t,y2:M.t+ih,class:"grid"}));});
+  const ptsXY=[];
+  if(monthly){
+    const path=(arr)=>arr.map((x,i)=>(i&&x.q.idx-arr[i-1].q.idx===1?"L":"M")+X(x.q.idx).toFixed(1)+","+Y(x.v).toFixed(1)).join("");
+    if(prior.length)svg.append(sv("path",{d:path(prior),fill:"none",stroke:"var(--s-base)","stroke-width":1.5,"stroke-dasharray":"4 3"}));
+    if(additiveZero){const segs=[];let cur=[];pts.forEach((x,i)=>{if(i&&x.q.idx-pts[i-1].q.idx!==1){segs.push(cur);cur=[];}cur.push(x);});segs.push(cur);
+      segs.forEach(sg=>{if(sg.length<2)return;svg.append(sv("path",{d:"M"+X(sg[0].q.idx)+","+Y(lo)+sg.map(x=>"L"+X(x.q.idx).toFixed(1)+","+Y(x.v).toFixed(1)).join("")+"L"+X(sg[sg.length-1].q.idx)+","+Y(lo)+"Z",fill:"var(--s1)","fill-opacity":.1}));});}
+    svg.append(sv("path",{d:path(pts),fill:"none",stroke:"var(--s1)","stroke-width":2,"stroke-linejoin":"round","stroke-linecap":"round"}));
+    const lp=pts[pts.length-1];svg.append(sv("circle",{cx:X(lp.q.idx),cy:Y(lp.v),r:4,fill:"var(--s1)",stroke:"var(--surface)","stroke-width":2}));
+    pts.forEach(x=>ptsXY.push({x:X(x.q.idx),p:x.p,v:x.v,pv:m.get(x.q.idx-12)}));
+  }else{
+    const n=pts.length;const bw=Math.max(2,iw/n-2);
+    pts.forEach((x,i)=>{const cx=M.l+(i+.5)*(iw/n);const y=Y(x.v),y0=Y(Math.max(lo,0));const h=Math.max(1,y0-y);const r=Math.min(4,bw/2,h);
+      const pth=`M${cx-bw/2},${y0}V${y+r}Q${cx-bw/2},${y} ${cx-bw/2+r},${y}H${cx+bw/2-r}Q${cx+bw/2},${y} ${cx+bw/2},${y+r}V${y0}Z`;
+      svg.append(sv("path",{d:pth,fill:i===n-1?"var(--s1)":"var(--s1)","fill-opacity":i===n-1?1:.72}));
+      ptsXY.push({x:cx,p:x.p,v:x.v,pv:m.get(x.q.idx-12)});});
+    // relabel x ticks for bars
+    [...svg.querySelectorAll("text.tick")].filter(t=>+t.getAttribute("y")===H-6).forEach(t=>t.remove());
+    const every=Math.ceil(n/(W<520?5:9));pts.forEach((x,i)=>{if((n-1-i)%every)return;svg.append(sv("text",{x:M.l+(i+.5)*(iw/n),y:H-6,"text-anchor":"middle",class:"tick",text:x.q.t==="A"?String(x.q.y):pLabel(x.p).replace(" 20"," ’")}));});
+  }
+  const lastPt=ptsXY[ptsXY.length-1];
+  svg.append(sv("text",{x:Math.min(lastPt.x,W-M.r),y:Math.max(12,Y(pts[pts.length-1].v)-10),"text-anchor":"end",class:"tick",style:"fill:var(--ink);font-weight:600",text:fmt(lastPt.v,s.unit,true)}));
+  // hover layer
+  const cross=sv("line",{y1:M.t,y2:M.t+ih,stroke:"var(--ink-2)","stroke-width":1,"stroke-dasharray":"2 2",visibility:"hidden"});
+  const hit=sv("rect",{x:M.l,y:M.t,width:iw,height:ih,fill:"transparent"});
+  svg.append(cross,hit);
+  const move=(cx,cy)=>{let best=ptsXY[0];ptsXY.forEach(p=>{if(Math.abs(p.x-cx)<Math.abs(best.x-cx))best=p;});
+    cross.setAttribute("x1",best.x);cross.setAttribute("x2",best.x);cross.setAttribute("visibility","visible");
+    const rows=[el("div",{class:"t-h",text:pLabel(best.p,true)}),tr(shortLabel(s.label).slice(0,34),fmt(best.v,s.unit),"var(--s1)")];
+    if(best.pv!=null){rows.push(tr("Año anterior",fmt(best.pv,s.unit),"var(--s-base)",true));rows.push(tr("Var. interanual",pct(best.v/best.pv-1)));}
+    const scale=box.clientWidth/W;showTip(box,best.x*scale,cy*scale,rows);};
+  hit.addEventListener("pointermove",e=>{const r=svg.getBoundingClientRect();move((e.clientX-r.left)*W/r.width,(e.clientY-r.top)*W/r.width);});
+  hit.addEventListener("pointerleave",()=>{cross.setAttribute("visibility","hidden");hideTip();});
+  box.replaceChildren(svg);
+  $("histSrc").replaceChildren(...srcLine(s,"último dato "+pLabel(s.data[s.data.length-1][0])));
+}
+function renderSeas(d,s){
+  const box=$("seasBox");const W=Math.max(280,box.clientWidth||400);const H=W<520?220:280;
+  const legend=$("seasLegend");legend.replaceChildren();
+  if(!s||!s.data.length||parseP(s.data[0][0]).t!=="M"){
+    $("seasTitle").textContent="Estacionalidad por año";
+    box.replaceChildren(el("div",{class:"empty",text:"Disponible solo para series mensuales. Elige una serie mensual en el selector."}));$("seasNote").textContent="";return;}
+  const m=toMap(s);const lastY=parseP(s.data[s.data.length-1][0]).y;const firstY=parseP(s.data[0][0]).y;
+  const years=[];if(firstY<=2019)years.push({y:2019,c:"var(--s-base)",dash:true});
+  [[lastY-2,"var(--s3)"],[lastY-1,"var(--s2)"],[lastY,"var(--s1)"]].forEach(([y,c])=>{if(y>=firstY&&y!==2019)years.push({y,c});});
+  $("seasTitle").textContent="Estacionalidad: "+years.map(x=>x.y).join(", ");
+  years.forEach(x=>legend.append(el("span",null,[el("i",{class:x.dash?"dash":"",style:`border-top-color:${x.c}`}),String(x.y)])));
+  const M={l:48,r:12,t:14,b:26};const iw=W-M.l-M.r,ih=H-M.t-M.b;
+  const vals=[];years.forEach(x=>{for(let i=0;i<12;i++){const v=m.get(x.y*12+i);if(v!=null)vals.push(v);}});
+  const zero=isCount(s.unit)||/millones/.test(s.unit);
+  let lo=zero?0:Math.min(...vals),hi=Math.max(...vals);if(!zero){const pad=(hi-lo)*.12||1;lo=Math.max(0,lo-pad);hi+=pad;}
+  const nt=niceTicks(lo,hi,4);lo=nt.lo;hi=nt.hi;
+  const X=i=>M.l+i/11*iw,Y=v=>M.t+ih-(v-lo)/(hi-lo)*ih;
+  const svg=sv("svg",{viewBox:`0 0 ${W} ${H}`,height:H,role:"img","aria-label":"Estacionalidad por año"});
+  nt.ticks.forEach(t=>{svg.append(sv("line",{x1:M.l,x2:W-M.r,y1:Y(t),y2:Y(t),class:t===lo?"base":"grid"}));svg.append(sv("text",{x:M.l-8,y:Y(t)+4,"text-anchor":"end",class:"tick",text:axisFmt(t,s.unit)}));});
+  for(let i=0;i<12;i+=(W<420?2:1))svg.append(sv("text",{x:X(i),y:H-6,"text-anchor":"middle",class:"tick",text:MES[i]}));
+  years.forEach(x=>{let dstr="";let pen=false;for(let i=0;i<12;i++){const v=m.get(x.y*12+i);if(v==null){pen=false;continue;}dstr+=(pen?"L":"M")+X(i).toFixed(1)+","+Y(v).toFixed(1);pen=true;}
+    svg.append(sv("path",{d:dstr,fill:"none",stroke:x.c,"stroke-width":x.y===lastY?2.5:1.75,"stroke-dasharray":x.dash?"4 3":"none","stroke-linejoin":"round"}));});
+  const ly=years[years.length-1];let li=-1;for(let i=11;i>=0;i--)if(m.get(ly.y*12+i)!=null){li=i;break;}
+  if(li>=0)svg.append(sv("circle",{cx:X(li),cy:Y(m.get(ly.y*12+li)),r:4,fill:ly.c,stroke:"var(--surface)","stroke-width":2}));
+  const cross=sv("line",{y1:M.t,y2:M.t+ih,stroke:"var(--ink-2)","stroke-width":1,"stroke-dasharray":"2 2",visibility:"hidden"});
+  const hit=sv("rect",{x:M.l-10,y:M.t,width:iw+20,height:ih,fill:"transparent"});svg.append(cross,hit);
+  hit.addEventListener("pointermove",e=>{const r=svg.getBoundingClientRect();const cx=(e.clientX-r.left)*W/r.width;const i=Math.max(0,Math.min(11,Math.round((cx-M.l)/iw*11)));
+    cross.setAttribute("x1",X(i));cross.setAttribute("x2",X(i));cross.setAttribute("visibility","visible");
+    const rows=[el("div",{class:"t-h",text:MES[i].toUpperCase()})];years.slice().reverse().forEach(x=>rows.push(tr(String(x.y),fmt(m.get(x.y*12+i),s.unit),x.c,x.dash)));
+    const scale=box.clientWidth/W;showTip(box,X(i)*scale,(e.clientY-r.top),rows);});
+  hit.addEventListener("pointerleave",()=>{cross.setAttribute("visibility","hidden");hideTip();});
+  box.replaceChildren(svg);
+  $("seasNote").textContent="Línea discontinua: 2019, referencia prepandemia.";
+}
+
+/* ---------- comparison ---------- */
+function hbars(target,rows,fmtV,refLabel){
+  const box=$(target);box.replaceChildren();
+  const vals=rows.map(r=>r.v).filter(v=>v!=null);
+  if(!vals.length){box.append(el("div",{class:"empty",text:"Sin datos comparables"}));return;}
+  const hasNeg=vals.some(v=>v<0);const max=Math.max(...vals.map(Math.abs),hasNeg?0.01:1);
+  rows.forEach(r=>{
+    const track=el("div",{class:"hb-track"});
+    if(r.v!=null){
+      if(hasNeg){const mid=50;const w=Math.abs(r.v)/max*48;const f=el("div",{class:"hb-fill"+(r.d.focus?" focus":"")});f.style.left=(r.v>=0?mid:mid-w)+"%";f.style.width=w+"%";f.style.borderRadius=r.v>=0?"0 4px 4px 0":"4px 0 0 4px";track.append(f);track.append(Object.assign(el("div",{class:"hb-ref"}),{style:"left:50%"}));}
+      else{const f=el("div",{class:"hb-fill"+(r.d.focus?" focus":"")});f.style.width=(r.v/max*100)+"%";track.append(f);}
+    }
+    const row=el("div",{class:"hbar"+(r.d.id===state.sel?" sel":""),tabindex:0,role:"button"},[el("span",{class:"hb-name",text:r.d.short}),track,el("span",{class:"hb-val"},r.v==null?[el("span",{class:"na",text:"—"})]:[fmtV(r),r.sub?el("small",{text:r.sub}):null])]);
+    row.addEventListener("click",()=>select(r.d.id,true));row.addEventListener("keydown",e=>{if(e.key==="Enter")select(r.d.id,true);});
+    box.append(row);
+  });
+}
+function renderCompare(){
+  const vis=visible();
+  if(state.mode==="arrivals"){
+    const rows=vis.map(d=>{const m=metrics(head(d,"arrivals"));return{d,m};});
+    $("cmpA-t").textContent="Llegadas de los últimos 12 meses";$("cmpA-s").textContent="Serie principal de cada destino, hasta su último mes publicado. Barras en azul laguna: destinos foco.";
+    hbars("cmpA",rows.map(r=>({d:r.d,v:r.m?r.m.ttm:null,sub:r.m?"a "+pLabel(r.m.lastP):""})).sort((a,b)=>(b.v||-1)-(a.v||-1)),r=>document.createTextNode(compactNum(r.v)));
+    $("cmpB-t").textContent="Crecimiento interanual (12 meses vs 12 previos)";$("cmpB-s").textContent="Comparable entre destinos aunque cada uno mida las llegadas distinto. La línea punteada marca 0%.";
+    hbars("cmpB",rows.map(r=>({d:r.d,v:r.m?r.m.ttmYoy:null,sub:r.m&&r.m.vs19!=null?pct(r.m.vs19)+" vs 2019":(alt19(r.d)?pct(alt19(r.d).v)+" vs 2019*":"")})).sort((a,b)=>(b.v??-9)-(a.v??-9)),r=>deltaEl(r.v));
+    $("cmpLede").textContent="Tamaño y dinamismo de cada destino con su propia medición oficial.";
+    $("cmpC-card").hidden=true;
+  }else{
+    const rows=vis.map(d=>{const m=metrics(head(d,"spending"));return{d,m};});
+    $("cmpA-t").textContent="Gasto turístico del último año completo";$("cmpA-s").textContent="US$ millones. El año puede variar según el rezago de cada fuente.";
+    hbars("cmpA",rows.map(r=>({d:r.d,v:r.m?r.m.fullYearVal:null,sub:r.m&&r.m.fullYear?String(r.m.fullYear):""})).sort((a,b)=>(b.v||-1)-(a.v||-1)),r=>document.createTextNode("US$ "+nf0.format(r.v)+" M"));
+    $("cmpB-t").textContent="Variación contra el año anterior";$("cmpB-s").textContent="Último año completo contra el año previo. La línea punteada marca 0%.";
+    hbars("cmpB",rows.map(r=>({d:r.d,v:r.m?r.m.fullYearYoy:null,sub:r.m&&r.m.fullYear?String(r.m.fullYear):""})).sort((a,b)=>(b.v??-9)-(a.v??-9)),r=>deltaEl(r.v));
+    $("cmpLede").textContent="Ingresos por turismo en US$ con la fuente oficial de cada destino.";
+    const per=vis.map(d=>{
+      const ms=metrics(head(d,"spending")),den=d.headline.per_arrival;
+      if(!ms||!den||!ms.fullYear||ms.fullYearVal==null)return{d,v:null};
+      let t=0;
+      for(const k of den){const sx=sOf(d,k);if(!sx)return{d,v:null};const mp=toMap(sx);
+        for(let i=ms.fullYear*12;i<ms.fullYear*12+12;i++){if(!mp.has(i))return{d,v:null};t+=mp.get(i);}}
+      return{d,v:ms.fullYearVal*1e6/t,sub:String(ms.fullYear)};
+    });
+    $("cmpC-card").hidden=false;
+    $("cmpC-t").textContent="Gasto por llegada";
+    $("cmpC-s").textContent="Indicador calculado: gasto del último año completo dividido entre los visitantes que ese monto cubre (por ejemplo RD suma cruceristas, porque sus ingresos por turismo también los incluyen). Solo aparecen los destinos donde ambas series cubren lo mismo.";
+    hbars("cmpC",per.sort((a,b)=>(b.v||-1)-(a.v||-1)),r=>document.createTextNode("US$ "+nf0.format(Math.round(r.v))));
+  }
+}
+
+/* ---------- source markets ---------- */
+function rolling12(pairs){
+  const m=new Map();pairs.forEach(([pp,v])=>{const q=parseP(pp);if(q)m.set(q.idx,v);});
+  const out=[];[...m.keys()].sort((a,b)=>a-b).forEach(i=>{let t=0,ok=true;for(let j=i-11;j<=i;j++){if(!m.has(j)){ok=false;break;}t+=m.get(j);}if(ok)out.push([i,t]);});
+  return out;
+}
+function idxToP(i){return String(Math.floor(i/12))+"-"+String(i%12+1).padStart(2,"0");}
+const MKCOLS=["var(--s1)","var(--s2)","var(--s3)","var(--s4)","var(--s5)"];
+function renderMarkets(){
+  const d=BYID[state.sel],sec=$("markets"),box=$("mkBox");
+  if(!d.markets){sec.hidden=true;return;}
+  sec.hidden=false;
+  const mk=d.markets,roll={},ttm={},prev={},ttm3={};
+  Object.entries(mk.data).forEach(([n,pairs])=>{const r=rolling12(pairs);if(!r.length)return;roll[n]=r;
+    const li=r[r.length-1][0];ttm[n]=r[r.length-1][1];
+    const a=r.find(x=>x[0]===li-12),b=r.find(x=>x[0]===li-36);prev[n]=a?a[1]:null;ttm3[n]=b?b[1]:null;});
+  const names=Object.keys(ttm).sort((a,b)=>ttm[b]-ttm[a]);
+  if(!names.length){sec.hidden=true;return;}
+  const total=names.reduce((a,n)=>a+ttm[n],0),total3=names.reduce((a,n)=>a+(ttm3[n]||0),0);
+  const lastIdx=roll[names[0]][roll[names[0]].length-1][0];
+  $("mkTitle").textContent="Mercados de origen · "+d.short;
+  $("mkLede").textContent=mk.label+". La suma por país cuadra con el total oficial de llegadas del destino.";
+  $("mkBarsSub").textContent="Llegadas de los últimos 12 meses a "+pLabel(idxToP(lastIdx))+" · cuota del destino y cambio en puntos porcentuales contra tres años antes.";
+  const top=names.filter(n=>n!=="Otros"&&n!=="Dominicanos no residentes").slice(0,5);
+  const leg=$("mkLegend");leg.replaceChildren();
+  top.forEach((n,i)=>leg.append(el("span",null,[el("i",{style:"border-top-color:"+MKCOLS[i]}),n])));
+  const W=Math.max(300,box.clientWidth||600),H=W<520?230:290;
+  const M={l:52,r:16,t:14,b:26},iw=W-M.l-M.r,ih=H-M.t-M.b;
+  const xs=roll[top[0]].map(x=>x[0]),x0=xs[0],x1=xs[xs.length-1];
+  const nt=niceTicks(0,Math.max(...top.map(n=>Math.max(...roll[n].map(x=>x[1])))),4);
+  const X=i=>M.l+(i-x0)/Math.max(1,x1-x0)*iw,Y=v=>M.t+ih-(v-nt.lo)/(nt.hi-nt.lo)*ih;
+  const svg=sv("svg",{viewBox:"0 0 "+W+" "+H,height:H,role:"img","aria-label":"Principales mercados de origen"});
+  nt.ticks.forEach(t=>{svg.append(sv("line",{x1:M.l,x2:W-M.r,y1:Y(t),y2:Y(t),class:t===nt.lo?"base":"grid"}));svg.append(sv("text",{x:M.l-8,y:Y(t)+4,"text-anchor":"end",class:"tick",text:compactNum(t)}));});
+  for(let y=Math.ceil(x0/12);y*12<=x1;y++){const x=X(y*12);svg.append(sv("line",{x1:x,x2:x,y1:M.t,y2:M.t+ih,class:"grid"}));svg.append(sv("text",{x,y:H-6,"text-anchor":"middle",class:"tick",text:String(y)}));}
+  top.forEach((n,i)=>svg.append(sv("path",{d:"M"+roll[n].map(x=>X(x[0]).toFixed(1)+","+Y(x[1]).toFixed(1)).join("L"),fill:"none",stroke:MKCOLS[i],"stroke-width":2,"stroke-linejoin":"round"})));
+  const cross=sv("line",{y1:M.t,y2:M.t+ih,stroke:"var(--ink-2)","stroke-width":1,"stroke-dasharray":"2 2",visibility:"hidden"});
+  const hit=sv("rect",{x:M.l,y:M.t,width:iw,height:ih,fill:"transparent"});svg.append(cross,hit);
+  hit.addEventListener("pointermove",e=>{const r=svg.getBoundingClientRect(),cx=(e.clientX-r.left)*W/r.width;
+    let bi=xs[0];xs.forEach(i=>{if(Math.abs(X(i)-cx)<Math.abs(X(bi)-cx))bi=i;});
+    cross.setAttribute("x1",X(bi));cross.setAttribute("x2",X(bi));cross.setAttribute("visibility","visible");
+    const rows=[el("div",{class:"t-h",text:"12 meses a "+pLabel(idxToP(bi))})];
+    top.forEach((n,i)=>{const pt=roll[n].find(x=>x[0]===bi);if(pt)rows.push(tr(n,nf0.format(pt[1]),MKCOLS[i]));});
+    showTip(box,X(bi)*box.clientWidth/W,e.clientY-r.top,rows);});
+  hit.addEventListener("pointerleave",()=>{cross.setAttribute("visibility","hidden");hideTip();});
+  box.replaceChildren(svg);
+  $("mkSrc").replaceChildren(...srcLine({source:mk.source,frequency:mk.frequency,label:mk.label},"último dato "+pLabel(idxToP(lastIdx))));
+  const bars=$("mkBars");bars.replaceChildren();const max=ttm[names[0]];
+  names.forEach(n=>{
+    const i=top.indexOf(n),share=ttm[n]/total*100,s3=total3?(ttm3[n]||0)/total3*100:null;
+    const track=el("div",{class:"hb-track"}),f=el("div",{class:"hb-fill"});
+    f.style.width=(ttm[n]/max*100)+"%";if(i>=0)f.style.background=MKCOLS[i];else f.style.background="var(--s-base)";
+    track.append(f);
+    bars.append(el("div",{class:"hbar wide",style:"cursor:default"},[
+      el("span",{class:"hb-name",text:n}),track,
+      el("span",{class:"hb-val"},[document.createTextNode(compactNum(ttm[n])),el("small",{text:nf1.format(share)+"% del total"+(s3!=null?" · "+(share-s3>=0?"+":"−")+nf1.format(Math.abs(share-s3))+" pp":"")})]),
+      el("span",{class:"hb-val"},[deltaEl(prev[n]?ttm[n]/prev[n]-1:null)])]));
+  });
+}
+
+/* ---------- tourism poles ---------- */
+function poleMetrics(pole){
+  const g=k=>{const sx=pole.series.find(x=>x.key===k);return sx?{s:sx,m:metrics(sx)}:null;};
+  const arr=g("arrivals_air_nonresident"),occ=g("hotel_occupancy_rate"),rooms=g("hotel_rooms"),ext=g("share_foreign_guests"),hot=g("hotel_establishments");
+  const o={pole,arr,occ,rooms,ext,hot};
+  if(occ&&occ.m){const mp=toMap(occ.s),li=parseP(occ.m.lastP).idx;const pv=mp.get(li-12);o.occPP=pv!=null?occ.m.last-pv:null;}
+  if(arr&&arr.m&&rooms&&rooms.m&&arr.m.ttm)o.perRoom=arr.m.ttm/rooms.m.last;
+  return o;
+}
+function renderPoles(){
+  const d=BYID[state.sel],sec=$("poles");
+  if(!d.poles){sec.hidden=true;return;}
+  sec.hidden=false;
+  const rows=d.poles.map(poleMetrics);
+  rows.sort((a,b)=>((b.rooms&&b.rooms.m?b.rooms.m.last:-1)-(a.rooms&&a.rooms.m?a.rooms.m.last:-1)));
+  rows.forEach((r,i)=>r.n=i+1);
+  const roomsTotal=rows.reduce((a,r)=>a+(r.rooms&&r.rooms.m?r.rooms.m.last:0),0);
+  const natRooms=metrics(sOf(d,"hotel_rooms")),natOcc=metrics(sOf(d,"hotel_occupancy_rate")),natArr=metrics(head(d,"arrivals"));
+  $("polesTitle").textContent="Polos turísticos de "+d.short;
+  $("polesLede").textContent="Llegadas por aeropuerto de entrada y ocupación del Banco Central, habitaciones y huéspedes extranjeros de MITUR. No existe desglose oficial de gasto turístico por polo.";
+  $("poleMapFoot").textContent=(rows.filter(r=>r.arr).length)+" de "+rows.length+" polos tienen aeropuerto propio";
+  // map with numbered pins
+  const B=DATA.basemap_do,box=$("poleMapBox");
+  const svg=sv("svg",{viewBox:"0 0 "+B.w+" "+B.h,role:"img","aria-label":"Mapa de los polos turísticos"});
+  svg.append(sv("rect",{x:0,y:0,width:B.w,height:B.h,fill:"var(--water)"}));
+  const pj=(lon,lat)=>{const[L0,L1,A0,A1]=B.bbox;return[(lon-L0)/(L1-L0)*B.w,(merc(A1)-merc(lat))/(merc(A1)-merc(A0))*B.h];};
+  B.paths.forEach(pt=>svg.append(sv("path",{d:pt.d,class:"land"+(pt.name==="Dominican Rep."?" hl":""),"fill-opacity":pt.name==="Dominican Rep."?1:.55})));
+  (function(){const[hx,hy]=pj(-72.0,18.95);svg.append(sv("text",{x:hx+14,y:hy,class:"map-note","font-size":16,text:"Haití"}));})();
+  rows.slice().reverse().forEach(r=>{
+    const[x,y]=pj(r.pole.lon,r.pole.lat);const big=(r.rooms&&r.rooms.m?r.rooms.m.last:0)>10000;
+    const g=sv("g",{tabindex:0,role:"button","aria-label":r.pole.name});
+    g.append(sv("circle",{cx:x,cy:y,r:big?20:15,class:"pin"+(r.arr?"":" dim")}));
+    g.append(sv("text",{x,y:y+(big?6:5),"text-anchor":"middle","font-size":big?22:17,class:"pin-n",text:String(r.n)}));
+    const build=()=>{const out=[el("div",{class:"t-h",text:r.pole.name})];
+      if(r.arr&&r.arr.m)out.push(tr("Llegadas "+pLabel(r.arr.m.lastP),fmt(r.arr.m.last,"personas")));
+      if(r.occ&&r.occ.m)out.push(tr("Ocupación "+pLabel(r.occ.m.lastP),fmt(r.occ.m.last,"%")));
+      if(r.rooms&&r.rooms.m)out.push(tr("Habitaciones",nf0.format(r.rooms.m.last)));
+      return out;};
+    const mv=e=>{const rb=box.getBoundingClientRect();showTip(box,e.clientX-rb.left,e.clientY-rb.top,build());};
+    g.addEventListener("pointermove",mv);g.addEventListener("pointerleave",hideTip);
+    g.addEventListener("focus",()=>{const rb=box.getBoundingClientRect(),cb=g.getBoundingClientRect();showTip(box,cb.right-rb.left,cb.top-rb.top,build());});
+    g.addEventListener("blur",hideTip);
+    svg.append(g);
+  });
+  box.replaceChildren(svg);
+  // supply vs demand
+  const withRooms=rows.filter(r=>r.rooms&&r.rooms.m);
+  hbars("polesRooms",withRooms.map(r=>({d:{id:r.pole.id,short:r.pole.name,focus:r.pole.id==="bavaro-punta-cana"},v:r.rooms.m.last,
+    sub:nf1.format(r.rooms.m.last/roomsTotal*100)+"% · "+pct(r.rooms.m.yoy)})),r=>document.createTextNode(nf0.format(r.v)));
+  const CITY_AIRPORTS=["santo-domingo","santiago","barahona-pedernales"];
+  const withPressure=rows.filter(r=>r.perRoom!=null&&CITY_AIRPORTS.indexOf(r.pole.id)<0);
+  hbars("polesPressure",withPressure.map(r=>({d:{id:r.pole.id,short:r.pole.name,focus:r.pole.id==="bavaro-punta-cana"},v:r.perRoom,
+    sub:"ocup. "+fmt(r.occ&&r.occ.m?r.occ.m.last:null,"%")})).sort((a,b)=>b.v-a.v),r=>document.createTextNode(nf0.format(Math.round(r.v))));
+  $("polesChartNote").textContent="Habitaciones del último trimestre publicado, con su cuota del país y su variación interanual. Las llegadas por habitación usan las llegadas de los últimos 12 meses al aeropuerto del polo: quedan fuera Gran Santo Domingo, Santiago y Barahona, cuyos aeropuertos mueven sobre todo tráfico urbano y de dominicanos no residentes que no se aloja en hoteles de la zona.";
+  // table
+  const t=$("polesTable");
+  const thead=el("thead",null,[el("tr",null,["#","Polo","Llegadas último mes","Var. i.a.","Ocupación","vs año ant.","Habitaciones","Var. i.a.","% extranjeros","Llegadas/hab."].map((h,i)=>el("th",{text:h,style:i>1?"text-align:right":""})))]);
+  const tb=el("tbody");
+  const R=(v,extra)=>el("td",{style:"text-align:right;white-space:nowrap"+(extra||"")},[v]);
+  rows.forEach(r=>{
+    const na=()=>el("span",{class:"na",text:"—"});
+    tb.append(el("tr",null,[
+      el("td",null,[el("span",{class:"pole-rank"+(r.arr?"":" dim"),text:String(r.n)})]),
+      el("td",null,[el("span",{class:"dname",text:r.pole.name})]),
+      R(r.arr&&r.arr.m?document.createTextNode(fmt(r.arr.m.last,"personas")):na()),
+      R(r.arr&&r.arr.m?deltaEl(r.arr.m.yoy):na()),
+      R(r.occ&&r.occ.m?document.createTextNode(fmt(r.occ.m.last,"%")):na()),
+      R(r.occPP!=null?el("span",{class:"delta "+dcls(r.occPP),text:(r.occPP>0?"+":r.occPP<0?"−":"")+nf1.format(Math.abs(r.occPP))+" pp"}):na()),
+      R(r.rooms&&r.rooms.m?document.createTextNode(nf0.format(r.rooms.m.last)):na()),
+      R(r.rooms&&r.rooms.m?deltaEl(r.rooms.m.yoy):na()),
+      R(r.ext&&r.ext.m?document.createTextNode(fmt(r.ext.m.last,"%")):na()),
+      R(r.perRoom!=null?document.createTextNode(nf0.format(Math.round(r.perRoom))):na())
+    ]));
+  });
+  tb.append(el("tr",{class:"total-row"},[
+    el("td",{text:""}),el("td",{text:"Total país"}),
+    R(natArr?document.createTextNode(fmt(natArr.last,"personas")):el("span",{class:"na",text:"—"})),
+    R(natArr?deltaEl(natArr.yoy):el("span",{class:"na",text:"—"})),
+    R(natOcc?document.createTextNode(fmt(natOcc.last,"%")):el("span",{class:"na",text:"—"})),
+    R(el("span",{class:"na",text:"—"})),
+    R(natRooms?document.createTextNode(nf0.format(natRooms.last)):el("span",{class:"na",text:"—"})),
+    R(natRooms?deltaEl(natRooms.yoy):el("span",{class:"na",text:"—"})),
+    R(el("span",{class:"na",text:"—"})),
+    R(natArr&&natRooms?document.createTextNode(nf0.format(Math.round(natArr.ttm/natRooms.last))):el("span",{class:"na",text:"—"}))
+  ]));
+  t.replaceChildren(thead,tb);
+  $("polesNote").textContent="Las llegadas son por aeropuerto de entrada, no por destino final: quien aterriza en Punta Cana puede alojarse en Miches o Bayahíbe. La ocupación y las habitaciones sí son de la zona. Macao, Uvero Alto y Cap Cana quedan dentro de Bávaro – Punta Cana: ninguna fuente oficial los separa. Los "+rows.length+" polos suman "+nf0.format(roomsTotal)+" de las "+(natRooms?nf0.format(natRooms.last):"—")+" habitaciones del país; el resto MITUR no lo asigna a una zona con nombre.";
+}
+
+/* ---------- market share ---------- */
+function shareData(){
+  const ids=(DATA.share&&DATA.share.universe||[]).filter(id=>BYID[id]&&head(BYID[id],"arrivals"));
+  const maps=ids.map(id=>({id,d:BYID[id],m:toMap(head(BYID[id],"arrivals"))}));
+  if(!maps.length)return null;
+  // trailing-12-month totals per month, only months where every destination has a full window
+  const idxs=maps.map(x=>[...x.m.keys()]);
+  const lo=Math.max(...idxs.map(a=>Math.min(...a)))+11,hi=Math.min(...idxs.map(a=>Math.max(...a)));
+  const months=[];
+  for(let i=lo;i<=hi;i++){
+    const vals=maps.map(x=>{let t=0;for(let j=i-11;j<=i;j++){if(!x.m.has(j))return null;t+=x.m.get(j);}return t;});
+    if(vals.some(v=>v==null))continue;
+    const tot=vals.reduce((a,b)=>a+b,0);
+    months.push({i,tot,share:Object.fromEntries(maps.map((x,k)=>[x.id,vals[k]/tot*100])),vals:Object.fromEntries(maps.map((x,k)=>[x.id,vals[k]]))});
+  }
+  return months.length?{ids,months}:null;
+}
+function renderShare(){
+  const box=$("shareBox"),sec=$("share");const sd=shareData();
+  if(!sd){sec.hidden=true;return;}sec.hidden=false;
+  const last=sd.months[sd.months.length-1],first=sd.months[0];
+  const lastLabel=pLabel(String(Math.floor(last.i/12))+"-"+String(last.i%12+1).padStart(2,"0"));
+  const names=DATA.share.excluded||{};
+  $("shareLede").textContent="Cómo se reparten las llegadas entre "+sd.ids.length+" destinos con medición comparable, en ventanas de 12 meses. Quedan fuera "+Object.keys(names).map(k=>(BYID[k]?BYID[k].short:k)).join(", ")+" porque su medición no es equiparable o no llega a 2026.";
+  $("shareBarsSub").textContent="Ventana de 12 meses cerrada en "+lastLabel+" · cambio en puntos porcentuales contra tres años antes.";
+  const W=Math.max(300,box.clientWidth||600),H=W<520?230:290;
+  const M={l:44,r:52,t:14,b:26},iw=W-M.l-M.r,ih=H-M.t-M.b;
+  const hiV=Math.max(...sd.months.map(m=>Math.max(...sd.ids.map(id=>m.share[id]))));
+  const nt=niceTicks(0,hiV,4);
+  const X=i=>M.l+(i-first.i)/Math.max(1,last.i-first.i)*iw,Y=v=>M.t+ih-(v-nt.lo)/(nt.hi-nt.lo)*ih;
+  const svg=sv("svg",{viewBox:`0 0 ${W} ${H}`,height:H,role:"img","aria-label":"Participación en las llegadas de la región"});
+  nt.ticks.forEach(t=>{svg.append(sv("line",{x1:M.l,x2:W-M.r,y1:Y(t),y2:Y(t),class:t===nt.lo?"base":"grid"}));svg.append(sv("text",{x:M.l-8,y:Y(t)+4,"text-anchor":"end",class:"tick",text:nf0.format(t)+"%"}));});
+  for(let y=Math.ceil(first.i/12);y*12<=last.i;y++){const x=X(y*12);svg.append(sv("line",{x1:x,x2:x,y1:M.t,y2:M.t+ih,class:"grid"}));svg.append(sv("text",{x,y:H-6,"text-anchor":"middle",class:"tick",text:String(y)}));}
+  const ranked=sd.ids.slice().sort((a,b)=>last.share[b]-last.share[a]);
+  const labelled=new Set(ranked.slice(0,3));if(sd.ids.includes(state.sel))labelled.add(state.sel);
+  sd.ids.forEach(id=>{
+    const selq=id===state.sel;
+    const d="M"+sd.months.map(m=>X(m.i).toFixed(1)+","+Y(m.share[id]).toFixed(1)).join("L");
+    svg.append(sv("path",{d,fill:"none",stroke:selq?"var(--accent)":"var(--s-base)","stroke-width":selq?2.5:1.25,"stroke-opacity":selq?1:.5,"stroke-linejoin":"round"}));
+  });
+  // end labels, pushed apart so they never overlap
+  const lab=ranked.filter(id=>labelled.has(id)).map(id=>({id,y:Y(last.share[id])}));
+  for(let i=1;i<lab.length;i++)if(lab[i].y-lab[i-1].y<13)lab[i].y=lab[i-1].y+13;
+  lab.forEach(L=>{const selq=L.id===state.sel;
+    if(Math.abs(L.y-Y(last.share[L.id]))>2)svg.append(sv("line",{x1:X(last.i)+2,x2:X(last.i)+5,y1:Y(last.share[L.id]),y2:L.y-3,stroke:selq?"var(--accent)":"var(--axis)","stroke-width":1}));
+    svg.append(sv("text",{x:X(last.i)+7,y:Math.min(H-M.b,Math.max(12,L.y))+4,class:"tick","font-size":11.5,style:selq?"fill:var(--accent);font-weight:700":"fill:var(--ink-2);font-weight:600",text:BYID[L.id].short.slice(0,12)}));});
+  const cross=sv("line",{y1:M.t,y2:M.t+ih,stroke:"var(--ink-2)","stroke-width":1,"stroke-dasharray":"2 2",visibility:"hidden"});
+  const hit=sv("rect",{x:M.l,y:M.t,width:iw,height:ih,fill:"transparent"});svg.append(cross,hit);
+  hit.addEventListener("pointermove",e=>{const r=svg.getBoundingClientRect();const cx=(e.clientX-r.left)*W/r.width;
+    let best=sd.months[0];sd.months.forEach(m=>{if(Math.abs(X(m.i)-cx)<Math.abs(X(best.i)-cx))best=m;});
+    cross.setAttribute("x1",X(best.i));cross.setAttribute("x2",X(best.i));cross.setAttribute("visibility","visible");
+    const rows=[el("div",{class:"t-h",text:"12 meses a "+pLabel(String(Math.floor(best.i/12))+"-"+String(best.i%12+1).padStart(2,"0"))})];
+    sd.ids.slice().sort((a,b)=>best.share[b]-best.share[a]).slice(0,6).forEach(id=>rows.push(tr(BYID[id].short,nf1.format(best.share[id])+"%",id===state.sel?"var(--accent)":"var(--s-base)")));
+    showTip(box,X(best.i)*box.clientWidth/W,(e.clientY-r.top),rows);});
+  hit.addEventListener("pointerleave",()=>{cross.setAttribute("visibility","hidden");hideTip();});
+  box.replaceChildren(svg);
+  $("shareNote").textContent="La serie arranca cuando todos los destinos tienen 12 meses completos, limitada por el inicio de los datos de México en 2023. Cada destino usa su propia definición oficial de llegada, así que la cuota es una referencia de tamaño relativo, no una medición homogénea.";
+  const three=sd.months.find(m=>m.i>=last.i-36)||first;
+  hbars("shareBars",sd.ids.map(id=>({d:BYID[id],v:last.share[id],sub:(last.share[id]-three.share[id]>=0?"+":"−")+nf1.format(Math.abs(last.share[id]-three.share[id]))+" pp"})).sort((a,b)=>b.v-a.v),r=>document.createTextNode(nf1.format(r.v)+"%"));
+}
+
+/* ---------- sources ---------- */
+function calCell(d,mode){
+  const s=head(d,mode);
+  if(!s)return el("td",null,[el("span",{class:"src-sub",text:(mode==="arrivals"?d.headline.arrivals_note:d.headline.spending_note)||"Sin fuente oficial accesible"}),el("span",{class:"pill none",text:"Sin datos"})]);
+  const f=freshness(s,lag(d,mode));const src=s.source||{};
+  return el("td",null,[
+    src.page_url?el("a",{class:"src-org",href:src.page_url,target:"_blank",rel:"noopener",text:src.org}):el("span",{class:"src-org",text:src.org||"—"}),
+    el("span",{class:"src-sub",text:(FREQ_ES[s.frequency]||s.frequency)+" · formato "+(src.format||"—").toUpperCase()+" · rezago "+(src.release_lag||"—")}),
+    el("span",{class:"src-sub"},["Último dato: ",el("b",{text:pLabel(f.last,true)})," · próximo esperado ≈ ",el("b",{text:monthEs(f.expected)})]),
+    el("span",{class:"pill "+f.cls,style:"margin-top:4px",text:f.label})]);
+}
+function renderSources(){
+  const vis=visible();const t=$("calTable");
+  const thead=el("thead",null,[el("tr",null,[el("th",{text:"Destino"}),el("th",{text:"Llegadas"}),el("th",{text:"Gasto turístico"})])]);
+  const tb=el("tbody");vis.forEach(d=>tb.append(el("tr",null,[el("td",null,[el("span",{class:"dname",text:d.short})]),calCell(d,"arrivals"),calCell(d,"spending")])));
+  t.replaceChildren(thead,tb);
+  const box=$("srcDetails");box.replaceChildren();
+  vis.forEach(d=>{
+    const det=el("details",{class:"dsrc"});
+    det.append(el("summary",null,[el("h3",{text:d.name}),el("span",{text:d.series.length+" series · "+(d.notes||[]).length+" notas"})]));
+    const rows=d.series.map(s=>{const src=s.source||{};const f=freshness(s,s.key===d.headline.arrivals?lag(d,"arrivals"):s.key===d.headline.spending?lag(d,"spending"):null);
+      return el("tr",null,[
+        el("td",null,[el("b",{text:s.label}),el("span",{class:"src-sub",text:CAT_ES[s.category]||s.category})]),
+        el("td",null,[src.page_url?el("a",{href:src.page_url,target:"_blank",rel:"noopener",text:src.org}):document.createTextNode(src.org||"—"),el("span",{class:"src-sub",text:src.title||""})]),
+        el("td",null,[document.createTextNode((FREQ_ES[s.frequency]||s.frequency)),el("span",{class:"src-sub",text:src.release_lag||""})]),
+        el("td",null,[document.createTextNode(pLabel(s.data[0][0])+" – "+pLabel(s.data[s.data.length-1][0])),el("span",{class:"pill "+f.cls,text:f.label})]),
+        el("td",null,[el("span",{class:"src-sub",text:(src.format?src.format.toUpperCase()+". ":"")+(src.access_method||"")}),src.file_url&&/^https?:/.test(src.file_url)?el("a",{href:src.file_url,target:"_blank",rel:"noopener",class:"src-sub",text:"Archivo fuente"}):null])]);});
+    const tbl=el("table",null,[el("thead",null,[el("tr",null,["Serie","Organismo","Frecuencia","Cobertura","Acceso"].map(h=>el("th",{text:h})))]),el("tbody",null,rows)]);
+    det.append(el("div",{class:"dsrc-body"},[el("div",{class:"table-scroll"},[tbl]),(d.notes&&d.notes.length)?el("ul",null,d.notes.map(n=>el("li",{text:n}))):null]));
+    box.append(det);
+  });
+}
+
+/* ---------- wiring ---------- */
+function renderDestSel(){const sel=$("destSel");sel.replaceChildren();const vis=visible();if(!vis.find(d=>d.id===state.sel))state.sel=vis[0].id;vis.forEach(d=>sel.append(el("option",{value:d.id,text:d.name})));sel.value=state.sel;}
+function select(id,scroll){if(state.sel!==id){state.sel=id;state.seriesKey=null;}save();renderAll();if(scroll){const t=$("detail");t.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"start"});}}
+function setPressed(segId,attr,val){[...$(segId).querySelectorAll("button")].forEach(b=>b.setAttribute("aria-pressed",String(b.dataset[attr]===val)));}
+function renderAll(){
+  setPressed("modeSeg","mode",state.mode);setPressed("scopeSeg","scope",state.scope);setPressed("rangeSeg","range",state.range);
+  renderDestSel();renderMap();renderRank();renderDetail();renderMarkets();renderPoles();renderShare();renderCompare();renderSources();
+}
+$("modeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.mode=b.dataset.mode;state.seriesKey=null;save();renderAll();});
+$("scopeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.scope=b.dataset.scope;save();renderAll();});
+$("rangeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.range=b.dataset.range;save();setPressed("rangeSeg","range",state.range);const d=BYID[state.sel];renderHist(d,sOf(d,state.seriesKey));});
+$("destSel").addEventListener("change",e=>select(e.target.value,false));
+$("seriesSel").addEventListener("change",e=>{state.seriesKey=e.target.value;renderDetail();});
+$("scope-focus").textContent="Foco ("+DESTS.filter(d=>d.focus).length+")";
+$("scope-all").textContent="Todos ("+DESTS.length+")";
+renderStamp();renderAll();
+let rt;new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(()=>{const d=BYID[state.sel];const s=sOf(d,state.seriesKey);renderHist(d,s);renderSeas(d,s);renderMarkets();renderPoles();renderShare();},120);}).observe($("histBox").parentElement);
+})();
+</script>

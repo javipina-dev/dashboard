@@ -1,0 +1,365 @@
+{
+ "id": "JM",
+ "name": "Jamaica",
+ "type": "country",
+ "lat": 18.1,
+ "lon": -77.3,
+ "series": [
+  {
+   "key": "spending_tourism_receipts",
+   "category": "spending",
+   "label": "Gasto de visitantes / ingresos por viajes (crédito 'Travel' de balanza de pagos)",
+   "unit": "US$ millones",
+   "frequency": "quarterly",
+   "data": [
+    [
+     "2019-Q1",
+     996.4
+    ],
+    [
+     "2019-Q2",
+     861.0
+    ],
+    [
+     "2019-Q3",
+     851.5
+    ],
+    [
+     "2019-Q4",
+     929.8
+    ],
+    [
+     "2020-Q1",
+     832.0
+    ],
+    [
+     "2020-Q2",
+     11.8
+    ],
+    [
+     "2020-Q3",
+     155.9
+    ],
+    [
+     "2020-Q4",
+     256.4
+    ],
+    [
+     "2021-Q1",
+     274.8
+    ],
+    [
+     "2021-Q2",
+     490.8
+    ],
+    [
+     "2021-Q3",
+     603.6
+    ],
+    [
+     "2021-Q4",
+     725.8
+    ],
+    [
+     "2022-Q1",
+     786.8
+    ],
+    [
+     "2022-Q2",
+     905.6
+    ],
+    [
+     "2022-Q3",
+     934.6
+    ],
+    [
+     "2022-Q4",
+     994.3
+    ],
+    [
+     "2023-Q1",
+     1167.5
+    ],
+    [
+     "2023-Q2",
+     1012.5
+    ],
+    [
+     "2023-Q3",
+     1000.2
+    ],
+    [
+     "2023-Q4",
+     1135.8
+    ],
+    [
+     "2024-Q1",
+     1231.0
+    ],
+    [
+     "2024-Q2",
+     997.4
+    ],
+    [
+     "2024-Q3",
+     951.6
+    ],
+    [
+     "2024-Q4",
+     1134.0
+    ],
+    [
+     "2025-Q1",
+     1264.6
+    ],
+    [
+     "2025-Q2",
+     1058.2
+    ],
+    [
+     "2025-Q3",
+     1021.1
+    ],
+    [
+     "2025-Q4",
+     765.0
+    ],
+    [
+     "2026-Q1",
+     974.5
+    ]
+   ],
+   "source": {
+    "org": "Bank of Jamaica (datos de gasto de visitantes del Jamaica Tourist Board)",
+    "title": "ES.BOP.00 Balance of Payments Summary (BPM6) – hoja 'Services': Travel (Credit) / Visitor Expenditure (US$MN)",
+    "page_url": "https://boj.org.jm/statistics/external-sector/balance-of-payments/",
+    "file_url": "https://boj.org.jm/wp-content/uploads/2020/09/ES.BOP.00.xls",
+    "format": "xlsx",
+    "update_frequency": "trimestral (ver Advance Release Calendar del BOJ)",
+    "release_lag": "~1 trimestre (último dato 2026-T1 disponible a sep-2026)",
+    "last_period": "2026-Q1",
+    "retrieved": "2026-09-17",
+    "access_method": "GET the fixed .xls URL (legacy Excel; read with xlrd). Sheet 'Services': row 1 = quarter-end dates, 'Travel' row under 'Credit' (equal to memo row 'Visitor Expenditure (US$MN)')."
+   }
+  },
+  {
+   "key": "arrivals_stopover_annual",
+   "category": "arrivals",
+   "label": "Llegadas de visitantes stopover (anual)",
+   "unit": "personas",
+   "frequency": "annual",
+   "data": [
+    [
+     "2024",
+     2900358
+    ],
+    [
+     "2025",
+     2601416
+    ]
+   ],
+   "source": {
+    "org": "Planning Institute of Jamaica (PIOJ), cifras del Jamaica Tourist Board",
+    "title": "Economic and Social Survey Jamaica – Selected Indicators & Overview (texto, sección Accommodation & Food Service)",
+    "page_url": "https://www.pioj.gov.jm/product-category/annual-publications/the-economic-social-survey-jamaica/",
+    "file_url": "https://www.pioj.gov.jm/product/economic-and-social-survey-jamaica-2025-selected-indicators-overview/",
+    "format": "pdf",
+    "update_frequency": "anual (ESSJ Overview publicado ~abril-mayo del año siguiente)",
+    "release_lag": "~4-5 meses tras cierre del año",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "Product page per edition (slug in ESSJ_PRODUCTS); free file obtained by POSTing the page's somdn form (fields somdn_download_key [url-encode], action=somdn_download_single, somdn_product) to the same URL with cookies. pdfplumber, crop each page into two columns, regex on the 'Accommodation & Food Service Activities' paragraph."
+   }
+  },
+  {
+   "key": "arrivals_cruise_annual",
+   "category": "arrivals",
+   "label": "Llegadas de pasajeros de crucero (anual)",
+   "unit": "personas",
+   "frequency": "annual",
+   "data": [
+    [
+     "2019",
+     1552346
+    ],
+    [
+     "2020",
+     449271
+    ],
+    [
+     "2021",
+     70766
+    ],
+    [
+     "2024",
+     1253297
+    ],
+    [
+     "2025",
+     1106361
+    ]
+   ],
+   "source": {
+    "org": "Planning Institute of Jamaica (PIOJ), cifras del Jamaica Tourist Board",
+    "title": "Economic and Social Survey Jamaica – Selected Indicators & Overview (texto, sección Accommodation & Food Service)",
+    "page_url": "https://www.pioj.gov.jm/product-category/annual-publications/the-economic-social-survey-jamaica/",
+    "file_url": "https://www.pioj.gov.jm/product/economic-and-social-survey-jamaica-2025-selected-indicators-overview/",
+    "format": "pdf",
+    "update_frequency": "anual (ESSJ Overview publicado ~abril-mayo del año siguiente)",
+    "release_lag": "~4-5 meses tras cierre del año",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "Product page per edition (slug in ESSJ_PRODUCTS); free file obtained by POSTing the page's somdn form (fields somdn_download_key [url-encode], action=somdn_download_single, somdn_product) to the same URL with cookies. pdfplumber, crop each page into two columns, regex on the 'Accommodation & Food Service Activities' paragraph."
+   }
+  },
+  {
+   "key": "spending_stopover_expenditure",
+   "category": "spending",
+   "label": "Gasto de visitantes stopover (anual)",
+   "unit": "US$ millones",
+   "frequency": "annual",
+   "data": [
+    [
+     "2019",
+     3482.6
+    ],
+    [
+     "2020",
+     1316.9
+    ],
+    [
+     "2021",
+     2087.9
+    ],
+    [
+     "2022",
+     3529.2
+    ],
+    [
+     "2024",
+     4171.9
+    ],
+    [
+     "2025",
+     3962.4
+    ]
+   ],
+   "source": {
+    "org": "Planning Institute of Jamaica (PIOJ), cifras del Jamaica Tourist Board",
+    "title": "Economic and Social Survey Jamaica – Overview: 'Expenditure by Stopover visitors'",
+    "page_url": "https://www.pioj.gov.jm/product-category/annual-publications/the-economic-social-survey-jamaica/",
+    "file_url": "https://www.pioj.gov.jm/product/economic-and-social-survey-jamaica-2025-selected-indicators-overview/",
+    "format": "pdf",
+    "update_frequency": "anual (ESSJ Overview publicado ~abril-mayo del año siguiente)",
+    "release_lag": "~4-5 meses tras cierre del año",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "Product page per edition (slug in ESSJ_PRODUCTS); free file obtained by POSTing the page's somdn form (fields somdn_download_key [url-encode], action=somdn_download_single, somdn_product) to the same URL with cookies. pdfplumber, crop each page into two columns, regex on the 'Accommodation & Food Service Activities' paragraph."
+   }
+  },
+  {
+   "key": "spending_cruise_expenditure",
+   "category": "spending",
+   "label": "Gasto de pasajeros de crucero (anual)",
+   "unit": "US$ millones",
+   "frequency": "annual",
+   "data": [
+    [
+     "2019",
+     161.3
+    ],
+    [
+     "2020",
+     45.5
+    ],
+    [
+     "2021",
+     7.1
+    ],
+    [
+     "2022",
+     92.1
+    ],
+    [
+     "2024",
+     142.5
+    ],
+    [
+     "2025",
+     129.7
+    ]
+   ],
+   "source": {
+    "org": "Planning Institute of Jamaica (PIOJ), cifras del Jamaica Tourist Board",
+    "title": "Economic and Social Survey Jamaica – Overview: 'cruise passenger expenditure'",
+    "page_url": "https://www.pioj.gov.jm/product-category/annual-publications/the-economic-social-survey-jamaica/",
+    "file_url": "https://www.pioj.gov.jm/product/economic-and-social-survey-jamaica-2025-selected-indicators-overview/",
+    "format": "pdf",
+    "update_frequency": "anual (ESSJ Overview publicado ~abril-mayo del año siguiente)",
+    "release_lag": "~4-5 meses tras cierre del año",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "Product page per edition (slug in ESSJ_PRODUCTS); free file obtained by POSTing the page's somdn form (fields somdn_download_key [url-encode], action=somdn_download_single, somdn_product) to the same URL with cookies. pdfplumber, crop each page into two columns, regex on the 'Accommodation & Food Service Activities' paragraph."
+   }
+  },
+  {
+   "key": "investment_fdi_tourism",
+   "category": "investment",
+   "label": "Inversión extranjera directa en turismo (flujos de entrada)",
+   "unit": "US$ millones",
+   "frequency": "annual",
+   "data": [
+    [
+     "2019",
+     120.6
+    ],
+    [
+     "2020",
+     26.3
+    ],
+    [
+     "2021",
+     123.6
+    ],
+    [
+     "2022",
+     163.3
+    ],
+    [
+     "2023",
+     296.0
+    ],
+    [
+     "2024",
+     240.1
+    ],
+    [
+     "2025",
+     130.6
+    ]
+   ],
+   "source": {
+    "org": "Bank of Jamaica",
+    "title": "ES.FDI.00 FDI Inflows by Sector – row TOURISM",
+    "page_url": "https://boj.org.jm/statistics/external-sector/foreign-direct-investments/",
+    "file_url": "https://boj.org.jm/wp-content/uploads/2020/09/ES.FDI.00.xls",
+    "format": "xlsx",
+    "update_frequency": "anual (archivo actualizado trimestralmente)",
+    "release_lag": "'Last Business Day of the Quarter Following the Reporting Period' (2025 disponible en 2026, marcado revisado)",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "GET the fixed .xls URL; sheet 'ES.FDI.00', header row 'FDI Inflows By Sector' (years), row 'TOURISM'."
+   }
+  }
+ ],
+ "notes": [
+  "NO monthly or quarterly arrivals and NO average spend per visitor / average length of stay series were obtained: the only official monthly source is the Jamaica Tourist Board (https://www.jtbonline.org/report-and-statistics/monthly-statistics/ and /annual-travel/). On 2026-09-17 this network's FortiGuard web filter blocked jtbonline.org (category 'Malicious Websites', HTTP 403) and the site also serves an incomplete TLS certificate chain (WebFetch: 'unable to verify the first certificate'). The block was not bypassed. BOJ, STATIN and PIOJ do not publish a monthly arrivals table (BOJ only reports visitor expenditure in the BoP; see alternatives checked below).",
+  "Alternatives checked 2026-09-17 (no monthly/quarterly arrivals table found): mot.gov.jm (press releases only, no statistics section); data.gov.jm (connection reset, unreachable); PIOJ free Review of Economic Performance decks and Monthly Economic Updates (no arrivals figures, charts only); full PIOJ ESSJ with tourism chapter is paid (US$35); STATIN (only Tourism Satellite Account tables, annual J$); BOJ QMPR Aug-2026 (charts of visitor days, no table); Caribbean Tourism Organization monthly statistics are paid (US$45/issue) and not a national official source; no gov.jm mirror of JTB PDFs found.",
+  "arrivals_*_annual and spending_*_expenditure come from sentences in the free PIOJ ESSJ 'Selected Indicators & Overview' PDFs (one per year). Coverage is patchy: stopover counts are only stated exactly in the 2024 and 2025 editions (2019-2023 overviews give only rounded millions in an indicator table, not used); cruise counts for 2019-2021, 2024-2025; expenditure for 2019-2022 and 2024-2025 (2023 overview has no tourism paragraph). Where a later edition restates the prior year ('moved from US$X'), the revised value is used (2019 cruise exp 161.3 vs 162.4; 2021 cruise exp 7.1; 2024 stopover exp 4,171.9 vs 4,170.4; 2024 cruise exp 142.5 vs 142.1).",
+  "To add arrivals later: from an unfiltered network, download JTB 'Monthly Statistical Report' PDFs (stopover arrivals by month & port; cruise passengers by port) and 'Annual Travel Statistics' PDFs (average length of stay, estimated visitor expenditure, avg spend per stopover/cruise passenger).",
+  "spending_tourism_receipts: BOJ BoP 'Travel' credits = 'Visitor Expenditure (US$MN)' memo row; BOJ cites the Jamaica Tourist Board as source (personal travel of stopover + cruise visitors). Values are preliminary and revised in subsequent file versions.",
+  "The 2025-Q4 drop coincides with Hurricane Melissa (late Oct-2025, per press reports; not verified against an official file here).",
+  "investment_fdi_tourism: BOJ sector FDI (secondary; not tourist spending). 2025 flagged '*' (revised) in the file. BOJ notes a 2020 sale of a tourism property by a non-resident to a resident, reducing FDI liabilities.",
+  "FDI year flags from file: 2025: revised (*)"
+ ]
+}

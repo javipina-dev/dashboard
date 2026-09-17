@@ -1,0 +1,673 @@
+{
+ "id": "BB",
+ "name": "Barbados",
+ "type": "country",
+ "lat": 13.1,
+ "lon": -59.62,
+ "series": [
+  {
+   "key": "arrivals_stopover",
+   "category": "arrivals",
+   "label": "Llegadas de turistas stopover",
+   "unit": "personas",
+   "frequency": "monthly",
+   "data": [
+    [
+     "2019-01",
+     69496
+    ],
+    [
+     "2019-02",
+     68609
+    ],
+    [
+     "2019-03",
+     70669
+    ],
+    [
+     "2019-04",
+     63364
+    ],
+    [
+     "2019-05",
+     50717
+    ],
+    [
+     "2019-06",
+     50160
+    ],
+    [
+     "2019-07",
+     60248
+    ],
+    [
+     "2019-08",
+     50757
+    ],
+    [
+     "2019-09",
+     36861
+    ],
+    [
+     "2020-01",
+     59572
+    ],
+    [
+     "2020-02",
+     63124
+    ],
+    [
+     "2020-03",
+     31152
+    ],
+    [
+     "2020-04",
+     136
+    ],
+    [
+     "2020-05",
+     346
+    ],
+    [
+     "2020-06",
+     494
+    ],
+    [
+     "2020-07",
+     2056
+    ],
+    [
+     "2020-08",
+     6102
+    ],
+    [
+     "2020-09",
+     4867
+    ],
+    [
+     "2020-10",
+     2389
+    ],
+    [
+     "2020-11",
+     6669
+    ],
+    [
+     "2020-12",
+     18195
+    ],
+    [
+     "2021-01",
+     3547
+    ],
+    [
+     "2021-02",
+     1880
+    ],
+    [
+     "2021-03",
+     1769
+    ],
+    [
+     "2021-04",
+     1865
+    ],
+    [
+     "2021-05",
+     3362
+    ],
+    [
+     "2021-06",
+     6448
+    ],
+    [
+     "2021-07",
+     11524
+    ],
+    [
+     "2021-08",
+     15620
+    ],
+    [
+     "2021-09",
+     17209
+    ],
+    [
+     "2021-10",
+     18504
+    ],
+    [
+     "2021-11",
+     23749
+    ],
+    [
+     "2021-12",
+     39356
+    ],
+    [
+     "2022-01",
+     48848
+    ],
+    [
+     "2022-02",
+     54607
+    ],
+    [
+     "2022-03",
+     60728
+    ],
+    [
+     "2022-04",
+     47059
+    ],
+    [
+     "2022-05",
+     33949
+    ],
+    [
+     "2022-06",
+     32763
+    ],
+    [
+     "2022-07",
+     39377
+    ],
+    [
+     "2022-08",
+     34329
+    ],
+    [
+     "2022-09",
+     28847
+    ],
+    [
+     "2022-10",
+     34797
+    ],
+    [
+     "2022-11",
+     53955
+    ],
+    [
+     "2022-12",
+     70487
+    ],
+    [
+     "2023-01",
+     70590
+    ],
+    [
+     "2023-02",
+     64995
+    ],
+    [
+     "2023-03",
+     63732
+    ],
+    [
+     "2023-04",
+     45196
+    ],
+    [
+     "2023-05",
+     42765
+    ],
+    [
+     "2023-06",
+     36670
+    ],
+    [
+     "2023-07",
+     46141
+    ],
+    [
+     "2023-08",
+     47430
+    ],
+    [
+     "2023-09",
+     33972
+    ],
+    [
+     "2023-10",
+     43310
+    ],
+    [
+     "2023-11",
+     64900
+    ],
+    [
+     "2023-12",
+     76839
+    ],
+    [
+     "2024-01",
+     73693
+    ],
+    [
+     "2024-02",
+     74010
+    ],
+    [
+     "2024-03",
+     81125
+    ],
+    [
+     "2024-04",
+     54171
+    ],
+    [
+     "2024-05",
+     49682
+    ],
+    [
+     "2024-06",
+     49316
+    ],
+    [
+     "2024-07",
+     49801
+    ],
+    [
+     "2024-08",
+     46093
+    ],
+    [
+     "2024-09",
+     31782
+    ],
+    [
+     "2024-10",
+     43556
+    ],
+    [
+     "2024-11",
+     63999
+    ],
+    [
+     "2024-12",
+     79303
+    ],
+    [
+     "2025-01",
+     71268
+    ],
+    [
+     "2025-02",
+     67469
+    ],
+    [
+     "2025-03",
+     75310
+    ],
+    [
+     "2025-04",
+     62462
+    ],
+    [
+     "2025-05",
+     49961
+    ],
+    [
+     "2025-06",
+     47941
+    ],
+    [
+     "2025-07",
+     58845
+    ],
+    [
+     "2025-08",
+     50335
+    ],
+    [
+     "2025-09",
+     34042
+    ],
+    [
+     "2025-10",
+     44813
+    ],
+    [
+     "2025-11",
+     66390
+    ],
+    [
+     "2025-12",
+     78210
+    ],
+    [
+     "2026-01",
+     74206
+    ],
+    [
+     "2026-02",
+     69155
+    ],
+    [
+     "2026-03",
+     71583
+    ],
+    [
+     "2026-04",
+     57790
+    ]
+   ],
+   "source": {
+    "org": "Barbados Statistical Service (BSS)",
+    "title": "Stay-Over Tourist Arrivals (2015-2022) y Stay Over Tourist Arrivals: Visitor Market by Month (2022-2026)",
+    "page_url": "https://stats.gov.bb/subjects/social-demographic-statistics/visitor-arrivals-statistics/",
+    "file_url": "https://stats.gov.bb/subjects/social-demographic-statistics/visitor-arrivals-statistics/visitor-arrival-statistics_stay-over-tourist-arrivals-visitor-market-by-month-2026/",
+    "format": "html",
+    "update_frequency": "mensual (tabla HTML anual que se va completando)",
+    "release_lag": "~3-5 meses (sep-2026: último dato abr-2026)",
+    "last_period": "2026-04",
+    "retrieved": "2026-09-17",
+    "access_method": "GET de las páginas WordPress por año (slug ...visitor-market-by-month-YYYY) y parseo de <table>; columna 'Total'; limpiar '(R)' y comas. Slugs no siempre predecibles (p.ej. '-2025-2'): descubrir desde la página índice."
+   }
+  },
+  {
+   "key": "spending_tourism_receipts",
+   "category": "spending",
+   "label": "Ingresos por viajes (créditos de 'Travel' en balanza de pagos)",
+   "unit": "BDS$ millones (paridad fija 2 BDS$ = 1 US$)",
+   "frequency": "annual",
+   "data": [
+    [
+     "2019",
+     2624.4
+    ],
+    [
+     "2020",
+     1262.3
+    ],
+    [
+     "2021",
+     1312.3
+    ],
+    [
+     "2022",
+     1903.5
+    ],
+    [
+     "2023",
+     2304.1
+    ],
+    [
+     "2024",
+     2622.3
+    ],
+    [
+     "2025",
+     2739.5
+    ]
+   ],
+   "source": {
+    "org": "Central Bank of Barbados (CBB)",
+    "title": "Review of Barbados' Economy – Appendix 'Balance of Payments (BDS$ Millions)', fila 'o/w: Travel'",
+    "page_url": "https://www.centralbank.org.bb/news/quarterly-economic-release",
+    "file_url": "https://cdn.centralbank.org.bb/documents/2026-07-31-14-01-23-Central-Bank-of-Barbados-Review-of-Barbados-Economy-January-to-June-2026.pdf",
+    "format": "pdf",
+    "update_frequency": "trimestral (reviews acumuladas ene-mar, ene-jun, ene-sep, anual)",
+    "release_lag": "~1 mes tras cierre del periodo (review ene-jun 2026 publicada 31-jul-2026)",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "Descargar PDF del Economic Review más reciente (enlace cdn.centralbank.org.bb en la página de la review) y leer tabla del apéndice con pdfplumber; 2019 tomado de la review anual 2025 (ene-2026). Cifras 2022-2025 marcadas (e) estimadas."
+   }
+  },
+  {
+   "key": "spending_tourism_receipts_h1",
+   "category": "spending",
+   "label": "Ingresos por viajes, enero-junio (acumulado)",
+   "unit": "BDS$ millones (paridad fija 2 BDS$ = 1 US$)",
+   "frequency": "semiannual",
+   "data": [
+    [
+     "2025-H1",
+     1292.0
+    ],
+    [
+     "2026-H1",
+     1281.1
+    ]
+   ],
+   "source": {
+    "org": "Central Bank of Barbados (CBB)",
+    "title": "Review of Barbados' Economy January to June 2026 – Appendix 3 Balance of Payments",
+    "page_url": "https://www.centralbank.org.bb/news/economic-reviews/economic-review-january-june-2026",
+    "file_url": "https://cdn.centralbank.org.bb/documents/2026-07-31-14-01-23-Central-Bank-of-Barbados-Review-of-Barbados-Economy-January-to-June-2026.pdf",
+    "format": "pdf",
+    "update_frequency": "trimestral (acumulado del año)",
+    "release_lag": "~1 mes",
+    "last_period": "2026-H1",
+    "retrieved": "2026-09-17",
+    "access_method": "Igual que la serie anual; columnas 'Jun YYYY(e)'."
+   }
+  },
+  {
+   "key": "spending_avg_stay",
+   "category": "spending",
+   "label": "Estancia media prevista de turistas stopover",
+   "unit": "días (duración de estancia declarada/prevista)",
+   "frequency": "monthly",
+   "data": [
+    [
+     "2023-01",
+     12.46
+    ],
+    [
+     "2023-02",
+     9.58
+    ],
+    [
+     "2023-03",
+     8.37
+    ],
+    [
+     "2023-04",
+     8.82
+    ],
+    [
+     "2023-05",
+     12.04
+    ],
+    [
+     "2023-06",
+     11.38
+    ],
+    [
+     "2023-07",
+     10.82
+    ],
+    [
+     "2023-08",
+     10.08
+    ],
+    [
+     "2023-09",
+     11.51
+    ],
+    [
+     "2023-10",
+     9.65
+    ],
+    [
+     "2023-11",
+     9.66
+    ],
+    [
+     "2023-12",
+     11.17
+    ],
+    [
+     "2024-01",
+     12.8
+    ],
+    [
+     "2024-02",
+     8.84
+    ],
+    [
+     "2024-03",
+     8.13
+    ],
+    [
+     "2024-04",
+     8.5
+    ],
+    [
+     "2024-05",
+     10.11
+    ],
+    [
+     "2024-06",
+     8.47
+    ],
+    [
+     "2024-07",
+     10.51
+    ],
+    [
+     "2024-08",
+     10.09
+    ],
+    [
+     "2024-09",
+     11.91
+    ],
+    [
+     "2024-10",
+     9.7
+    ],
+    [
+     "2024-11",
+     9.51
+    ],
+    [
+     "2024-12",
+     13.35
+    ],
+    [
+     "2025-01",
+     14.1
+    ],
+    [
+     "2025-02",
+     10.8
+    ],
+    [
+     "2025-03",
+     9.92
+    ],
+    [
+     "2025-04",
+     8.72
+    ],
+    [
+     "2025-05",
+     10.02
+    ],
+    [
+     "2025-06",
+     8.84
+    ],
+    [
+     "2025-07",
+     10.31
+    ],
+    [
+     "2025-08",
+     10.87
+    ],
+    [
+     "2025-09",
+     11.74
+    ],
+    [
+     "2025-10",
+     9.72
+    ],
+    [
+     "2025-11",
+     10.27
+    ],
+    [
+     "2025-12",
+     12.9
+    ]
+   ],
+   "source": {
+    "org": "Barbados Statistical Service (BSS)",
+    "title": "Visitor Arrivals Monthly Statistical Bulletin – Table 5 'Stay-Over Visitor Arrivals by Intended Length of Stay' (fila 'Average')",
+    "page_url": "https://stats.gov.bb/subjects/social-demographic-statistics/visitor-arrivals-statistics/",
+    "file_url": "https://stats.gov.bb/wp-content/uploads/2026/03/VA202512.pdf",
+    "format": "pdf",
+    "update_frequency": "mensual (boletín PDF)",
+    "release_lag": "~2-3 meses (dic-2025 subido mar-2026); boletines 2026 aún no enlazados a sep-2026",
+    "last_period": "2025-12",
+    "retrieved": "2026-09-17",
+    "access_method": "Enlaces VAYYYYMM.pdf en la página índice de BSS; pdfplumber, buscar 'Intended Length of Stay' fuera del índice y leer la línea 'Average' (2ª cifra = mes actual)."
+   }
+  },
+  {
+   "key": "investment_fdi_net",
+   "category": "investment",
+   "label": "Inversión extranjera directa neta (total economía)",
+   "unit": "BDS$ millones (paridad fija 2 BDS$ = 1 US$)",
+   "frequency": "annual",
+   "data": [
+    [
+     "2019",
+     375.3
+    ],
+    [
+     "2020",
+     509.2
+    ],
+    [
+     "2021",
+     417.8
+    ],
+    [
+     "2022",
+     528.9
+    ],
+    [
+     "2023",
+     459.8
+    ],
+    [
+     "2024",
+     523.0
+    ],
+    [
+     "2025",
+     709.5
+    ]
+   ],
+   "source": {
+    "org": "Central Bank of Barbados (CBB)",
+    "title": "Review of Barbados' Economy – Appendix 'Balance of Payments (BDS$ Millions)', fila 'Net Foreign Direct Investment'",
+    "page_url": "https://www.centralbank.org.bb/news/quarterly-economic-release",
+    "file_url": "https://cdn.centralbank.org.bb/documents/2026-07-31-14-01-23-Central-Bank-of-Barbados-Review-of-Barbados-Economy-January-to-June-2026.pdf",
+    "format": "pdf",
+    "update_frequency": "trimestral (acumulado)",
+    "release_lag": "~1 mes",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "Igual que spending_tourism_receipts (misma tabla del apéndice)."
+   }
+  }
+ ],
+ "notes": [
+  "Llegadas: se usa la última versión publicada por BSS en HTML. 2022 y ene-mar 2023 fueron revisadas al alza por BSS (nota de revisión 2023, reconciliación tras eliminar la tarjeta ED física); dic-2024 a mar-2025 revisadas a la baja (nota de revisión jun-2026, fuente alternativa por fallas IT de Inmigración).",
+  "Oct-dic 2019 NO están publicados en la versión vigente (celdas vacías en BSS y en el xlsx H1 del CBB desde 2022); una versión anterior del CBB (H1 dic-2020) mostraba cifras provisionales 52,400 / 63,311 / 76,354 luego retiradas. Se dejan fuera.",
+  "Abr-jun 2020 llegadas casi nulas por cierre de fronteras (136, 346, 494): datos reales, no huecos.",
+  "Discrepancia de vintages: el boletín BSS dic-2025 (pre-revisión) y el Ministerio de Turismo citan 727,310-729,310 llegadas en 2025; la tabla BSS revisada suma 707,046.",
+  "CBB publica también xlsx 'Table H1 – Long-stay arrivals by country & cruise' (cdn.centralbank.org.bb, p.ej. 2025-09-16-...H1LongStayCruiseJune2025.xlsx), pero con rezago mayor (último jun-2025) y vintages sin revisar; fuente original es BSS.",
+  "Ingresos por viajes: CBB marca 2022-2025 como estimados (e) y revisa entre publicaciones (2025: 2,709.3 en review ene-2026 vs 2,739.5 en review jul-2026; se usa la más reciente). Moneda BDS$; US$ = BDS$/2 por paridad fija.",
+  "Estancia media: 'intended length of stay' en DÍAS declarada por el visitante (no noches hoteleras). Dic-2024 a mar-2025 provienen de boletines originales anteriores a la revisión de llegadas. CBB cita otra métrica (7.6→7.3 noches, H1 2025→H1 2026) no publicada como serie.",
+  "Gasto medio por visitante: no hay serie oficial publicada periódicamente por BSS/CBB/BTMI (no se calcula).",
+  "Inversión: 'Net Foreign Direct Investment' del CBB es total economía, sin desglose turístico (CBB solo menciona cualitativamente inflows 'for tourism-related projects'). H1: 2025 = 367.3, 2026 = 338.3 BDS$ M."
+ ]
+}

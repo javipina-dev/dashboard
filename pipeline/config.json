@@ -1,0 +1,272 @@
+{
+  "focus": [
+    "DO",
+    "MX-CUN",
+    "MX-SJD",
+    "JM",
+    "BS"
+  ],
+  "order": [
+    "DO",
+    "MX-CUN",
+    "MX-SJD",
+    "JM",
+    "BS",
+    "PR",
+    "CU",
+    "AW",
+    "CW",
+    "BB",
+    "LC",
+    "TC",
+    "KY",
+    "CR",
+    "PA"
+  ],
+  "short": {
+    "DO": "Rep. Dominicana",
+    "MX-CUN": "Cancún",
+    "MX-SJD": "Los Cabos",
+    "JM": "Jamaica",
+    "BS": "Bahamas",
+    "PR": "Puerto Rico",
+    "CU": "Cuba",
+    "AW": "Aruba",
+    "CW": "Curazao",
+    "BB": "Barbados",
+    "LC": "Santa Lucía",
+    "TC": "Turcas y Caicos",
+    "KY": "Islas Caimán",
+    "CR": "Costa Rica",
+    "PA": "Panamá"
+  },
+  "headline": {
+    "DO": {
+      "arrivals": "arrivals_air_nonresident",
+      "arrivals_measure": "No residentes vía aérea (todos los aeropuertos)",
+      "spending": "spending_tourism_receipts",
+      "spend_extra": [
+        "spending_avg_daily",
+        "spending_avg_stay"
+      ],
+      "lag_days": {
+        "arrivals": 45,
+        "spending": 110
+      },
+      "per_arrival": [
+        "arrivals_air_nonresident",
+        "arrivals_cruise_passengers"
+      ]
+    },
+    "MX-CUN": {
+      "arrivals": "arrivals_air_international",
+      "arrivals_measure": "Turistas extranjeros vía aérea, aeropuerto CUN (solo entradas)",
+      "spending": "spending_tourism_receipts",
+      "spend_extra": [
+        "spending_avg_per_tourist_national"
+      ],
+      "lag_days": {
+        "arrivals": 50,
+        "spending": 60
+      },
+      "vs2019_alt": "passengers_air_international_total",
+      "vs2019_alt_note": "pasajeros aéreos",
+      "per_arrival": [
+        "arrivals_air_international"
+      ]
+    },
+    "MX-SJD": {
+      "arrivals": "arrivals_air_international",
+      "arrivals_measure": "Turistas extranjeros vía aérea, aeropuerto SJD (solo entradas)",
+      "spending": null,
+      "spending_note": "Sin serie oficial de gasto a nivel destino; ver dato nacional de México en el detalle.",
+      "spend_extra": [
+        "spending_avg_per_tourist_national"
+      ],
+      "lag_days": {
+        "arrivals": 50
+      },
+      "spending_detail": "spending_tourism_receipts_national",
+      "vs2019_alt": "passengers_air_international_total",
+      "vs2019_alt_note": "pasajeros aéreos"
+    },
+    "JM": {
+      "arrivals": null,
+      "arrivals_note": "Fuente oficial mensual (Jamaica Tourist Board) inaccesible desde la red actual.",
+      "spending": "spending_tourism_receipts",
+      "lag_days": {
+        "spending": 100,
+        "arrivals": 95
+      },
+      "arrivals_detail": "air_us_passengers",
+      "arrivals_proxy": "air_us_passengers",
+      "arrivals_proxy_note": "Proxy: pasajeros desde EE.UU. (US DOT)"
+    },
+    "BS": {
+      "arrivals": "arrivals_stopover",
+      "arrivals_measure": "Visitantes stopover (aire y mar)",
+      "spending": "spending_tourism_receipts",
+      "lag_days": {
+        "arrivals": 50,
+        "spending": 150
+      },
+      "per_arrival": [
+        "arrivals_total_foreign"
+      ]
+    },
+    "PR": {
+      "arrivals": "arrivals_hotel_nonresident_registrations",
+      "arrivals_measure": "Registros de no residentes en hospederías (proxy)",
+      "spending": "spending_tourism_receipts",
+      "lag_days": {
+        "arrivals": 95,
+        "spending": 200
+      }
+    },
+    "CU": {
+      "arrivals": "arrivals_visitors_total",
+      "arrivals_measure": "Visitantes internacionales (todas las vías)",
+      "spending": "spending_tourism_receipts",
+      "lag_days": {
+        "arrivals": 45,
+        "spending": 240
+      }
+    },
+    "AW": {
+      "arrivals": "arrivals_stopover",
+      "arrivals_measure": "Turistas stopover",
+      "spending": "spending_tourism_receipts",
+      "fx": {
+        "spending_tourism_receipts": [
+          0.558659,
+          "Afl. 1,79 = US$ 1"
+        ]
+      },
+      "lag_days": {
+        "arrivals": 45,
+        "spending": 60
+      },
+      "per_arrival": [
+        "arrivals_stopover"
+      ]
+    },
+    "CW": {
+      "arrivals": "arrivals_stopover",
+      "arrivals_measure": "Turistas stopover",
+      "spending": null,
+      "spending_note": "El banco central (CBCS) bloquea descargas automatizadas.",
+      "lag_days": {
+        "arrivals": 35
+      }
+    },
+    "BB": {
+      "arrivals": "arrivals_stopover",
+      "arrivals_measure": "Turistas stopover",
+      "spending": "spending_tourism_receipts",
+      "fx": {
+        "spending_tourism_receipts": [
+          0.5,
+          "BDS$ 2 = US$ 1"
+        ],
+        "spending_tourism_receipts_h1": [
+          0.5,
+          "BDS$ 2 = US$ 1"
+        ]
+      },
+      "lag_days": {
+        "arrivals": 140,
+        "spending": 60
+      }
+    },
+    "LC": {
+      "arrivals": "arrivals_stopover",
+      "arrivals_measure": "Turistas stopover",
+      "spending": "spending_tourism_receipts",
+      "fx": {
+        "spending_tourism_receipts": [
+          0.37037,
+          "EC$ 2,70 = US$ 1"
+        ],
+        "spending_tourism_receipts_annual": [
+          0.37037,
+          "EC$ 2,70 = US$ 1"
+        ]
+      },
+      "lag_days": {
+        "arrivals": 80,
+        "spending": 80
+      }
+    },
+    "TC": {
+      "arrivals": "arrivals_stopover",
+      "arrivals_measure": "Turistas stopover",
+      "spending": null,
+      "spending_note": "La balanza de pagos no desglosa la cuenta Viajes.",
+      "lag_days": {
+        "arrivals": 120
+      }
+    },
+    "KY": {
+      "arrivals": "arrivals_stopover",
+      "arrivals_measure": "Turistas stopover vía aérea",
+      "spending": "spending_tourism_receipts",
+      "fx": {
+        "spending_tourism_receipts": [
+          1.2,
+          "CI$ 1 = US$ 1,20"
+        ],
+        "spending_avg_per_visitor_night": [
+          1.2,
+          "CI$ 1 = US$ 1,20"
+        ]
+      },
+      "lag_days": {
+        "arrivals": 35,
+        "spending": 300
+      }
+    },
+    "CR": {
+      "arrivals": "arrivals_stopover",
+      "arrivals_measure": "Turistas internacionales (todas las vías)",
+      "spending": "spending_tourism_receipts",
+      "lag_days": {
+        "arrivals": 30,
+        "spending": 120
+      },
+      "per_arrival": [
+        "arrivals_stopover"
+      ]
+    },
+    "PA": {
+      "arrivals": "arrivals_stopover",
+      "arrivals_measure": "Turistas (todas las vías)",
+      "spending": "spending_tourism_receipts",
+      "lag_days": {
+        "arrivals": 50,
+        "spending": 50
+      },
+      "per_arrival": [
+        "arrivals_visitors_total"
+      ]
+    }
+  },
+  "share_universe": [
+    "DO",
+    "MX-CUN",
+    "MX-SJD",
+    "BS",
+    "AW",
+    "CW",
+    "BB",
+    "LC",
+    "KY",
+    "CR",
+    "PA"
+  ],
+  "share_excluded": {
+    "CU": "mide todos los visitantes internacionales, no solo turistas",
+    "PR": "usa registros hoteleros como proxy",
+    "JM": "sin serie mensual accesible",
+    "TC": "sin datos mensuales de 2026"
+  }
+}

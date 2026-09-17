@@ -1,0 +1,485 @@
+{
+ "id": "CU",
+ "name": "Cuba",
+ "type": "country",
+ "lat": 23.11,
+ "lon": -82.37,
+ "series": [
+  {
+   "key": "arrivals_visitors_total",
+   "category": "arrivals",
+   "label": "Llegadas de visitantes internacionales",
+   "unit": "personas",
+   "frequency": "monthly",
+   "data": [
+    [
+     "2019-01",
+     486612
+    ],
+    [
+     "2019-02",
+     455573
+    ],
+    [
+     "2019-03",
+     518223
+    ],
+    [
+     "2019-04",
+     456883
+    ],
+    [
+     "2019-05",
+     357922
+    ],
+    [
+     "2019-06",
+     274600
+    ],
+    [
+     "2019-07",
+     294813
+    ],
+    [
+     "2019-08",
+     269113
+    ],
+    [
+     "2019-09",
+     201574
+    ],
+    [
+     "2019-10",
+     235897
+    ],
+    [
+     "2019-11",
+     333066
+    ],
+    [
+     "2019-12",
+     378839
+    ],
+    [
+     "2020-01",
+     393660
+    ],
+    [
+     "2020-02",
+     398845
+    ],
+    [
+     "2020-03",
+     189431
+    ],
+    [
+     "2020-04",
+     1163
+    ],
+    [
+     "2020-05",
+     1033
+    ],
+    [
+     "2020-06",
+     1067
+    ],
+    [
+     "2020-07",
+     1474
+    ],
+    [
+     "2020-08",
+     1310
+    ],
+    [
+     "2020-09",
+     1700
+    ],
+    [
+     "2020-10",
+     3335
+    ],
+    [
+     "2020-11",
+     27973
+    ],
+    [
+     "2020-12",
+     64929
+    ],
+    [
+     "2021-01",
+     22349
+    ],
+    [
+     "2021-02",
+     13204
+    ],
+    [
+     "2021-03",
+     12542
+    ],
+    [
+     "2021-04",
+     16575
+    ],
+    [
+     "2021-05",
+     23540
+    ],
+    [
+     "2021-06",
+     26229
+    ],
+    [
+     "2021-07",
+     26860
+    ],
+    [
+     "2021-08",
+     22425
+    ],
+    [
+     "2021-09",
+     17011
+    ],
+    [
+     "2021-10",
+     23212
+    ],
+    [
+     "2021-11",
+     51184
+    ],
+    [
+     "2021-12",
+     101339
+    ],
+    [
+     "2022-01",
+     86428
+    ],
+    [
+     "2022-02",
+     99224
+    ],
+    [
+     "2022-03",
+     129067
+    ],
+    [
+     "2022-04",
+     133271
+    ],
+    [
+     "2022-05",
+     116841
+    ],
+    [
+     "2022-06",
+     117596
+    ],
+    [
+     "2022-07",
+     152430
+    ],
+    [
+     "2022-08",
+     136571
+    ],
+    [
+     "2022-09",
+     103354
+    ],
+    [
+     "2022-10",
+     123589
+    ],
+    [
+     "2022-11",
+     178854
+    ],
+    [
+     "2022-12",
+     236862
+    ],
+    [
+     "2023-01",
+     249215
+    ],
+    [
+     "2023-02",
+     239751
+    ],
+    [
+     "2023-03",
+     263465
+    ],
+    [
+     "2023-04",
+     231653
+    ],
+    [
+     "2023-05",
+     159850
+    ],
+    [
+     "2023-06",
+     154618
+    ],
+    [
+     "2023-07",
+     190775
+    ],
+    [
+     "2023-08",
+     177671
+    ],
+    [
+     "2023-09",
+     147211
+    ],
+    [
+     "2023-10",
+     158964
+    ],
+    [
+     "2023-11",
+     204668
+    ],
+    [
+     "2023-12",
+     259139
+    ],
+    [
+     "2024-01",
+     259819
+    ],
+    [
+     "2024-02",
+     268097
+    ],
+    [
+     "2024-03",
+     281025
+    ],
+    [
+     "2024-04",
+     215148
+    ],
+    [
+     "2024-05",
+     150473
+    ],
+    [
+     "2024-06",
+     135093
+    ],
+    [
+     "2024-07",
+     153254
+    ],
+    [
+     "2024-08",
+     144959
+    ],
+    [
+     "2024-09",
+     111141
+    ],
+    [
+     "2024-10",
+     125799
+    ],
+    [
+     "2024-11",
+     160519
+    ],
+    [
+     "2024-12",
+     197790
+    ],
+    [
+     "2025-01",
+     196345
+    ],
+    [
+     "2025-02",
+     178793
+    ],
+    [
+     "2025-03",
+     198225
+    ],
+    [
+     "2025-04",
+     169627
+    ],
+    [
+     "2025-05",
+     122207
+    ],
+    [
+     "2025-06",
+     120409
+    ],
+    [
+     "2025-07",
+     143225
+    ],
+    [
+     "2025-08",
+     135501
+    ],
+    [
+     "2025-09",
+     103515
+    ],
+    [
+     "2025-10",
+     110299
+    ],
+    [
+     "2025-11",
+     151573
+    ],
+    [
+     "2025-12",
+     180944
+    ],
+    [
+     "2026-01",
+     184833
+    ],
+    [
+     "2026-02",
+     77663
+    ],
+    [
+     "2026-03",
+     35561
+    ],
+    [
+     "2026-04",
+     30551
+    ],
+    [
+     "2026-05",
+     30883
+    ],
+    [
+     "2026-06",
+     28100
+    ],
+    [
+     "2026-07",
+     32272
+    ]
+   ],
+   "source": {
+    "org": "Oficina Nacional de Estadística e Información (ONEI), con datos de la Dirección de Identificación, Inmigración y Extranjería (DIIE)",
+    "title": "Arribo de viajeros. Visitantes internacionales <Mes> <Año> (información preliminar mensual; cierre de diciembre) + Anuario Estadístico de Cuba 2023/2024, cap. 15 Turismo (Visitantes por meses) para 2019-2024",
+    "page_url": "https://www.onei.gob.cu/arribo-de-viajeros-visitantes-internacionales-julio-2026",
+    "file_url": "https://www.onei.gob.cu/sites/default/files/publicaciones/2026-08/arribo-de-viajeros-visitantes-internacionales-julio-2026.pdf",
+    "format": "pdf",
+    "update_frequency": "mensual",
+    "release_lag": "~2-5 semanas tras cierre de mes (carpeta /publicaciones/<AAAA-MM> del mes de publicación)",
+    "last_period": "2026-07",
+    "retrieved": "2026-09-17",
+    "access_method": "Página de nodo https://onei.gob.cu/arribo-de-viajeros-visitantes-internacionales-<mes>-<año> enlaza PDF (+ .rar y visitantes-por-paises-<mes>-<año>.xlsx). Usar host sin \"www\" (www.onei.gob.cu HTTPS da error de proxy y HTTP sirve página JS intermedia); certificado TLS vencido y conexiones intermitentes → reintentos. El PDF (texto) solo trae acumulados en tabla; los valores mensuales del año en curso están como etiquetas de datos del gráfico de barras (texto rotado) → pdfplumber agrupando caracteres por x; se valida suma = acumulado oficial. Nombres de archivo varían (p.ej. \"arribo-de-viajeros.-visitantes-...\" en 2023-2024)."
+   }
+  },
+  {
+   "key": "spending_tourism_receipts",
+   "category": "spending",
+   "label": "Ingresos por turismo internacional (excluye transporte internacional)",
+   "unit": "US$ millones (tipo de cambio oficial de cada año)",
+   "frequency": "annual",
+   "data": [
+    [
+     "2019",
+     2596.2
+    ],
+    [
+     "2020",
+     1137.1
+    ],
+    [
+     "2021",
+     404.1
+    ],
+    [
+     "2022",
+     1037.0
+    ],
+    [
+     "2023",
+     1269.1
+    ],
+    [
+     "2024",
+     1250.9
+    ]
+   ],
+   "source": {
+    "org": "Oficina Nacional de Estadística e Información (ONEI)",
+    "title": "Anuario Estadístico de Cuba 2024 (ed. 2025), cap. 15 Turismo, tabla 15.14 Ingresos asociados al turismo internacional (2019 de la ed. 2024)",
+    "page_url": "https://www.onei.gob.cu/anuario-estadistico-de-cuba-2024",
+    "file_url": "https://www.onei.gob.cu/sites/default/files/publicaciones/2025-08/15-turismo_aec2024.pdf",
+    "format": "pdf",
+    "update_frequency": "anual",
+    "release_lag": "~8 meses tras cierre del año",
+    "last_period": "2024",
+    "retrieved": "2026-09-17",
+    "access_method": "Descargar PDF del capítulo 15 desde la página del Anuario; decodificar texto (cid:N)→chr(N+29) y regex sobre la tabla \"Ingresos asociados al turismo internacional\" (5 años por edición)."
+   }
+  },
+  {
+   "key": "spending_intl_tourism_entities_revenue",
+   "category": "spending",
+   "label": "Ingresos de entidades turísticas por turismo internacional",
+   "unit": "CUP millones (pesos cubanos corrientes)",
+   "frequency": "annual",
+   "data": [
+    [
+     "2022",
+     19200.0
+    ],
+    [
+     "2023",
+     118136.9
+    ],
+    [
+     "2024",
+     120652.1
+    ],
+    [
+     "2025",
+     109426.8
+    ]
+   ],
+   "source": {
+    "org": "Oficina Nacional de Estadística e Información (ONEI)",
+    "title": "Turismo. Indicadores seleccionados, enero-diciembre (tabla 4. Principales indicadores del turismo internacional)",
+    "page_url": "https://www.onei.gob.cu/turismo-indicadores-seleccionados-enero-diciembre-2025",
+    "file_url": "https://www.onei.gob.cu/sites/default/files/publicaciones/2026-03/turismo-trimestral-diciembre-2025_0.pdf",
+    "format": "pdf",
+    "update_frequency": "trimestral (acumulado ene-mar, ene-jun, ene-sep, ene-dic)",
+    "release_lag": "~2-3 meses tras cierre del trimestre",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "PDF de texto con partes en (cid:N)→chr(N+29); regex fila \"Ingresos (Entidades Turísticas) MCUP\". Cargado solo el cierre anual (ene-dic); los acumulados trimestrales 2026 no se descargaron."
+   }
+  }
+ ],
+ "notes": [
+  "Concepto: \"visitantes internacionales\" (no residentes que visitan Cuba por menos de un año, cualquier motivo salvo actividad remunerada), según registros migratorios (DIIE/MININT); incluye la \"Comunidad cubana en el exterior\". El Anuario muestra que casi todos pernoctan (turistas 2024: 2 202 540 de 2 203 117 visitantes), pero la serie mensual solo se publica para visitantes, por eso la clave es arrivals_visitors_total.",
+  "Fuentes mensuales: 2019 del Anuario Estadístico de Cuba 2023 (tabla 15.5); 2020-2024 del Anuario 2024 (tabla 15.4, cifras revisadas: p.ej. 2020 = 1 085 920 vs 1 084 728 en ediciones previas); 2025-2026 de los PDF mensuales \"Arribo de viajeros\", donde los valores del año en curso figuran como etiquetas de datos oficiales del gráfico de barras; se validó suma de meses = acumulado oficial y coincidencia con el Anuario en 2023-2024.",
+  "2026 es preliminar (último informe: julio 2026; agosto 2026 aún no publicado al 2026-09-17). El informe de cierre de diciembre ajusta el año.",
+  "Gasto: \"Ingresos por turismo internacional\" (Anuario, tabla 15.14/15.15) en millones de USD al tipo de cambio oficial vigente cada año (distorsionado tras la unificación monetaria de 2021, tasa oficial 1:24 y luego 1:120 desde dic-2022); excluye transporte internacional (12,5-41,8 MUSD). Incluye sector privado. Anual, rezago ~8 meses (Anuario 2024 publicado ago-2025).",
+  "Gasto alterno más reciente: \"Ingresos (Entidades Turísticas)\" del turismo internacional en \"Turismo. Indicadores seleccionados\" (trimestral acumulado), en millones de CUP corrientes; no comparable en el tiempo por cambios cambiarios (2022→2023 +515%). Solo entidades turísticas.",
+  "ONEI no publica gasto medio por visitante ni estadía media para visitantes internacionales (solo pernoctaciones en establecimientos de alojamiento); no se derivaron.",
+  "Acceso: sitio ONEI con certificado TLS vencido, host www con error de proxy/página JS intermedia, y cortes prolongados (servidor inalcanzable ~30 min el 2026-09-17). Usar https://onei.gob.cu (sin www) con reintentos. PDF del Anuario 2024 con fuentes subset (texto (cid:N) → chr(N+29)). También existen XLS por tabla del Anuario en /turismo-0 (solo edición 2022 enlazada)."
+ ]
+}

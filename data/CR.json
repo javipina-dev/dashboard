@@ -1,0 +1,942 @@
+{
+ "id": "CR",
+ "name": "Costa Rica",
+ "type": "country",
+ "lat": 9.93,
+ "lon": -84.08,
+ "series": [
+  {
+   "key": "arrivals_stopover",
+   "category": "arrivals",
+   "label": "Llegadas internacionales de turistas (todas las vías)",
+   "unit": "personas",
+   "frequency": "monthly",
+   "data": [
+    [
+     "2019-01",
+     355321
+    ],
+    [
+     "2019-02",
+     312774
+    ],
+    [
+     "2019-03",
+     335558
+    ],
+    [
+     "2019-04",
+     262016
+    ],
+    [
+     "2019-05",
+     211598
+    ],
+    [
+     "2019-06",
+     248696
+    ],
+    [
+     "2019-07",
+     269376
+    ],
+    [
+     "2019-08",
+     225299
+    ],
+    [
+     "2019-09",
+     160206
+    ],
+    [
+     "2019-10",
+     185599
+    ],
+    [
+     "2019-11",
+     245643
+    ],
+    [
+     "2019-12",
+     326922
+    ],
+    [
+     "2020-01",
+     358665
+    ],
+    [
+     "2020-02",
+     341008
+    ],
+    [
+     "2020-03",
+     162994
+    ],
+    [
+     "2020-04",
+     8342
+    ],
+    [
+     "2020-05",
+     3803
+    ],
+    [
+     "2020-06",
+     7210
+    ],
+    [
+     "2020-07",
+     1022
+    ],
+    [
+     "2020-08",
+     2357
+    ],
+    [
+     "2020-09",
+     3817
+    ],
+    [
+     "2020-10",
+     10147
+    ],
+    [
+     "2020-11",
+     37573
+    ],
+    [
+     "2020-12",
+     74974
+    ],
+    [
+     "2021-01",
+     62200
+    ],
+    [
+     "2021-02",
+     55252
+    ],
+    [
+     "2021-03",
+     89263
+    ],
+    [
+     "2021-04",
+     89284
+    ],
+    [
+     "2021-05",
+     95854
+    ],
+    [
+     "2021-06",
+     124670
+    ],
+    [
+     "2021-07",
+     154706
+    ],
+    [
+     "2021-08",
+     122162
+    ],
+    [
+     "2021-09",
+     85183
+    ],
+    [
+     "2021-10",
+     100102
+    ],
+    [
+     "2021-11",
+     151701
+    ],
+    [
+     "2021-12",
+     216678
+    ],
+    [
+     "2022-01",
+     188200
+    ],
+    [
+     "2022-02",
+     200164
+    ],
+    [
+     "2022-03",
+     243245
+    ],
+    [
+     "2022-04",
+     213714
+    ],
+    [
+     "2022-05",
+     176237
+    ],
+    [
+     "2022-06",
+     202204
+    ],
+    [
+     "2022-07",
+     222982
+    ],
+    [
+     "2022-08",
+     178515
+    ],
+    [
+     "2022-09",
+     122188
+    ],
+    [
+     "2022-10",
+     137099
+    ],
+    [
+     "2022-11",
+     204877
+    ],
+    [
+     "2022-12",
+     260112
+    ],
+    [
+     "2023-01",
+     272444
+    ],
+    [
+     "2023-02",
+     278296
+    ],
+    [
+     "2023-03",
+     293555
+    ],
+    [
+     "2023-04",
+     236611
+    ],
+    [
+     "2023-05",
+     187399
+    ],
+    [
+     "2023-06",
+     221152
+    ],
+    [
+     "2023-07",
+     244967
+    ],
+    [
+     "2023-08",
+     196233
+    ],
+    [
+     "2023-09",
+     131828
+    ],
+    [
+     "2023-10",
+     149548
+    ],
+    [
+     "2023-11",
+     231498
+    ],
+    [
+     "2023-12",
+     307603
+    ],
+    [
+     "2024-01",
+     299194
+    ],
+    [
+     "2024-02",
+     317830
+    ],
+    [
+     "2024-03",
+     350300
+    ],
+    [
+     "2024-04",
+     242511
+    ],
+    [
+     "2024-05",
+     216702
+    ],
+    [
+     "2024-06",
+     244355
+    ],
+    [
+     "2024-07",
+     258942
+    ],
+    [
+     "2024-08",
+     200996
+    ],
+    [
+     "2024-09",
+     123371
+    ],
+    [
+     "2024-10",
+     138330
+    ],
+    [
+     "2024-11",
+     220839
+    ],
+    [
+     "2024-12",
+     306113
+    ],
+    [
+     "2025-01",
+     298475
+    ],
+    [
+     "2025-02",
+     293784
+    ],
+    [
+     "2025-03",
+     336476
+    ],
+    [
+     "2025-04",
+     252867
+    ],
+    [
+     "2025-05",
+     205803
+    ],
+    [
+     "2025-06",
+     232571
+    ],
+    [
+     "2025-07",
+     262048
+    ],
+    [
+     "2025-08",
+     199959
+    ],
+    [
+     "2025-09",
+     121815
+    ],
+    [
+     "2025-10",
+     145663
+    ],
+    [
+     "2025-11",
+     247387
+    ],
+    [
+     "2025-12",
+     347143
+    ],
+    [
+     "2026-01",
+     321992
+    ],
+    [
+     "2026-02",
+     331967
+    ],
+    [
+     "2026-03",
+     379818
+    ],
+    [
+     "2026-04",
+     256030
+    ],
+    [
+     "2026-05",
+     213089
+    ],
+    [
+     "2026-06",
+     230700
+    ],
+    [
+     "2026-07",
+     268064
+    ],
+    [
+     "2026-08",
+     189772
+    ]
+   ],
+   "source": {
+    "org": "Instituto Costarricense de Turismo (ICT), Departamento de Estadística Turística, con datos de la Dirección General de Migración y Extranjería (DGME)",
+    "title": "Llegadas internacionales de turistas 2026 (informe mensual acumulado) – Cuadro 11/12: llegadas por mes 2019-2026",
+    "page_url": "https://www.ict.go.cr/es/estadisticas/informes-estadisticos.html",
+    "file_url": "https://www.ict.go.cr/en/documents/estad%C3%ADsticas/informes-estad%C3%ADsticos/recientes/2893-2025/file.html",
+    "format": "pdf",
+    "update_frequency": "mensual (el mismo PDF se reemplaza cada mes; anuario y Excel de series anuales al cierre del año)",
+    "release_lag": "~2-4 semanas tras cierre de mes (DGME entrega base en los primeros 10 días del mes siguiente)",
+    "last_period": "2026-08",
+    "retrieved": "2026-09-17",
+    "access_method": "Descargar PDF \"Recientes 2026\" desde la página Movimientos Migratorios (enlace fijo /recientes/2893-.../file.html, texto nativo); pdfplumber: página \"Cuadro 11/12\" (meses × años 2019-2026), números con espacio como separador de miles → asignar palabras a columnas por posición x. Excel de series (3242-series-sitio-web-ict-2025) solo trae totales anuales."
+   }
+  },
+  {
+   "key": "arrivals_air_international",
+   "category": "arrivals",
+   "label": "Llegadas internacionales de turistas por vía aérea (SJO, LIR, Tobías Bolaños, Limón)",
+   "unit": "personas",
+   "frequency": "monthly",
+   "data": [
+    [
+     "2019-01",
+     248754
+    ],
+    [
+     "2019-02",
+     250939
+    ],
+    [
+     "2019-03",
+     276036
+    ],
+    [
+     "2019-04",
+     198989
+    ],
+    [
+     "2019-05",
+     164992
+    ],
+    [
+     "2019-06",
+     196977
+    ],
+    [
+     "2019-07",
+     213125
+    ],
+    [
+     "2019-08",
+     174109
+    ],
+    [
+     "2019-09",
+     112102
+    ],
+    [
+     "2019-10",
+     135320
+    ],
+    [
+     "2019-11",
+     191346
+    ],
+    [
+     "2019-12",
+     255611
+    ],
+    [
+     "2020-01",
+     261658
+    ],
+    [
+     "2020-02",
+     276970
+    ],
+    [
+     "2020-03",
+     127201
+    ],
+    [
+     "2020-04",
+     505
+    ],
+    [
+     "2020-05",
+     517
+    ],
+    [
+     "2020-06",
+     625
+    ],
+    [
+     "2020-07",
+     418
+    ],
+    [
+     "2020-08",
+     1636
+    ],
+    [
+     "2020-09",
+     3371
+    ],
+    [
+     "2020-10",
+     9888
+    ],
+    [
+     "2020-11",
+     36044
+    ],
+    [
+     "2020-12",
+     71000
+    ],
+    [
+     "2021-01",
+     60619
+    ],
+    [
+     "2021-02",
+     54745
+    ],
+    [
+     "2021-03",
+     88391
+    ],
+    [
+     "2021-04",
+     85846
+    ],
+    [
+     "2021-05",
+     90321
+    ],
+    [
+     "2021-06",
+     117527
+    ],
+    [
+     "2021-07",
+     146915
+    ],
+    [
+     "2021-08",
+     114227
+    ],
+    [
+     "2021-09",
+     77599
+    ],
+    [
+     "2021-10",
+     91292
+    ],
+    [
+     "2021-11",
+     141099
+    ],
+    [
+     "2021-12",
+     201902
+    ],
+    [
+     "2022-01",
+     169585
+    ],
+    [
+     "2022-02",
+     184358
+    ],
+    [
+     "2022-03",
+     225411
+    ],
+    [
+     "2022-04",
+     194181
+    ],
+    [
+     "2022-05",
+     160944
+    ],
+    [
+     "2022-06",
+     186097
+    ],
+    [
+     "2022-07",
+     204878
+    ],
+    [
+     "2022-08",
+     159753
+    ],
+    [
+     "2022-09",
+     102705
+    ],
+    [
+     "2022-10",
+     116925
+    ],
+    [
+     "2022-11",
+     181721
+    ],
+    [
+     "2022-12",
+     231402
+    ],
+    [
+     "2023-01",
+     240487
+    ],
+    [
+     "2023-02",
+     250038
+    ],
+    [
+     "2023-03",
+     266578
+    ],
+    [
+     "2023-04",
+     210717
+    ],
+    [
+     "2023-05",
+     168248
+    ],
+    [
+     "2023-06",
+     202235
+    ],
+    [
+     "2023-07",
+     223296
+    ],
+    [
+     "2023-08",
+     174913
+    ],
+    [
+     "2023-09",
+     111696
+    ],
+    [
+     "2023-10",
+     129201
+    ],
+    [
+     "2023-11",
+     212646
+    ],
+    [
+     "2023-12",
+     281095
+    ],
+    [
+     "2024-01",
+     270712
+    ],
+    [
+     "2024-02",
+     291152
+    ],
+    [
+     "2024-03",
+     322400
+    ],
+    [
+     "2024-04",
+     221573
+    ],
+    [
+     "2024-05",
+     199154
+    ],
+    [
+     "2024-06",
+     227452
+    ],
+    [
+     "2024-07",
+     239368
+    ],
+    [
+     "2024-08",
+     182800
+    ],
+    [
+     "2024-09",
+     105100
+    ],
+    [
+     "2024-10",
+     122188
+    ],
+    [
+     "2024-11",
+     201152
+    ],
+    [
+     "2024-12",
+     278437
+    ],
+    [
+     "2025-01",
+     266675
+    ],
+    [
+     "2025-02",
+     270810
+    ],
+    [
+     "2025-03",
+     312844
+    ],
+    [
+     "2025-04",
+     231678
+    ],
+    [
+     "2025-05",
+     189881
+    ],
+    [
+     "2025-06",
+     217120
+    ],
+    [
+     "2025-07",
+     242408
+    ],
+    [
+     "2025-08",
+     182342
+    ],
+    [
+     "2025-09",
+     104246
+    ],
+    [
+     "2025-10",
+     129369
+    ],
+    [
+     "2025-11",
+     225679
+    ],
+    [
+     "2025-12",
+     316226
+    ],
+    [
+     "2026-01",
+     294087
+    ],
+    [
+     "2026-02",
+     308873
+    ],
+    [
+     "2026-03",
+     356778
+    ],
+    [
+     "2026-04",
+     235533
+    ],
+    [
+     "2026-05",
+     195571
+    ],
+    [
+     "2026-06",
+     214518
+    ],
+    [
+     "2026-07",
+     248070
+    ],
+    [
+     "2026-08",
+     171602
+    ]
+   ],
+   "source": {
+    "org": "Instituto Costarricense de Turismo (ICT), Departamento de Estadística Turística, con datos de la Dirección General de Migración y Extranjería (DGME)",
+    "title": "Llegadas internacionales de turistas 2026 (informe mensual acumulado) – Cuadro 11/12: llegadas por mes 2019-2026",
+    "page_url": "https://www.ict.go.cr/es/estadisticas/informes-estadisticos.html",
+    "file_url": "https://www.ict.go.cr/en/documents/estad%C3%ADsticas/informes-estad%C3%ADsticos/recientes/2893-2025/file.html",
+    "format": "pdf",
+    "update_frequency": "mensual (el mismo PDF se reemplaza cada mes; anuario y Excel de series anuales al cierre del año)",
+    "release_lag": "~2-4 semanas tras cierre de mes (DGME entrega base en los primeros 10 días del mes siguiente)",
+    "last_period": "2026-08",
+    "retrieved": "2026-09-17",
+    "access_method": "Descargar PDF \"Recientes 2026\" desde la página Movimientos Migratorios (enlace fijo /recientes/2893-.../file.html, texto nativo); pdfplumber: página \"Cuadro 11/12\" (meses × años 2019-2026), números con espacio como separador de miles → asignar palabras a columnas por posición x. Excel de series (3242-series-sitio-web-ict-2025) solo trae totales anuales."
+   }
+  },
+  {
+   "key": "spending_tourism_receipts",
+   "category": "spending",
+   "label": "Ingreso de divisas por turismo (balanza de pagos, excluye cruceristas)",
+   "unit": "US$ millones",
+   "frequency": "annual",
+   "data": [
+    [
+     "2019",
+     3980.1
+    ],
+    [
+     "2020",
+     1324.1
+    ],
+    [
+     "2021",
+     1716.6
+    ],
+    [
+     "2022",
+     3905.1
+    ],
+    [
+     "2023",
+     4754.4
+    ],
+    [
+     "2024",
+     5433.6
+    ],
+    [
+     "2025",
+     5543.7
+    ]
+   ],
+   "source": {
+    "org": "Banco Central de Costa Rica (BCCR), publicado por ICT",
+    "title": "Divisas por concepto de turismo 2000-2025 (Cuadro 1)",
+    "page_url": "https://www.ict.go.cr/es/estadisticas/cifras-economicas.html",
+    "file_url": "https://www.ict.go.cr/es/documentos-institucionales/estad%C3%ADsticas/cifras-econ%C3%B3micas/costa-rica/3286-divisas-turismo-2025-bccr/file.html",
+    "format": "pdf",
+    "update_frequency": "anual (BCCR compila trimestral en balanza de pagos)",
+    "release_lag": "~2-3 meses tras cierre del año (2025 preliminar)",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "PDF de texto en ICT > Estadísticas > Cifras económicas; regex sobre Cuadro 1. Alternativa trimestral: BCCR Indicadores Económicos, balanza de pagos, cuenta Viajes (crédito)."
+   }
+  },
+  {
+   "key": "spending_avg_per_visitor",
+   "category": "spending",
+   "label": "Gasto medio por persona de turistas no residentes (todas las vías, por estadía)",
+   "unit": "US$",
+   "frequency": "annual",
+   "data": [
+    [
+     "2019",
+     1190.3
+    ],
+    [
+     "2020",
+     1318.6
+    ],
+    [
+     "2021",
+     1497.4
+    ],
+    [
+     "2022",
+     1470.3
+    ],
+    [
+     "2023",
+     1746.7
+    ],
+    [
+     "2024",
+     1508.5
+    ],
+    [
+     "2025",
+     1728.2
+    ]
+   ],
+   "source": {
+    "org": "Instituto Costarricense de Turismo (ICT) – Encuestas de No Residentes aéreas y terrestres",
+    "title": "Gasto medio por persona (GMP) en US$ de los turistas no residentes 2015-2025",
+    "page_url": "https://www.ict.go.cr/es/estadisticas/cifras-turisticas.html",
+    "file_url": "https://www.ict.go.cr/es/documentos-institucionales/estad%C3%ADsticas/cifras-tur%C3%ADsticas/gasto-y-estadia-media/2589-gmp-todas-vias-2015-2025/file.html",
+    "format": "pdf",
+    "update_frequency": "anual",
+    "release_lag": "~3-6 meses tras cierre del año",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "PDF de texto (ICT > Cifras turísticas > Gasto y estadía media); regex fila \"GMP TOTAL\"."
+   }
+  },
+  {
+   "key": "spending_avg_stay",
+   "category": "spending",
+   "label": "Estadía media de turistas no residentes (vía aérea)",
+   "unit": "noches",
+   "frequency": "annual",
+   "data": [
+    [
+     "2019",
+     12.6
+    ],
+    [
+     "2020",
+     12.9
+    ],
+    [
+     "2021",
+     13.6
+    ],
+    [
+     "2022",
+     13.5
+    ],
+    [
+     "2023",
+     12.9
+    ],
+    [
+     "2024",
+     12.2
+    ],
+    [
+     "2025",
+     10.3
+    ]
+   ],
+   "source": {
+    "org": "Instituto Costarricense de Turismo (ICT) – Encuestas No Residentes en aeropuertos internacionales",
+    "title": "Gasto medio por persona (GMP) y estadía media, vía aérea 2006-2025",
+    "page_url": "https://www.ict.go.cr/es/estadisticas/cifras-turisticas.html",
+    "file_url": "https://www.ict.go.cr/es/documentos-institucionales/estad%C3%ADsticas/cifras-tur%C3%ADsticas/gasto-y-estadia-media/2590-gmp-y-estadia-media-via-aerea-2006-2025/file.html",
+    "format": "pdf",
+    "update_frequency": "anual",
+    "release_lag": "~3-6 meses tras cierre del año",
+    "last_period": "2025",
+    "retrieved": "2026-09-17",
+    "access_method": "PDF de texto; regex \"año GMP estadía\" en Cuadro 1 (años 2020-2023 llevan superíndice de nota pegado al año)."
+   }
+  }
+ ],
+ "notes": [
+  "Llegadas internacionales de turistas = visitantes que pernoctan (no residentes), registradas por la DGME en puestos migratorios; no incluye cruceristas. Todas las vías = aérea + terrestre/fluvial + marítima (sin cruceros).",
+  "La vía aérea incluye Juan Santamaría (SJO), Daniel Oduber (LIR, Guanacaste), Tobías Bolaños y Limón. El PDF mensual también desglosa SJO y LIR (Cuadros 13-14) y vía terrestre (solo año en curso).",
+  "Los datos del año en curso (2026) son preliminares; el PDF \"recientes\" se sobreescribe mensualmente en la misma URL.",
+  "Gasto: ingreso de divisas por turismo proviene de la balanza de pagos del BCCR (MBP6, sin cruceristas); 2025 preliminar. El GMP es por persona y por estadía completa (no por día), ponderado por vía; 2020-2023 con metodología alterada (encuestas parciales/en línea; vía terrestre estimada por BCCR).",
+  "Estadía media publicada solo para vía aérea.",
+  "Serie mensual ICT disponible en PDF; el Excel \"series sitio web\" contiene únicamente totales anuales por país."
+ ]
+}

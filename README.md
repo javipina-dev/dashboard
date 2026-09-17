@@ -1,0 +1,99 @@
+# Radar Turístico del Caribe
+
+Dashboard de llegadas de turistas y gasto turístico del Caribe, Cancún y Los Cabos,
+construido **solo con fuentes oficiales**: bancos centrales, ministerios y autoridades
+de turismo, institutos de estadística y autoridades de aviación civil.
+
+**Dashboard publicado:** https://claude.ai/artifact/XcZREJ1HQUnZKLaTSu5bY1
+
+## Qué contiene
+
+- **15 destinos**: República Dominicana, Cancún, Los Cabos, Jamaica, Bahamas, Puerto Rico,
+  Cuba, Aruba, Curazao, Barbados, Santa Lucía, Turcas y Caicos, Islas Caimán, Costa Rica y Panamá.
+- **Llegadas mensuales** desde 2019 con la definición oficial de cada país.
+- **Gasto turístico**: cuenta «Viajes» de la balanza de pagos o la estimación oficial
+  equivalente, más gasto medio y estadía donde se publiquen.
+- **Conectividad aérea**: pasajeros, asientos y vuelos desde Estados Unidos (US DOT T-100),
+  operaciones por aeropuerto de la JAC (RD) y la AFAC (México).
+- **República Dominicana con detalle propio**: 11 polos turísticos (llegadas por aeropuerto,
+  ocupación, habitaciones, hoteles, % de huéspedes extranjeros) y mercados de origen por país.
+
+## Cómo actualizarlo
+
+```bash
+python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
+.venv/bin/python run_all.py
+```
+
+`run_all.py` ejecuta cada extractor, valida y reconstruye `pipeline/dist/index.html`.
+Si un extractor falla, los demás siguen y el JSON anterior de ese destino se conserva.
+El resultado queda en `run_report.json`.
+
+Opciones útiles:
+
+```bash
+.venv/bin/python run_all.py --only DO,DO_poles,AIR_bts   # solo algunos
+.venv/bin/python run_all.py --skip KY                    # omitir el que necesita navegador
+.venv/bin/python run_all.py --build-only                 # solo reconstruir el HTML
+```
+
+Para publicar el dashboard actualizado hay que subir `pipeline/dist/index.html` al artifact
+existente, conservando su URL. La tarea programada en la nube lo hace cada semana.
+
+## Estructura
+
+```
+data/<ID>.json           series nacionales por destino (llegadas, gasto, hotelería)
+data/air/<ID>.json       conectividad aérea
+data/markets/<ID>.json   llegadas por país de residencia
+data/poles/DO.json       polos turísticos de República Dominicana
+data/scripts/*.py        un extractor por fuente; re-descarga desde la URL oficial
+data/raw/                archivos descargados (no se versionan)
+pipeline/config.json     qué serie es la principal de cada destino, paridades fijas,
+                         rezagos de publicación, universo de cuota de mercado
+pipeline/template.html   el dashboard: HTML, CSS y JS, sin dependencias externas
+pipeline/build.py        une los JSON + config + mapas y escribe pipeline/dist/index.html
+pipeline/make_map*.py    generan los mapas base (Caribe y RD) desde world-atlas
+run_all.py               orquestador: extrae, valida y construye
+```
+
+## Calendario de publicación de las fuentes
+
+El dashboard muestra el calendario completo con el último dato y la fecha esperada del
+siguiente. En resumen:
+
+| Fuente | Frecuencia | Rezago |
+|---|---|---|
+| Banco Central de RD (llegadas, ocupación) | Mensual | 4–8 semanas |
+| Junta de Aviación Civil de RD (operaciones) | Mensual | 2–3 semanas |
+| MITUR RD (habitaciones, polos) | Mensual y trimestral | 1–6 semanas |
+| DataTur y migración de México | Mensual | 5–7 semanas |
+| AFAC México (operaciones) | Mensual | 4 semanas |
+| Ministerio de Turismo de Bahamas | Mensual | 6–7 semanas |
+| US DOT T-100 (conectividad) | Mensual | ~3 meses |
+| Bancos centrales (gasto, balanza de pagos) | Trimestral o anual | 3–5 meses |
+
+## Reglas que sigue este repositorio
+
+1. **Solo fuentes oficiales.** Nada de agregadores de pago, prensa ni estimaciones propias.
+2. **Ningún valor se inventa ni se interpola.** Si un mes no está publicado, no aparece.
+3. **Cada serie se valida** contra los totales que publica la propia fuente antes de entrar.
+4. **Los indicadores calculados se marcan como tales** en el dashboard (llegadas por
+   habitación, gasto por llegada, cuota de mercado).
+5. **Las monedas locales se convierten** a dólares con la paridad fija oficial, indicada en
+   la serie.
+
+## Limitaciones conocidas
+
+- **Jamaica** no tiene serie mensual nacional accesible: el sitio de estadísticas del Jamaica
+  Tourist Board está bloqueado por firewall. Se usa como sustituto el tráfico aéreo desde
+  Estados Unidos del US DOT, señalado como proxy en el dashboard.
+- **Curazao** no tiene gasto turístico: el banco central bloquea descargas automatizadas.
+- **Islas Caimán** publica las llegadas solo en un tablero Tableau sin descarga; requiere
+  navegador headless, y es el extractor más frágil.
+- **Los Cabos** no tiene gasto a nivel destino; solo existe el dato nacional de México.
+- **Ningún país publica gasto turístico por zona o polo.** En RD el detalle por polo llega
+  hasta ocupación, habitaciones y llegadas por aeropuerto.
+- Los niveles de llegadas **no son comparables entre destinos** porque cada país mide algo
+  distinto (no residentes por vía aérea, turistas stopover, visitantes totales). Las
+  variaciones sí lo son.
