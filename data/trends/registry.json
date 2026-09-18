@@ -1,0 +1,676 @@
+{
+ "updated": "2026-09-18",
+ "method_version": 1,
+ "items": [
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "combustible-aviacion-recortes-capacidad-eeuu",
+   "title": "Turbosina cara por la guerra con Irán: aerolíneas de EE.UU. recortan vuelos y las tarifas aéreas suben 23,4% interanual",
+   "summary": "IATA prevé una turbosina promedio de 152 USD/barril en 2026 (+70% frente a 2025) y la EIA espera que las restricciones a la exportación de crudo por Ormuz persistan hasta fin de año, con Brent cerca de 90 USD en el segundo semestre. En agosto el índice de tarifas aéreas del IPC de EE.UU. subió 23,4% interanual, y United, American y Southwest anunciaron recortes en rutas de menor margen para diciembre y el primer trimestre de 2027. No se sabe aún qué rutas se recortan: los anuncios no mencionan el Caribe ni México de forma explícita.",
+   "category": "aviacion",
+   "direction": "negativo",
+   "destinations": [
+    "ALL"
+   ],
+   "markets": [
+    "Estados Unidos"
+   ],
+   "horizon": "inmediato",
+   "impact": "alto",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Short-Term Energy Outlook (septiembre 2026)",
+     "url": "https://www.eia.gov/outlooks/steo/",
+     "org": "U.S. Energy Information Administration",
+     "date": "2026-09-09",
+     "tier": "oficial"
+    },
+    {
+     "title": "Consumer Price Index – August 2026",
+     "url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+     "org": "U.S. Bureau of Labor Statistics",
+     "date": "2026-09-11",
+     "tier": "oficial"
+    },
+    {
+     "title": "Middle East Disruptions and High Fuel Prices Halve Airline Industry Profitability",
+     "url": "https://www.iata.org/en/pressroom/2026-releases/06-07-middle-east-disruptions-high-fuel-prices-halve-airline-industry-profitability/",
+     "org": "IATA",
+     "date": "2026-06-07",
+     "tier": "institucional"
+    },
+    {
+     "title": "American, United, Southwest Cut Flights as Fuel Costs Spike",
+     "url": "https://www.airwaysmag.com/new-post/american-united-southwest-cut-flights-fuel-costs",
+     "org": "Airways Magazine",
+     "date": "2026-09-17",
+     "tier": "prensa"
+    },
+    {
+     "title": "United, American and Southwest say they'll cut cheaper flights amid jet fuel spike",
+     "url": "https://www.wtoc.com/2026/09/17/airlines-expected-cut-cheaper-flights-amid-jet-fuel-spike/",
+     "org": "CNN Newsource (vía WTOC)",
+     "date": "2026-09-17",
+     "tier": "prensa"
+    }
+   ],
+   "signal": {
+    "dest": "MX-CUN",
+    "series_key": "air_us_seats",
+    "note": "Los recortes de capacidad de aerolíneas de EE.UU. se verían primero en los asientos programados desde EE.UU."
+   },
+   "scenario": {
+    "us": -3,
+    "cap": -5,
+    "shock": 0,
+    "note": "Supuesto: recorte de ~5% de asientos desde EE.UU. en rutas de menor margen y menor demanda por tarifas ~23% más caras."
+   }
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "crisis-energetica-cuba-colapso-turismo",
+   "title": "Cuba: crisis de combustible y electricidad, aerolíneas canadienses suspendidas y llegadas internacionales en 37% del nivel de 2025",
+   "summary": "Canadá mantiene para Cuba el nivel 'evitar viajes no esenciales' por la escasez de combustible, electricidad, agua, alimentos y medicinas, y señala que todas las aerolíneas canadienses suspendieron el servicio; Sunwing y WestJet Vacations lo suspendieron por tiempo indefinido desde junio. Según datos de la ONEI difundidos en septiembre, Cuba recibió 419.863 visitantes internacionales en enero–julio de 2026, el 37,2% del mismo periodo de 2025, con 350.737 canadienses menos. No hay fecha de reanudación y depende de la evolución del suministro de combustible a la isla.",
+   "category": "geopolitica",
+   "direction": "negativo",
+   "destinations": [
+    "CU"
+   ],
+   "markets": [
+    "Canadá",
+    "Europa"
+   ],
+   "horizon": "corto",
+   "impact": "alto",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Travel advice and advisories: Cuba",
+     "url": "https://travel.gc.ca/destinations/cuba",
+     "org": "Global Affairs Canada",
+     "date": "2026-09-16",
+     "tier": "oficial"
+    },
+    {
+     "title": "Sunwing Vacations, WestJet Vacations indefinitely suspend Cuban operations",
+     "url": "https://www.bnnbloomberg.ca/business/company-news/2026/06/05/sunwing-vacations-westjet-vacations-indefinitely-suspend-cuban-operations/",
+     "org": "The Canadian Press (vía BNN Bloomberg)",
+     "date": "2026-06-05",
+     "tier": "prensa"
+    },
+    {
+     "title": "Turismo cubano registra fuerte caída de visitantes internacionales",
+     "url": "https://www.prensa-latina.cu/2026/09/01/turismo-cubano-registra-fuerte-caida-de-visitantes-internacionales/",
+     "org": "Prensa Latina (datos ONEI)",
+     "date": "2026-09-01",
+     "tier": "prensa"
+    }
+   ]
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "redistribucion-demanda-canadiense-tras-cuba",
+   "title": "Aerolíneas y turoperadores canadienses redirigen capacidad de Cuba hacia República Dominicana, México y Jamaica",
+   "summary": "El Ministerio de Turismo dominicano informó en junio más de 100.000 asientos aéreos adicionales asegurados desde Canadá, y desde febrero los turoperadores canadienses añadieron vuelos a Punta Cana, Puerto Plata, Cancún y Montego Bay para reubicar a clientes de Cuba. Para el invierno 2026-27 WestJet abre, entre otras, Winnipeg–Punta Cana (28 nov), Regina–San José del Cabo (14 dic) y Ottawa–Liberia (20 dic). Falta saber cuánto de esta capacidad se mantiene si Cuba reabre y si la demanda canadiense total de viajes al sur crece o solo se redistribuye.",
+   "category": "competencia",
+   "direction": "positivo",
+   "destinations": [
+    "DO",
+    "MX-CUN",
+    "MX-SJD",
+    "JM",
+    "CR"
+   ],
+   "markets": [
+    "Canadá"
+   ],
+   "horizon": "corto",
+   "impact": "medio",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Collado: “Tenemos asegurados más de 100 mil asientos aéreos desde Canadá”",
+     "url": "https://noticias.mitur.gob.do/noticias/collado-tenemos-asegurados-mas-de-100-mil-asientos-aereos-desde-canada/",
+     "org": "Ministerio de Turismo de República Dominicana",
+     "date": "2026-06-10",
+     "tier": "oficial"
+    },
+    {
+     "title": "More D.R., Jamaica and Mexico, as tour ops add new flights and extra capacity in wake of Cuba suspension",
+     "url": "https://www.travelweek.ca/news/tour-operators/more-d-r-jamaica-and-mexico-as-tour-ops-add-new-flights-and-extra-capacity-in-wake-of-cuba-suspension/",
+     "org": "Travelweek",
+     "date": "2026-02-19",
+     "tier": "prensa"
+    },
+    {
+     "title": "WestJet launches five new sun routes for winter 2026-2027",
+     "url": "https://www.travelweek.ca/news/airlines/westjet-launches-five-new-sun-routes-for-winter-2026-2027/",
+     "org": "Travelweek",
+     "date": "2026-07-20",
+     "tier": "prensa"
+    }
+   ],
+   "signal": {
+    "dest": "DO",
+    "series_key": "arrivals_air_nonresident",
+    "note": "Un aumento del mercado canadiense en temporada de invierno se vería en las llegadas aéreas de no residentes."
+   }
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "jamaica-recuperacion-habitaciones-melissa",
+   "title": "Jamaica: cerca del 70% de las habitaciones afectadas por Melissa ya volvieron y el resto regresa entre octubre de 2026 y principios de 2027",
+   "summary": "Según la Oficina de Turismo, más de 11.000 habitaciones vuelven al inventario entre 2026 y 2027 (unas 1.900 en diciembre y unas 3.500 en el primer trimestre de 2027), y Jamaica recibió 2,3 millones de visitantes en enero–agosto de 2026. Más habitaciones abiertas en temporada alta deberían reducir la caída de llegadas, que en junio seguía en −22,7% en pasajeros desde EE.UU. Sigue incierto el calendario de las propiedades de Hyatt (unas 2.181 habitaciones), cuya reapertura se pospuso al primer semestre de 2027.",
+   "category": "clima",
+   "direction": "positivo",
+   "destinations": [
+    "JM"
+   ],
+   "markets": [
+    "Estados Unidos",
+    "Canadá",
+    "Reino Unido"
+   ],
+   "horizon": "corto",
+   "impact": "alto",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "More Than 11,000 Hotel Rooms to Return to Inventory",
+     "url": "https://jis.gov.jm/more-than-11000-hotel-rooms-to-return-to-inventory/",
+     "org": "Jamaica Information Service",
+     "date": "2026-09-15",
+     "tier": "oficial"
+    },
+    {
+     "title": "Closed hotels sell their comeback at JAPEX",
+     "url": "https://jamaica-gleaner.com/article/news/20260916/closed-hotels-sell-their-comeback-japex",
+     "org": "Jamaica Gleaner",
+     "date": "2026-09-16",
+     "tier": "prensa"
+    }
+   ],
+   "signal": {
+    "dest": "JM",
+    "series_key": "air_us_passengers",
+    "note": "La reapertura de habitaciones debería moderar la caída interanual de pasajeros desde EE.UU. (−22,7% en jun 2026)."
+   }
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "temporada-huracanes-atlantico-bajo-normal",
+   "title": "NOAA mantiene su pronóstico de temporada de huracanes del Atlántico por debajo de lo normal por un El Niño fuerte",
+   "summary": "La actualización de agosto de NOAA prevé 7–13 tormentas con nombre, 2–6 huracanes y 0–2 huracanes mayores, con 75% de probabilidad de una temporada por debajo de lo normal y 90% de probabilidad de un El Niño fuerte o muy fuerte; al 18 de septiembre el NHC no reporta ciclones activos. Esto reduce la probabilidad de interrupciones en el pico de la temporada (septiembre–octubre). NOAA aclara que no es un pronóstico de impactos en tierra: un solo huracán puede afectar a un destino aunque la temporada sea débil.",
+   "category": "clima",
+   "direction": "positivo",
+   "destinations": [
+    "ALL"
+   ],
+   "markets": [],
+   "horizon": "inmediato",
+   "impact": "bajo",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "NOAA 2026 Atlantic Hurricane Season Outlook (August update)",
+     "url": "https://www.cpc.ncep.noaa.gov/products/outlooks/hurricane.shtml",
+     "org": "NOAA Climate Prediction Center",
+     "date": "2026-08-06",
+     "tier": "oficial"
+    },
+    {
+     "title": "National Hurricane Center – Tropical Weather Outlook",
+     "url": "https://www.nhc.noaa.gov/",
+     "org": "NOAA National Hurricane Center",
+     "date": "2026-09-18",
+     "tier": "oficial"
+    }
+   ]
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "cierre-spirit-airlines",
+   "title": "Spirit Airlines cesó operaciones el 2 de mayo de 2026 y dejó de volar a República Dominicana y Cancún",
+   "summary": "Spirit, que era la novena aerolínea de EE.UU. por asientos, cerró tras no obtener un rescate federal, en parte por el alza del combustible. En 2025 transportó 470.146 pasajeros desde y hacia República Dominicana (Santo Domingo, Punta Cana y Santiago), y la dirección de ASUR la cita entre las causas de la caída de pasajeros en Cancún. Falta saber qué parte de esa capacidad de bajo costo recuperan otras aerolíneas, que además están recortando vuelos por el combustible.",
+   "category": "aviacion",
+   "direction": "negativo",
+   "destinations": [
+    "DO",
+    "MX-CUN"
+   ],
+   "markets": [
+    "Estados Unidos"
+   ],
+   "horizon": "corto",
+   "impact": "medio",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Spirit Airlines ceases operations after escalating financial struggles",
+     "url": "https://www.opb.org/article/2026/05/02/spirit-airlines-says-it-will-cease-operations/",
+     "org": "NPR (vía OPB)",
+     "date": "2026-05-02",
+     "tier": "prensa"
+    },
+    {
+     "title": "Quiebra de Spirit Airlines impacta RD tras 20 años de operaciones y millones de pasajeros transportados",
+     "url": "https://n.com.do/2026/05/02/spirit-airlines-quiebra-republica-dominicana-pasajeros-impacto/",
+     "org": "N Digital",
+     "date": "2026-05-02",
+     "tier": "prensa"
+    },
+    {
+     "title": "Caída del turismo golpea al Aeropuerto de Cancún",
+     "url": "https://www.poresto.com/quintana-roo/cancun/2026/8/9/caida-del-turismo-golpea-al-aeropuerto-de-cancun.html",
+     "org": "Por Esto!",
+     "date": "2026-08-09",
+     "tier": "prensa"
+    }
+   ],
+   "signal": {
+    "dest": "MX-CUN",
+    "series_key": "arrivals_air_international",
+    "note": "Coincide con las caídas de doble dígito en llegadas aéreas internacionales desde mayo de 2026."
+   },
+   "scenario": {
+    "us": 0,
+    "cap": -2,
+    "shock": 0,
+    "note": "Supuesto: se pierde ~2% de la capacidad aérea desde EE.UU. y otras aerolíneas no la reemplazan del todo."
+   }
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "eeuu-inflacion-alza-tasas-fed",
+   "title": "EE.UU.: la inflación de 3,4% supera el alza salarial de 3,1% y la Fed subió su tasa a 3,75–4%",
+   "summary": "El 16 de septiembre la Reserva Federal subió la tasa de fondos federales 25 puntos básicos, su primera alza desde 2023, porque la inflación sigue elevada. En agosto el IPC subió 3,4% interanual, con la energía en +16,3%, mientras el salario por hora creció 3,1%, así que el poder de compra real de los hogares se reduce; el empleo sigue sólido (+162.000 puestos, desempleo en 4,1%). Queda por ver si el ajuste se traduce en menos viajes de ocio al exterior o solo en viajes más cortos o más baratos.",
+   "category": "macro",
+   "direction": "negativo",
+   "destinations": [
+    "ALL"
+   ],
+   "markets": [
+    "Estados Unidos"
+   ],
+   "horizon": "corto",
+   "impact": "medio",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Federal Reserve issues FOMC statement (September 16, 2026)",
+     "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20260916a.htm",
+     "org": "Federal Reserve Board",
+     "date": "2026-09-16",
+     "tier": "oficial"
+    },
+    {
+     "title": "Consumer Price Index – August 2026",
+     "url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+     "org": "U.S. Bureau of Labor Statistics",
+     "date": "2026-09-11",
+     "tier": "oficial"
+    },
+    {
+     "title": "The Employment Situation – August 2026",
+     "url": "https://www.bls.gov/news.release/empsit.nr0.htm",
+     "org": "U.S. Bureau of Labor Statistics",
+     "date": "2026-09-04",
+     "tier": "oficial"
+    }
+   ],
+   "scenario": {
+    "us": -2,
+    "cap": 0,
+    "shock": 0,
+    "note": "Supuesto: la caída del salario real y el alza de tasas restan ~2% a la demanda de viajes de ocio de EE.UU."
+   }
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "peso-mexicano-fuerte",
+   "title": "El peso mexicano se apreció ~6% frente al dólar en un año y encarece Cancún y Los Cabos para visitantes de EE.UU.",
+   "summary": "El tipo de cambio FIX publicado en el DOF pasó de 18,3257 pesos por dólar el 18 de septiembre de 2025 a 17,1872 el 18 de septiembre de 2026: un dólar compra ~6,2% menos pesos. Esto encarece el gasto local en destinos mexicanos frente a competidores dolarizados o con moneda más débil, en un año en que Cancún y Los Cabos pierden llegadas internacionales. No se conoce cuánto pesa el tipo de cambio frente a otros factores, ya que buena parte de la oferta todo incluido se vende en dólares.",
+   "category": "macro",
+   "direction": "negativo",
+   "destinations": [
+    "MX-CUN",
+    "MX-SJD"
+   ],
+   "markets": [
+    "Estados Unidos",
+    "Canadá"
+   ],
+   "horizon": "corto",
+   "impact": "medio",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Indicadores: tipo de cambio para solventar obligaciones en dólares (histórico)",
+     "url": "https://dof.gob.mx/indicadores_detalle.php?cod_tipo_indicador=158&dfecha=15%2F09%2F2025&hfecha=18%2F09%2F2026",
+     "org": "Diario Oficial de la Federación / Banco de México",
+     "date": "2026-09-18",
+     "tier": "oficial"
+    }
+   ],
+   "signal": {
+    "dest": "MX-SJD",
+    "series_key": "arrivals_air_international",
+    "note": "Posible factor en la caída de llegadas internacionales (−16,8% en jul 2026)."
+   }
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "monedas-latam-fuertes-colombia-brasil",
+   "title": "El peso colombiano se apreció ~24% y el real ~3% frente al dólar en un año, lo que abarata los viajes al exterior",
+   "summary": "La TRM oficial bajó de 3.881,92 pesos por dólar (17 sep 2025) a 3.128,46 (17 sep 2026), y el PTAX del real pasó de 5,3011 a 5,1527. Monedas más fuertes aumentan el poder de compra de colombianos y brasileños en destinos dolarizados o con precios en dólares como República Dominicana, Panamá, Cancún, Aruba y Curazao. Para Cartagena el efecto es el opuesto: resulta más cara para visitantes extranjeros. No hay datos oficiales recientes de viajes al exterior de estos mercados que confirmen el efecto.",
+   "category": "mercado_emisor",
+   "direction": "positivo",
+   "destinations": [
+    "DO",
+    "PA",
+    "MX-CUN",
+    "AW",
+    "CW"
+   ],
+   "markets": [
+    "Colombia",
+    "Brasil"
+   ],
+   "horizon": "corto",
+   "impact": "medio",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Tasa de Cambio Representativa del Mercado (TRM) – datos abiertos",
+     "url": "https://www.datos.gov.co/d/32sa-8pi3",
+     "org": "Superintendencia Financiera de Colombia (datos.gov.co)",
+     "date": "2026-09-17",
+     "tier": "oficial"
+    },
+    {
+     "title": "Cotações e boletins – PTAX dólar",
+     "url": "https://www.bcb.gov.br/estabilidadefinanceira/historicocotacoes",
+     "org": "Banco Central do Brasil",
+     "date": "2026-09-16",
+     "tier": "oficial"
+    }
+   ],
+   "signal": {
+    "dest": "DO",
+    "series_key": "arrivals_air_nonresident",
+    "note": "Se vería en el peso de los mercados sudamericanos dentro de las llegadas aéreas de no residentes."
+   }
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "sargazo-record-caribe-mexicano",
+   "title": "Récord de sargazo en Quintana Roo: más de 123.000 toneladas recolectadas en 2026, frente a 92.782 en todo 2025",
+   "summary": "La Secretaría de Marina reportó a inicios de septiembre más de 123.400 toneladas retiradas en 2026, con arribos fuertes en Tulum, Playa del Carmen, Puerto Morelos, Cancún y Cozumel; el gobierno estatal dijo que la temporada empezó dos meses antes (5 de enero). El sargazo afecta la experiencia de playa y la percepción del destino en plena caída de llegadas internacionales. No hay una cuantificación oficial de su efecto sobre las llegadas y el pico se espera entre agosto y octubre.",
+   "category": "clima",
+   "direction": "negativo",
+   "destinations": [
+    "MX-CUN"
+   ],
+   "markets": [],
+   "horizon": "inmediato",
+   "impact": "medio",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Sargazo: Semar bate récord de recolección en Quintana Roo",
+     "url": "https://24horasqroo.mx/2026/09/08/sargazo-record-quintana-roo/",
+     "org": "24 Horas Quintana Roo",
+     "date": "2026-09-08",
+     "tier": "prensa"
+    },
+    {
+     "title": "Sargazo en Quintana Roo 2026: récord histórico y playas afectadas",
+     "url": "https://www.excelsior.com.mx/nacional/sargazo-quintana-roo-record-historico-playas-afectadas-2026",
+     "org": "Excélsior",
+     "date": "2026-08-12",
+     "tier": "prensa"
+    }
+   ],
+   "signal": {
+    "dest": "MX-CUN",
+    "series_key": "arrivals_air_international",
+    "note": "Posible factor adicional en la caída de llegadas aéreas internacionales."
+   }
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "mexico-aumento-derecho-no-residente-2027",
+   "title": "México propone subir 35,8% el Derecho de No Residente en 2027, de 983 a 1.334,80 pesos por visitante",
+   "summary": "El Paquete Económico 2027 enviado al Congreso incluye el aumento de la tarifa que pagan los visitantes extranjeros, que acumularía ~55% frente a 2025. Los hoteleros (ANCH, Consejo Hotelero del Caribe Mexicano) piden moderarlo y destinar parte a promoción, porque llega en un año de caída de tráfico internacional. Todavía es una propuesta: falta la aprobación del Congreso y el monto final.",
+   "category": "regulacion",
+   "direction": "negativo",
+   "destinations": [
+    "MX-CUN",
+    "MX-SJD"
+   ],
+   "markets": [],
+   "horizon": "corto",
+   "impact": "bajo",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Preocupa a hoteleros alza en Derecho de No Residente en 2027",
+     "url": "https://claseturista.com.mx/2026/09/16/preocupa-a-hoteleros-alza-en-derecho-de-no-residente-en-2027/",
+     "org": "Clase Turista",
+     "date": "2026-09-16",
+     "tier": "prensa"
+    },
+    {
+     "title": "Paquete Económico 2027 busca elevar el DNR a mil 334 pesos; hoteleros advierten riesgos",
+     "url": "https://www.tvazteca.com/aztecanoticias/paquete-economico-2027-busca-elevar-el-dnr-a-mil-334-pesos-hoteleros-advierten",
+     "org": "Azteca Noticias",
+     "date": "2026-09-16",
+     "tier": "prensa"
+    }
+   ]
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "canada-retoma-viajes-a-eeuu",
+   "title": "Los canadienses vuelven a viajar a EE.UU. mientras sus viajes aéreos a otros países caen por tercer mes",
+   "summary": "En agosto los viajes de regreso de canadienses desde EE.UU. subieron 8,8% interanual (quinto mes de alza; +3,6% por avión), aunque siguen 22,7% por debajo de agosto de 2024 en avión. Los regresos por avión desde otros países cayeron 2,8%, su tercer descenso mensual consecutivo. Si esta tendencia sigue, el desvío de canadienses hacia el Caribe y México observado en 2025 perdería fuerza. Es incierto porque la caída incluye el colapso de Cuba y agosto no es temporada alta de sol.",
+   "category": "mercado_emisor",
+   "direction": "incierto",
+   "destinations": [
+    "ALL"
+   ],
+   "markets": [
+    "Canadá"
+   ],
+   "horizon": "corto",
+   "impact": "bajo",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Leading indicator of international arrivals to Canada, August 2026",
+     "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260911/dq260911b-eng.htm",
+     "org": "Statistics Canada",
+     "date": "2026-09-11",
+     "tier": "oficial"
+    }
+   ]
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "chikungunya-costa-rica",
+   "title": "CDC mantiene aviso de nivel 2 por brote de chikungunya en el noroeste de Costa Rica, incluido Guanacaste",
+   "summary": "El aviso cubre Alajuela, Heredia, Guanacaste y partes de Puntarenas y San José, y recomienda vacunarse y protegerse de mosquitos; pide a las embarazadas reconsiderar el viaje. Guanacaste es una de las zonas de playa principales del país, así que el aviso puede pesar en algunas reservas desde EE.UU. No se sabe cuánto durará el brote ni si hay efecto en las reservas; CDC también mantiene un aviso por chikungunya en Nicaragua desde el 3 de septiembre.",
+   "category": "salud",
+   "direction": "negativo",
+   "destinations": [
+    "CR"
+   ],
+   "markets": [
+    "Estados Unidos"
+   ],
+   "horizon": "inmediato",
+   "impact": "bajo",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "Chikungunya in Costa Rica – Level 2 Travel Health Notice",
+     "url": "https://wwwnc.cdc.gov/travel/notices/level2/chikungunya-costa-rica",
+     "org": "CDC",
+     "date": "2026-07-30",
+     "tier": "oficial"
+    }
+   ]
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-18",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-18",
+     "status": "nuevo",
+     "note": "Alta en el primer barrido."
+    }
+   ],
+   "id": "onu-turismo-rebaja-prevision-2026",
+   "title": "ONU Turismo rebaja al 1–2% el crecimiento mundial de llegadas en 2026; las Américas crecieron 2% en el primer semestre",
+   "summary": "Las llegadas internacionales crecieron solo 0,4% en enero–junio de 2026 (unos 690 millones de turistas), y ONU Turismo bajó su previsión anual desde 3–4% por el conflicto en Oriente Medio, el petróleo caro y la inflación. También prevé que los viajeros busquen precio y destinos más cercanos, lo que podría favorecer al Caribe para Norteamérica. El informe no detalla el desempeño de la subregión Caribe, así que el efecto neto sobre los destinos del dashboard es incierto.",
+   "category": "macro",
+   "direction": "incierto",
+   "destinations": [
+    "ALL"
+   ],
+   "markets": [],
+   "horizon": "corto",
+   "impact": "bajo",
+   "last_confirmed": "2026-09-18",
+   "evidence": [
+    {
+     "title": "International tourism holds steady with 0.4% growth in first half of 2026 as Middle East conflict and rising costs weigh on momentum",
+     "url": "https://www.untourism.int/news/international-tourism-holds-steady-with-04-growth-in-first-half-of-2026-as-middle-east-conflict-and-rising-costs-weigh-on-momentum",
+     "org": "ONU Turismo",
+     "date": "2026-09-17",
+     "tier": "institucional"
+    }
+   ]
+  }
+ ]
+}

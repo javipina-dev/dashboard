@@ -1,6 +1,7 @@
 """Merge data/<ID>.json + config.json + basemap into dist/index.html (template.html)."""
 import json, os, sys, datetime, copy
 import project as projection
+import signals as data_signals
 ROOT = os.path.dirname(os.path.abspath(__file__))
 DATA = os.path.join(ROOT, '..', 'data')
 cfg = json.load(open(os.path.join(ROOT, 'config.json')))
@@ -91,12 +92,57 @@ with open(HIST_PATH, 'w') as f:
     json.dump(history, f, ensure_ascii=False, indent=1)
 print(f'  registro de proyecciones: {sum(len(v) for v in history.values())} registros en {len(history)} destinos')
 
+# ---- tendencias y riesgos ---------------------------------------------------
+VALID_IDS = {d['id'] for d in dests} | {'ALL'}
+REQ = ('id', 'title', 'summary', 'category', 'direction', 'destinations', 'horizon', 'impact',
+       'status', 'first_seen', 'last_confirmed', 'evidence')
+ENUMS = {'category': {'macro', 'geopolitica', 'clima', 'salud', 'aviacion', 'regulacion',
+                      'mercado_emisor', 'competencia', 'seguridad'},
+         'direction': {'positivo', 'negativo', 'incierto'},
+         'horizon': {'inmediato', 'corto', 'estructural'},
+         'impact': {'alto', 'medio', 'bajo'},
+         'status': {'nuevo', 'vigente', 'escalando', 'perdiendo_fuerza', 'cerrado'}}
+REG_PATH = os.path.join(DATA, 'trends', 'registry.json')
+trends = {'updated': None, 'items': [], 'rejected': []}
+if os.path.exists(REG_PATH):
+    reg = json.load(open(REG_PATH))
+    trends['updated'] = reg.get('updated')
+    today_d = datetime.date.today()
+    for it in reg.get('items', []):
+        problems = [f'falta {k}' for k in REQ if not it.get(k)]
+        problems += [f'{k} inválido: {it.get(k)}' for k, ok in ENUMS.items() if it.get(k) and it[k] not in ok]
+        problems += [f'destino desconocido: {x}' for x in it.get('destinations', []) if x not in VALID_IDS]
+        ev_ok = [e for e in it.get('evidence', []) if e.get('url', '').startswith('http') and e.get('date')
+                 and e.get('tier') in ('oficial', 'institucional', 'prensa')]
+        if not ev_ok:
+            problems.append('sin evidencia válida (url, fecha y nivel)')
+        if problems:
+            trends['rejected'].append({'id': it.get('id'), 'problems': problems})
+            print(f'  tendencia descartada {it.get("id")}: {"; ".join(problems)}')
+            continue
+        it = dict(it)
+        it['evidence'] = ev_ok
+        # cierre automático: 8 semanas sin reconfirmar
+        try:
+            stale = (today_d - datetime.date.fromisoformat(it['last_confirmed'])).days > 56
+        except ValueError:
+            stale = False
+        if it['status'] != 'cerrado' and stale:
+            it['status'] = 'cerrado'
+            it['closed_on'] = it.get('closed_on') or today_d.isoformat()
+            it['auto_closed'] = True
+        trends['items'].append(it)
+trends['signals'] = data_signals.compute_signals(dests)
+print(f'  tendencias: {sum(1 for i in trends["items"] if i["status"] != "cerrado")} activas, '
+      f'{len(trends["rejected"])} descartadas, {len(trends["signals"])} señales en los datos')
+
 payload = {
     'generated_at': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),
     'destinations': dests,
     'basemap': basemap,
     'share': {'universe': cfg.get('share_universe', []), 'excluded': cfg.get('share_excluded', {})},
     'basemap_do': json.load(open(os.path.join(ROOT, 'basemap_do.json'))),
+    'trends': trends,
 }
 tpl = open(os.path.join(ROOT, 'template.html')).read()
 js = json.dumps(payload, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')

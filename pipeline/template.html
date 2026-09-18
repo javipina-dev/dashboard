@@ -243,6 +243,44 @@ details.dsrc summary span{color:var(--muted);font-size:12px}
 .how .panel{padding:14px 16px}
 .how p{margin:6px 0 0;color:var(--ink-2);font-size:13px}
 .note{border-left:3px solid var(--accent);padding:8px 12px;background:var(--accent-wash);border-radius:0 8px 8px 0;font-size:12.5px;color:var(--ink-2);margin-top:12px;max-width:110ch}
+/* tendencias y riesgos */
+.tr-strip{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.tr-stat{background:var(--surface);border:1px solid var(--hair);border-radius:8px;padding:8px 12px;min-width:110px}
+.tr-stat b{display:block;font-family:var(--display);font-stretch:80%;font-size:22px;line-height:1.1;font-variant-numeric:tabular-nums}
+.tr-stat span{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.04em}
+.tr-filters{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:12px}
+.dir{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.dir.negativo{background:var(--bad-bg);color:var(--bad)}
+.dir.positivo{background:var(--good-bg);color:var(--good)}
+.dir.incierto{background:var(--warn-bg);color:var(--warn-ink)}
+.badge{display:inline-flex;font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:5px;border:1px solid var(--hair);color:var(--ink-2);white-space:nowrap}
+.badge.new{border-color:var(--accent);color:var(--accent);border-style:dashed}
+.badge.hot{border-color:var(--bad);color:var(--bad)}
+.matrix{display:grid;grid-template-columns:78px repeat(3,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:10px;overflow:hidden;margin-bottom:16px}
+.matrix>div{background:var(--surface);padding:8px;min-height:52px;display:flex;flex-wrap:wrap;gap:5px;align-content:flex-start}
+.matrix .mh{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;min-height:0;align-items:center}
+.matrix .mc{cursor:pointer;border:0;font:inherit;font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:6px;text-align:left;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mc.negativo{background:var(--bad-bg);color:var(--bad)}.mc.positivo{background:var(--good-bg);color:var(--good)}.mc.incierto{background:var(--warn-bg);color:var(--warn-ink)}
+.tr-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
+.tr-card{background:var(--surface);border:1px solid var(--hair);border-radius:10px;padding:13px 15px;display:flex;flex-direction:column;gap:7px;scroll-margin-top:90px}
+.tr-card.flash{box-shadow:0 0 0 2px var(--accent)}
+.tr-card h4{margin:0;font-size:14.5px;line-height:1.3;font-family:var(--display);font-stretch:88%;font-weight:700}
+.tr-card p{margin:0;font-size:12.8px;color:var(--ink-2)}
+.tr-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
+.tr-ev{font-size:11.5px;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.tr-ev a{color:var(--ink-2)}
+.tier{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:0 5px;border-radius:4px;margin-right:5px;border:1px solid var(--hair)}
+.tier.prensa{border-style:dashed}
+.tr-sig{font-size:12px;background:var(--accent-wash);border-radius:7px;padding:6px 9px;color:var(--ink-2)}
+.tr-sig b{color:var(--ink)}
+.tr-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:auto}
+.btn-scen{border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:7px;padding:5px 10px;font-size:12px;font-weight:700;cursor:pointer}
+.btn-scen:hover{background:var(--accent);color:var(--accent-ink)}
+.sig-card{border-style:solid;border-left:3px solid var(--axis)}
+.sig-card .rule{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.dest-risks{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-6px 0 14px;font-size:12px}
+.dest-risks button{border:1px solid var(--hair);background:var(--surface);border-radius:99px;padding:3px 10px;font-size:11.5px;font-weight:600;cursor:pointer;display:inline-flex;gap:5px;align-items:center;color:var(--ink-2);max-width:100%}
+.dest-risks button:hover{border-color:var(--accent);color:var(--ink)}
 footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-size:12px;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -289,6 +327,25 @@ footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-si
     <p class="note" id="compNote"></p>
   </section>
 
+  <section id="trends" hidden>
+    <div class="sec-head">
+      <h2>Tendencias y riesgos</h2>
+      <p class="lede" id="trLede"></p>
+    </div>
+    <div class="tr-strip" id="trStrip"></div>
+    <div class="tr-filters">
+      <div><label class="ctl-label" for="trDest">Destino</label><select id="trDest"></select></div>
+      <div><label class="ctl-label" for="trCat">Categoría</label><select id="trCat"></select></div>
+    </div>
+    <div class="sub-h" style="margin-top:0">Factores externos · impacto contra horizonte</div>
+    <div class="matrix" id="trMatrix"></div>
+    <div class="tr-cards" id="trCards"></div>
+    <div class="sub-h" style="margin-top:22px">Señales en los datos · calculadas con reglas fijas sobre las series oficiales</div>
+    <div class="tr-cards" id="trSignals"></div>
+    <details class="how-proj" id="trClosedBox" style="margin-top:16px"><summary id="trClosedSum"></summary><div class="tr-cards" id="trClosed" style="margin-top:10px"></div></details>
+    <p class="note" id="trNote"></p>
+  </section>
+
   <section id="detail">
     <div class="detail-head">
       <div>
@@ -299,6 +356,7 @@ footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-si
     </div>
     <div class="kpis" id="kpis"></div>
     <div class="strip" id="strip"></div>
+    <div class="dest-risks" id="destRisks" hidden></div>
     <div class="charts">
       <div class="panel chart-card">
         <div class="chart-top">
@@ -806,6 +864,122 @@ function renderVerify(d){
     (simMape!=null?"Error medio de la simulación a 1 mes en los últimos "+sim.length+" meses: "+nf1.format(simMape*100)+"%.":"");
 }
 
+/* ---------- trends & risks ---------- */
+const TR=DATA.trends||{items:[],signals:[]};
+const CAT_TR={macro:"Macroeconomía",geopolitica:"Geopolítica",clima:"Clima y desastres",salud:"Salud",aviacion:"Aviación",regulacion:"Regulación",mercado_emisor:"Mercado emisor",competencia:"Competencia",seguridad:"Seguridad"};
+const DIR_TR={negativo:["▼","Negativo"],positivo:["▲","Positivo"],incierto:["◆","Incierto"]};
+const HOR_TR={inmediato:"Inmediato (<3 meses)",corto:"Corto (3–12 meses)",estructural:"Estructural (>12 meses)"};
+const IMP_TR={alto:"Alto",medio:"Medio",bajo:"Bajo"};
+const ST_TR={nuevo:"Nuevo",vigente:"Vigente",escalando:"Escalando",perdiendo_fuerza:"Perdiendo fuerza",cerrado:"Cerrado"};
+const trState={dest:"ALL",cat:"ALL"};
+function trActive(){return (TR.items||[]).filter(i=>i.status!=="cerrado");}
+function trAffects(it,id){return it.destinations.includes("ALL")||it.destinations.includes(id);}
+function dirEl(dir){const d=DIR_TR[dir]||["•",dir];return el("span",{class:"dir "+dir,text:d[0]+" "+d[1]});}
+function destNames(ids){return ids.includes("ALL")?"Todos los destinos":ids.map(i=>BYID[i]?BYID[i].short:i).join(", ");}
+function applyScenario(it){
+  const sc=it.scenario;if(!sc)return;
+  let target=null;
+  const cands=it.destinations.includes("ALL")?DESTS.filter(d=>d.projection).map(d=>d.id):it.destinations.filter(i=>BYID[i]&&BYID[i].projection);
+  target=cands.includes(state.sel)?state.sel:(cands[0]||null);
+  if(!target)return;
+  if(state.scope==="focus"&&!BYID[target].focus)state.scope="all";
+  state.mode="arrivals";state.proj=true;state.seriesKey=null;
+  state.scen={us:sc.us||0,cap:sc.cap||0,shock:sc.shock||0};
+  state.sel=target;save();renderAll();
+  $("scen").scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
+}
+function signalLine(it){
+  const g=it.signal;if(!g||!BYID[g.dest])return null;
+  const sr=sOf(BYID[g.dest],g.series_key);const m=metrics(sr);
+  if(!m)return el("div",{class:"tr-sig",text:"Dónde se vería: "+(g.note||"")});
+  return el("div",{class:"tr-sig"},["En los datos: ",el("b",{text:BYID[g.dest].short+" "+pct(m.yoy)}),
+    " interanual en "+pLabel(m.lastP)+" ("+shortLabel(sr.label).slice(0,60)+")."+(g.note?" "+g.note:"")]);
+}
+function trCard(it){
+  const hot=it.status==="escalando";
+  const card=el("article",{class:"tr-card",id:"tr-"+it.id},[
+    el("div",{class:"tr-meta"},[dirEl(it.direction),
+      el("span",{class:"badge"+(it.status==="nuevo"?" new":hot?" hot":""),text:ST_TR[it.status]||it.status}),
+      el("span",{class:"badge",text:CAT_TR[it.category]||it.category}),
+      el("span",{class:"badge",text:"Impacto "+(IMP_TR[it.impact]||it.impact).toLowerCase()}),
+      el("span",{class:"badge",text:(HOR_TR[it.horizon]||it.horizon).split(" (")[0]})]),
+    el("h4",{text:it.title}),
+    el("p",{text:it.summary}),
+    el("div",{class:"tr-ev"},[el("span",{text:"Afecta a: "+destNames(it.destinations)+(it.markets&&it.markets.length?" · mercados: "+it.markets.join(", "):"")})]),
+    signalLine(it),
+    el("div",{class:"tr-ev"},it.evidence.map(e=>el("span",null,[el("span",{class:"tier "+e.tier,text:e.tier}),
+      el("a",{href:e.url,target:"_blank",rel:"noopener",text:(e.org?e.org+": ":"")+e.title}),document.createTextNode(" · "+e.date)]))),
+  ]);
+  const act=el("div",{class:"tr-actions"});
+  if(it.scenario&&it.status!=="cerrado"){
+    const sc=it.scenario;const parts=[];if(sc.us)parts.push("EE.UU. "+(sc.us>0?"+":"")+sc.us+"%");if(sc.cap)parts.push("capacidad "+(sc.cap>0?"+":"")+sc.cap+"%");if(sc.shock)parts.push("choque "+(sc.shock>0?"+":"")+sc.shock+"%");
+    const b=el("button",{type:"button",class:"btn-scen",text:"Aplicar como escenario: "+parts.join(", ")});
+    b.addEventListener("click",()=>applyScenario(it));act.append(b);
+    if(sc.note)act.append(el("span",{class:"na",style:"font-size:11.5px",text:"Supuesto: "+sc.note.replace(/^\s*supuesto:\s*/i,"")}));
+  }
+  act.append(el("span",{class:"na",style:"font-size:11px;margin-left:auto",text:"desde "+it.first_seen+" · confirmado "+it.last_confirmed+(it.auto_closed?" · cerrado por falta de reconfirmación":"")}));
+  card.append(act);
+  return card;
+}
+function sigCard(g){
+  const d=BYID[g.dest];
+  const card=el("article",{class:"tr-card sig-card"},[
+    el("div",{class:"tr-meta"},[dirEl(g.direction),el("span",{class:"rule",text:"Regla "+g.rule+" · automática"})]),
+    el("h4",{text:g.title}),el("p",{text:g.detail})]);
+  if(d){const b=el("button",{type:"button",class:"btn-reset",style:"align-self:flex-start",text:"Ver "+d.short});
+    b.addEventListener("click",()=>{if(g.series_key)state.seriesKey=g.series_key;if(state.scope==="focus"&&!d.focus)state.scope="all";state.sel=g.dest;save();renderAll();
+      if(g.series_key)state.seriesKey=g.series_key,renderDetail();$("detail").scrollIntoView({block:"start"});});
+    card.append(b);}
+  return card;
+}
+function focusCard(id){const c=document.getElementById("tr-"+id);if(!c)return;c.scrollIntoView({behavior:"smooth",block:"center"});c.classList.add("flash");setTimeout(()=>c.classList.remove("flash"),1600);}
+function renderTrends(){
+  const sec=$("trends");const items=TR.items||[];
+  if(!items.length&&!(TR.signals||[]).length){sec.hidden=true;return;}
+  sec.hidden=false;
+  const act=trActive();
+  $("trLede").textContent="Factores externos que pueden mover la llegada de turistas o su gasto, más los patrones que ya aparecen en los datos oficiales. "+(TR.updated?"Último barrido: "+dateEs(new Date(TR.updated+"T12:00:00Z"))+".":"");
+  const cnt=(f)=>act.filter(f).length;
+  const stat=(v,l)=>el("div",{class:"tr-stat"},[el("b",{text:String(v)}),el("span",{text:l})]);
+  $("trStrip").replaceChildren(stat(act.length,"FACTORES ACTIVOS"),stat(cnt(i=>i.direction==="negativo"),"▼ NEGATIVOS"),stat(cnt(i=>i.direction==="positivo"),"▲ POSITIVOS"),
+    stat(cnt(i=>i.direction==="incierto"),"◆ INCIERTOS"),stat(cnt(i=>i.status==="nuevo"||i.status==="escalando"),"NUEVOS O ESCALANDO"),stat((TR.signals||[]).length,"SEÑALES EN LOS DATOS"));
+  // filtros
+  const ds=$("trDest");if(!ds.options.length){ds.append(el("option",{value:"ALL",text:"Todos"}));DESTS.forEach(d=>ds.append(el("option",{value:d.id,text:d.short})));
+    ds.addEventListener("change",e=>{trState.dest=e.target.value;renderTrends();});}
+  const cs=$("trCat");if(!cs.options.length){cs.append(el("option",{value:"ALL",text:"Todas"}));Object.entries(CAT_TR).forEach(([k,v])=>cs.append(el("option",{value:k,text:v})));
+    cs.addEventListener("change",e=>{trState.cat=e.target.value;renderTrends();});}
+  ds.value=trState.dest;cs.value=trState.cat;
+  const pass=(it)=>(trState.dest==="ALL"||trAffects(it,trState.dest))&&(trState.cat==="ALL"||it.category===trState.cat);
+  const vis=act.filter(pass);
+  // matriz impacto x horizonte
+  const mx=$("trMatrix");mx.replaceChildren(el("div",{class:"mh",text:""}));
+  ["inmediato","corto","estructural"].forEach(h=>mx.append(el("div",{class:"mh",text:HOR_TR[h]})));
+  ["alto","medio","bajo"].forEach(im=>{mx.append(el("div",{class:"mh",text:"Impacto "+IMP_TR[im].toLowerCase()}));
+    ["inmediato","corto","estructural"].forEach(h=>{const cell=el("div");
+      vis.filter(i=>i.impact===im&&i.horizon===h).forEach(i=>{const b=el("button",{type:"button",class:"mc "+i.direction,title:i.title,text:(DIR_TR[i.direction]||["•"])[0]+" "+i.title});
+        b.addEventListener("click",()=>focusCard(i.id));cell.append(b);});
+      mx.append(cell);});});
+  const order={alto:0,medio:1,bajo:2},hz={inmediato:0,corto:1,estructural:2};
+  const cards=$("trCards");cards.replaceChildren(...vis.slice().sort((a,b)=>order[a.impact]-order[b.impact]||hz[a.horizon]-hz[b.horizon]).map(trCard));
+  if(!vis.length)cards.append(el("div",{class:"empty",text:"No hay factores activos con estos filtros."}));
+  const sigs=(TR.signals||[]).filter(g=>trState.dest==="ALL"||g.dest===trState.dest);
+  $("trSignals").replaceChildren(...sigs.map(sigCard));
+  if(!sigs.length)$("trSignals").append(el("div",{class:"empty",text:"Ninguna regla se disparó para este destino."}));
+  const closed=items.filter(i=>i.status==="cerrado"&&pass(i));
+  $("trClosedBox").hidden=!closed.length;$("trClosedSum").textContent="Historial: "+closed.length+" factor"+(closed.length===1?"":"es")+" cerrado"+(closed.length===1?"":"s");
+  $("trClosed").replaceChildren(...closed.map(trCard));
+  $("trNote").textContent="La dirección y el impacto de los factores externos son evaluaciones, no datos: se asignan con reglas escritas y siempre con la evidencia enlazada. Las fuentes de prensa se usan solo cuando el hecho todavía no está en fuentes oficiales, y con al menos dos medios. Los escenarios sugeridos son supuestos para explorar, no predicciones.";
+}
+function renderDestRisks(d){
+  const box=$("destRisks");const its=trActive().filter(i=>trAffects(i,d.id));
+  const sigs=(TR.signals||[]).filter(g=>g.dest===d.id);
+  if(!its.length&&!sigs.length){box.hidden=true;return;}
+  box.hidden=false;box.replaceChildren(el("span",{class:"strip-title",style:"width:auto;margin:0 6px 0 0",text:"Tendencias y riesgos"}));
+  its.forEach(i=>{const b=el("button",{type:"button"},[el("span",{class:"dir "+i.direction,style:"padding:0 5px",text:(DIR_TR[i.direction]||["•"])[0]}),document.createTextNode(i.title.length>70?i.title.slice(0,68)+"…":i.title)]);
+    b.addEventListener("click",()=>{trState.dest="ALL";trState.cat="ALL";renderTrends();focusCard(i.id);});box.append(b);});
+  if(sigs.length)box.append(el("span",{class:"na",text:"+ "+sigs.length+" señal"+(sigs.length===1?"":"es")+" en los datos"}));
+}
+
 /* ---------- detail ---------- */
 const CAT_ES={arrivals:"Llegadas",spending:"Gasto turístico",hotels:"Hotelería",air:"Conectividad aérea",investment:"Inversión (IED)"};
 function renderDetail(){
@@ -827,7 +1001,7 @@ function renderDetail(){
   const pr=projOf(d,s);
   $("projSeg").hidden=!pr;
   setPressed("projSeg","proj",state.proj?"1":"0");
-  renderKpis(d,s);renderStrip(d,s);renderHist(d,s);renderSeas(d,s);renderScen(d,s);renderVerify(d);
+  renderKpis(d,s);renderStrip(d,s);renderDestRisks(d);renderHist(d,s);renderSeas(d,s);renderScen(d,s);renderVerify(d);
 }
 function renderStrip(d,active){
   const box=$("strip");const items=[];
@@ -1317,7 +1491,7 @@ function select(id,scroll){if(state.sel!==id){state.sel=id;state.seriesKey=null;
 function setPressed(segId,attr,val){[...$(segId).querySelectorAll("button")].forEach(b=>b.setAttribute("aria-pressed",String(b.dataset[attr]===val)));}
 function renderAll(){
   setPressed("modeSeg","mode",state.mode);setPressed("scopeSeg","scope",state.scope);setPressed("rangeSeg","range",state.range);
-  renderDestSel();renderMap();renderRank();renderDetail();renderMarkets();renderPoles();renderShare();renderCompare();renderSources();
+  renderDestSel();renderMap();renderRank();renderDetail();renderMarkets();renderPoles();renderShare();renderCompare();renderTrends();renderSources();
 }
 $("modeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.mode=b.dataset.mode;state.seriesKey=null;save();renderAll();});
 $("scopeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.scope=b.dataset.scope;save();renderAll();});

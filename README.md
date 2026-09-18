@@ -49,6 +49,9 @@ data/air/<ID>.json       conectividad aérea
 data/markets/<ID>.json   llegadas por país de residencia
 data/poles/DO.json       polos turísticos de República Dominicana
 data/projections/history.json  registro de cada proyección publicada (no se edita a mano)
+data/trends/METHOD.md    reglas del barrido semanal de tendencias y riesgos
+data/trends/registry.json      factores externos: se actualiza en cada barrido, no se borra nada
+pipeline/signals.py      señales automáticas en los datos (reglas R1–R4)
 data/scripts/*.py        un extractor por fuente; re-descarga desde la URL oficial
 data/raw/                archivos descargados (no se versionan)
 pipeline/config.json     qué serie es la principal de cada destino, paridades fijas,
@@ -155,3 +158,21 @@ En la página, la tarjeta "Proyección contra realidad" de cada destino muestra:
 
 El registro empezó el 18 de septiembre de 2026. El primer mes verificable es agosto 2026,
 cuando lo publiquen las fuentes.
+
+## Tendencias y riesgos
+
+Sección ubicada justo después del Panorama, con dos tipos de ítems que nunca se mezclan:
+
+- **Señales en los datos** (`pipeline/signals.py`): patrones detectados con reglas fijas sobre
+  las series oficiales. R1, llegadas ±10% interanual tres meses seguidos; R2, un mercado de
+  origen gana o pierde 1 punto de cuota en tres años; R3, asientos desde EE.UU. ±10%
+  interanual tres meses seguidos; R4, ocupación hotelera ±5 puntos contra el año anterior.
+- **Factores externos** (`data/trends/registry.json`): los mantiene el barrido semanal según
+  `data/trends/METHOD.md`, con una lista fija de 11 temas, fuentes por niveles (oficial,
+  institucional y prensa con al menos dos medios), un tope de 15 activos y cierre automático a
+  las 8 semanas sin verificación. Dirección e impacto son evaluaciones con regla escrita y
+  evidencia enlazada, no datos.
+
+El build valida cada ítem (campos, valores permitidos, destinos, evidencia con URL, fecha y
+nivel) y descarta los que no cumplen. Un factor puede traer un escenario sugerido que se aplica
+a la proyección con un botón, siempre presentado como supuesto.
