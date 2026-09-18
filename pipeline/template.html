@@ -137,6 +137,18 @@ td.note-cell{white-space:normal;text-align:left;color:var(--muted);font-size:12.
 .scen-out b{color:var(--ink);font-variant-numeric:tabular-nums}
 .btn-reset{border:1px solid var(--hair);background:var(--surface);border-radius:7px;padding:4px 10px;font-size:12px;font-weight:600;cursor:pointer;color:var(--ink-2)}
 .btn-reset:hover{border-color:var(--accent);color:var(--ink)}
+.verify{margin-top:16px;padding:14px 16px 12px}
+.verify-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px}
+@media (max-width:900px){.verify-grid{grid-template-columns:1fr}}
+.verify-head{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:baseline;justify-content:space-between;margin-bottom:4px}
+.verify-status{font-size:12.5px;color:var(--ink-2);background:var(--accent-wash);border-radius:8px;padding:8px 10px;margin:6px 0 8px;max-width:90ch}
+.verify-status b{color:var(--ink);font-variant-numeric:tabular-nums}
+.vdot-sim{fill:var(--surface);stroke:var(--s-base);stroke-width:1.5}
+.vdot-reg{fill:var(--accent);stroke:var(--surface);stroke-width:1.5}
+.vlegend{display:flex;flex-wrap:wrap;gap:4px 14px;font-size:12px;color:var(--ink-2);margin:2px 0 6px;align-items:center}
+.vlegend svg{vertical-align:middle;margin-right:5px}
+.close-log td,.close-log th{font-size:12px;padding:5px 8px}
+.close-log td:first-child,.close-log th:first-child{text-align:left}
 details.how-proj{margin-top:10px;font-size:12.5px}
 details.how-proj summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:12px}
 details.how-proj div{color:var(--ink-2);margin-top:6px;max-width:80ch}
@@ -321,6 +333,24 @@ footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-si
         <div class="legend" id="seasLegend"></div>
         <div class="chart-box" id="seasBox"></div>
         <div class="src-line" id="seasNote"></div>
+      </div>
+    </div>
+    <div class="panel verify" id="verify" hidden>
+      <div class="verify-head">
+        <h3>Proyección contra realidad</h3>
+        <span class="src-line" id="verifyMeta" style="margin:0"></span>
+      </div>
+      <div class="verify-status" id="verifyStatus"></div>
+      <div class="verify-grid">
+        <div>
+          <div class="vlegend" id="verifyLegend"></div>
+          <div class="chart-box" id="verifyBox"></div>
+        </div>
+        <div>
+          <div class="sub-h" id="closeLogTitle">Evolución del cierre de año proyectado</div>
+          <div class="table-scroll"><table class="close-log" id="closeLog"></table></div>
+          <p class="src-line" id="closeLogNote"></p>
+        </div>
       </div>
     </div>
   </section>
@@ -698,6 +728,84 @@ function scenOut(d,s){
   out.replaceChildren(...parts);
 }
 
+/* ---------- projection vs reality ---------- */
+function renderVerify(d){
+  const box=$("verify");const pr=d.projection;
+  if(!pr){box.hidden=true;return;}
+  box.hidden=false;
+  const s=sOf(d,pr.series_key);const real=toMap(s);const unit=pr.unit;
+  const hist=pr.history||[];const sim=pr.sim_h1||[];
+  // registro real: la primera proyección (h=1) de cada registro, verificada si ya hay dato
+  const reg=[];
+  hist.forEach(r=>{const p=r.points&&r.points[0];if(!p)return;const q=parseP(p[0]);
+    reg.push({p:p[0],idx:q.idx,proj:p[1],real:real.has(q.idx)?real.get(q.idx):null,made:r.made_on});});
+  const verified=reg.filter(x=>x.real!=null);
+  const first=hist[0];
+  $("verifyMeta").textContent="Registro desde el "+(first?dateEs(new Date(first.made_on+"T12:00:00Z")):"—")+" · "+hist.length+" proyección"+(hist.length===1?"":"es")+" guardada"+(hist.length===1?"":"s");
+  // estado: último mes verificado, o cuándo llega el primero
+  const st=$("verifyStatus");st.replaceChildren();
+  if(verified.length){
+    const v=verified[verified.length-1],err=v.proj/v.real-1;
+    const mape=verified.reduce((a,x)=>a+Math.abs(x.proj/x.real-1),0)/verified.length;
+    st.append("Para ",el("b",{text:pLabel(v.p,true)}),", la proyección registrada el "+dateEs(new Date(v.made+"T12:00:00Z"))+" fue ",
+      el("b",{text:fmt(v.proj,unit)}),"; el dato oficial fue ",el("b",{text:fmt(v.real,unit)}),", un error de ",el("b",{text:pct(err)}),". ",
+      "Error medio del registro: "+nf1.format(mape*100)+"% en "+verified.length+" mes"+(verified.length===1?"":"es")+".");
+  }else if(reg.length){
+    const nx=reg[0];const f=freshness(s,lag(d,"arrivals"));
+    st.append("El registro empezó el ",el("b",{text:dateEs(new Date(first.made_on+"T12:00:00Z"))}),
+      ". Todavía no hay meses verificados: el primero será ",el("b",{text:pLabel(nx.p,true)}),
+      " (proyectado en "+fmt(nx.proj,unit)+"), cuando la fuente lo publique"+(f.expected?", hacia "+monthEs(f.expected):"")+
+      ". Mientras tanto, los puntos grises muestran lo que el método habría proyectado en los meses anteriores.");
+  }
+  // leyenda
+  const dot=(cls)=>{const g=sv("svg",{width:12,height:12,viewBox:"0 0 12 12"});g.append(sv("circle",{cx:6,cy:6,r:4,class:cls}));return g;};
+  const leg=$("verifyLegend");leg.replaceChildren(
+    el("span",null,[el("i",{style:"display:inline-block;width:14px;border-top:2px solid var(--s1);vertical-align:middle;margin-right:5px"}),"Dato oficial"]),
+    el("span",null,[dot("vdot-sim"),"Simulación del método a 1 mes"]),
+    el("span",null,[dot("vdot-reg"),"Proyección registrada"]));
+  // gráfica: últimos 24 meses reales + puntos
+  const vbox=$("verifyBox");const W=Math.max(300,vbox.clientWidth||600),H=W<520?210:240;
+  const M={l:52,r:14,t:12,b:26},iw=W-M.l-M.r,ih=H-M.t-M.b;
+  const lastReal=Math.max(...real.keys());
+  const x0=lastReal-23,x1=Math.max(lastReal,...reg.map(x=>x.idx));
+  const rs=[...real.entries()].filter(([i])=>i>=x0).sort((a,b)=>a[0]-b[0]);
+  const vals=rs.map(x=>x[1]).concat(sim.map(x=>x[1])).concat(reg.map(x=>x.proj));
+  const nt=niceTicks(0,Math.max(...vals),4);
+  const X=i=>M.l+(i-x0)/Math.max(1,x1-x0)*iw,Y=v=>M.t+ih-(v-nt.lo)/(nt.hi-nt.lo)*ih;
+  const svg=sv("svg",{viewBox:"0 0 "+W+" "+H,height:H,role:"img","aria-label":"Proyección contra realidad"});
+  nt.ticks.forEach(t=>{svg.append(sv("line",{x1:M.l,x2:W-M.r,y1:Y(t),y2:Y(t),class:t===nt.lo?"base":"grid"}));svg.append(sv("text",{x:M.l-8,y:Y(t)+4,"text-anchor":"end",class:"tick",text:compactNum(t)}));});
+  for(let i=Math.ceil(x0/3)*3;i<=x1;i+=3){svg.append(sv("text",{x:X(i),y:H-6,"text-anchor":"middle",class:"tick",text:MES[i%12]+(i%12===0?" "+String(Math.floor(i/12)).slice(2):"")}));}
+  if(reg.length&&x1>lastReal)svg.append(sv("rect",{x:X(lastReal),y:M.t,width:Math.max(0,X(x1)-X(lastReal)+6),height:ih,fill:"var(--accent)","fill-opacity":.05}));
+  svg.append(sv("path",{d:"M"+rs.map(([i,v])=>X(i).toFixed(1)+","+Y(v).toFixed(1)).join("L"),fill:"none",stroke:"var(--s1)","stroke-width":2,"stroke-linejoin":"round"}));
+  const pts=[];
+  sim.filter(x=>parseP(x[0]).idx>=x0).forEach(x=>{const i=parseP(x[0]).idx;svg.append(sv("circle",{cx:X(i),cy:Y(x[1]),r:4,class:"vdot-sim"}));pts.push({i,kind:"sim",p:x[0],proj:x[1],real:x[2],method:x[3]});});
+  reg.forEach(x=>{svg.append(sv("circle",{cx:X(x.idx),cy:Y(x.proj),r:5,class:"vdot-reg"}));pts.push({i:x.idx,kind:"reg",p:x.p,proj:x.proj,real:x.real,made:x.made});});
+  const hit=sv("rect",{x:M.l,y:M.t,width:iw,height:ih,fill:"transparent"});svg.append(hit);
+  hit.addEventListener("pointermove",e=>{const r=svg.getBoundingClientRect(),cx=(e.clientX-r.left)*W/r.width;
+    let bi=x0;for(let i=x0;i<=x1;i++)if(Math.abs(X(i)-cx)<Math.abs(X(bi)-cx))bi=i;
+    const rows=[el("div",{class:"t-h",text:pLabel(idxToP(bi),true)})];
+    if(real.has(bi))rows.push(tr("Dato oficial",fmt(real.get(bi),unit),"var(--s1)"));
+    pts.filter(x=>x.i===bi).forEach(x=>{rows.push(tr(x.kind==="reg"?"Registrada ("+x.made+")":"Simulación",fmt(x.proj,unit)));
+      if(x.real)rows.push(tr("Error",pct(x.proj/x.real-1)));});
+    showTip(vbox,X(bi)*vbox.clientWidth/W,e.clientY-r.top,rows);});
+  hit.addEventListener("pointerleave",hideTip);
+  vbox.replaceChildren(svg);
+  // evolución del cierre de año
+  const t=$("closeLog");const yr=pr.year_close?pr.year_close.year:null;
+  $("closeLogTitle").textContent="Evolución del cierre "+(yr||"")+" proyectado";
+  const recs=hist.filter(r=>r.year_close&&r.year_close.year===yr);
+  const head=el("thead",null,[el("tr",null,["Proyectado el","Dato real hasta","Cierre","Rango","Cambio"].map((h,i)=>el("th",{text:h,style:i?"text-align:right":""})))]);
+  const body=el("tbody");
+  recs.slice().reverse().forEach((r,k,arr)=>{const prev=arr[k+1];const c=r.year_close;
+    body.append(el("tr",null,[el("td",{text:dateEs(new Date(r.made_on+"T12:00:00Z"))}),el("td",{text:pLabel(r.last_actual)}),
+      el("td",{text:fmt(c.p50,unit,true)}),el("td",{text:c.p10!=null?fmt(c.p10,unit,true)+" – "+fmt(c.p90,unit,true):"—"}),
+      el("td",null,[prev?deltaEl(c.p50/prev.year_close.p50-1):el("span",{class:"na",text:"inicio"})])]));});
+  t.replaceChildren(head,body);
+  const simMape=sim.length?sim.reduce((a,x)=>a+Math.abs(x[1]/x[2]-1),0)/sim.length:null;
+  $("closeLogNote").textContent="Se agrega una fila cada vez que llega data oficial nueva y la proyección cambia. "+
+    (simMape!=null?"Error medio de la simulación a 1 mes en los últimos "+sim.length+" meses: "+nf1.format(simMape*100)+"%.":"");
+}
+
 /* ---------- detail ---------- */
 const CAT_ES={arrivals:"Llegadas",spending:"Gasto turístico",hotels:"Hotelería",air:"Conectividad aérea",investment:"Inversión (IED)"};
 function renderDetail(){
@@ -719,7 +827,7 @@ function renderDetail(){
   const pr=projOf(d,s);
   $("projSeg").hidden=!pr;
   setPressed("projSeg","proj",state.proj?"1":"0");
-  renderKpis(d,s);renderStrip(d,s);renderHist(d,s);renderSeas(d,s);renderScen(d,s);
+  renderKpis(d,s);renderStrip(d,s);renderHist(d,s);renderSeas(d,s);renderScen(d,s);renderVerify(d);
 }
 function renderStrip(d,active){
   const box=$("strip");const items=[];
@@ -1221,6 +1329,6 @@ $("seriesSel").addEventListener("change",e=>{state.seriesKey=e.target.value;rend
 $("scope-focus").textContent="Foco ("+DESTS.filter(d=>d.focus).length+")";
 $("scope-all").textContent="Todos ("+DESTS.length+")";
 renderStamp();renderAll();
-let rt;new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(()=>{const d=BYID[state.sel];const s=sOf(d,state.seriesKey);renderHist(d,s);renderSeas(d,s);renderMarkets();renderPoles();renderShare();},120);}).observe($("histBox").parentElement);
+let rt;new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(()=>{const d=BYID[state.sel];const s=sOf(d,state.seriesKey);renderHist(d,s);renderSeas(d,s);renderVerify(d);renderMarkets();renderPoles();renderShare();},120);}).observe($("histBox").parentElement);
 })();
 </script>

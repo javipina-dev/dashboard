@@ -349,3 +349,50 @@ def _chained_projection(target, m, last, lead_series, lead, lead_last, cfg_proje
                                    'la razón media de los últimos 12 meses solapados. La banda proviene '
                                    'del backtest del indicador adelantado.'},
     }
+
+
+def simulate_h1(dest, cfg_project, months=24):
+    """Simulación retrospectiva: qué habría proyectado el método a 1 mes en cada
+    uno de los últimos `months` meses, usando sólo los datos disponibles entonces.
+
+    No es el registro de lo que efectivamente se publicó (eso vive en
+    data/projections/history.json); sirve para ver el desempeño del método desde
+    el primer día, y en la página se muestra diferenciado del registro real.
+    Devuelve [[período, proyectado, real, método], ...].
+    """
+    by_key = {s['key']: s for s in dest['series']}
+    target = by_key.get(cfg_project['series'])
+    if not target:
+        return []
+    m = _series_map(target)
+    if not m:
+        return []
+    last = max(m)
+    lead_series = by_key.get(cfg_project.get('lead')) if cfg_project.get('lead') else None
+    lead = _series_map(lead_series) if lead_series else None
+    out = []
+    for o in range(last - months, last):
+        i = o + 1
+        if i not in m or not m[i] or i in PANDEMIC:
+            continue
+        hist = {k: v for k, v in m.items() if k <= o}
+        val = method = None
+        if len(hist) >= MIN_MONTHS:
+            if lead and i in lead:
+                nc, _ = _ratio_nowcast(hist, lead, o, i)
+                if nc.get(i):
+                    val, method = nc[i], 'nowcast'
+            if val is None:
+                fc, _ = _seasonal_forecast(hist, o, 1)
+                if fc.get(i):
+                    val, method = fc[i], 'seasonal'
+        elif lead:
+            lh = {k: v for k, v in lead.items() if k <= o}
+            ratios = [hist[k] / lh[k] for k in range(o - 11, o + 1) if k in hist and k in lh and lh[k]]
+            if len(lh) >= MIN_MONTHS and len(ratios) >= 6:
+                fc, _ = _seasonal_forecast(lh, o, 1)
+                if fc.get(i):
+                    val, method = fc[i] * statistics.fmean(ratios), 'chained'
+        if val:
+            out.append([_period(i), round(val), m[i], method])
+    return out

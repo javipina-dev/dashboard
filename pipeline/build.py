@@ -50,6 +50,7 @@ for did in cfg['order']:
     if pcfg:
         pr = projection.build_projection(d, pcfg, d.get('markets'))
         if pr and not pr.get('skipped'):
+            pr['sim_h1'] = projection.simulate_h1(d, pcfg)
             d['projection'] = pr
             e = pr['backtest'].get('mape_h1')
             err = 'n/d' if e is None else f'{e * 100:.1f}%'
@@ -61,6 +62,34 @@ for did in cfg['order']:
     d['focus'] = did in cfg['focus']
     d['headline'] = h
     dests.append(d)
+
+# ---- registro histórico de proyecciones ------------------------------------
+# Cada corrida guarda lo que el dashboard proyectó. Sólo se agrega un registro
+# cuando la proyección cambia (llegó data nueva); si en el mismo día se vuelve a
+# construir, se reemplaza el registro de ese día. Así el archivo no se llena de
+# duplicados en las semanas sin publicaciones nuevas.
+HIST_PATH = os.path.join(DATA, 'projections', 'history.json')
+history = json.load(open(HIST_PATH)) if os.path.exists(HIST_PATH) else {}
+today = datetime.date.today().isoformat()
+for d in dests:
+    pr = d.get('projection')
+    if not pr:
+        continue
+    rec = {'made_on': today, 'last_actual': pr['last_actual'], 'series_key': pr['series_key'],
+           'points': [p[:5] for p in pr['points']], 'year_close': pr.get('year_close')}
+    recs = history.setdefault(d['id'], [])
+    same = recs and recs[-1]['last_actual'] == rec['last_actual'] and recs[-1]['points'] == rec['points']
+    if same:
+        pass
+    elif recs and recs[-1]['made_on'] == today:
+        recs[-1] = rec
+    else:
+        recs.append(rec)
+    pr['history'] = recs
+os.makedirs(os.path.dirname(HIST_PATH), exist_ok=True)
+with open(HIST_PATH, 'w') as f:
+    json.dump(history, f, ensure_ascii=False, indent=1)
+print(f'  registro de proyecciones: {sum(len(v) for v in history.values())} registros en {len(history)} destinos')
 
 payload = {
     'generated_at': datetime.datetime.now(datetime.timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ'),

@@ -48,6 +48,7 @@ data/<ID>.json           series nacionales por destino (llegadas, gasto, hoteler
 data/air/<ID>.json       conectividad aérea
 data/markets/<ID>.json   llegadas por país de residencia
 data/poles/DO.json       polos turísticos de República Dominicana
+data/projections/history.json  registro de cada proyección publicada (no se edita a mano)
 data/scripts/*.py        un extractor por fuente; re-descarga desde la URL oficial
 data/raw/                archivos descargados (no se versionan)
 pipeline/config.json     qué serie es la principal de cada destino, paridades fijas,
@@ -132,3 +133,25 @@ zona sombreada, línea discontinua, banda de error, regla vertical en el último
 y etiqueta "proy." en la tarjeta de cierre de año. Las proyecciones **no entran** en la tabla
 comparativa, el ranking ni la cuota de mercado. Los escenarios (demanda de EE.UU., capacidad
 aérea con elasticidad supuesta de 0.6, y choque) se ajustan en la página y no alteran los datos.
+
+### Registro de proyección contra realidad
+
+Cada build guarda en `data/projections/history.json` la proyección que publicó para cada
+destino: fecha, último dato real disponible, los 12 meses proyectados con su banda y el
+cierre de año. Sólo se agrega un registro cuando la proyección cambia, es decir cuando llega
+data oficial nueva; si se reconstruye el mismo día, se reemplaza el registro de ese día.
+El archivo se versiona con los datos y **no se edita a mano**: es la memoria de lo que el
+dashboard dijo en cada momento.
+
+En la página, la tarjeta "Proyección contra realidad" de cada destino muestra:
+
+- El último mes verificado: lo proyectado, lo publicado después y el error.
+- Una gráfica de los últimos 24 meses con el dato oficial, la **simulación** del método a un
+  mes (puntos grises: lo que el método habría proyectado con la data disponible en cada
+  momento) y las **proyecciones registradas** (puntos de color: lo que efectivamente se
+  publicó). Las dos se muestran separadas a propósito: la simulación da contexto desde el
+  primer día, pero sólo el registro prueba lo que se dijo.
+- La evolución del cierre de año proyectado, una fila por registro.
+
+El registro empezó el 18 de septiembre de 2026. El primer mes verificable es agosto 2026,
+cuando lo publiquen las fuentes.
