@@ -45,6 +45,7 @@
   --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 body{background:var(--ground);color:var(--ink);font-family:var(--body);font-size:14px;line-height:1.5;padding-inline:16px;padding-block:0 48px}
 .wrap{max-width:1240px;margin:0 auto}
 a{color:var(--accent)}
@@ -244,43 +245,63 @@ details.dsrc summary span{color:var(--muted);font-size:12px}
 .how p{margin:6px 0 0;color:var(--ink-2);font-size:13px}
 .note{border-left:3px solid var(--accent);padding:8px 12px;background:var(--accent-wash);border-radius:0 8px 8px 0;font-size:12.5px;color:var(--ink-2);margin-top:12px;max-width:110ch}
 /* tendencias y riesgos */
-.tr-strip{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
-.tr-stat{background:var(--surface);border:1px solid var(--hair);border-radius:8px;padding:8px 12px;min-width:110px}
-.tr-stat b{display:block;font-family:var(--display);font-stretch:80%;font-size:22px;line-height:1.1;font-variant-numeric:tabular-nums}
-.tr-stat span{font-size:11px;color:var(--muted);font-weight:600;letter-spacing:.04em}
-.tr-filters{display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin-bottom:12px}
-.dir{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;white-space:nowrap}
+.tr-bar{display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center;justify-content:space-between;margin-bottom:10px}
+.tr-counts{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:12.5px;color:var(--ink-2);align-items:baseline}
+.tr-counts b{color:var(--ink);font-variant-numeric:tabular-nums;font-weight:700}
+.tr-counts .sep{color:var(--hair)}
+.tr-filters{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center;margin:0}
+.tr-tabs{margin-bottom:10px}
+.dir{display:inline-flex;align-items:center;gap:4px;font-size:11px;font-weight:700;padding:1px 7px;border-radius:99px;white-space:nowrap}
 .dir.negativo{background:var(--bad-bg);color:var(--bad)}
 .dir.positivo{background:var(--good-bg);color:var(--good)}
 .dir.incierto{background:var(--warn-bg);color:var(--warn-ink)}
+.dir.icon{padding:1px 5px}
 .badge{display:inline-flex;font-size:10.5px;font-weight:600;padding:1px 7px;border-radius:5px;border:1px solid var(--hair);color:var(--ink-2);white-space:nowrap}
 .badge.new{border-color:var(--accent);color:var(--accent);border-style:dashed}
 .badge.hot{border-color:var(--bad);color:var(--bad)}
-.matrix{display:grid;grid-template-columns:78px repeat(3,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:10px;overflow:hidden;margin-bottom:16px}
-.matrix>div{background:var(--surface);padding:8px;min-height:52px;display:flex;flex-wrap:wrap;gap:5px;align-content:flex-start}
-.matrix .mh{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;min-height:0;align-items:center}
-.matrix .mc{cursor:pointer;border:0;font:inherit;font-size:11.5px;font-weight:600;padding:3px 8px;border-radius:6px;text-align:left;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.mc.negativo{background:var(--bad-bg);color:var(--bad)}.mc.positivo{background:var(--good-bg);color:var(--good)}.mc.incierto{background:var(--warn-bg);color:var(--warn-ink)}
-.tr-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px}
-.tr-card{background:var(--surface);border:1px solid var(--hair);border-radius:10px;padding:13px 15px;display:flex;flex-direction:column;gap:7px;scroll-margin-top:90px}
-.tr-card.flash{box-shadow:0 0 0 2px var(--accent)}
-.tr-card h4{margin:0;font-size:14.5px;line-height:1.3;font-family:var(--display);font-stretch:88%;font-weight:700}
-.tr-card p{margin:0;font-size:12.8px;color:var(--ink-2)}
-.tr-meta{display:flex;flex-wrap:wrap;gap:5px;align-items:center}
-.tr-ev{font-size:11.5px;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.badge.alto{border-color:var(--ink-2);color:var(--ink);font-weight:700}
+/* lista densa */
+.tr-list{border:1px solid var(--hair);border-radius:10px;overflow:hidden;background:var(--surface)}
+.tr-row{border-top:1px solid var(--hair)}
+.tr-row:first-child{border-top:0}
+.tr-row.open{background:var(--accent-wash)}
+.tr-row.flash{box-shadow:inset 0 0 0 2px var(--accent)}
+.tr-head{width:100%;display:grid;grid-template-columns:auto auto minmax(0,1fr) auto auto 16px;gap:10px;align-items:center;
+  background:transparent;border:0;padding:9px 12px;cursor:pointer;text-align:left;font:inherit;color:inherit;scroll-margin-top:90px}
+.tr-head:hover{background:var(--accent-wash)}
+.tr-t{font-weight:600;font-size:13.2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tr-d{font-size:11.5px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:22ch}
+.tr-chip{font-size:10.5px;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:5px;padding:0 5px;white-space:nowrap}
+.caret{color:var(--muted);font-size:11px;transition:transform .15s}
+.tr-row.open .caret{transform:rotate(90deg)}
+.tr-body{padding:2px 14px 14px 44px;display:grid;gap:8px;font-size:12.8px;color:var(--ink-2);max-width:105ch}
+.tr-body p{margin:0}
+.tr-ev{font-size:11.5px;color:var(--muted);display:grid;gap:2px}
 .tr-ev a{color:var(--ink-2)}
 .tier{font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:0 5px;border-radius:4px;margin-right:5px;border:1px solid var(--hair)}
 .tier.prensa{border-style:dashed}
-.tr-sig{font-size:12px;background:var(--accent-wash);border-radius:7px;padding:6px 9px;color:var(--ink-2)}
+.tr-sig{font-size:12px;background:var(--surface);border:1px solid var(--hair);border-radius:7px;padding:6px 9px;color:var(--ink-2)}
 .tr-sig b{color:var(--ink)}
-.tr-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:auto}
-.btn-scen{border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:7px;padding:5px 10px;font-size:12px;font-weight:700;cursor:pointer}
+.tr-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.btn-scen{border:1px solid var(--accent);background:transparent;color:var(--accent);border-radius:7px;padding:4px 10px;font-size:12px;font-weight:700;cursor:pointer}
 .btn-scen:hover{background:var(--accent);color:var(--accent-ink)}
-.sig-card{border-style:solid;border-left:3px solid var(--axis)}
-.sig-card .rule{font-size:10px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.tr-foot{font-size:11px;color:var(--muted)}
+details.tr-matrix-box{margin-bottom:10px;font-size:12.5px}
+details.tr-matrix-box summary{cursor:pointer;color:var(--accent);font-weight:600;font-size:12px;padding:2px 0}
+.matrix{display:grid;grid-template-columns:76px repeat(3,minmax(0,1fr));gap:1px;background:var(--hair);border:1px solid var(--hair);border-radius:10px;overflow:hidden;margin-top:8px}
+.matrix>div{background:var(--surface);padding:7px;min-height:44px;display:flex;flex-wrap:wrap;gap:4px;align-content:flex-start}
+.matrix .mh{font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:700;min-height:0;align-items:center}
+.matrix .mc{cursor:pointer;border:0;font:inherit;font-size:11px;font-weight:600;padding:2px 7px;border-radius:5px;text-align:left;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.mc.negativo{background:var(--bad-bg);color:var(--bad)}.mc.positivo{background:var(--good-bg);color:var(--good)}.mc.incierto{background:var(--warn-bg);color:var(--warn-ink)}
 .dest-risks{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:-6px 0 14px;font-size:12px}
 .dest-risks button{border:1px solid var(--hair);background:var(--surface);border-radius:99px;padding:3px 10px;font-size:11.5px;font-weight:600;cursor:pointer;display:inline-flex;gap:5px;align-items:center;color:var(--ink-2);max-width:100%}
 .dest-risks button:hover{border-color:var(--accent);color:var(--ink)}
+@media (max-width:700px){
+  .tr-head{grid-template-columns:auto minmax(0,1fr) 16px;row-gap:4px}
+  .tr-head .badge.alto,.tr-d,.tr-chip{grid-column:2}
+  .tr-t{white-space:normal}
+  .tr-body{padding-left:14px}
+}
 footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-size:12px;color:var(--muted)}
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -332,17 +353,23 @@ footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-si
       <h2>Tendencias y riesgos</h2>
       <p class="lede" id="trLede"></p>
     </div>
-    <div class="tr-strip" id="trStrip"></div>
-    <div class="tr-filters">
-      <div><label class="ctl-label" for="trDest">Destino</label><select id="trDest"></select></div>
-      <div><label class="ctl-label" for="trCat">Categoría</label><select id="trCat"></select></div>
+    <div class="tr-bar">
+      <div class="tr-counts" id="trStrip"></div>
+      <div class="tr-filters">
+        <div><label class="ctl-label" for="trDest">Destino</label><select id="trDest"></select></div>
+        <div><label class="ctl-label" for="trCat">Categoría</label><select id="trCat"></select></div>
+      </div>
     </div>
-    <div class="sub-h" style="margin-top:0">Factores externos · impacto contra horizonte</div>
-    <div class="matrix" id="trMatrix"></div>
-    <div class="tr-cards" id="trCards"></div>
-    <div class="sub-h" style="margin-top:22px">Señales en los datos · calculadas con reglas fijas sobre las series oficiales</div>
-    <div class="tr-cards" id="trSignals"></div>
-    <details class="how-proj" id="trClosedBox" style="margin-top:16px"><summary id="trClosedSum"></summary><div class="tr-cards" id="trClosed" style="margin-top:10px"></div></details>
+    <div class="seg tr-tabs" id="trTabs">
+      <button type="button" id="trtab-ext" data-tab="ext" aria-pressed="true">Factores externos</button>
+      <button type="button" id="trtab-sig" data-tab="sig" aria-pressed="false">Señales en los datos</button>
+      <button type="button" id="trtab-hist" data-tab="hist" aria-pressed="false">Historial</button>
+    </div>
+    <details class="tr-matrix-box" id="trMatrixBox">
+      <summary>Ver matriz de impacto contra horizonte</summary>
+      <div class="matrix" id="trMatrix"></div>
+    </details>
+    <div class="tr-list" id="trList"></div>
     <p class="note" id="trNote"></p>
   </section>
 
@@ -871,7 +898,7 @@ const DIR_TR={negativo:["▼","Negativo"],positivo:["▲","Positivo"],incierto:[
 const HOR_TR={inmediato:"Inmediato (<3 meses)",corto:"Corto (3–12 meses)",estructural:"Estructural (>12 meses)"};
 const IMP_TR={alto:"Alto",medio:"Medio",bajo:"Bajo"};
 const ST_TR={nuevo:"Nuevo",vigente:"Vigente",escalando:"Escalando",perdiendo_fuerza:"Perdiendo fuerza",cerrado:"Cerrado"};
-const trState={dest:"ALL",cat:"ALL"};
+const trState={dest:"ALL",cat:"ALL",tab:"ext"};
 function trActive(){return (TR.items||[]).filter(i=>i.status!=="cerrado");}
 function trAffects(it,id){return it.destinations.includes("ALL")||it.destinations.includes(id);}
 function dirEl(dir){const d=DIR_TR[dir]||["•",dir];return el("span",{class:"dir "+dir,text:d[0]+" "+d[1]});}
@@ -895,55 +922,91 @@ function signalLine(it){
   return el("div",{class:"tr-sig"},["En los datos: ",el("b",{text:BYID[g.dest].short+" "+pct(m.yoy)}),
     " interanual en "+pLabel(m.lastP)+" ("+shortLabel(sr.label).slice(0,60)+")."+(g.note?" "+g.note:"")]);
 }
-function trCard(it){
-  const hot=it.status==="escalando";
-  const card=el("article",{class:"tr-card",id:"tr-"+it.id},[
-    el("div",{class:"tr-meta"},[dirEl(it.direction),
-      el("span",{class:"badge"+(it.status==="nuevo"?" new":hot?" hot":""),text:ST_TR[it.status]||it.status}),
+function trRow(it){
+  const dir=(DIR_TR[it.direction]||["•","?"]);
+  const row=el("div",{class:"tr-row",id:"tr-"+it.id});
+  const sig=it.signal&&BYID[it.signal.dest]?el("span",{class:"tr-chip",text:"en los datos"}):null;
+  const head=el("button",{type:"button",class:"tr-head","aria-expanded":"false"},[
+    el("span",{class:"dir icon "+it.direction,title:dir[1],text:dir[0]}),
+    el("span",{class:"badge"+(it.impact==="alto"?" alto":""),text:(IMP_TR[it.impact]||it.impact)}),
+    el("span",{class:"tr-t",text:it.title}),
+    el("span",{class:"tr-d",text:destNames(it.destinations)}),
+    sig||el("span"),
+    el("span",{class:"caret",text:"▸"})]);
+  const body=el("div",{class:"tr-body",hidden:"hidden"},[
+    el("p",{text:it.summary}),
+    el("div",{class:"tr-meta",style:"display:flex;flex-wrap:wrap;gap:5px"},[
+      el("span",{class:"dir "+it.direction,text:dir[0]+" "+dir[1]}),
+      el("span",{class:"badge"+(it.status==="nuevo"?" new":it.status==="escalando"?" hot":""),text:ST_TR[it.status]||it.status}),
       el("span",{class:"badge",text:CAT_TR[it.category]||it.category}),
       el("span",{class:"badge",text:"Impacto "+(IMP_TR[it.impact]||it.impact).toLowerCase()}),
-      el("span",{class:"badge",text:(HOR_TR[it.horizon]||it.horizon).split(" (")[0]})]),
-    el("h4",{text:it.title}),
-    el("p",{text:it.summary}),
+      el("span",{class:"badge",text:HOR_TR[it.horizon]||it.horizon})]),
     el("div",{class:"tr-ev"},[el("span",{text:"Afecta a: "+destNames(it.destinations)+(it.markets&&it.markets.length?" · mercados: "+it.markets.join(", "):"")})]),
     signalLine(it),
     el("div",{class:"tr-ev"},it.evidence.map(e=>el("span",null,[el("span",{class:"tier "+e.tier,text:e.tier}),
-      el("a",{href:e.url,target:"_blank",rel:"noopener",text:(e.org?e.org+": ":"")+e.title}),document.createTextNode(" · "+e.date)]))),
-  ]);
+      el("a",{href:e.url,target:"_blank",rel:"noopener",text:(e.org?e.org+": ":"")+e.title}),document.createTextNode(" · "+e.date)])))]);
   const act=el("div",{class:"tr-actions"});
   if(it.scenario&&it.status!=="cerrado"){
-    const sc=it.scenario;const parts=[];if(sc.us)parts.push("EE.UU. "+(sc.us>0?"+":"")+sc.us+"%");if(sc.cap)parts.push("capacidad "+(sc.cap>0?"+":"")+sc.cap+"%");if(sc.shock)parts.push("choque "+(sc.shock>0?"+":"")+sc.shock+"%");
+    const sc=it.scenario,parts=[];
+    if(sc.us)parts.push("EE.UU. "+(sc.us>0?"+":"")+sc.us+"%");
+    if(sc.cap)parts.push("capacidad "+(sc.cap>0?"+":"")+sc.cap+"%");
+    if(sc.shock)parts.push("choque "+(sc.shock>0?"+":"")+sc.shock+"%");
     const b=el("button",{type:"button",class:"btn-scen",text:"Aplicar como escenario: "+parts.join(", ")});
     b.addEventListener("click",()=>applyScenario(it));act.append(b);
     if(sc.note)act.append(el("span",{class:"na",style:"font-size:11.5px",text:"Supuesto: "+sc.note.replace(/^\s*supuesto:\s*/i,"")}));
   }
-  act.append(el("span",{class:"na",style:"font-size:11px;margin-left:auto",text:"desde "+it.first_seen+" · confirmado "+it.last_confirmed+(it.auto_closed?" · cerrado por falta de reconfirmación":"")}));
-  card.append(act);
-  return card;
+  act.append(el("span",{class:"tr-foot",style:"margin-left:auto",text:"desde "+it.first_seen+" · verificado "+it.last_confirmed+(it.auto_closed?" · cerrado por falta de verificación":it.closed_on?" · cerrado "+it.closed_on:"")}));
+  body.append(act);
+  head.addEventListener("click",()=>{
+    const open=row.classList.contains("open");
+    [...$("trList").querySelectorAll(".tr-row.open")].forEach(r=>{r.classList.remove("open");r.querySelector(".tr-body").hidden=true;r.querySelector(".tr-head").setAttribute("aria-expanded","false");});
+    if(!open){row.classList.add("open");body.hidden=false;head.setAttribute("aria-expanded","true");}
+  });
+  row.append(head,body);
+  return row;
 }
-function sigCard(g){
-  const d=BYID[g.dest];
-  const card=el("article",{class:"tr-card sig-card"},[
-    el("div",{class:"tr-meta"},[dirEl(g.direction),el("span",{class:"rule",text:"Regla "+g.rule+" · automática"})]),
-    el("h4",{text:g.title}),el("p",{text:g.detail})]);
-  if(d){const b=el("button",{type:"button",class:"btn-reset",style:"align-self:flex-start",text:"Ver "+d.short});
-    b.addEventListener("click",()=>{if(g.series_key)state.seriesKey=g.series_key;if(state.scope==="focus"&&!d.focus)state.scope="all";state.sel=g.dest;save();renderAll();
-      if(g.series_key)state.seriesKey=g.series_key,renderDetail();$("detail").scrollIntoView({block:"start"});});
-    card.append(b);}
-  return card;
+function sigRow(g){
+  const dir=(DIR_TR[g.direction]||["•","?"]);const d=BYID[g.dest];
+  const row=el("div",{class:"tr-row",id:"sig-"+g.id});
+  const head=el("button",{type:"button",class:"tr-head","aria-expanded":"false"},[
+    el("span",{class:"dir icon "+g.direction,title:dir[1],text:dir[0]}),
+    el("span",{class:"badge",text:"Regla "+g.rule}),
+    el("span",{class:"tr-t",text:g.title}),
+    el("span",{class:"tr-d",text:g.period}),
+    el("span"),el("span",{class:"caret",text:"▸"})]);
+  const body=el("div",{class:"tr-body",hidden:"hidden"},[el("p",{text:g.detail})]);
+  if(d){const b=el("button",{type:"button",class:"btn-reset",style:"justify-self:start",text:"Ver "+d.short+" en el detalle"});
+    b.addEventListener("click",()=>{if(state.scope==="focus"&&!d.focus)state.scope="all";state.sel=g.dest;state.seriesKey=g.series_key||null;save();renderAll();
+      $("detail").scrollIntoView({block:"start"});});
+    body.append(b);}
+  head.addEventListener("click",()=>{
+    const open=row.classList.contains("open");
+    [...$("trList").querySelectorAll(".tr-row.open")].forEach(r=>{r.classList.remove("open");r.querySelector(".tr-body").hidden=true;r.querySelector(".tr-head").setAttribute("aria-expanded","false");});
+    if(!open){row.classList.add("open");body.hidden=false;head.setAttribute("aria-expanded","true");}
+  });
+  row.append(head,body);
+  return row;
 }
-function focusCard(id){const c=document.getElementById("tr-"+id);if(!c)return;c.scrollIntoView({behavior:"smooth",block:"center"});c.classList.add("flash");setTimeout(()=>c.classList.remove("flash"),1600);}
+function focusCard(id){
+  trState.tab="ext";renderTrends();
+  const r=document.getElementById("tr-"+id);if(!r)return;
+  r.querySelector(".tr-head").click();
+  r.scrollIntoView({behavior:matchMedia("(prefers-reduced-motion: reduce)").matches?"auto":"smooth",block:"center"});
+  r.classList.add("flash");setTimeout(()=>r.classList.remove("flash"),1600);
+}
 function renderTrends(){
-  const sec=$("trends");const items=TR.items||[];
-  if(!items.length&&!(TR.signals||[]).length){sec.hidden=true;return;}
+  const sec=$("trends");const items=TR.items||[];const sigsAll=TR.signals||[];
+  if(!items.length&&!sigsAll.length){sec.hidden=true;return;}
   sec.hidden=false;
   const act=trActive();
   $("trLede").textContent="Factores externos que pueden mover la llegada de turistas o su gasto, más los patrones que ya aparecen en los datos oficiales. "+(TR.updated?"Último barrido: "+dateEs(new Date(TR.updated+"T12:00:00Z"))+".":"");
   const cnt=(f)=>act.filter(f).length;
-  const stat=(v,l)=>el("div",{class:"tr-stat"},[el("b",{text:String(v)}),el("span",{text:l})]);
-  $("trStrip").replaceChildren(stat(act.length,"FACTORES ACTIVOS"),stat(cnt(i=>i.direction==="negativo"),"▼ NEGATIVOS"),stat(cnt(i=>i.direction==="positivo"),"▲ POSITIVOS"),
-    stat(cnt(i=>i.direction==="incierto"),"◆ INCIERTOS"),stat(cnt(i=>i.status==="nuevo"||i.status==="escalando"),"NUEVOS O ESCALANDO"),stat((TR.signals||[]).length,"SEÑALES EN LOS DATOS"));
-  // filtros
+  $("trStrip").replaceChildren(
+    el("span",null,[el("b",{text:String(act.length)})," activos"]),el("span",{class:"sep",text:"·"}),
+    el("span",{class:"delta down"},[el("b",{text:"▼ "+cnt(i=>i.direction==="negativo")})," negativos"]),
+    el("span",{class:"delta up"},[el("b",{text:"▲ "+cnt(i=>i.direction==="positivo")})," positivos"]),
+    el("span",null,[el("b",{text:"◆ "+cnt(i=>i.direction==="incierto")})," inciertos"]),el("span",{class:"sep",text:"·"}),
+    el("span",null,[el("b",{text:String(cnt(i=>i.status==="nuevo"||i.status==="escalando"))})," nuevos o escalando"]));
   const ds=$("trDest");if(!ds.options.length){ds.append(el("option",{value:"ALL",text:"Todos"}));DESTS.forEach(d=>ds.append(el("option",{value:d.id,text:d.short})));
     ds.addEventListener("change",e=>{trState.dest=e.target.value;renderTrends();});}
   const cs=$("trCat");if(!cs.options.length){cs.append(el("option",{value:"ALL",text:"Todas"}));Object.entries(CAT_TR).forEach(([k,v])=>cs.append(el("option",{value:k,text:v})));
@@ -951,23 +1014,33 @@ function renderTrends(){
   ds.value=trState.dest;cs.value=trState.cat;
   const pass=(it)=>(trState.dest==="ALL"||trAffects(it,trState.dest))&&(trState.cat==="ALL"||it.category===trState.cat);
   const vis=act.filter(pass);
-  // matriz impacto x horizonte
+  const sigs=sigsAll.filter(g=>trState.dest==="ALL"||g.dest===trState.dest);
+  const closed=items.filter(i=>i.status==="cerrado"&&pass(i));
+  $("trtab-ext").textContent="Factores externos ("+vis.length+")";
+  $("trtab-sig").textContent="Señales en los datos ("+sigs.length+")";
+  $("trtab-hist").textContent="Historial ("+closed.length+")";
+  setPressed("trTabs","tab",trState.tab);
+  $("trMatrixBox").hidden=trState.tab!=="ext";
+  const order={alto:0,medio:1,bajo:2},hz={inmediato:0,corto:1,estructural:2};
   const mx=$("trMatrix");mx.replaceChildren(el("div",{class:"mh",text:""}));
   ["inmediato","corto","estructural"].forEach(h=>mx.append(el("div",{class:"mh",text:HOR_TR[h]})));
-  ["alto","medio","bajo"].forEach(im=>{mx.append(el("div",{class:"mh",text:"Impacto "+IMP_TR[im].toLowerCase()}));
+  ["alto","medio","bajo"].forEach(im=>{mx.append(el("div",{class:"mh",text:IMP_TR[im]}));
     ["inmediato","corto","estructural"].forEach(h=>{const cell=el("div");
       vis.filter(i=>i.impact===im&&i.horizon===h).forEach(i=>{const b=el("button",{type:"button",class:"mc "+i.direction,title:i.title,text:(DIR_TR[i.direction]||["•"])[0]+" "+i.title});
         b.addEventListener("click",()=>focusCard(i.id));cell.append(b);});
       mx.append(cell);});});
-  const order={alto:0,medio:1,bajo:2},hz={inmediato:0,corto:1,estructural:2};
-  const cards=$("trCards");cards.replaceChildren(...vis.slice().sort((a,b)=>order[a.impact]-order[b.impact]||hz[a.horizon]-hz[b.horizon]).map(trCard));
-  if(!vis.length)cards.append(el("div",{class:"empty",text:"No hay factores activos con estos filtros."}));
-  const sigs=(TR.signals||[]).filter(g=>trState.dest==="ALL"||g.dest===trState.dest);
-  $("trSignals").replaceChildren(...sigs.map(sigCard));
-  if(!sigs.length)$("trSignals").append(el("div",{class:"empty",text:"Ninguna regla se disparó para este destino."}));
-  const closed=items.filter(i=>i.status==="cerrado"&&pass(i));
-  $("trClosedBox").hidden=!closed.length;$("trClosedSum").textContent="Historial: "+closed.length+" factor"+(closed.length===1?"":"es")+" cerrado"+(closed.length===1?"":"s");
-  $("trClosed").replaceChildren(...closed.map(trCard));
+  const list=$("trList");
+  if(trState.tab==="ext"){
+    const rows=vis.slice().sort((a,b)=>order[a.impact]-order[b.impact]||hz[a.horizon]-hz[b.horizon]).map(trRow);
+    list.replaceChildren(...rows);
+    if(!rows.length)list.append(el("div",{class:"empty",text:"No hay factores activos con estos filtros."}));
+  }else if(trState.tab==="sig"){
+    list.replaceChildren(...sigs.map(sigRow));
+    if(!sigs.length)list.append(el("div",{class:"empty",text:"Ninguna regla se disparó con estos filtros."}));
+  }else{
+    list.replaceChildren(...closed.map(trRow));
+    if(!closed.length)list.append(el("div",{class:"empty",text:"Todavía no se ha cerrado ningún factor. Los cerrados se conservan aquí como historial."}));
+  }
   $("trNote").textContent="La dirección y el impacto de los factores externos son evaluaciones, no datos: se asignan con reglas escritas y siempre con la evidencia enlazada. Las fuentes de prensa se usan solo cuando el hecho todavía no está en fuentes oficiales, y con al menos dos medios. Los escenarios sugeridos son supuestos para explorar, no predicciones.";
 }
 function renderDestRisks(d){
@@ -1496,6 +1569,7 @@ function renderAll(){
 $("modeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.mode=b.dataset.mode;state.seriesKey=null;save();renderAll();});
 $("scopeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.scope=b.dataset.scope;save();renderAll();});
 $("rangeSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.range=b.dataset.range;save();setPressed("rangeSeg","range",state.range);const d=BYID[state.sel];renderHist(d,sOf(d,state.seriesKey));});
+$("trTabs").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;trState.tab=b.dataset.tab;renderTrends();});
 $("projSeg").addEventListener("click",e=>{const b=e.target.closest("button");if(!b)return;state.proj=b.dataset.proj==="1";save();renderDetail();});
 $("scenReset").addEventListener("click",()=>{state.scen={us:0,cap:0,shock:0};const d=BYID[state.sel],s=sOf(d,state.seriesKey);renderScen(d,s);renderHist(d,s);renderKpis(d,s);});
 $("destSel").addEventListener("change",e=>select(e.target.value,false));
