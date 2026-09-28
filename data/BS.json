@@ -379,14 +379,14 @@
    ],
    "source": {
     "org": "Bahamas Ministry of Tourism, Investments & Aviation – Research & Statistics Dept.",
-    "title": "Yearly Comparison of Stopover Visitors by Island and Month 2015-2026 (preliminary)",
+    "title": "Yearly Comparison of Stopover Visitors by Island and Month 2016-2026 (preliminary)",
     "page_url": "https://www.tourismtoday.com/statistics/frequently-requested-stopover-statistics-trends",
     "file_url": "https://www.tourismtoday.com/sites/default/files/docs/2026%20Stopover%20By%20Month%20and%20Island%20Comparision%202015-2026_1.pdf",
     "format": "pdf",
     "update_frequency": "mensual (PDF acumulado reemplazado cada mes)",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-07",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Scrape page for 'Yearly Comparison of Stopover Visitors by Island and Month' PDF (one page per year, newest first); pdfplumber text rows 'Mon cur prev %chg' x4 regions; Out Islands prior-year column is split ('2 9,286') and must be re-joined."
    }
   },
@@ -764,14 +764,14 @@
    ],
    "source": {
     "org": "Bahamas Ministry of Tourism, Investments & Aviation – Research & Statistics Dept.",
-    "title": "Yearly Comparison of Stopover Visitors by Island and Month 2015-2026 (preliminary)",
+    "title": "Yearly Comparison of Stopover Visitors by Island and Month 2016-2026 (preliminary)",
     "page_url": "https://www.tourismtoday.com/statistics/frequently-requested-stopover-statistics-trends",
     "file_url": "https://www.tourismtoday.com/sites/default/files/docs/2026%20Stopover%20By%20Month%20and%20Island%20Comparision%202015-2026_1.pdf",
     "format": "pdf",
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-07",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Scrape page for 'Yearly Comparison of Stopover Visitors by Island and Month' PDF (one page per year, newest first); pdfplumber text rows 'Mon cur prev %chg' x4 regions; Out Islands prior-year column is split ('2 9,286') and must be re-joined."
    }
   },
@@ -1149,14 +1149,14 @@
    ],
    "source": {
     "org": "Bahamas Ministry of Tourism, Investments & Aviation – Research & Statistics Dept.",
-    "title": "Yearly Comparison of Stopover Visitors by Island and Month 2015-2026 (preliminary)",
+    "title": "Yearly Comparison of Stopover Visitors by Island and Month 2016-2026 (preliminary)",
     "page_url": "https://www.tourismtoday.com/statistics/frequently-requested-stopover-statistics-trends",
     "file_url": "https://www.tourismtoday.com/sites/default/files/docs/2026%20Stopover%20By%20Month%20and%20Island%20Comparision%202015-2026_1.pdf",
     "format": "pdf",
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-07",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Scrape page for 'Yearly Comparison of Stopover Visitors by Island and Month' PDF (one page per year, newest first); pdfplumber text rows 'Mon cur prev %chg' x4 regions; Out Islands prior-year column is split ('2 9,286') and must be re-joined."
    }
   },
@@ -1534,14 +1534,14 @@
    ],
    "source": {
     "org": "Bahamas Ministry of Tourism, Investments & Aviation – Research & Statistics Dept.",
-    "title": "Yearly Comparison of Stopover Visitors by Island and Month 2015-2026 (preliminary)",
+    "title": "Yearly Comparison of Stopover Visitors by Island and Month 2016-2026 (preliminary)",
     "page_url": "https://www.tourismtoday.com/statistics/frequently-requested-stopover-statistics-trends",
     "file_url": "https://www.tourismtoday.com/sites/default/files/docs/2026%20Stopover%20By%20Month%20and%20Island%20Comparision%202015-2026_1.pdf",
     "format": "pdf",
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-07",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Scrape page for 'Yearly Comparison of Stopover Visitors by Island and Month' PDF (one page per year, newest first); pdfplumber text rows 'Mon cur prev %chg' x4 regions; Out Islands prior-year column is split ('2 9,286') and must be re-joined."
    }
   },
@@ -1915,18 +1915,22 @@
     [
      "2026-07",
      981424
+    ],
+    [
+     "2026-08",
+     1034761
     ]
    ],
    "source": {
     "org": "Bahamas Ministry of Tourism, Investments & Aviation (datos del Dept. of Immigration)",
     "title": "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry",
     "page_url": "https://www.tourismtoday.com/statistics/foreign-arrivals-air-sea-data",
-    "file_url": "https://www.tourismtoday.com/sites/default/files/docs/Oliver%20Air%20Sea%20Landed%20%26%20Cruise%20Arrivals%202026%20%283%29.pdf",
+    "file_url": "https://www.tourismtoday.com/sites/default/files/docs/OLIVER%20Air%20Sea%20Landed%20%26%20Cruise%20Arrivals%202026%20%284%29.pdf",
     "format": "pdf",
     "update_frequency": "mensual (PDF anual acumulado)",
     "release_lag": "~6-7 semanas tras el cierre del mes",
-    "last_period": "2026-07",
-    "retrieved": "2026-09-17",
+    "last_period": "2026-08",
+    "retrieved": "2026-09-28",
     "access_method": "Scrape the page for the current-year 'Air Sea Landed & Cruise Arrivals YYYY' PDF link (file name changes with each revision), download, pdfplumber: each monthly page 'Total Foreign Arrivals Summary Report <Month YYYY>' has a 'Grand Total air sea_landed cruise total' line and 'Island Group Subtotal' lines (GB, NP, Out Islands)."
    }
   },
@@ -2300,18 +2304,22 @@
     [
      "2026-07",
      188053
+    ],
+    [
+     "2026-08",
+     121037
     ]
    ],
    "source": {
     "org": "Bahamas Ministry of Tourism, Investments & Aviation (datos del Dept. of Immigration)",
     "title": "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry",
     "page_url": "https://www.tourismtoday.com/statistics/foreign-arrivals-air-sea-data",
-    "file_url": "https://www.tourismtoday.com/sites/default/files/docs/Oliver%20Air%20Sea%20Landed%20%26%20Cruise%20Arrivals%202026%20%283%29.pdf",
+    "file_url": "https://www.tourismtoday.com/sites/default/files/docs/OLIVER%20Air%20Sea%20Landed%20%26%20Cruise%20Arrivals%202026%20%284%29.pdf",
     "format": "pdf",
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
-    "last_period": "2026-07",
-    "retrieved": "2026-09-17",
+    "last_period": "2026-08",
+    "retrieved": "2026-09-28",
     "access_method": "Scrape the page for the current-year 'Air Sea Landed & Cruise Arrivals YYYY' PDF link (file name changes with each revision), download, pdfplumber: each monthly page 'Total Foreign Arrivals Summary Report <Month YYYY>' has a 'Grand Total air sea_landed cruise total' line and 'Island Group Subtotal' lines (GB, NP, Out Islands)."
    }
   },
@@ -2685,18 +2693,22 @@
     [
      "2026-07",
      24591
+    ],
+    [
+     "2026-08",
+     12585
     ]
    ],
    "source": {
     "org": "Bahamas Ministry of Tourism, Investments & Aviation (datos del Dept. of Immigration)",
     "title": "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry",
     "page_url": "https://www.tourismtoday.com/statistics/foreign-arrivals-air-sea-data",
-    "file_url": "https://www.tourismtoday.com/sites/default/files/docs/Oliver%20Air%20Sea%20Landed%20%26%20Cruise%20Arrivals%202026%20%283%29.pdf",
+    "file_url": "https://www.tourismtoday.com/sites/default/files/docs/OLIVER%20Air%20Sea%20Landed%20%26%20Cruise%20Arrivals%202026%20%284%29.pdf",
     "format": "pdf",
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
-    "last_period": "2026-07",
-    "retrieved": "2026-09-17",
+    "last_period": "2026-08",
+    "retrieved": "2026-09-28",
     "access_method": "Scrape the page for the current-year 'Air Sea Landed & Cruise Arrivals YYYY' PDF link (file name changes with each revision), download, pdfplumber: each monthly page 'Total Foreign Arrivals Summary Report <Month YYYY>' has a 'Grand Total air sea_landed cruise total' line and 'Island Group Subtotal' lines (GB, NP, Out Islands)."
    }
   },
@@ -3070,18 +3082,22 @@
     [
      "2026-07",
      1194068
+    ],
+    [
+     "2026-08",
+     1168383
     ]
    ],
    "source": {
     "org": "Bahamas Ministry of Tourism, Investments & Aviation (datos del Dept. of Immigration)",
     "title": "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry",
     "page_url": "https://www.tourismtoday.com/statistics/foreign-arrivals-air-sea-data",
-    "file_url": "https://www.tourismtoday.com/sites/default/files/docs/Oliver%20Air%20Sea%20Landed%20%26%20Cruise%20Arrivals%202026%20%283%29.pdf",
+    "file_url": "https://www.tourismtoday.com/sites/default/files/docs/OLIVER%20Air%20Sea%20Landed%20%26%20Cruise%20Arrivals%202026%20%284%29.pdf",
     "format": "pdf",
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
-    "last_period": "2026-07",
-    "retrieved": "2026-09-17",
+    "last_period": "2026-08",
+    "retrieved": "2026-09-28",
     "access_method": "Scrape the page for the current-year 'Air Sea Landed & Cruise Arrivals YYYY' PDF link (file name changes with each revision), download, pdfplumber: each monthly page 'Total Foreign Arrivals Summary Report <Month YYYY>' has a 'Grand Total air sea_landed cruise total' line and 'Island Group Subtotal' lines (GB, NP, Out Islands)."
    }
   },
@@ -3092,10 +3108,6 @@
    "unit": "US$ millones",
    "frequency": "quarterly",
    "data": [
-    [
-     "2019-Q1",
-     1295.1
-    ],
     [
      "2019-Q2",
      1182.3
@@ -3213,12 +3225,12 @@
     "org": "Central Bank of The Bahamas",
     "title": "Quarterly Statistical Digest – Table 7.1 Balance of Payments (BPM6), Travel receipts",
     "page_url": "https://www.centralbankbahamas.com/publications/qsd",
-    "file_url": "https://cdn.centralbankbahamas.com/documents/2026-08-26-13-58-19-CBOB-Quarterly-Digest---August-2026.pdf",
+    "file_url": "https://cdn.centralbankbahamas.com/tenantcbob_prod/assets/documents/2026-08-26-13-58-19-CBOB-Quarterly-Digest---August-2026-1788374677-Lul0jX.pdf",
     "format": "pdf",
     "update_frequency": "trimestral (QSD publicado feb/may/ago/nov)",
-    "release_lag": "~5 meses (Ago-2026 trae hasta 2026-T1)",
+    "release_lag": "~5 meses (QSD 2026-08 trae hasta 2026-Q1)",
     "last_period": "2026-Q1",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "List https://www.centralbankbahamas.com/publications/qsd, open newest digest page, take cdn.centralbankbahamas.com PDF; Table 7.1 Balance of Payments (quarterly page): second 'Travel' row = current-account receipts. Each digest carries ~10 quarters, so older quarters come from older digests."
    }
   },
@@ -3262,12 +3274,12 @@
     "org": "Central Bank of The Bahamas",
     "title": "Quarterly Statistical Digest – Table 7.1 Balance of Payments (annual page)",
     "page_url": "https://www.centralbankbahamas.com/publications/qsd",
-    "file_url": "https://cdn.centralbankbahamas.com/documents/2026-08-26-13-58-19-CBOB-Quarterly-Digest---August-2026.pdf",
+    "file_url": "https://cdn.centralbankbahamas.com/tenantcbob_prod/assets/documents/2026-08-26-13-58-19-CBOB-Quarterly-Digest---August-2026-1788374677-Lul0jX.pdf",
     "format": "pdf",
     "update_frequency": "trimestral (revisión anual)",
     "release_lag": "~5-8 meses tras cierre del año",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "List https://www.centralbankbahamas.com/publications/qsd, open newest digest page, take cdn.centralbankbahamas.com PDF; Table 7.1 Balance of Payments (annual page): second 'Travel' row = current-account receipts. Each digest carries ~10 quarters, so older quarters come from older digests."
    }
   },
@@ -3280,23 +3292,23 @@
    "data": [
     [
      "2019-Q1",
-     1169.3
+     1161.8
     ],
     [
      "2019-Q2",
-     1068.6
+     1066.5
     ],
     [
      "2019-Q3",
-     804.6
+     803.6
     ],
     [
      "2019-Q4",
-     687.3
+     691.2
     ],
     [
      "2020-Q1",
-     755.1
+     739.4
     ],
     [
      "2020-Q2",
@@ -3304,15 +3316,15 @@
     ],
     [
      "2020-Q3",
-     65.7
+     66.5
     ],
     [
      "2020-Q4",
-     59.8
+     53.2
     ],
     [
      "2021-Q1",
-     313.0
+     312.9
     ],
     [
      "2021-Q2",
@@ -3320,15 +3332,15 @@
     ],
     [
      "2021-Q3",
-     688.7
+     692.2
     ],
     [
      "2021-Q4",
-     559.2
+     559.4
     ],
     [
      "2022-Q1",
-     855.1
+     855.2
     ],
     [
      "2022-Q2",
@@ -3336,24 +3348,56 @@
     ],
     [
      "2022-Q3",
-     946.6
+     947.4
     ],
     [
      "2022-Q4",
-     859.9
+     858.8
+    ],
+    [
+     "2023-Q1",
+     1484.0
+    ],
+    [
+     "2023-Q2",
+     1421.6
+    ],
+    [
+     "2023-Q3",
+     881.8
+    ],
+    [
+     "2023-Q4",
+     1039.6
+    ],
+    [
+     "2024-Q1",
+     1371.1
+    ],
+    [
+     "2024-Q2",
+     1690.4
+    ],
+    [
+     "2024-Q3",
+     1028.4
+    ],
+    [
+     "2024-Q4",
+     908.9
     ]
    ],
    "source": {
     "org": "Bahamas Ministry of Tourism, Investments & Aviation – Research & Statistics Dept.",
-    "title": "Expenditure by Quarter (2020&2019, 2021&2020, 2022&2021) – All Bahamas, stopover column",
+    "title": "Expenditure by Quarter (preliminary, revised) 2020&2019 … 2024&2023 – All Bahamas, stopover column",
     "page_url": "https://www.tourismtoday.com/statistics/expenditure",
-    "file_url": "https://www.tourismtoday.com/sites/default/files/docs/Expenditure%20by%20Quarter%202022%20and%202021.pdf",
+    "file_url": "https://www.tourismtoday.com/sites/default/files/docs/Fran%20Expenditure%20by%20Quarter%202024%20and%202023%20Revised.pdf",
     "format": "pdf",
-    "update_frequency": "trimestral/anual (discontinuado: último PDF publicado = 2022)",
-    "release_lag": "n/d (sin actualizaciones desde 2022)",
-    "last_period": "2022-Q4",
-    "retrieved": "2026-09-17",
-    "access_method": "Download 'Expenditure by Quarter YYYY and YYYY-1' PDFs; 'All Bahamas' row under each quarter, first $ amount = stopover."
+    "update_frequency": "anual (un PDF por año con sus 4 trimestres, más el año previo revisado)",
+    "release_lag": "~1,5 años tras el cierre del año",
+    "last_period": "2024-Q4",
+    "retrieved": "2026-09-28",
+    "access_method": "Scrape the Expenditure page table (link text 'YYYY & YYYY-1'), download each PDF; 'All Bahamas' row under each quarter, first $ amount = stopover (current year), second = prior year. Each year is taken from the newest PDF containing it."
    }
   },
   {
@@ -3384,12 +3428,12 @@
     "org": "Central Bank of The Bahamas (fuente: Ministry of Tourism exit surveys)",
     "title": "Quarterly Statistical Digest – Table 8.5 Tourism: Estimates of Visitor Expenditure",
     "page_url": "https://www.centralbankbahamas.com/publications/qsd",
-    "file_url": "https://cdn.centralbankbahamas.com/documents/2026-08-26-13-58-19-CBOB-Quarterly-Digest---August-2026.pdf",
+    "file_url": "https://cdn.centralbankbahamas.com/tenantcbob_prod/assets/documents/2026-08-26-13-58-19-CBOB-Quarterly-Digest---August-2026-1788374677-Lul0jX.pdf",
     "format": "pdf",
-    "update_frequency": "anual (serie n.a. desde 2023)",
+    "update_frequency": "anual (serie n.a. después de 2022)",
     "release_lag": "sin datos después de 2022",
     "last_period": "2022",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "QSD PDF, page titled 'Table 8.5 Tourism: Estimates of Visitor Expenditure'; column 'Average Annual Expenditure of Stopover Visitors – In Current Prices'."
    }
   },
@@ -3422,7 +3466,7 @@
     "update_frequency": "anual (último PDF publicado cubre hasta 2021)",
     "release_lag": "sin actualizaciones desde 2021",
     "last_period": "2021",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Download PDF; row per year, first value = All Bahamas nights."
    }
   },
@@ -3466,12 +3510,12 @@
     "org": "Central Bank of The Bahamas",
     "title": "Quarterly Statistical Digest – Table 7.1 Balance of Payments, Financial account: Net incurrence of liabilities – Direct Investment",
     "page_url": "https://www.centralbankbahamas.com/publications/qsd",
-    "file_url": "https://cdn.centralbankbahamas.com/documents/2026-08-26-13-58-19-CBOB-Quarterly-Digest---August-2026.pdf",
+    "file_url": "https://cdn.centralbankbahamas.com/tenantcbob_prod/assets/documents/2026-08-26-13-58-19-CBOB-Quarterly-Digest---August-2026-1788374677-Lul0jX.pdf",
     "format": "pdf",
     "update_frequency": "trimestral",
     "release_lag": "~5 meses",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Annual BoP page of latest QSD; second 'Direct Investment' row (liabilities block). No tourism-sector breakdown is published."
    }
   }
@@ -3480,13 +3524,13 @@
   "Bahamian dollar is pegged 1:1 to the US dollar; B$ millions from CBOB/MoT are reported as US$ millones without conversion.",
   "arrivals_stopover = MoT 'stopover visitors' (stay >24h, by island of stay, from immigration cards; excludes excursionists). It is NOT equal to foreign air arrivals (arrivals_air counts air arrivals by first port of entry, incl. transit, and excludes sea-arriving stopovers).",
   "arrivals_cruise = cruise passenger arrivals by first port of entry (includes private-island calls: Coco Cay, Castaway Cay, Celebration Key, Ocean Cay, etc.). Cruise passengers visiting several Bahamian ports are counted once by first port of entry.",
-  "All MoT monthly figures are labelled preliminary and are revised within the current-year PDF; values here are from the latest PDF of each year retrieved 2026-09-17.",
-  "Stopover monthly values from the combined 2015-2026 PDF; each year's own page was used (current-year columns); regional sums and annual totals validated. 2025 total there (1,838,168) differs from CBOB QSD Table 8.4 (1,826,103 / 1,821,076) — different vintages.",
+  "All MoT monthly figures are labelled preliminary and are revised within the current-year PDF; values here are from the latest PDF of each year (current-year PDF retrieved 2026-09-28).",
+  "Stopover monthly values from the combined 2016-2026 PDF; each year's own page was used (current-year columns); regional sums and annual totals validated. 2025 total there (1,838,168) differs from CBOB QSD Table 8.4 (1,826,103 / 1,821,076) — different vintages.",
   "Minor vintage differences vs CBOB QSD Table 8.4 annual totals: 2021 air arrivals (monthly sum 886,653 vs 886,629) and 2020 stopovers (440,594 vs 440,588); all other years 2019-2025 match exactly for air, cruise, total and stopover (except 2025 stopover, see above).",
   "April-May 2020: borders closed (COVID-19) — near-zero arrivals are genuine.",
-  "spending_tourism_receipts: CBOB BoP travel credits equal MoT total visitor expenditure estimates (stopover+cruise+day). 2019-Q1 is missing: the earliest BPM6-layout digest (Aug-2021) starts at 2019-Q2, so 2019-Q1 (1,295.1) is taken from the MoT 'Expenditure by Quarter 2020 and 2019' PDF, All Bahamas / All Visitors (MoT all-visitor expenditure matches CBOB travel credits within 0.2 on every overlapping quarter checked). Q2-2019..Q1-2021 come from the Aug-2021 QSD (header row mistyped there; quarter order verified against 2020 annual total); later quarters from the most recent digest containing them.",
+  "spending_tourism_receipts: CBOB BoP travel credits only. The earliest BPM6-layout digest (Aug-2021) starts at 2019-Q2, so 2019-Q1 is not shown. Until Sep-2026 it was filled from the MoT all-visitor estimate, which matched CBOB within 0.2 on overlapping quarters; MoT's revised quarterly PDFs no longer match, so the fill was dropped. Q2-2019..Q1-2021 come from the Aug-2021 QSD (header row mistyped there; quarter order verified against 2020 annual total); later quarters from the most recent digest containing them.",
   "Quarterly receipts validated: 2020-2025 quarters sum to CBOB annual totals within ±0.3 (rounding).",
-  "MoT stopover expenditure by quarter and avg expenditure per stopover are only published through 2022 (CBOB Table 8.5 shows n.a. for 2023-2025); average length of stay PDF only through 2021.",
+  "MoT stopover expenditure by quarter is published through 2024 (yearly 'Expenditure by Quarter' PDFs); avg expenditure per stopover (CBOB Table 8.5) only through 2022; average length of stay PDF only through 2021.",
   "Hurricane Dorian (Sep-2019, Abaco & Grand Bahama), Tropical Storm Imelda (Sep-2025) and Hurricane Melissa (late Oct-2025) affected arrivals per MoT notes.",
   "FDI series is total economy (no tourism-sector split published by CBOB); kept as secondary context only."
  ]

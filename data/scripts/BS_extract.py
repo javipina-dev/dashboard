@@ -243,6 +243,10 @@ def _retrieved(url):
     return dates.pop()
 
 
+# Periods deliberately removed from the current file; the guard does not treat them as losses.
+ACCEPTED_REMOVALS = {("spending_tourism_receipts", "2019-Q1")}  # MoT fill dropped, Sep-2026 (see note in main)
+
+
 def check_against_current(series):
     """Abort if any series in the current data/BS.json would disappear, be empty or lose periods."""
     path = ROOT / "BS.json"
@@ -251,7 +255,7 @@ def check_against_current(series):
     new = {s["key"]: [k for k, _ in s["data"]] for s in series}
     errs = []
     for s in json.loads(path.read_text()).get("series", []):
-        old = [k for k, _ in s["data"]]
+        old = [k for k, _ in s["data"] if (s["key"], k) not in ACCEPTED_REMOVALS]
         cur = new.get(s["key"])
         if cur is None:
             errs.append(f"{s['key']}: missing in new extraction")
@@ -286,12 +290,9 @@ def main():
     fa = {k: v for k, v in fa.items() if k >= "2019-01"}
     so = {k: v for k, v in so.items() if k >= "2019-01"}
     q_trav = {k: v for k, v in q_trav.items() if k >= "2019-Q1"}
-    # MoT all-visitor expenditure = CBOB travel credits (checked on overlapping quarters); use it only to fill 2019-Q1
-    for k in ("2019-Q2", "2019-Q3", "2019-Q4", "2021-Q2", "2022-Q1", "2022-Q4"):
-        assert abs(mot_all[k] - q_trav[k]) <= 0.2, (k, mot_all[k], q_trav[k])
-    if "2019-Q1" not in q_trav:
-        q_trav["2019-Q1"] = mot_all["2019-Q1"]
-        q_trav = dict(sorted(q_trav.items()))
+    # 2019-Q1 is not published by CBOB in BPM6 layout. It used to be filled from the MoT all-visitor estimate, justified by
+    # MoT = CBOB on overlapping quarters; MoT's revised 'Expenditure by Quarter' PDFs (Sep-2026) no longer match
+    # (2019-Q2: 1180.1 vs 1182.3), so the series now starts at 2019-Q2 with CBOB data only.
 
     # sanity: quarterly travel receipts must add up to annual figures (±0.3 rounding)
     for y in range(2020, date.today().year):
@@ -403,9 +404,8 @@ def main():
         "2025 total there (1,838,168) differs from CBOB QSD Table 8.4 (1,826,103 / 1,821,076) — different vintages.",
         "Minor vintage differences vs CBOB QSD Table 8.4 annual totals: 2021 air arrivals (monthly sum 886,653 vs 886,629) and 2020 stopovers (440,594 vs 440,588); all other years 2019-2025 match exactly for air, cruise, total and stopover (except 2025 stopover, see above).",
         "April-May 2020: borders closed (COVID-19) — near-zero arrivals are genuine.",
-        "spending_tourism_receipts: CBOB BoP travel credits equal MoT total visitor expenditure estimates (stopover+cruise+day). 2019-Q1 is missing: "
-        f"the earliest BPM6-layout digest (Aug-2021) starts at 2019-Q2, so 2019-Q1 ({q_trav['2019-Q1']:,.1f}) is taken from the MoT 'Expenditure by Quarter 2020 and 2019' PDF, All Bahamas / All Visitors "
-        "(MoT all-visitor expenditure matches CBOB travel credits within 0.2 on every overlapping quarter checked). "
+        "spending_tourism_receipts: CBOB BoP travel credits only. The earliest BPM6-layout digest (Aug-2021) starts at 2019-Q2, so 2019-Q1 is not shown. "
+        "Until Sep-2026 it was filled from the MoT all-visitor estimate, which matched CBOB within 0.2 on overlapping quarters; MoT's revised quarterly PDFs no longer match, so the fill was dropped. "
         "Q2-2019..Q1-2021 come from the Aug-2021 QSD (header row mistyped there; quarter order verified against 2020 annual total); later quarters from the most recent digest containing them.",
         f"Quarterly receipts validated: 2020-{date.today().year - 1} quarters sum to CBOB annual totals within ±0.3 (rounding).",
         f"MoT stopover expenditure by quarter is published through {exp_last} (yearly 'Expenditure by Quarter' PDFs); avg expenditure per stopover "

@@ -41,6 +41,10 @@ Alemania, Francia, Italia) y América Latina (Argentina, Colombia, Brasil, Chile
 | `scenario` | opcional: `{us, cap, shock, note}` en puntos porcentuales, dentro de los rangos de las palancas (us y cap entre −25 y 25; shock entre −40 y 10) |
 | `history` | lista de `{date, status, note}`; se agrega una entrada en cada cambio de estado |
 
+**Formato de cifras en los textos** (`title`, `summary`, notas): el mismo del dashboard, coma para miles y
+punto para decimales (`921,682`; `23.4%`; `3,128.46`). Los títulos de la evidencia se copian tal como los
+publica la fuente.
+
 ## Reglas de asignación
 
 **Dirección.** `positivo` si lo más probable es que aumente llegadas o gasto en los destinos

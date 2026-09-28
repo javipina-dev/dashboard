@@ -2,47 +2,51 @@
 <meta name="description" content="Llegadas mensuales de turistas y gasto turístico en el Caribe, Cancún y Los Cabos, con datos oficiales.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Public+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400&display=swap">
 <style>
 :root{
   color-scheme: light;
-  --ground:#EDF2F2; --surface:#FAFCFC; --raised:#FFFFFF;
-  --ink:#0E2530; --ink-2:#4A5F67; --muted:#7A8B91;
-  --hair:#D6E0E2; --axis:#B5C4C8;
-  --accent:#0A6B74; --accent-ink:#FFFFFF; --accent-wash:rgba(10,107,116,.09);
-  --water:#DCE8EB; --land:#F7FAF9; --land-stroke:#B3C5C9; --land-focus:#C9DFE0;
-  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s5:#e87ba4; --s-base:#9AA7AB;
-  --good:#006300; --bad:#c23434; --warn-bg:#FFF1CC; --warn-ink:#7A5200;
-  --good-bg:#E1F2E1; --bad-bg:#FBE3E1; --idle-bg:#E8EEEF;
-  --shadow:0 1px 2px rgba(14,37,48,.06),0 8px 24px -12px rgba(14,37,48,.18);
-  --display:"Archivo", "Arial Narrow", system-ui, sans-serif;
-  --body:"Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --ground:#EEF1F2; --surface:#F7F9F9; --raised:#FFFFFF;
+  --ink:#121A21; --ink-2:#4B5661; --muted:#7A858F;
+  --hair:#D2D9DD; --axis:#A9B4BB;
+  --accent:#23435E; --accent-ink:#FFFFFF; --accent-wash:rgba(35,67,94,.08);
+  --mark:#A0266A; --mark-wash:rgba(160,38,106,.07);
+  --water:#E2E9EC; --land:#F8FAFA; --land-stroke:#B6C2C8; --land-focus:#D5DFE3;
+  --s1:#1F5F8B; --s2:#C0672B; --s3:#3E8A6E; --s4:#A8841C; --s5:#7A5C9E; --s-base:#9AA5AD;
+  --good:#2F6B3C; --bad:#B3362B; --warn-bg:#F6EBCB; --warn-ink:#6E5310;
+  --good-bg:#E3EFE4; --bad-bg:#F6E1DE; --idle-bg:#E6EBED;
+  --shadow:0 1px 2px rgba(18,26,33,.08),0 6px 18px -10px rgba(18,26,33,.22);
+  --display:"Libre Franklin", "Franklin Gothic Medium", "Helvetica Neue", Arial, sans-serif;
+  --body:"Libre Franklin", "Helvetica Neue", Arial, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
 }
 @media (prefers-color-scheme: dark){
   :root:not([data-theme="light"]){
     color-scheme: dark;
-    --ground:#091317; --surface:#0E1B21; --raised:#132329;
-    --ink:#E6EFF0; --ink-2:#A6B8BD; --muted:#7A8D93;
-    --hair:#1F3139; --axis:#2F454D;
-    --accent:#4DB6BE; --accent-ink:#06191C; --accent-wash:rgba(77,182,190,.12);
-    --water:#0C1A20; --land:#17292F; --land-stroke:#2B424A; --land-focus:#1E3D42;
-    --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s-base:#62747A;
-    --good:#3DBA3D; --bad:#EF7B7B; --warn-bg:#3A2E0E; --warn-ink:#F2C45C;
-    --good-bg:#11301A; --bad-bg:#3A1717; --idle-bg:#1A2A30;
-    --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);
+    --ground:#0F1418; --surface:#151C21; --raised:#1B242A;
+    --ink:#E3E8EB; --ink-2:#A3AEB6; --muted:#76828B;
+    --hair:#26313A; --axis:#3A4751;
+    --accent:#9CC0DE; --accent-ink:#0F1418; --accent-wash:rgba(156,192,222,.10);
+    --mark:#E47FB5; --mark-wash:rgba(228,127,181,.09);
+    --water:#121A20; --land:#1C262D; --land-stroke:#34424B; --land-focus:#263640;
+    --s1:#6CA7D4; --s2:#E08A4F; --s3:#63B393; --s4:#D1AE45; --s5:#A68BCB; --s-base:#66727A;
+    --good:#6CC07F; --bad:#F08A7E; --warn-bg:#3A3015; --warn-ink:#E8C766;
+    --good-bg:#15301D; --bad-bg:#3A1C19; --idle-bg:#1E282E;
+    --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 18px -10px rgba(0,0,0,.6);
   }
 }
 :root[data-theme="dark"]{
   color-scheme: dark;
-  --ground:#091317; --surface:#0E1B21; --raised:#132329;
-  --ink:#E6EFF0; --ink-2:#A6B8BD; --muted:#7A8D93;
-  --hair:#1F3139; --axis:#2F454D;
-  --accent:#4DB6BE; --accent-ink:#06191C; --accent-wash:rgba(77,182,190,.12);
-  --water:#0C1A20; --land:#17292F; --land-stroke:#2B424A; --land-focus:#1E3D42;
-  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s5:#d55181; --s-base:#62747A;
-  --good:#3DBA3D; --bad:#EF7B7B; --warn-bg:#3A2E0E; --warn-ink:#F2C45C;
-  --good-bg:#11301A; --bad-bg:#3A1717; --idle-bg:#1A2A30;
-  --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px -12px rgba(0,0,0,.6);
+  --ground:#0F1418; --surface:#151C21; --raised:#1B242A;
+  --ink:#E3E8EB; --ink-2:#A3AEB6; --muted:#76828B;
+  --hair:#26313A; --axis:#3A4751;
+  --accent:#9CC0DE; --accent-ink:#0F1418; --accent-wash:rgba(156,192,222,.10);
+  --mark:#E47FB5; --mark-wash:rgba(228,127,181,.09);
+  --water:#121A20; --land:#1C262D; --land-stroke:#34424B; --land-focus:#263640;
+  --s1:#6CA7D4; --s2:#E08A4F; --s3:#63B393; --s4:#D1AE45; --s5:#A68BCB; --s-base:#66727A;
+  --good:#6CC07F; --bad:#F08A7E; --warn-bg:#3A3015; --warn-ink:#E8C766;
+  --good-bg:#15301D; --bad-bg:#3A1C19; --idle-bg:#1E282E;
+  --shadow:0 1px 2px rgba(0,0,0,.35),0 6px 18px -10px rgba(0,0,0,.6);
 }
 *{box-sizing:border-box}
 [hidden]{display:none!important}
@@ -345,16 +349,89 @@ footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-si
   .map-foot{font-size:10.5px;padding:7px 10px}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
+
+/* ---------- rediseño: boletín de análisis ---------- */
+body{font-size:14.5px;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+h1,h2,h3{font-family:var(--display);font-stretch:normal;text-wrap:balance}
+h1{font-weight:800;font-size:clamp(28px,3.6vw,40px);letter-spacing:-.02em;line-height:1.05;margin:0}
+h2{font-weight:700;font-size:20px;letter-spacing:-.01em}
+h3{font-weight:650;font-size:15px}
+.top{align-items:flex-end;padding-block:30px 16px;border-bottom:2px solid var(--ink)}
+.edition{font-family:var(--mono);font-size:12px;color:var(--ink-2);margin:8px 0 0}
+.stamp{font-size:12.5px;justify-content:flex-end;text-align:right}
+.lede{color:var(--ink-2);font-size:13.5px;line-height:1.55}
+.ctl-label,th,.kpi .k-label,.strip-title,.sub-h,.matrix .mh,.map-note{text-transform:none;letter-spacing:0}
+.ctl-label{font-size:12.5px;font-weight:500;color:var(--ink-2)}
+th{font-size:12px;font-weight:600;color:var(--ink-2);border-bottom:1px solid var(--ink);padding-block:6px}
+td{border-bottom-color:var(--hair)}
+.kpi .k-label{font-size:12.5px;font-weight:500;color:var(--ink-2)}
+.strip-title,.sub-h{font-size:12.5px;font-weight:600;color:var(--ink)}
+.panel{border:0;border-radius:2px;background:var(--surface)}
+.kpis{border-radius:2px;border:0;background:var(--hair)}
+.seg{border-radius:3px;padding:2px}
+.seg button{border-radius:2px;font-weight:600}
+select{border-radius:3px}
+.chip{border-radius:2px}
+.btn-reset,.btn-scen{border-radius:3px}
+.pill{background:none!important;padding:0;font-weight:500;font-size:12px;color:var(--muted)}
+.pill::before{display:none}
+.pill.late{color:var(--bad)} .pill.due{color:var(--warn-ink)}
+.delta{font-weight:600}
+.delta.flat{color:var(--ink-2)}
+.code{display:inline-block;font-family:var(--mono);font-size:11px;font-weight:500;color:var(--ink-2);letter-spacing:.02em;min-width:3.4ch;margin-right:8px}
+.note{border:0;border-top:1px solid var(--hair);background:none;border-radius:0;padding:10px 0 0;font-size:12.5px}
+.rank tbody tr.sel{background:var(--accent-wash);box-shadow:inset 2px 0 0 var(--ink)}
+.tag-proj{font-family:var(--mono);text-transform:none;letter-spacing:0;color:var(--mark);border-color:var(--mark);border-radius:2px}
+.kpi.proj{background:repeating-linear-gradient(135deg,var(--surface),var(--surface) 7px,var(--mark-wash) 7px,var(--mark-wash) 14px)}
+/* esta semana */
+.week{padding-block:22px 10px;border-bottom:1px solid var(--hair)}
+.week-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:18px 40px;align-items:start}
+@media (max-width:860px){.week-grid{grid-template-columns:minmax(0,1fr)}}
+.week-lead{font-size:16.5px;line-height:1.55;margin:8px 0 0;max-width:66ch}
+.week-lead b{font-weight:700}
+.week ul{margin:8px 0 0;padding:0;list-style:none;display:grid;gap:8px;font-size:13.5px;line-height:1.45}
+.week li{display:grid;grid-template-columns:8.5em minmax(0,1fr);gap:10px}
+.week li span:first-child{font-family:var(--mono);font-size:11.5px;color:var(--ink-2);padding-top:2px}
+.week .up{color:var(--good)} .week .down{color:var(--bad)}
+/* tendencias como lista de informe */
+.tr-list{border-radius:0;border:0;border-top:1px solid var(--ink);background:none}
+.tr-row{border-top-color:var(--hair)}
+.tr-head{grid-template-columns:6.5em minmax(0,1fr) auto 16px}
+.tr-t{font-weight:600}
+.dir{background:none!important;padding:0;font-weight:600;font-size:12px}
+.dir.negativo{color:var(--bad)} .dir.positivo{color:var(--good)} .dir.incierto{color:var(--warn-ink)}
+.tr-meta{font-size:12px;color:var(--ink-2)}
+.tier{font-family:var(--mono);text-transform:none;letter-spacing:0;font-weight:500;border:0;padding:0;margin-right:6px;color:var(--muted)}
+.tr-sig{border-radius:2px;border:0;background:var(--accent-wash)}
+.dest-risks button{border-radius:3px}
+footer{line-height:1.6}
+footer p{margin:0 0 6px;max-width:110ch}
+@media (max-width:700px){
+  .stamp{justify-content:flex-start;text-align:left}
+  .week li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .tr-head{display:flex}
+}
+.tick.ev{fill:var(--ink-2);font-size:11px;paint-order:stroke;stroke:var(--surface);stroke-width:3px;stroke-linejoin:round}
+.week li a{color:var(--ink);text-decoration:none}
+.week li a:hover{text-decoration:underline;text-underline-offset:2px}
+.dest-risks a{font-size:12px;color:var(--ink-2)}
 </style>
 
 <div class="wrap">
   <header class="top">
     <div class="brand">
-      <small>Llegadas y gasto turístico · fuentes oficiales</small>
-      <h1>Radar Turístico <span>del Caribe</span></h1>
+      <h1>Radar Turístico del Caribe</h1>
+      <p class="edition" id="edition"></p>
     </div>
     <div class="stamp" id="stamp"></div>
   </header>
+
+  <section class="week" id="week">
+    <div class="week-grid">
+      <div><h2>Esta semana</h2><p class="week-lead" id="weekLead"></p></div>
+      <div><h3 id="weekTrH">Cambios en tendencias y riesgos</h3><ul id="weekTr"></ul></div>
+    </div>
+  </section>
 
   <div class="controls" role="toolbar" aria-label="Filtros">
     <div><span class="ctl-label">Métrica</span>
@@ -380,7 +457,7 @@ footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-si
     <div class="overview">
       <div class="panel map-panel">
         <div class="chart-box" id="mapBox"></div>
-        <div class="map-foot"><span id="mapLegend"></span><span id="mapHint">Clic en un destino para ver su detalle</span></div>
+        <div class="map-foot"><span id="mapLegend"></span><span id="mapHint"></span></div>
       </div>
       <div class="panel rank">
         <div class="table-scroll"><table id="rankTable"></table></div>
@@ -406,10 +483,6 @@ footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-si
       <button type="button" id="trtab-sig" data-tab="sig" aria-pressed="false">Señales en los datos</button>
       <button type="button" id="trtab-hist" data-tab="hist" aria-pressed="false">Historial</button>
     </div>
-    <details class="tr-matrix-box" id="trMatrixBox">
-      <summary>Ver matriz de impacto contra horizonte</summary>
-      <div class="matrix" id="trMatrix"></div>
-    </details>
     <div class="tr-list" id="trList"></div>
     <p class="note" id="trNote"></p>
   </section>
@@ -566,14 +639,6 @@ footer{margin-top:28px;padding-top:14px;border-top:1px solid var(--hair);font-si
     <div class="panel" id="srcDetails"></div>
   </section>
 
-  <section id="how">
-    <div class="sec-head"><h2>Cómo se mantiene al día</h2></div>
-    <div class="how">
-      <div class="panel"><h3>Descarga directa de la fuente</h3><p>Un script por destino baja el archivo oficial (Excel, PDF, API o CSV) desde la URL del organismo y lo procesa. No se usan agregadores ni prensa.</p></div>
-      <div class="panel"><h3>Validación</h3><p>Antes de publicar, cada serie se contrasta con los totales anuales que publica la misma fuente. Si una cifra no cuadra, esa actualización se detiene.</p></div>
-      <div class="panel"><h3>Revisión semanal</h3><p>Una tarea automática revisa cada semana si hay publicaciones nuevas y actualiza esta página. Las cifras preliminares se reemplazan cuando el organismo las revisa.</p></div>
-    </div>
-  </section>
 
   <footer id="foot"></footer>
 </div>
@@ -630,7 +695,17 @@ function compactNum(v){const a=Math.abs(v);if(a>=1e6)return (v/1e6).toFixed(a>=1
 function axisFmt(v,u){if(/US\$/.test(u)||/balboas/.test(u)){return (/millones/.test(u)?"":"")+compactNum(v);}if(u==="%")return nf0.format(v)+"%";if(/noches|d[ií]as/.test(u))return nf1.format(v);return compactNum(v);}
 function pct(v){if(v==null||!isFinite(v))return "—";const s=(v*100);return (s>0?"+":s<0?"−":"")+nf1.format(Math.abs(s))+"%";}
 function dcls(v){if(v==null||!isFinite(v))return "flat";return v>0.0005?"up":v<-0.0005?"down":"flat";}
-function deltaEl(v,tag){return el(tag||"span",{class:"delta "+dcls(v),text:(v==null?"—":(v>0.0005?"▲ ":v<-0.0005?"▼ ":"")+pct(v))});}
+// color solo cuando la variación es relevante (±3% o más); el resto va en tinta secundaria
+function dclsM(v){if(v==null||!isFinite(v))return "flat";return v>=0.03?"up":v<=-0.03?"down":"flat";}
+function deltaEl(v,tag){return el(tag||"span",{class:"delta "+dclsM(v),text:pct(v)});}
+const MESL=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
+// código corto de cada destino: IATA para ciudades, ISO 3166 alfa-3 para países
+const CODE={"DO":"DOM","MX-CUN":"CUN","MX-SJD":"SJD","CO-CTG":"CTG","JM":"JAM","BS":"BHS","PR":"PRI","CU":"CUB","AW":"ABW","CW":"CUW","BB":"BRB","LC":"LCA","TC":"TCA","KY":"CYM","CR":"CRI","PA":"PAN"};
+// fechas: pandemia (mar-2020); Dorian toca Bahamas el 1-sep-2019; Melissa toca Jamaica el 28-oct-2025;
+// Spirit cesa operaciones el 2-may-2026; Sunwing y WestJet suspenden Cuba el 5-jun-2026
+const EVENTS={"*":[{p:"2020-03",t:"Inicio de la pandemia"}],"BS":[{p:"2019-09",t:"Huracán Dorian"}],"JM":[{p:"2025-10",t:"Huracán Melissa"}],
+  "DO":[{p:"2026-05",t:"Cierra Spirit Airlines"}],"MX-CUN":[{p:"2026-05",t:"Cierra Spirit Airlines"}],"CU":[{p:"2026-06",t:"Sunwing y WestJet suspenden Cuba"}]};
+function codeEl(id){return el("span",{class:"code",text:CODE[id]||id});}
 function dateEs(d){return d.getUTCDate()+" "+MES[d.getUTCMonth()]+" "+d.getUTCFullYear();}
 function monthEs(d){return MES[d.getUTCMonth()]+" "+d.getUTCFullYear();}
 
@@ -681,13 +756,41 @@ function lag(d,mode){return (d.headline.lag_days||{})[mode];}
 /* ---------- header ---------- */
 function renderStamp(){
   const g=new Date(DATA.generated_at);
-  let latest=null;DESTS.forEach(d=>{const s=head(d,"arrivals");if(s&&s.data.length){const p=s.data[s.data.length-1][0];if(!latest||p>latest)latest=p;}});
+  let latest=null,who=[];DESTS.forEach(d=>{const s=head(d,"arrivals");if(s&&s.data.length){const p=s.data[s.data.length-1][0];if(!latest||p>latest){latest=p;who=[d.short];}else if(p===latest)who.push(d.short);}});
+  const nSeries=DESTS.reduce((a,d)=>a+d.series.length,0);
+  $("edition").textContent="Boletín semanal · "+g.getUTCDate()+" de "+MESL[g.getUTCMonth()]+" de "+g.getUTCFullYear()+" · "+DESTS.length+" destinos, "+nSeries+" series oficiales";
   $("stamp").replaceChildren(
-    el("span",null,["Actualizado ",el("b",{text:dateEs(g)})]),
-    el("span",null,["Dato mensual más reciente ",el("b",{text:latest?pLabel(latest):"—"})]),
-    el("span",null,[el("b",{text:String(DESTS.length)})," destinos · ",el("b",{text:String(DESTS.reduce((a,d)=>a+d.series.length,0))})," series"])
-  );
-  $("foot").textContent="Radar Turístico del Caribe · Solo fuentes oficiales: bancos centrales, ministerios y autoridades de turismo, institutos de estadística y autoridades aeroportuarias. Montos en moneda local convertidos a US$ con su paridad fija oficial. Generado el "+dateEs(g)+".";
+    el("span",null,["Actualizado el ",el("b",{text:dateEs(g)})]),
+    el("span",null,["Último mes publicado: ",el("b",{text:latest?pLabel(latest):"—"}),who.length&&who.length<=3?" ("+who.join(", ")+")":""]));
+  const foot=$("foot");foot.replaceChildren(
+    el("p",null,[el("b",{text:"Método. "}),"Cada destino tiene un script que descarga el archivo oficial (Excel, PDF, API o CSV) desde el sitio del organismo, lo procesa y lo contrasta con los totales que publica la misma fuente. Si una cifra no cuadra o una serie perdería un período ya publicado, esa actualización se detiene y se conserva la anterior. No se usan agregadores, prensa ni estimaciones propias; los indicadores calculados se señalan como tales."]),
+    el("p",null,[el("b",{text:"Fuentes. "}),"Bancos centrales, ministerios y autoridades de turismo, institutos de estadística y autoridades de aviación civil. Montos en moneda local convertidos a US$ con su paridad fija oficial. El detalle de cada serie está en la sección de fuentes."]),
+    el("p",null,["Radar Turístico del Caribe · generado el "+dateEs(g)+". Se actualiza cada semana; las cifras preliminares se reemplazan cuando el organismo las revisa."]));
+}
+
+/* ---------- esta semana ---------- */
+function arrivalsHead(d){let s=head(d,"arrivals"),proxy=false;if(!s&&d.headline.arrivals_proxy){s=sOf(d,d.headline.arrivals_proxy);proxy=!!s;}return{s,proxy};}
+function renderWeek(){
+  const rows=DESTS.filter(d=>d.focus).map(d=>{const{s,proxy}=arrivalsHead(d);return{d,proxy,m:metrics(s)};}).filter(r=>r.m&&r.m.yoy!=null);
+  const up=rows.filter(r=>r.m.yoy>=0.005).sort((a,b)=>b.m.yoy-a.m.yoy),dn=rows.filter(r=>r.m.yoy<=-0.005).sort((a,b)=>a.m.yoy-b.m.yoy);
+  const item=r=>[el("b",{text:r.d.short}),document.createTextNode(" ("),el("span",{class:"delta "+dclsM(r.m.yoy),text:pct(r.m.yoy)}),document.createTextNode(", "+pLabel(r.m.lastP)+(r.proxy?", proxy aéreo":"")+")")];
+  const join=arr=>{const out=[];arr.forEach((r,i)=>{if(i)out.push(document.createTextNode(i===arr.length-1?" y ":", "));out.push(...item(r));});return out;};
+  const lead=[document.createTextNode("En el último mes publicado por cada fuente, las llegadas crecen en ")];
+  if(up.length)lead.push(...join(up));else lead.push(document.createTextNode("ningún destino foco"));
+  lead.push(document.createTextNode(" y caen en "));
+  if(dn.length)lead.push(...join(dn));else lead.push(document.createTextNode("ninguno"));
+  lead.push(document.createTextNode(", frente al mismo mes del año anterior."));
+  $("weekLead").replaceChildren(...lead);
+  const ST={nuevo:"Nuevo",escalando:"Escala",perdiendo_fuerza:"Pierde fuerza",cerrado:"Se cierra",vigente:"Sigue vigente"};
+  const upd=TR.updated;
+  const ch=(TR.items||[]).map(i=>{const h=(i.history||[])[i.history.length-1];return h&&h.date===upd&&i.status!=="vigente"?{i,h}:null;}).filter(Boolean)
+    .sort((a,b)=>["escalando","nuevo","perdiendo_fuerza","cerrado"].indexOf(a.i.status)-["escalando","nuevo","perdiendo_fuerza","cerrado"].indexOf(b.i.status));
+  const ul=$("weekTr");
+  if(!ch.length){$("week").querySelector("#weekTrH").hidden=true;ul.hidden=true;return;}
+  $("weekTrH").textContent="Tendencias y riesgos, barrido del "+dateEs(new Date(upd+"T12:00:00Z"));
+  ul.replaceChildren(...ch.map(({i})=>{const a=el("a",{href:"#tr-"+i.id,text:i.title});
+    a.addEventListener("click",e=>{e.preventDefault();trState.dest="ALL";trState.cat="ALL";focusCard(i.id);});
+    return el("li",null,[el("span",{text:ST[i.status]||i.status}),el("span",null,[a])]);}));
 }
 
 /* ---------- map ---------- */
@@ -753,28 +856,28 @@ function renderRank(){
   const t=$("rankTable");const vis=visible();
   const thead=el("thead");const tb=el("tbody");
   if(state.mode==="arrivals"){
-    thead.append(el("tr",null,["Destino","Último mes","Var. i.a.","12 meses","Fuente"].map(h=>el("th",{text:h}))));
+    thead.append(el("tr",null,["Destino","Último mes","Var. interanual","12 meses","Estado"].map(h=>el("th",{text:h}))));
     const rows=vis.map(d=>{
       let s=head(d,"arrivals"),proxy=false;
       if(!s&&d.headline.arrivals_proxy){s=sOf(d,d.headline.arrivals_proxy);proxy=!!s;}
       return{d,s,proxy,m:metrics(s),f:freshness(s,lag(d,"arrivals"))};}).sort((a,b)=>(b.m?b.m.ttm||0:-1)-(a.m?a.m.ttm||0:-1));
     rows.forEach(({d,s,proxy,m,f})=>{
-      const name=el("td",null,[el("span",{class:"dname",text:d.short}),el("span",{class:"dmeta",text:proxy?d.headline.arrivals_proxy_note:(d.headline.arrivals_measure||d.headline.arrivals_note||"")})]);
+      const name=el("td",null,[codeEl(d.id),el("span",{class:"dname",text:d.short}),el("span",{class:"dmeta",text:proxy?d.headline.arrivals_proxy_note:(d.headline.arrivals_measure||d.headline.arrivals_note||"")})]);
       const cells=m?[el("td",null,[el("div",{text:fmt(m.last,m.unit)}),el("span",{class:"dmeta",style:"margin-left:auto",text:pLabel(m.lastP)})]),el("td",null,[deltaEl(m.yoy)]),el("td",null,[el("div",{text:fmt(m.ttm,m.unit,true)}),el("span",{class:"dmeta",style:"margin-left:auto"},m.vs19!=null?[deltaEl(m.vs19)," vs 2019"]:(alt19(d)?[deltaEl(alt19(d).v)," vs 2019 ("+alt19(d).note+")"]:["sin base 2019"]))])]:[el("td",{class:"note-cell",colspan:3,text:d.headline.arrivals_note||"Sin serie"})];
       tb.append(rowEl(d,[name,...cells,el("td",null,[el("span",{class:"pill "+(proxy?"none":f.cls),text:proxy?"Proxy":f.label})])]));
     });
   }else{
-    thead.append(el("tr",null,["Destino","Último dato","Var. i.a.","Último año","Fuente"].map(h=>el("th",{text:h}))));
+    thead.append(el("tr",null,["Destino","Último dato","Var. interanual","Último año","Estado"].map(h=>el("th",{text:h}))));
     const rows=vis.map(d=>{const s=head(d,"spending");return{d,s,m:metrics(s),f:freshness(s,lag(d,"spending"))};}).sort((a,b)=>(b.m&&b.m.fullYearVal||-1)-(a.m&&a.m.fullYearVal||-1));
     rows.forEach(({d,s,m,f})=>{
-      const name=el("td",null,[el("span",{class:"dname",text:d.short}),el("span",{class:"dmeta",text:s?(FREQ_ES[s.frequency]||s.frequency)+" · "+shortLabel(s.label).slice(0,40):(d.headline.spending_note||"")})]);
+      const name=el("td",null,[codeEl(d.id),el("span",{class:"dname",text:d.short}),el("span",{class:"dmeta",text:s?(FREQ_ES[s.frequency]||s.frequency)+" · "+shortLabel(s.label).slice(0,40):(d.headline.spending_note||"")})]);
       const cells=m?[el("td",null,[el("div",{text:fmt(m.last,m.unit)}),el("span",{class:"dmeta",text:pLabel(m.lastP)})]),el("td",null,[deltaEl(m.yoy)]),el("td",null,[el("div",{text:fmt(m.fullYearVal,m.unit,true)}),el("span",{class:"dmeta",style:"margin-left:auto"},m.fullYear?[String(m.fullYear)+" · ",deltaEl(m.fullYearYoy)]:[""])])]:[el("td",{class:"note-cell",colspan:3,text:d.headline.spending_note||"Sin serie"})];
       tb.append(rowEl(d,[name,...cells,el("td",null,[el("span",{class:"pill "+f.cls,text:f.label})])]));
     });
   }
   t.replaceChildren(thead,tb);
   $("ovTitle").textContent=state.mode==="arrivals"?"Panorama de llegadas":"Panorama del gasto turístico";
-  $("ovLede").textContent=state.mode==="arrivals"?"Último mes publicado por cada fuente oficial, ordenado por llegadas de los últimos 12 meses.":"Ingresos por turismo de balanza de pagos o estimación oficial de gasto de visitantes, en US$.";
+  $("ovLede").textContent=state.mode==="arrivals"?"Ordenado por llegadas de los últimos 12 meses. Cada fila muestra el último mes que publicó su fuente.":"Ingresos por turismo de balanza de pagos o estimación oficial de gasto de visitantes, en US$.";
   $("compNote").textContent=state.mode==="arrivals"
     ?"Cada país mide las llegadas de forma distinta: RD cuenta no residentes por vía aérea, México los turistas extranjeros por aeropuerto y la mayoría de las islas los turistas stopover. Las variaciones son comparables; los niveles, solo como referencia."
     :"El gasto proviene sobre todo de la cuenta «Viajes» de la balanza de pagos (bancos centrales). Cancún usa la derrama estimada por SEDETUR Quintana Roo y Santa Lucía el gasto total de visitantes del ECCB, así que su cobertura no es idéntica. Las monedas locales se convierten con su paridad fija.";
@@ -972,22 +1075,14 @@ function signalLine(it){
 function trRow(it){
   const dir=(DIR_TR[it.direction]||["•","?"]);
   const row=el("div",{class:"tr-row",id:"tr-"+it.id});
-  const sig=it.signal&&BYID[it.signal.dest]?el("span",{class:"tr-chip",text:"en los datos"}):null;
-  const head=el("button",{type:"button",class:"tr-head","aria-expanded":"false"},[
-    el("span",{class:"dir icon "+it.direction,title:dir[1],text:dir[0]}),
-    el("span",{class:"badge"+(it.impact==="alto"?" alto":""),text:(IMP_TR[it.impact]||it.impact)}),
+    const head=el("button",{type:"button",class:"tr-head","aria-expanded":"false"},[
+    el("span",{class:"dir "+it.direction,text:dir[1]}),
     el("span",{class:"tr-t",text:it.title}),
-    el("span",{class:"tr-d",text:destNames(it.destinations)}),
-    sig||el("span"),
+    el("span",{class:"tr-d",text:"impacto "+(IMP_TR[it.impact]||it.impact).toLowerCase()+" · "+destNames(it.destinations)}),
     el("span",{class:"caret",text:"▸"})]);
   const body=el("div",{class:"tr-body",hidden:"hidden"},[
     el("p",{text:it.summary}),
-    el("div",{class:"tr-meta",style:"display:flex;flex-wrap:wrap;gap:5px"},[
-      el("span",{class:"dir "+it.direction,text:dir[0]+" "+dir[1]}),
-      el("span",{class:"badge"+(it.status==="nuevo"?" new":it.status==="escalando"?" hot":""),text:ST_TR[it.status]||it.status}),
-      el("span",{class:"badge",text:CAT_TR[it.category]||it.category}),
-      el("span",{class:"badge",text:"Impacto "+(IMP_TR[it.impact]||it.impact).toLowerCase()}),
-      el("span",{class:"badge",text:HOR_TR[it.horizon]||it.horizon})]),
+    el("div",{class:"tr-meta",text:[ST_TR[it.status]||it.status,CAT_TR[it.category]||it.category,"impacto "+(IMP_TR[it.impact]||it.impact).toLowerCase(),"horizonte "+(HOR_TR[it.horizon]||it.horizon).toLowerCase()].join(" · ")}),
     el("div",{class:"tr-ev"},[el("span",{text:"Afecta a: "+destNames(it.destinations)+(it.markets&&it.markets.length?" · mercados: "+it.markets.join(", "):"")})]),
     signalLine(it),
     el("div",{class:"tr-ev"},it.evidence.map(e=>el("span",null,[el("span",{class:"tier "+e.tier,text:e.tier}),
@@ -1016,11 +1111,10 @@ function sigRow(g){
   const dir=(DIR_TR[g.direction]||["•","?"]);const d=BYID[g.dest];
   const row=el("div",{class:"tr-row",id:"sig-"+g.id});
   const head=el("button",{type:"button",class:"tr-head","aria-expanded":"false"},[
-    el("span",{class:"dir icon "+g.direction,title:dir[1],text:dir[0]}),
-    el("span",{class:"badge",text:"Regla "+g.rule}),
+    el("span",{class:"dir "+g.direction,text:dir[1]}),
     el("span",{class:"tr-t",text:g.title}),
-    el("span",{class:"tr-d",text:g.period}),
-    el("span"),el("span",{class:"caret",text:"▸"})]);
+    el("span",{class:"tr-d",text:"regla "+g.rule+" · "+g.period}),
+    el("span",{class:"caret",text:"▸"})]);
   const body=el("div",{class:"tr-body",hidden:"hidden"},[el("p",{text:g.detail})]);
   if(d){const b=el("button",{type:"button",class:"btn-reset",style:"justify-self:start",text:"Ver "+d.short+" en el detalle"});
     b.addEventListener("click",()=>{if(state.scope==="focus"&&!d.focus)state.scope="all";state.sel=g.dest;state.seriesKey=g.series_key||null;save();renderAll();
@@ -1050,9 +1144,9 @@ function renderTrends(){
   const cnt=(f)=>act.filter(f).length;
   $("trStrip").replaceChildren(
     el("span",null,[el("b",{text:String(act.length)})," activos"]),el("span",{class:"sep",text:"·"}),
-    el("span",{class:"delta down"},[el("b",{text:"▼ "+cnt(i=>i.direction==="negativo")})," negativos"]),
-    el("span",{class:"delta up"},[el("b",{text:"▲ "+cnt(i=>i.direction==="positivo")})," positivos"]),
-    el("span",null,[el("b",{text:"◆ "+cnt(i=>i.direction==="incierto")})," inciertos"]),el("span",{class:"sep",text:"·"}),
+    el("span",null,[el("b",{text:String(cnt(i=>i.direction==="negativo"))})," negativos"]),
+    el("span",null,[el("b",{text:String(cnt(i=>i.direction==="positivo"))})," positivos"]),
+    el("span",null,[el("b",{text:String(cnt(i=>i.direction==="incierto"))})," inciertos"]),el("span",{class:"sep",text:"·"}),
     el("span",null,[el("b",{text:String(cnt(i=>i.status==="nuevo"||i.status==="escalando"))})," nuevos o escalando"]));
   const ds=$("trDest");if(!ds.options.length){ds.append(el("option",{value:"ALL",text:"Todos"}));DESTS.forEach(d=>ds.append(el("option",{value:d.id,text:d.short})));
     ds.addEventListener("change",e=>{trState.dest=e.target.value;renderTrends();});}
@@ -1067,15 +1161,7 @@ function renderTrends(){
   $("trtab-sig").textContent="Señales en los datos ("+sigs.length+")";
   $("trtab-hist").textContent="Historial ("+closed.length+")";
   setPressed("trTabs","tab",trState.tab);
-  $("trMatrixBox").hidden=trState.tab!=="ext";
   const order={alto:0,medio:1,bajo:2},hz={inmediato:0,corto:1,estructural:2};
-  const mx=$("trMatrix");mx.replaceChildren(el("div",{class:"mh",text:""}));
-  ["inmediato","corto","estructural"].forEach(h=>mx.append(el("div",{class:"mh",text:HOR_TR[h]})));
-  ["alto","medio","bajo"].forEach(im=>{mx.append(el("div",{class:"mh",text:IMP_TR[im]}));
-    ["inmediato","corto","estructural"].forEach(h=>{const cell=el("div");
-      vis.filter(i=>i.impact===im&&i.horizon===h).forEach(i=>{const b=el("button",{type:"button",class:"mc "+i.direction,title:i.title,text:(DIR_TR[i.direction]||["•"])[0]+" "+i.title});
-        b.addEventListener("click",()=>focusCard(i.id));cell.append(b);});
-      mx.append(cell);});});
   const list=$("trList");
   if(trState.tab==="ext"){
     const rows=vis.slice().sort((a,b)=>order[a.impact]-order[b.impact]||hz[a.horizon]-hz[b.horizon]).map(trRow);
@@ -1094,10 +1180,12 @@ function renderDestRisks(d){
   const box=$("destRisks");const its=trActive().filter(i=>trAffects(i,d.id));
   const sigs=(TR.signals||[]).filter(g=>g.dest===d.id);
   if(!its.length&&!sigs.length){box.hidden=true;return;}
-  box.hidden=false;box.replaceChildren(el("span",{class:"strip-title",style:"width:auto;margin:0 6px 0 0",text:"Tendencias y riesgos"}));
-  its.forEach(i=>{const b=el("button",{type:"button"},[el("span",{class:"dir "+i.direction,style:"padding:0 5px",text:(DIR_TR[i.direction]||["•"])[0]}),document.createTextNode(i.title.length>70?i.title.slice(0,68)+"…":i.title)]);
+  box.hidden=false;box.replaceChildren(el("span",{class:"strip-title",style:"width:auto;margin:0 6px 0 0",text:"Riesgos de impacto alto"}));
+  const rest=its.filter(i=>i.impact!=="alto").length;
+  its.filter(i=>i.impact==="alto").forEach(i=>{const b=el("button",{type:"button"},[el("span",{class:"dir "+i.direction,text:(DIR_TR[i.direction]||["","?"])[1]+" ·"}),document.createTextNode(i.title.length>70?i.title.slice(0,68)+"…":i.title)]);
     b.addEventListener("click",()=>{trState.dest="ALL";trState.cat="ALL";renderTrends();focusCard(i.id);});box.append(b);});
-  if(sigs.length)box.append(el("span",{class:"na",text:"+ "+sigs.length+" señal"+(sigs.length===1?"":"es")+" en los datos"}));
+  const more=[];if(rest)more.push(rest+" factor"+(rest===1?"":"es")+" más");if(sigs.length)more.push(sigs.length+" señal"+(sigs.length===1?"":"es")+" en los datos");
+  if(more.length){const a=el("a",{href:"#trends",text:more.join(" y ")+" en Tendencias y riesgos"});a.addEventListener("click",e=>{e.preventDefault();trState.dest=d.id;trState.cat="ALL";trState.tab="ext";renderTrends();$("trends").scrollIntoView({block:"start"});});box.append(a);}
 }
 
 /* ---------- detail ---------- */
@@ -1128,7 +1216,7 @@ function renderStrip(d,active){
   const CAP=8;
   const usable=d.series.filter(sr=>metrics(sr));
   const shown=state.stripAll?usable:usable.slice(0,CAP);
-  items.push(el("div",{class:"strip-title",text:"Otras series oficiales de este destino · clic para graficarla"}));
+  items.push(el("div",{class:"strip-title",text:"Otras series de este destino"}));
   shown.forEach(sr=>{
     const m=metrics(sr);if(!m)return;
     const b=el("button",{type:"button",class:"chip","aria-pressed":String(sr.key===(active&&active.key)),title:sr.label+" — "+(CAT_ES[sr.category]||sr.category)},[
@@ -1205,7 +1293,7 @@ function renderHist(d,s){
   const pr=projOf(d,s);const pp=(pr&&state.proj&&monthly)?projPoints(pr):[];
   const legend=$("histLegend");legend.replaceChildren(el("span",null,[el("i",{style:"border-top-color:var(--s1)"}),shortLabel(s.label)]));
   if(prior.length)legend.append(el("span",null,[el("i",{class:"dash",style:"border-top-color:var(--s-base)"}),"Mismo mes, año anterior"]));
-  if(pp.length)legend.append(el("span",null,[el("i",{class:"dash",style:"border-top-color:var(--s1)"}),"Proyección"+(scenActive()?" (escenario ajustado)":"")+" con banda de error"]));
+  if(pp.length)legend.append(el("span",null,[el("i",{class:"dash",style:"border-top-color:var(--mark)"}),"Proyección"+(scenActive()?" (escenario ajustado)":"")+" con banda de error"]));
   const M={l:52,r:18,t:14,b:26};const iw=W-M.l-M.r,ih=H-M.t-M.b;
   const x0=pts[0].q.idx,x1=(pp.length?pp[pp.length-1].q.idx:pts[pts.length-1].q.idx)+(monthly?0:pts[0].q.span);
   const all=pts.map(x=>x.v).concat(prior.map(x=>x.v)).concat(pp.map(x=>x.hi!=null?x.hi:x.v));
@@ -1248,27 +1336,37 @@ function renderHist(d,s){
   if(pp.length){
     const lastAct=pts[pts.length-1];
     // zona de proyección: fondo tenue para que no se confunda con el dato real
-    svg.append(sv("rect",{x:X(lastAct.q.idx),y:M.t,width:Math.max(0,W-M.r-X(lastAct.q.idx)),height:ih,fill:"var(--accent)","fill-opacity":.05}));
+    svg.append(sv("rect",{x:X(lastAct.q.idx),y:M.t,width:Math.max(0,W-M.r-X(lastAct.q.idx)),height:ih,fill:"var(--mark-wash)"}));
     // banda de error
     const hasBand=pp.every(x=>x.lo!=null&&x.hi!=null);
     if(hasBand){
       const up=pp.map(x=>X(x.q.idx).toFixed(1)+","+Y(x.hi).toFixed(1));
       const dn=pp.slice().reverse().map(x=>X(x.q.idx).toFixed(1)+","+Y(x.lo).toFixed(1));
       svg.append(sv("path",{d:"M"+X(lastAct.q.idx).toFixed(1)+","+Y(lastAct.v).toFixed(1)+"L"+up.join("L")+"L"+dn.join("L")+"Z",
-        fill:"var(--s1)","fill-opacity":.13,stroke:"none"}));
+        fill:"var(--mark)","fill-opacity":.12,stroke:"none"}));
     }
     svg.append(sv("path",{d:"M"+X(lastAct.q.idx).toFixed(1)+","+Y(lastAct.v).toFixed(1)+"L"+pp.map(x=>X(x.q.idx).toFixed(1)+","+Y(x.v).toFixed(1)).join("L"),
-      fill:"none",stroke:"var(--s1)","stroke-width":2,"stroke-dasharray":"5 4","stroke-linejoin":"round"}));
+      fill:"none",stroke:"var(--mark)","stroke-width":2,"stroke-dasharray":"5 4","stroke-linejoin":"round"}));
     // regla vertical: fin del dato oficial
     svg.append(sv("line",{x1:X(lastAct.q.idx),x2:X(lastAct.q.idx),y1:M.t,y2:M.t+ih,stroke:"var(--axis)","stroke-width":1}));
     (function(){const xr=X(lastAct.q.idx),room=(W-M.r)-xr;
-      svg.append(sv("text",{x:room>66?xr+4:xr-4,y:M.t+10,"text-anchor":room>66?"start":"end",class:"tick",
-        style:"fill:var(--accent);font-weight:700;letter-spacing:.06em","font-size":9.5,text:room>40?"PROYECCIÓN":"PROY."}));})();
+      svg.append(sv("text",{x:room>66?xr+4:xr-4,y:M.t+ih-6,"text-anchor":room>66?"start":"end",class:"tick",
+        style:"fill:var(--mark);font-weight:600",text:room>40?"proyección":"proy."}));})();
     pp.forEach(x=>ptsXY.push({x:X(x.q.idx),p:x.p,v:x.v,lo:x.lo,hi:x.hi,kind:x.kind,proj:true}));
   }
   const lastPt=ptsXY[ptsXY.length-1];
   const endAct=pts[pts.length-1];
   svg.append(sv("text",{x:Math.min(X(endAct.q.idx)+(pp.length?0:0),W-M.r),y:Math.max(12,Y(endAct.v)-10),"text-anchor":pp.length?"middle":"end",class:"tick",style:"fill:var(--ink);font-weight:600",text:fmt(endAct.v,s.unit,true)}));
+  // anotaciones: hechos que explican quiebres en las series de llegadas y conectividad
+  if(monthly&&(s.category==="arrivals"||s.category==="air")){
+    const evs=(EVENTS["*"]||[]).concat(EVENTS[d.id]||[]).map(e=>({...e,i:parseP(e.p).idx})).filter(e=>e.i>=pts[0].q.idx&&e.i<=pts[pts.length-1].q.idx);
+    let lastX=-1e9,row=0;
+    evs.sort((a,b)=>a.i-b.i).forEach(e=>{const x=X(e.i);
+      row=(x-lastX<150)?row+1:0;lastX=x;
+      svg.append(sv("line",{x1:x,x2:x,y1:M.t+row*13+4,y2:M.t+ih,stroke:"var(--ink-2)","stroke-width":1,"stroke-dasharray":"1 3"}));
+      const right=x>W-M.r-150;
+      svg.append(sv("text",{x:right?x-5:x+5,y:M.t+row*13+10,"text-anchor":right?"end":"start",class:"tick ev",text:e.t}));});
+  }
   // hover layer
   const cross=sv("line",{y1:M.t,y2:M.t+ih,stroke:"var(--ink-2)","stroke-width":1,"stroke-dasharray":"2 2",visibility:"hidden"});
   const hit=sv("rect",{x:M.l,y:M.t,width:iw,height:ih,fill:"transparent"});
@@ -1632,8 +1730,8 @@ $("destSel").addEventListener("change",e=>select(e.target.value,false));
 $("seriesSel").addEventListener("change",e=>{state.seriesKey=e.target.value;renderDetail();});
 $("scope-focus").textContent="Foco ("+DESTS.filter(d=>d.focus).length+")";
 $("scope-all").textContent="Todos ("+DESTS.length+")";
-if(matchMedia("(hover: none)").matches)$("mapHint").textContent="Toca un destino para ver su detalle";
-renderStamp();renderAll();
+
+renderStamp();renderAll();renderWeek();
 let rt;new ResizeObserver(()=>{clearTimeout(rt);rt=setTimeout(()=>{const d=BYID[state.sel];const s=sOf(d,state.seriesKey);renderHist(d,s);renderSeas(d,s);renderVerify(d);renderMarkets();renderPoles();renderShare();},120);}).observe($("histBox").parentElement);
 })();
 </script>
