@@ -6,46 +6,43 @@ Monthly passengers / seats / departures performed on non-stop segments between
 the United States and the Caribbean & Mexican destination airports tracked by
 the dashboard.
 
-Source (official, free, no key):
-  page:  https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE
-         (TranStats > Aviation > Air Carrier Statistics (Form 41 Traffic) -
-          All Carriers > "T-100 International Segment (All Carriers)")
+Source (official, free, no key)
+-------------------------------
+BTS / Office of Airline Information, "Data Bank 28IS - T-100 and T-100(f)
+International Segment Data, U.S. and Foreign Air Carriers Traffic and Capacity
+Data (World Area Code)":
+  https://www.bts.gov/browse-statistical-products-and-data/bts-publications/
+  data-bank-28is-t-100-and-t-100f-internationa-0
+Same universe as TranStats "T-100 International Segment (All Carriers)": U.S.
+carriers report on Form 41 T-100, foreign carriers on T-100(f).  Segment =
+non-stop flight stage, so a US->PUJ row counts people physically flown on that
+leg.
 
-Automation recipe
------------------
-The TranStats PREZIP directory only holds stale 2015 user exports, and T-100 is
-NOT on data.bts.gov (Socrata), so the automatable route is the ASP.NET form
-postback used by the "Download" button:
+Until 2026-09 this script used the TranStats download form
+(DL_SelectFields.aspx?gnoyr_VQ=FJE, ASP.NET postback).  TranStats now answers
+every page with Maintenance.aspx?reason=db / ErrPage.asp, so the data are read
+from the Data Bank 28IS releases instead (see _bts.py for the mechanism):
+monthly zips with a rolling 12-month window of pipe-separated records; each
+month is taken from the newest release that contains it.
 
-  1. GET  DL_SelectFields.aspx?gnoyr_VQ=FJE   -> scrape __VIEWSTATE,
-          __VIEWSTATEGENERATOR, __EVENTVALIDATION (cookies must be kept).
-  2. POST to the same URL with those three tokens plus
-          cboGeography=All, cboYear=<YYYY>, cboPeriod=All,
-          chkDownloadZip=on, btnDownload=Download and one
-          "<FIELD_NAME>=on" pair per column wanted.
-  3. Response is a ZIP containing T_T100I_SEGMENT_ALL_CARRIER.csv
-          (+ Documentation.csv).  One request per calendar year.
+"United States" = airport World Area Code < 100 (first WAC digit 0 = U.S.,
+including Puerto Rico and the U.S. Virgin Islands), the same definition as
+TranStats ORIGIN_COUNTRY='US'.
 
-Table = *All Carriers*: US carriers report on Form 41 T-100, foreign carriers
-on BTS Form 41 Schedule T-100(f).  Segment = non-stop flight stage, so a
-US->PUJ row counts people physically flown on that leg.
+Any download/parse failure raises: no partial or stale data is ever used.
 """
-import io, os, re, sys, zipfile
+import io, os, sys
 import pandas as pd
-import requests
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, HERE)
+import _bts  # noqa: E402
+
 RAW = os.path.join(HERE, "..", "raw", "AIR")
 OUT = os.path.join(HERE, "..", "air")
 
-PAGE_URL = ("https://www.transtats.bts.gov/DL_SelectFields.aspx"
-            "?gnoyr_VQ=FJE&QO_fu146_anzr=Nv4%20Pn44vr45")
-TABLE_PAGE = "https://www.transtats.bts.gov/Tables.asp?QO_VQ=EEE"
-
-VARS = ["DEPARTURES_PERFORMED", "SEATS", "PASSENGERS", "ORIGIN",
-        "ORIGIN_COUNTRY", "DEST", "DEST_COUNTRY", "YEAR", "MONTH", "CLASS"]
-
-YEARS = list(range(2019, 2027))
+FIRST_MONTH = "2019-01"
+NUM = ("PASSENGERS", "SEATS", "DEPARTURES_PERFORMED")
 
 # airport -> (destination id, pretty name)
 AIRPORTS = {
@@ -58,59 +55,47 @@ AIRPORTS = {
     "NAS": ("BS", "Nassau"),
 }
 
-
-def _tok(html, name):
-    m = re.search(r'id="%s"[^>]*value="([^"]*)"' % name, html)
-    return m.group(1) if m else ""
+# filled by load(): the releases actually used (for provenance in the JSON)
+USED_RELEASES = []
 
 
-def download_year(year, session, force=False):
-    """Return the raw CSV bytes for one calendar year (cached on disk)."""
-    os.makedirs(RAW, exist_ok=True)
-    cache = os.path.join(RAW, "T_T100I_SEGMENT_ALL_CARRIER_%d.csv" % year)
-    if os.path.exists(cache) and not force and os.path.getsize(cache) > 1000:
-        return open(cache, "rb").read()
-
-    r = session.get(PAGE_URL, timeout=300)
-    r.raise_for_status()
-    data = {
-        "__VIEWSTATE": _tok(r.text, "__VIEWSTATE"),
-        "__VIEWSTATEGENERATOR": _tok(r.text, "__VIEWSTATEGENERATOR"),
-        "__EVENTVALIDATION": _tok(r.text, "__EVENTVALIDATION"),
-        "cboGeography": "All",
-        "cboYear": str(year),
-        "cboPeriod": "All",
-        "chkDownloadZip": "on",
-        "btnDownload": "Download",
-    }
-    for v in VARS:
-        data[v] = "on"
-    p = session.post(PAGE_URL, data=data, timeout=1800)
-    p.raise_for_status()
-    if p.content[:2] != b"PK":
-        raise RuntimeError("year %d: expected ZIP, got %s" %
-                           (year, p.headers.get("Content-Type")))
-    z = zipfile.ZipFile(io.BytesIO(p.content))
-    name = [n for n in z.namelist() if "SEGMENT" in n.upper()][0]
-    raw = z.read(name)
-    with open(cache, "wb") as f:
-        f.write(raw)
-    print("  downloaded %d -> %s (%.1f MB csv)" % (year, cache, len(raw) / 1e6))
-    return raw
+def _parse(raw, name):
+    df = pd.read_csv(io.BytesIO(raw), sep="|", header=None, dtype=str,
+                     encoding="latin-1", keep_default_na=False)
+    # every record ends with a trailing '|', i.e. 28 fields + 1 empty column
+    if df.shape[1] == len(_bts.FIELDS) + 1 and (df.iloc[:, -1] == "").all():
+        df = df.iloc[:, :-1]
+    if df.shape[1] != len(_bts.FIELDS):
+        raise RuntimeError("%s: %d fields per record, expected %d"
+                           % (name, df.shape[1], len(_bts.FIELDS)))
+    df.columns = _bts.FIELDS
+    for c in ("YEAR", "MONTH", "ORIGIN_WAC", "DEST_WAC") + NUM:
+        v = pd.to_numeric(df[c].str.strip(), errors="coerce")
+        if v.isna().any():
+            raise RuntimeError("%s: non-numeric %s in %d records"
+                               % (name, c, int(v.isna().sum())))
+        df[c] = v.astype("int64")
+    for c in ("ORIGIN", "DEST", "CLASS"):
+        df[c] = df[c].str.strip()
+    return df
 
 
 def load(force=False):
-    s = requests.Session()
-    s.headers["User-Agent"] = "Mozilla/5.0 (tourism-dashboard/BTS-T100)"
+    """All Data Bank 28IS records for FIRST_MONTH .. newest published month."""
+    del USED_RELEASES[:]
     frames = []
-    for y in YEARS:
-        try:
-            raw = download_year(y, s, force=force)
-        except Exception as e:                      # noqa: BLE001
-            print("  !! year %d unavailable: %s" % (y, e))
-            continue
-        df = pd.read_csv(io.BytesIO(raw), encoding="latin-1", low_memory=False)
-        df.columns = [c.strip().upper() for c in df.columns]
+    for rel, months in _bts.plan(FIRST_MONTH):
+        raw = _bts.read_release(rel, RAW, force=force)
+        df = _parse(raw, rel[4])
+        df["period"] = (df["YEAR"].astype(str) + "-" +
+                        df["MONTH"].astype(str).str.zfill(2))
+        have = set(df["period"])
+        miss = [m for m in months if m not in have]
+        if miss:
+            raise RuntimeError("%s: no records for %s" % (rel[4], miss))
+        df = df[df["period"].isin(months)]
+        print("  %s -> %s..%s (%d records)" % (rel[4], months[0], months[-1], len(df)))
+        USED_RELEASES.append({"file": rel[4], "months": [months[0], months[-1]]})
         frames.append(df)
     if not frames:
         raise SystemExit("no T-100 data downloaded")
@@ -119,11 +104,9 @@ def load(force=False):
 
 def aggregate(df):
     """monthly dict: (airport, direction, metric) -> {period: value}"""
-    df = df[df["ORIGIN"].notna() & df["DEST"].notna()].copy()
-    for c in ("PASSENGERS", "SEATS", "DEPARTURES_PERFORMED"):
-        df[c] = pd.to_numeric(df[c], errors="coerce").fillna(0)
-    df["period"] = (df["YEAR"].astype(int).astype(str) + "-" +
-                    df["MONTH"].astype(int).astype(str).str.zfill(2))
+    df = df[(df["ORIGIN"] != "") & (df["DEST"] != "")]
+    us_orig = df["ORIGIN_WAC"] < 100     # WAC first digit 0 = United States
+    us_dest = df["DEST_WAC"] < 100
 
     # The month grid is taken from the whole T-100 file, not from the single
     # segment: a month with no US->MBJ row is a month in which no carrier
@@ -134,9 +117,9 @@ def aggregate(df):
     out = {}
     for ap in AIRPORTS:
         # US -> airport  (arrivals into the destination)
-        inb = df[(df["ORIGIN_COUNTRY"] == "US") & (df["DEST"] == ap)]
+        inb = df[us_orig & (df["DEST"] == ap)]
         # airport -> US  (departures out of the destination)
-        outb = df[(df["DEST_COUNTRY"] == "US") & (df["ORIGIN"] == ap)]
+        outb = df[us_dest & (df["ORIGIN"] == ap)]
         for tag, sub in (("in", inb), ("out", outb)):
             g = sub.groupby("period")[
                 ["PASSENGERS", "SEATS", "DEPARTURES_PERFORMED"]].sum()
@@ -181,6 +164,7 @@ def series(agg, airports, tag, metric, months):
 
 def main():
     force = "--force" in sys.argv
+    print("== BTS T-100 (Data Bank 28IS) ==")
     df = load(force=force)
     agg = aggregate(df)
     months = complete_months(agg)

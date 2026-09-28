@@ -28,6 +28,14 @@ python3 -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 `run_all.py` ejecuta cada extractor, valida y reconstruye `pipeline/dist/index.html`.
 Si un extractor falla, los demás siguen y el JSON anterior de ese destino se conserva.
+
+Cada extractor descarga sus archivos de la fuente oficial en cada corrida: localiza el documento
+más reciente desde la página de listado del organismo y guarda una copia en `data/raw/`. Los
+archivos históricos que no cambian se reutilizan de esa caché, así que la primera corrida en una
+máquina nueva tarda más (Cuba puede tardar unos 20 minutos por los cortes del sitio de la ONEI).
+Si una descarga falla, o si una serie perdería algún período que ya estaba publicado, el extractor
+termina con error sin escribir su JSON. `--no-download` en cada script usa solo lo ya descargado.
+Islas Caimán es la excepción: su captura es manual (ver Limitaciones).
 El resultado queda en `run_report.json`.
 
 Opciones útiles:
@@ -77,7 +85,7 @@ siguiente. En resumen:
 | Ministerio de Turismo de Bahamas | Mensual | 6–7 semanas |
 | Migración Colombia y MinCIT (Cartagena) | Mensual | 7–8 semanas |
 | Aerocivil y DANE (Cartagena) | Mensual | 5–7 semanas |
-| US DOT T-100 (conectividad) | Mensual | ~3 meses |
+| US DOT T-100, vía BTS Data Bank 28IS (conectividad) | Mensual | ~3 meses |
 | Bancos centrales (gasto, balanza de pagos) | Trimestral o anual | 3–5 meses |
 
 ## Reglas que sigue este repositorio
@@ -96,8 +104,13 @@ siguiente. En resumen:
   Tourist Board está bloqueado por firewall. Se usa como sustituto el tráfico aéreo desde
   Estados Unidos del US DOT, señalado como proxy en el dashboard.
 - **Curazao** no tiene gasto turístico: el banco central bloquea descargas automatizadas.
-- **Islas Caimán** publica las llegadas solo en un tablero Tableau sin descarga; requiere
-  navegador headless, y es el extractor más frágil.
+- **Islas Caimán** publica las llegadas solo en un tablero Tableau sin descarga, protegido
+  contra accesos automatizados. Su actualización es **manual**: hay que capturar los datos del
+  tablero desde un navegador real con el procedimiento descrito en `data/scripts/KY_extract.py`
+  (`BROWSER_JS`), guardarlos en `data/raw/KY/tableau_air_arrivals_by_month_extract.txt` junto con
+  las tablas de balanza de pagos de la ESO (`eso_bop_iip_*_tables.xlsx`), y correr
+  `run_all.py --only KY`. Sin esos archivos la tarea semanal marca KY como fallido y conserva el
+  JSON anterior.
 - **Los Cabos** no tiene gasto a nivel destino; solo existe el dato nacional de México.
 - **Cartagena** tampoco: ni MinCIT, ni DANE, ni Corpoturismo publican gasto por ciudad, así que
   solo está el dato nacional de Colombia (anual). Sus llegadas miden extranjeros no residentes

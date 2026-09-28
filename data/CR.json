@@ -390,8 +390,8 @@
     "update_frequency": "mensual (el mismo PDF se reemplaza cada mes; anuario y Excel de series anuales al cierre del año)",
     "release_lag": "~2-4 semanas tras cierre de mes (DGME entrega base en los primeros 10 días del mes siguiente)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
-    "access_method": "Descargar PDF \"Recientes 2026\" desde la página Movimientos Migratorios (enlace fijo /recientes/2893-.../file.html, texto nativo); pdfplumber: página \"Cuadro 11/12\" (meses × años 2019-2026), números con espacio como separador de miles → asignar palabras a columnas por posición x. Excel de series (3242-series-sitio-web-ict-2025) solo trae totales anuales."
+    "retrieved": "2026-09-28",
+    "access_method": "Scrapear la página Movimientos Migratorios (informes-estadisticos.html), sección \"Información Reciente\": enlace DOCman /recientes/<id>-... con el año más alto; descargar <página>/file.html (PDF de texto nativo) en cada corrida; pdfplumber: página con Cuadros 11/12 (meses × años desde 2019), validada contra las filas acumuladas \"Ene - Dic\"/\"Ene - <mes>\", números con espacio como separador de miles → asignar palabras a columnas por posición x. Excel de series (3242-series-sitio-web-ict-2025) solo trae totales anuales."
    }
   },
   {
@@ -779,8 +779,8 @@
     "update_frequency": "mensual (el mismo PDF se reemplaza cada mes; anuario y Excel de series anuales al cierre del año)",
     "release_lag": "~2-4 semanas tras cierre de mes (DGME entrega base en los primeros 10 días del mes siguiente)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
-    "access_method": "Descargar PDF \"Recientes 2026\" desde la página Movimientos Migratorios (enlace fijo /recientes/2893-.../file.html, texto nativo); pdfplumber: página \"Cuadro 11/12\" (meses × años 2019-2026), números con espacio como separador de miles → asignar palabras a columnas por posición x. Excel de series (3242-series-sitio-web-ict-2025) solo trae totales anuales."
+    "retrieved": "2026-09-28",
+    "access_method": "Scrapear la página Movimientos Migratorios (informes-estadisticos.html), sección \"Información Reciente\": enlace DOCman /recientes/<id>-... con el año más alto; descargar <página>/file.html (PDF de texto nativo) en cada corrida; pdfplumber: página con Cuadros 11/12 (meses × años desde 2019), validada contra las filas acumuladas \"Ene - Dic\"/\"Ene - <mes>\", números con espacio como separador de miles → asignar palabras a columnas por posición x. Excel de series (3242-series-sitio-web-ict-2025) solo trae totales anuales."
    }
   },
   {
@@ -822,14 +822,14 @@
    "source": {
     "org": "Banco Central de Costa Rica (BCCR), publicado por ICT",
     "title": "Divisas por concepto de turismo 2000-2025 (Cuadro 1)",
-    "page_url": "https://www.ict.go.cr/es/estadisticas/cifras-economicas.html",
+    "page_url": "https://www.ict.go.cr/es/estadisticas/cifras-turisticas.html",
     "file_url": "https://www.ict.go.cr/es/documentos-institucionales/estad%C3%ADsticas/cifras-econ%C3%B3micas/costa-rica/3286-divisas-turismo-2025-bccr/file.html",
     "format": "pdf",
     "update_frequency": "anual (BCCR compila trimestral en balanza de pagos)",
     "release_lag": "~2-3 meses tras cierre del año (2025 preliminar)",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
-    "access_method": "PDF de texto en ICT > Estadísticas > Cifras económicas; regex sobre Cuadro 1. Alternativa trimestral: BCCR Indicadores Económicos, balanza de pagos, cuenta Viajes (crédito)."
+    "retrieved": "2026-09-28",
+    "access_method": "Enlace \"Divisas Turismo <año>\" más reciente en ICT > Estadísticas > Cifras turísticas (documento de la categoría Cifras económicas); PDF de texto descargado en cada corrida; regex sobre Cuadro 1. Alternativa trimestral: BCCR Indicadores Económicos, balanza de pagos, cuenta Viajes (crédito)."
    }
   },
   {
@@ -877,8 +877,8 @@
     "update_frequency": "anual",
     "release_lag": "~3-6 meses tras cierre del año",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
-    "access_method": "PDF de texto (ICT > Cifras turísticas > Gasto y estadía media); regex fila \"GMP TOTAL\"."
+    "retrieved": "2026-09-28",
+    "access_method": "Enlace \"GMP TODAS VIAS <año> <año>\" más reciente en ICT > Cifras turísticas > Gasto y estadía media; PDF de texto descargado en cada corrida; regex fila \"GMP TOTAL\"."
    }
   },
   {
@@ -926,15 +926,15 @@
     "update_frequency": "anual",
     "release_lag": "~3-6 meses tras cierre del año",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
-    "access_method": "PDF de texto; regex \"año GMP estadía\" en Cuadro 1 (años 2020-2023 llevan superíndice de nota pegado al año)."
+    "retrieved": "2026-09-28",
+    "access_method": "Enlace \"GMP y Estadia Media VIA AEREA <año> <año>\" más reciente en ICT > Cifras turísticas; PDF de texto descargado en cada corrida; regex \"año GMP estadía\" en Cuadro 1 (años 2020-2023 llevan superíndice de nota pegado al año)."
    }
   }
  ],
  "notes": [
   "Llegadas internacionales de turistas = visitantes que pernoctan (no residentes), registradas por la DGME en puestos migratorios; no incluye cruceristas. Todas las vías = aérea + terrestre/fluvial + marítima (sin cruceros).",
   "La vía aérea incluye Juan Santamaría (SJO), Daniel Oduber (LIR, Guanacaste), Tobías Bolaños y Limón. El PDF mensual también desglosa SJO y LIR (Cuadros 13-14) y vía terrestre (solo año en curso).",
-  "Los datos del año en curso (2026) son preliminares; el PDF \"recientes\" se sobreescribe mensualmente en la misma URL.",
+  "Los datos del año en curso (2026) son preliminares; el PDF \"recientes\" se sobreescribe mensualmente (el extractor lo localiza en la página de listado del ICT en cada corrida).",
   "Gasto: ingreso de divisas por turismo proviene de la balanza de pagos del BCCR (MBP6, sin cruceristas); 2025 preliminar. El GMP es por persona y por estadía completa (no por día), ponderado por vía; 2020-2023 con metodología alterada (encuestas parciales/en línea; vía terrestre estimada por BCCR).",
   "Estadía media publicada solo para vía aérea.",
   "Serie mensual ICT disponible en PDF; el Excel \"series sitio web\" contiene únicamente totales anuales por país."

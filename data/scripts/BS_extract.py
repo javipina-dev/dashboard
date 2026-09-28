@@ -1,25 +1,34 @@
 """Extract official tourism series for The Bahamas -> data/BS.json
 
-Sources (all downloaded to data/raw/BS/):
+Sources (downloaded to data/raw/BS/ on every run by BS_fetch.py, which finds each file on the official
+listing pages so the newest version is always used):
   * Bahamas Ministry of Tourism (tourismtoday.com/statistics)
-      - as_YYYY.pdf  "Air, Sea Landed & Cruise Arrivals YYYY" (foreign arrivals by 1st port of entry, monthly)
-      - stopover_month_island_2015_2026.pdf "Yearly Comparison of Stopover Visitors by Island and Month"
-      - exp_q_*.pdf "Expenditure by Quarter" (visitor expenditure estimates, 2019-2022)
-      - alos_1992_2021.pdf "Stopover Visitors Average Length of Stay"
-  * Central Bank of The Bahamas, Quarterly Statistical Digest (QSD) PDFs
+      - as_YYYY.pdf  "Air, Sea Landed & Cruise Arrivals YYYY" (foreign arrivals by 1st port of entry, monthly), 2019..current year
+      - stopover_month_island.pdf "Yearly Comparison of Stopover Visitors by Island and Month 2015-YYYY"
+      - exp_q_YYYY_YYYY-1.pdf "Expenditure by Quarter YYYY & YYYY-1" (visitor expenditure estimates)
+      - alos.pdf "Stopover Visitors Average Length of Stay"
+  * Central Bank of The Bahamas, Quarterly Statistical Digest (QSD) PDFs, cbob_qsd_YYYY-MM.pdf
       - Table 7.1 Balance of Payments (Travel credits = tourism receipts; Direct investment liabilities)
       - Table 8.5 Tourism: Estimates of Visitor Expenditure (avg expenditure per stopover)
-Run: .venv/bin/python data/scripts/BS_extract.py
+Run: .venv/bin/python data/scripts/BS_extract.py              (downloads, then extracts)
+     .venv/bin/python data/scripts/BS_extract.py --no-download  (uses the files already in data/raw/BS/)
+If a download fails or a series would lose periods vs the current data/BS.json, exits != 0 without writing.
 """
+import argparse
 import json
 import re
+import sys
+from datetime import date
 from pathlib import Path
 
 import pdfplumber
 
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+import BS_fetch  # noqa: E402
+
 ROOT = Path(__file__).resolve().parents[1]
-RAW = ROOT / "raw" / "BS"
-RETRIEVED = "2026-09-17"
+RAW = BS_fetch.RAW
+RETRIEVED = date.today().isoformat()  # overwritten per file with the real download date (manifest)
 MONTHS = ["January", "February", "March", "April", "May", "June", "July", "August",
           "September", "October", "November", "December"]
 MABBR = [m[:3] for m in MONTHS]
@@ -38,7 +47,9 @@ def pdf_texts(path):
 # ---------------------------------------------------------------- 1. foreign arrivals by port of entry
 def foreign_arrivals():
     out = {}  # "YYYY-MM" -> dict
-    for y in range(2019, 2027):
+    years = sorted(int(p.stem[3:]) for p in RAW.glob("as_*.pdf") if re.fullmatch(r"as_\d{4}", p.stem))
+    assert years and years == list(range(2019, years[-1] + 1)), f"missing as_YYYY.pdf files: {years}"
+    for y in years:
         for text in pdf_texts(RAW / f"as_{y}.pdf"):
             lines = text.split("\n")
             if not lines or not lines[0].startswith("Total Foreign Arrivals Summary Report"):
@@ -86,7 +97,7 @@ def _fix_tokens(tokens, expected=8):
 
 def stopovers():
     res = {}
-    for text in pdf_texts(RAW / "stopover_month_island_2015_2026.pdf"):
+    for text in pdf_texts(RAW / "stopover_month_island.pdf"):
         lines = text.split("\n")
         if "STOPOVER VISITORS BY MONTH" not in text:
             continue
@@ -110,16 +121,14 @@ def stopovers():
 
 
 # ---------------------------------------------------------------- 3. CBOB QSD balance of payments
-QSD = [  # oldest -> newest; newer vintages overwrite older values
-    ("cbob_qsd_quarterly-statistical-digest-august-2021-1.pdf",
-     "https://cdn.centralbankbahamas.com/documents/2021-09-10-14-24-12-CBOB-Quarterly-Statistical-Digest---August-2021updated.pdf"),
-    ("cbob_qsd_quarterly-statistical-digest-august-2023.pdf",
-     "https://cdn.centralbankbahamas.com/documents/2023-08-29-10-15-22-CBOB-Quarterly-Statistical-DigestAugust-2023Final.pdf"),
-    ("cbob_qsd_quarterly-statistical-digest-august-2025-1.pdf",
-     "https://cdn.centralbankbahamas.com/documents/2025-08-27-14-40-07-CBOB-Quarterly-Digest-August-2025.pdf"),
-    ("cbob_qsd_2026-08.pdf",
-     "https://cdn.centralbankbahamas.com/documents/2026-08-26-13-58-19-CBOB-Quarterly-Digest---August-2026.pdf"),
-]
+def qsd_files():
+    """[(period 'YYYY-MM', path)] oldest -> newest; newer vintages overwrite older values."""
+    out = sorted((p.stem[len("cbob_qsd_"):], p) for p in RAW.glob("cbob_qsd_*.pdf")
+                 if re.fullmatch(r"cbob_qsd_\d{4}-\d{2}", p.stem))
+    assert [v for v, _ in out if v in BS_fetch.QSD_FIXED] == BS_fetch.QSD_FIXED, f"missing QSD vintages: {out}"
+    return out
+
+
 ROMAN = {"I": 1, "II": 2, "III": 3, "IV": 4}
 
 
@@ -129,8 +138,9 @@ def _floats(line, label):
 
 def qsd_bop():
     q_travel, a_travel, a_fdi = {}, {}, {}
-    for fname, _ in QSD:
-        texts = pdf_texts(RAW / fname)
+    for vintage, path in qsd_files():
+        fname = path.name
+        texts = pdf_texts(path)
         for text in texts:
             lines = text.split("\n")
             if not any(l.startswith("Table 7.1 Balance of Payments") for l in lines[:3]):
@@ -142,7 +152,7 @@ def qsd_bop():
             credits = _floats(trav[1], "Travel")      # 2nd Travel row = CURRENT ACCOUNT RECEIPTS
             if "Qtr" in text:
                 qline = next(l for l in lines if l.startswith("Qtr"))
-                if "august-2021" in fname:
+                if vintage == "2021-08":
                     # header in this edition is mistyped ("2019 2020 2021 / Qtr IIp Qtr IIp Qtr IVp Qtr Ip Qtr IIp Qtr IIp Qtr IVp Qtr Ip");
                     # 8 consecutive quarters 2019Q2..2021Q1 (sum of 2020 quarters = 967.5 vs annual 967.4).
                     periods = ["2019-Q2", "2019-Q3", "2019-Q4", "2020-Q1", "2020-Q2", "2020-Q3", "2020-Q4", "2021-Q1"]
@@ -165,7 +175,7 @@ def qsd_bop():
 
 def qsd_avg_exp_per_stopover():
     out = {}
-    for text in pdf_texts(RAW / "cbob_qsd_2026-08.pdf"):
+    for text in pdf_texts(qsd_files()[-1][1]):
         if not text.startswith("Table 8.5 Tourism: Estimates of Visitor Expenditure"):
             continue
         for l in text.split("\n"):
@@ -177,8 +187,13 @@ def qsd_avg_exp_per_stopover():
 
 # ---------------------------------------------------------------- 4. MoT expenditure by quarter & ALOS
 def mot_stopover_expenditure():
-    files = [("exp_q_2020_2019.pdf", {"2019": 1}), ("exp_q_2021_2020.pdf", {"2020": 1}),
-             ("exp_q_2022_2021.pdf", {"2021": 1, "2022": 0})]  # column 0 = current year, 1 = prior year
+    # "Expenditure by Quarter Y+1 and Y": column 0 = year Y+1, column 1 = year Y. Each year is taken from the newest
+    # PDF that contains it (prior-year column of the next file = revised figure; else current-year column).
+    pairs = sorted(tuple(map(int, p.stem.split("_")[2:])) for p in RAW.glob("exp_q_*_*.pdf"))
+    assert pairs and pairs[0][0] == 2020 and [a for a, _ in pairs] == list(range(2020, pairs[-1][0] + 1)), pairs
+    files = []
+    for y in range(2019, pairs[-1][0] + 1):
+        files.append((f"exp_q_{y + 1}_{y}.pdf", {str(y): 1}) if y + 1 <= pairs[-1][0] else (f"exp_q_{y}_{y - 1}.pdf", {str(y): 0}))
     qnames = ["FIRST QUARTER", "SECOND QUARTER", "THIRD QUARTER", "FOURTH QUARTER"]
     out, allv = {}, {}
     for fname, years in files:
@@ -194,12 +209,14 @@ def mot_stopover_expenditure():
                 for y, col in years.items():
                     out[f"{y}-Q{q}"] = round(float(amounts[col].replace(",", "")) / 1e6, 1)  # stopover cols 0/1
                     allv[f"{y}-Q{q}"] = round(float(amounts[6 + col].replace(",", "")) / 1e6, 1)  # all-visitors cols 6/7
+    for y in range(2019, pairs[-1][0] + 1):
+        assert all(f"{y}-Q{q}" in out for q in range(1, 5)), f"expenditure quarters missing for {y}"
     return dict(sorted(out.items())), dict(sorted(allv.items()))
 
 
 def alos():
     out = {}
-    for l in pdf_texts(RAW / "alos_1992_2021.pdf")[0].split("\n"):
+    for l in pdf_texts(RAW / "alos.pdf")[0].split("\n"):
         m = re.match(r"^(\d{4})\s+([\d.]+)\s", l)
         if m and int(m.group(1)) >= 2019:
             out[m.group(1)] = float(m.group(2))
@@ -208,16 +225,62 @@ def alos():
 
 def src(org, title, page_url, file_url, fmt, freq, lag, last, how):
     return {"org": org, "title": title, "page_url": page_url, "file_url": file_url, "format": fmt,
-            "update_frequency": freq, "release_lag": lag, "last_period": last, "retrieved": RETRIEVED,
+            "update_frequency": freq, "release_lag": lag, "last_period": last, "retrieved": _retrieved(file_url),
             "access_method": how}
 
 
+MANIFEST = {}
+
+
+def raw_url(name):
+    assert name in MANIFEST, f"{name}: source URL unknown (data/raw/BS/_sources.json); run without --no-download"
+    return MANIFEST[name]["url"]
+
+
+def _retrieved(url):
+    dates = {v["retrieved"] for v in MANIFEST.values() if v["url"] == url}
+    assert len(dates) == 1, (url, dates)
+    return dates.pop()
+
+
+def check_against_current(series):
+    """Abort if any series in the current data/BS.json would disappear, be empty or lose periods."""
+    path = ROOT / "BS.json"
+    if not path.exists():
+        return
+    new = {s["key"]: [k for k, _ in s["data"]] for s in series}
+    errs = []
+    for s in json.loads(path.read_text()).get("series", []):
+        old = [k for k, _ in s["data"]]
+        cur = new.get(s["key"])
+        if cur is None:
+            errs.append(f"{s['key']}: missing in new extraction")
+        elif not cur:
+            errs.append(f"{s['key']}: empty in new extraction")
+        elif len(cur) < len(old) or set(old) - set(cur):
+            errs.append(f"{s['key']}: {len(old)} -> {len(cur)} periods; lost {sorted(set(old) - set(cur))[:12]}")
+    if errs:
+        raise SystemExit("BS_extract: NOT writing data/BS.json, series would shrink vs current file:\n  " + "\n  ".join(errs))
+
+
 def main():
+    ap = argparse.ArgumentParser(description=__doc__.split("\n")[0])
+    ap.add_argument("--no-download", action="store_true", help="use the files already in data/raw/BS/")
+    args = ap.parse_args()
+    if not args.no_download:
+        try:
+            BS_fetch.fetch_all()
+        except (BS_fetch.FetchError, OSError) as e:
+            raise SystemExit(f"BS_extract: download failed, data/BS.json not written: {e}")
+    MANIFEST.update(BS_fetch.load_manifest())
+
     fa = foreign_arrivals()
     so = stopovers()
+    so_span = f"{min(so)[:4]}-{max(so)[:4]}"
     q_trav, a_trav, a_fdi = qsd_bop()
     avg_exp = qsd_avg_exp_per_stopover()
     mot_exp, mot_all = mot_stopover_expenditure()
+    exp_last = int(max(mot_exp)[:4])
     stay = alos()
 
     fa = {k: v for k, v in fa.items() if k >= "2019-01"}
@@ -231,17 +294,17 @@ def main():
         q_trav = dict(sorted(q_trav.items()))
 
     # sanity: quarterly travel receipts must add up to annual figures (±0.3 rounding)
-    for y in range(2020, 2026):
+    for y in range(2020, date.today().year):
         qs = [q_trav.get(f"{y}-Q{i}") for i in range(1, 5)]
         if None not in qs:
             assert abs(sum(qs) - a_trav[str(y)]) < 0.3, (y, sum(qs), a_trav[str(y)])
 
     MOT_ARR_PAGE = f"{TT}/statistics/foreign-arrivals-air-sea-data"
-    AS2026 = f"{TT}/sites/default/files/docs/Oliver%20Air%20Sea%20Landed%20%26%20Cruise%20Arrivals%202026%20%283%29.pdf"
+    AS_CUR = raw_url(f"as_{max(fa)[:4]}.pdf")
     STOP_PAGE = f"{TT}/statistics/frequently-requested-stopover-statistics-trends"
-    STOP_PDF = f"{TT}/sites/default/files/docs/2026%20Stopover%20By%20Month%20and%20Island%20Comparision%202015-2026_1.pdf"
+    STOP_PDF = raw_url("stopover_month_island.pdf")
     QSD_PAGE = "https://www.centralbankbahamas.com/publications/qsd"
-    QSD_PDF = QSD[-1][1]
+    QSD_PDF = raw_url(qsd_files()[-1][1].name)
     last_m = max(fa)
     last_s = max(so)
     how_arr = ("Scrape the page for the current-year 'Air Sea Landed & Cruise Arrivals YYYY' PDF link (file name changes with each "
@@ -262,40 +325,40 @@ def main():
     add("arrivals_stopover", "arrivals", "Llegadas de visitantes stopover (pernoctan; aire y mar)", "personas", "monthly",
         {k: v["all"] for k, v in so.items()},
         src("Bahamas Ministry of Tourism, Investments & Aviation – Research & Statistics Dept.",
-            "Yearly Comparison of Stopover Visitors by Island and Month 2015-2026 (preliminary)", STOP_PAGE, STOP_PDF, "pdf",
+            f"Yearly Comparison of Stopover Visitors by Island and Month {so_span} (preliminary)", STOP_PAGE, STOP_PDF, "pdf",
             "mensual (PDF acumulado reemplazado cada mes)", "~6-7 semanas tras el cierre del mes", last_s, how_stop))
     for reg, lbl in [("np", "Nassau/Paradise Island"), ("gb", "Grand Bahama"), ("oi", "Out Islands (Family Islands)")]:
         add(f"arrivals_stopover_{ {'np':'nassau_pi','gb':'grand_bahama','oi':'out_islands'}[reg] }", "arrivals",
             f"Llegadas stopover – {lbl} (por lugar de estadía)", "personas", "monthly",
             {k: v[reg] for k, v in so.items()},
             src("Bahamas Ministry of Tourism, Investments & Aviation – Research & Statistics Dept.",
-                "Yearly Comparison of Stopover Visitors by Island and Month 2015-2026 (preliminary)", STOP_PAGE, STOP_PDF, "pdf",
+                f"Yearly Comparison of Stopover Visitors by Island and Month {so_span} (preliminary)", STOP_PAGE, STOP_PDF, "pdf",
                 "mensual", "~6-7 semanas tras el cierre del mes", last_s, how_stop))
     add("arrivals_cruise", "arrivals", "Llegadas de pasajeros de crucero (extranjeros, 1er puerto de entrada)", "personas", "monthly",
         {k: v["cruise"] for k, v in fa.items()},
         src("Bahamas Ministry of Tourism, Investments & Aviation (datos del Dept. of Immigration)",
-            "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry", MOT_ARR_PAGE, AS2026,
+            "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry", MOT_ARR_PAGE, AS_CUR,
             "pdf", "mensual (PDF anual acumulado)", "~6-7 semanas tras el cierre del mes", last_m, how_arr))
     add("arrivals_air", "arrivals", "Llegadas aéreas de extranjeros (1er puerto de entrada, incluye tránsitos)", "personas", "monthly",
         {k: v["air"] for k, v in fa.items()},
         src("Bahamas Ministry of Tourism, Investments & Aviation (datos del Dept. of Immigration)",
-            "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry", MOT_ARR_PAGE, AS2026,
+            "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry", MOT_ARR_PAGE, AS_CUR,
             "pdf", "mensual", "~6-7 semanas tras el cierre del mes", last_m, how_arr))
     add("arrivals_sea_landed", "arrivals", "Llegadas marítimas no crucero (yates/ferris, 'sea landed')", "personas", "monthly",
         {k: v["sea_landed"] for k, v in fa.items()},
         src("Bahamas Ministry of Tourism, Investments & Aviation (datos del Dept. of Immigration)",
-            "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry", MOT_ARR_PAGE, AS2026,
+            "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry", MOT_ARR_PAGE, AS_CUR,
             "pdf", "mensual", "~6-7 semanas tras el cierre del mes", last_m, how_arr))
     add("arrivals_total_foreign", "arrivals", "Llegadas totales de extranjeros (aire + mar + crucero)", "personas", "monthly",
         {k: v["total"] for k, v in fa.items()},
         src("Bahamas Ministry of Tourism, Investments & Aviation (datos del Dept. of Immigration)",
-            "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry", MOT_ARR_PAGE, AS2026,
+            "Air, Sea Landed & Cruise Arrivals – Total Foreign Arrivals Summary Report by 1st Port of Entry", MOT_ARR_PAGE, AS_CUR,
             "pdf", "mensual", "~6-7 semanas tras el cierre del mes", last_m, how_arr))
 
     add("spending_tourism_receipts", "spending", "Ingresos por viajes (turismo) – crédito de balanza de pagos", "US$ millones",
         "quarterly", q_trav,
         src("Central Bank of The Bahamas", "Quarterly Statistical Digest – Table 7.1 Balance of Payments (BPM6), Travel receipts",
-            QSD_PAGE, QSD_PDF, "pdf", "trimestral (QSD publicado feb/may/ago/nov)", "~5 meses (Ago-2026 trae hasta 2026-T1)",
+            QSD_PAGE, QSD_PDF, "pdf", "trimestral (QSD publicado feb/may/ago/nov)", f"~5 meses (QSD {qsd_files()[-1][0]} trae hasta {max(q_trav)})",
             max(q_trav), how_qsd))
     add("spending_tourism_receipts_annual", "spending", "Ingresos por viajes (turismo) – anual, balanza de pagos", "US$ millones",
         "annual", {k: v for k, v in a_trav.items() if k >= "2019"},
@@ -305,21 +368,23 @@ def main():
     add("spending_stopover_expenditure", "spending", "Gasto estimado de visitantes stopover (Ministerio de Turismo)", "US$ millones",
         "quarterly", mot_exp,
         src("Bahamas Ministry of Tourism, Investments & Aviation – Research & Statistics Dept.",
-            "Expenditure by Quarter (2020&2019, 2021&2020, 2022&2021) – All Bahamas, stopover column", f"{TT}/statistics/expenditure",
-            f"{TT}/sites/default/files/docs/Expenditure%20by%20Quarter%202022%20and%202021.pdf", "pdf",
-            "trimestral/anual (discontinuado: último PDF publicado = 2022)", "n/d (sin actualizaciones desde 2022)", max(mot_exp),
-            "Download 'Expenditure by Quarter YYYY and YYYY-1' PDFs; 'All Bahamas' row under each quarter, first $ amount = stopover."))
+            f"Expenditure by Quarter (preliminary, revised) 2020&2019 … {exp_last}&{exp_last - 1} – All Bahamas, stopover column",
+            BS_fetch.EXP_PAGE, raw_url(f"exp_q_{exp_last}_{exp_last - 1}.pdf"), "pdf",
+            "anual (un PDF por año con sus 4 trimestres, más el año previo revisado)", "~1,5 años tras el cierre del año", max(mot_exp),
+            "Scrape the Expenditure page table (link text 'YYYY & YYYY-1'), download each PDF; 'All Bahamas' row under each quarter, "
+            "first $ amount = stopover (current year), second = prior year. Each year is taken from the newest PDF containing it."))
     add("spending_avg_per_visitor", "spending", "Gasto promedio por visitante stopover (por viaje, precios corrientes)", "US$",
         "annual", {k: v for k, v in avg_exp.items() if k >= "2019"},
         src("Central Bank of The Bahamas (fuente: Ministry of Tourism exit surveys)",
             "Quarterly Statistical Digest – Table 8.5 Tourism: Estimates of Visitor Expenditure", QSD_PAGE, QSD_PDF, "pdf",
-            "anual (serie n.a. desde 2023)", "sin datos después de 2022", max(k for k in avg_exp if k >= "2019"),
+            f"anual (serie n.a. después de {max(k for k in avg_exp if k >= '2019')})",
+            f"sin datos después de {max(k for k in avg_exp if k >= '2019')}", max(k for k in avg_exp if k >= "2019"),
             "QSD PDF, page titled 'Table 8.5 Tourism: Estimates of Visitor Expenditure'; column 'Average Annual Expenditure of Stopover Visitors – In Current Prices'."))
     add("spending_avg_stay", "spending", "Estadía promedio de visitantes stopover", "noches", "annual", stay,
         src("Bahamas Ministry of Tourism, Investments & Aviation – Research & Statistics Dept.",
-            "Stopover Visitors Average Length of Stay 1992-2021 (immigration cards)", STOP_PAGE,
-            f"{TT}/sites/default/files/average_length_of_stay_1992_to_2021_3.pdf", "pdf", "anual (último PDF publicado cubre hasta 2021)",
-            "sin actualizaciones desde 2021", max(stay), "Download PDF; row per year, first value = All Bahamas nights."))
+            f"Stopover Visitors Average Length of Stay 1992-{max(stay)} (immigration cards)", STOP_PAGE,
+            raw_url("alos.pdf"), "pdf", f"anual (último PDF publicado cubre hasta {max(stay)})",
+            f"sin actualizaciones desde {max(stay)}", max(stay), "Download PDF; row per year, first value = All Bahamas nights."))
     add("investment_fdi_inflows", "investment", "Inversión extranjera directa – pasivos netos incurridos (BdP)", "US$ millones",
         "annual", {k: v for k, v in a_fdi.items() if k >= "2019"},
         src("Central Bank of The Bahamas", "Quarterly Statistical Digest – Table 7.1 Balance of Payments, Financial account: Net incurrence of liabilities – Direct Investment",
@@ -332,21 +397,24 @@ def main():
         "It is NOT equal to foreign air arrivals (arrivals_air counts air arrivals by first port of entry, incl. transit, and excludes sea-arriving stopovers).",
         "arrivals_cruise = cruise passenger arrivals by first port of entry (includes private-island calls: Coco Cay, Castaway Cay, Celebration Key, Ocean Cay, etc.). "
         "Cruise passengers visiting several Bahamian ports are counted once by first port of entry.",
-        "All MoT monthly figures are labelled preliminary and are revised within the current-year PDF; values here are from the latest PDF of each year retrieved 2026-09-17.",
-        "Stopover monthly values from the combined 2015-2026 PDF; each year's own page was used (current-year columns); regional sums and annual totals validated. "
+        "All MoT monthly figures are labelled preliminary and are revised within the current-year PDF; values here are from the latest PDF of each year "
+        f"(current-year PDF retrieved {_retrieved(AS_CUR)}).",
+        f"Stopover monthly values from the combined {so_span} PDF; each year's own page was used (current-year columns); regional sums and annual totals validated. "
         "2025 total there (1,838,168) differs from CBOB QSD Table 8.4 (1,826,103 / 1,821,076) — different vintages.",
         "Minor vintage differences vs CBOB QSD Table 8.4 annual totals: 2021 air arrivals (monthly sum 886,653 vs 886,629) and 2020 stopovers (440,594 vs 440,588); all other years 2019-2025 match exactly for air, cruise, total and stopover (except 2025 stopover, see above).",
         "April-May 2020: borders closed (COVID-19) — near-zero arrivals are genuine.",
         "spending_tourism_receipts: CBOB BoP travel credits equal MoT total visitor expenditure estimates (stopover+cruise+day). 2019-Q1 is missing: "
-        "the earliest BPM6-layout digest (Aug-2021) starts at 2019-Q2, so 2019-Q1 (1,295.1) is taken from the MoT 'Expenditure by Quarter 2020 and 2019' PDF, All Bahamas / All Visitors "
+        f"the earliest BPM6-layout digest (Aug-2021) starts at 2019-Q2, so 2019-Q1 ({q_trav['2019-Q1']:,.1f}) is taken from the MoT 'Expenditure by Quarter 2020 and 2019' PDF, All Bahamas / All Visitors "
         "(MoT all-visitor expenditure matches CBOB travel credits within 0.2 on every overlapping quarter checked). "
         "Q2-2019..Q1-2021 come from the Aug-2021 QSD (header row mistyped there; quarter order verified against 2020 annual total); later quarters from the most recent digest containing them.",
-        "Quarterly receipts validated: 2020-2025 quarters sum to CBOB annual totals within ±0.3 (rounding).",
-        "MoT stopover expenditure by quarter and avg expenditure per stopover are only published through 2022 (CBOB Table 8.5 shows n.a. for 2023-2025); average length of stay PDF only through 2021.",
+        f"Quarterly receipts validated: 2020-{date.today().year - 1} quarters sum to CBOB annual totals within ±0.3 (rounding).",
+        f"MoT stopover expenditure by quarter is published through {exp_last} (yearly 'Expenditure by Quarter' PDFs); avg expenditure per stopover "
+        f"(CBOB Table 8.5) only through {max(k for k in avg_exp if k >= '2019')}; average length of stay PDF only through {max(stay)}.",
         "Hurricane Dorian (Sep-2019, Abaco & Grand Bahama), Tropical Storm Imelda (Sep-2025) and Hurricane Melissa (late Oct-2025) affected arrivals per MoT notes.",
         "FDI series is total economy (no tourism-sector split published by CBOB); kept as secondary context only.",
     ]
     doc = {"id": "BS", "name": "Bahamas", "type": "country", "lat": 25.03, "lon": -77.4, "series": series, "notes": notes}
+    check_against_current(series)
     (ROOT / "BS.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1))
     for s in series:
         print(f"{s['key']:40s} {s['frequency']:9s} {len(s['data']):4d} {s['data'][0]} -> {s['data'][-1]}")

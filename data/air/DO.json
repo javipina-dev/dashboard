@@ -230,11 +230,11 @@
     ],
     [
      "2023-08",
-     333549
+     329608
     ],
     [
      "2023-09",
-     228993
+     228989
     ],
     [
      "2023-10",
@@ -370,16 +370,16 @@
     ]
    ],
    "source": {
-    "org": "US DOT – Bureau of Transportation Statistics",
-    "title": "T-100 International Segment (All Carriers)",
-    "page_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE",
-    "file_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE (POST con btnDownload=Download → ZIP/CSV por año)",
-    "format": "csv",
+    "org": "US DOT – Bureau of Transportation Statistics (Office of Airline Information)",
+    "title": "T-100 International Segment (All Carriers) – Data Bank 28IS: T-100 and T-100(f) International Segment Data, U.S. and Foreign Air Carriers (World Area Code)",
+    "page_url": "https://www.bts.gov/browse-statistical-products-and-data/bts-publications/data-bank-28is-t-100-and-t-100f-internationa-0",
+    "file_url": "https://www.bts.gov/sites/bts.dot.gov/files/docs/airline-data/international-segments/DB28SEG.FD.WAC.202507.202606.REL01.03SEP2026.zip (entrega más reciente; 79 entregas usadas, una por mes)",
+    "format": "zip (ASCII separado por '|')",
     "update_frequency": "mensual",
-    "release_lag": "~3 meses (a 2026-09-17 el último mes completo es 2026-06)",
-    "retrieved": "2026-09-17",
-    "access_method": "TranStats no expone T-100 ni en /PREZIP (sólo exports de usuario de 2015) ni en data.bts.gov. Ruta automatizable = postback ASP.NET: (1) GET DL_SelectFields.aspx?gnoyr_VQ=FJE guardando cookies y extrayendo __VIEWSTATE, __VIEWSTATEGENERATOR y __EVENTVALIDATION; (2) POST a la misma URL con esos 3 tokens + cboGeography=All, cboYear=<AAAA>, cboPeriod=All, chkDownloadZip=on, btnDownload=Download y un par '<CAMPO>=on' por columna (PASSENGERS, SEATS, DEPARTURES_PERFORMED, ORIGIN, ORIGIN_COUNTRY, DEST, DEST_COUNTRY, YEAR, MONTH, CLASS); (3) la respuesta es un ZIP con T_T100I_SEGMENT_ALL_CARRIER.csv. Una petición por año. Filtrar ORIGIN_COUNTRY='US' y DEST=<IATA> para llegadas. Ver data/scripts/AIR_bts.py.",
-    "last_period": "2026-06"
+    "release_lag": "~2–3 meses (a 2026-09-28 el último mes completo es 2026-06)",
+    "last_period": "2026-06",
+    "retrieved": "2026-09-28",
+    "access_method": "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>.<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y AIR_bts.py."
    }
   },
   {
@@ -415,11 +415,11 @@
     ],
     [
      "2019-07",
-     376282
+     376492
     ],
     [
      "2019-08",
-     322849
+     322921
     ],
     [
      "2019-09",
@@ -611,11 +611,11 @@
     ],
     [
      "2023-08",
-     407731
+     399889
     ],
     [
      "2023-09",
-     314571
+     314563
     ],
     [
      "2023-10",
@@ -751,16 +751,16 @@
     ]
    ],
    "source": {
-    "org": "US DOT – Bureau of Transportation Statistics",
-    "title": "T-100 International Segment (All Carriers)",
-    "page_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE",
-    "file_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE (POST con btnDownload=Download → ZIP/CSV por año)",
-    "format": "csv",
+    "org": "US DOT – Bureau of Transportation Statistics (Office of Airline Information)",
+    "title": "T-100 International Segment (All Carriers) – Data Bank 28IS: T-100 and T-100(f) International Segment Data, U.S. and Foreign Air Carriers (World Area Code)",
+    "page_url": "https://www.bts.gov/browse-statistical-products-and-data/bts-publications/data-bank-28is-t-100-and-t-100f-internationa-0",
+    "file_url": "https://www.bts.gov/sites/bts.dot.gov/files/docs/airline-data/international-segments/DB28SEG.FD.WAC.202507.202606.REL01.03SEP2026.zip (entrega más reciente; 79 entregas usadas, una por mes)",
+    "format": "zip (ASCII separado por '|')",
     "update_frequency": "mensual",
-    "release_lag": "~3 meses (a 2026-09-17 el último mes completo es 2026-06)",
-    "retrieved": "2026-09-17",
-    "access_method": "TranStats no expone T-100 ni en /PREZIP (sólo exports de usuario de 2015) ni en data.bts.gov. Ruta automatizable = postback ASP.NET: (1) GET DL_SelectFields.aspx?gnoyr_VQ=FJE guardando cookies y extrayendo __VIEWSTATE, __VIEWSTATEGENERATOR y __EVENTVALIDATION; (2) POST a la misma URL con esos 3 tokens + cboGeography=All, cboYear=<AAAA>, cboPeriod=All, chkDownloadZip=on, btnDownload=Download y un par '<CAMPO>=on' por columna (PASSENGERS, SEATS, DEPARTURES_PERFORMED, ORIGIN, ORIGIN_COUNTRY, DEST, DEST_COUNTRY, YEAR, MONTH, CLASS); (3) la respuesta es un ZIP con T_T100I_SEGMENT_ALL_CARRIER.csv. Una petición por año. Filtrar ORIGIN_COUNTRY='US' y DEST=<IATA> para llegadas. Ver data/scripts/AIR_bts.py.",
-    "last_period": "2026-06"
+    "release_lag": "~2–3 meses (a 2026-09-28 el último mes completo es 2026-06)",
+    "last_period": "2026-06",
+    "retrieved": "2026-09-28",
+    "access_method": "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>.<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y AIR_bts.py."
    }
   },
   {
@@ -992,11 +992,11 @@
     ],
     [
      "2023-08",
-     2488
+     2444
     ],
     [
      "2023-09",
-     1959
+     1958
     ],
     [
      "2023-10",
@@ -1132,16 +1132,16 @@
     ]
    ],
    "source": {
-    "org": "US DOT – Bureau of Transportation Statistics",
-    "title": "T-100 International Segment (All Carriers)",
-    "page_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE",
-    "file_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE (POST con btnDownload=Download → ZIP/CSV por año)",
-    "format": "csv",
+    "org": "US DOT – Bureau of Transportation Statistics (Office of Airline Information)",
+    "title": "T-100 International Segment (All Carriers) – Data Bank 28IS: T-100 and T-100(f) International Segment Data, U.S. and Foreign Air Carriers (World Area Code)",
+    "page_url": "https://www.bts.gov/browse-statistical-products-and-data/bts-publications/data-bank-28is-t-100-and-t-100f-internationa-0",
+    "file_url": "https://www.bts.gov/sites/bts.dot.gov/files/docs/airline-data/international-segments/DB28SEG.FD.WAC.202507.202606.REL01.03SEP2026.zip (entrega más reciente; 79 entregas usadas, una por mes)",
+    "format": "zip (ASCII separado por '|')",
     "update_frequency": "mensual",
-    "release_lag": "~3 meses (a 2026-09-17 el último mes completo es 2026-06)",
-    "retrieved": "2026-09-17",
-    "access_method": "TranStats no expone T-100 ni en /PREZIP (sólo exports de usuario de 2015) ni en data.bts.gov. Ruta automatizable = postback ASP.NET: (1) GET DL_SelectFields.aspx?gnoyr_VQ=FJE guardando cookies y extrayendo __VIEWSTATE, __VIEWSTATEGENERATOR y __EVENTVALIDATION; (2) POST a la misma URL con esos 3 tokens + cboGeography=All, cboYear=<AAAA>, cboPeriod=All, chkDownloadZip=on, btnDownload=Download y un par '<CAMPO>=on' por columna (PASSENGERS, SEATS, DEPARTURES_PERFORMED, ORIGIN, ORIGIN_COUNTRY, DEST, DEST_COUNTRY, YEAR, MONTH, CLASS); (3) la respuesta es un ZIP con T_T100I_SEGMENT_ALL_CARRIER.csv. Una petición por año. Filtrar ORIGIN_COUNTRY='US' y DEST=<IATA> para llegadas. Ver data/scripts/AIR_bts.py.",
-    "last_period": "2026-06"
+    "release_lag": "~2–3 meses (a 2026-09-28 el último mes completo es 2026-06)",
+    "last_period": "2026-06",
+    "retrieved": "2026-09-28",
+    "access_method": "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>.<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y AIR_bts.py."
    }
   },
   {
@@ -1373,11 +1373,11 @@
     ],
     [
      "2023-08",
-     191368
+     188180
     ],
     [
      "2023-09",
-     111047
+     111043
     ],
     [
      "2023-10",
@@ -1513,16 +1513,16 @@
     ]
    ],
    "source": {
-    "org": "US DOT – Bureau of Transportation Statistics",
-    "title": "T-100 International Segment (All Carriers)",
-    "page_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE",
-    "file_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE (POST con btnDownload=Download → ZIP/CSV por año)",
-    "format": "csv",
+    "org": "US DOT – Bureau of Transportation Statistics (Office of Airline Information)",
+    "title": "T-100 International Segment (All Carriers) – Data Bank 28IS: T-100 and T-100(f) International Segment Data, U.S. and Foreign Air Carriers (World Area Code)",
+    "page_url": "https://www.bts.gov/browse-statistical-products-and-data/bts-publications/data-bank-28is-t-100-and-t-100f-internationa-0",
+    "file_url": "https://www.bts.gov/sites/bts.dot.gov/files/docs/airline-data/international-segments/DB28SEG.FD.WAC.202507.202606.REL01.03SEP2026.zip (entrega más reciente; 79 entregas usadas, una por mes)",
+    "format": "zip (ASCII separado por '|')",
     "update_frequency": "mensual",
-    "release_lag": "~3 meses (a 2026-09-17 el último mes completo es 2026-06)",
-    "retrieved": "2026-09-17",
-    "access_method": "TranStats no expone T-100 ni en /PREZIP (sólo exports de usuario de 2015) ni en data.bts.gov. Ruta automatizable = postback ASP.NET: (1) GET DL_SelectFields.aspx?gnoyr_VQ=FJE guardando cookies y extrayendo __VIEWSTATE, __VIEWSTATEGENERATOR y __EVENTVALIDATION; (2) POST a la misma URL con esos 3 tokens + cboGeography=All, cboYear=<AAAA>, cboPeriod=All, chkDownloadZip=on, btnDownload=Download y un par '<CAMPO>=on' por columna (PASSENGERS, SEATS, DEPARTURES_PERFORMED, ORIGIN, ORIGIN_COUNTRY, DEST, DEST_COUNTRY, YEAR, MONTH, CLASS); (3) la respuesta es un ZIP con T_T100I_SEGMENT_ALL_CARRIER.csv. Una petición por año. Filtrar ORIGIN_COUNTRY='US' y DEST=<IATA> para llegadas. Ver data/scripts/AIR_bts.py.",
-    "last_period": "2026-06"
+    "release_lag": "~2–3 meses (a 2026-09-28 el último mes completo es 2026-06)",
+    "last_period": "2026-06",
+    "retrieved": "2026-09-28",
+    "access_method": "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>.<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y AIR_bts.py."
    }
   },
   {
@@ -1754,7 +1754,7 @@
     ],
     [
      "2023-08",
-     142181
+     141428
     ],
     [
      "2023-09",
@@ -1894,16 +1894,16 @@
     ]
    ],
    "source": {
-    "org": "US DOT – Bureau of Transportation Statistics",
-    "title": "T-100 International Segment (All Carriers)",
-    "page_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE",
-    "file_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE (POST con btnDownload=Download → ZIP/CSV por año)",
-    "format": "csv",
+    "org": "US DOT – Bureau of Transportation Statistics (Office of Airline Information)",
+    "title": "T-100 International Segment (All Carriers) – Data Bank 28IS: T-100 and T-100(f) International Segment Data, U.S. and Foreign Air Carriers (World Area Code)",
+    "page_url": "https://www.bts.gov/browse-statistical-products-and-data/bts-publications/data-bank-28is-t-100-and-t-100f-internationa-0",
+    "file_url": "https://www.bts.gov/sites/bts.dot.gov/files/docs/airline-data/international-segments/DB28SEG.FD.WAC.202507.202606.REL01.03SEP2026.zip (entrega más reciente; 79 entregas usadas, una por mes)",
+    "format": "zip (ASCII separado por '|')",
     "update_frequency": "mensual",
-    "release_lag": "~3 meses (a 2026-09-17 el último mes completo es 2026-06)",
-    "retrieved": "2026-09-17",
-    "access_method": "TranStats no expone T-100 ni en /PREZIP (sólo exports de usuario de 2015) ni en data.bts.gov. Ruta automatizable = postback ASP.NET: (1) GET DL_SelectFields.aspx?gnoyr_VQ=FJE guardando cookies y extrayendo __VIEWSTATE, __VIEWSTATEGENERATOR y __EVENTVALIDATION; (2) POST a la misma URL con esos 3 tokens + cboGeography=All, cboYear=<AAAA>, cboPeriod=All, chkDownloadZip=on, btnDownload=Download y un par '<CAMPO>=on' por columna (PASSENGERS, SEATS, DEPARTURES_PERFORMED, ORIGIN, ORIGIN_COUNTRY, DEST, DEST_COUNTRY, YEAR, MONTH, CLASS); (3) la respuesta es un ZIP con T_T100I_SEGMENT_ALL_CARRIER.csv. Una petición por año. Filtrar ORIGIN_COUNTRY='US' y DEST=<IATA> para llegadas. Ver data/scripts/AIR_bts.py.",
-    "last_period": "2026-06"
+    "release_lag": "~2–3 meses (a 2026-09-28 el último mes completo es 2026-06)",
+    "last_period": "2026-06",
+    "retrieved": "2026-09-28",
+    "access_method": "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>.<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y AIR_bts.py."
    }
   },
   {
@@ -2289,9 +2289,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -2678,9 +2678,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -3067,9 +3067,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -3456,9 +3456,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -3845,9 +3845,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -4234,9 +4234,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -4623,9 +4623,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -5012,9 +5012,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -5401,9 +5401,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -5790,9 +5790,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -6179,9 +6179,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -6568,9 +6568,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -6957,9 +6957,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -7346,9 +7346,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -7735,9 +7735,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -8124,9 +8124,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -8513,9 +8513,9 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -8902,21 +8902,21 @@
     "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-09-17 el último mes publicado es 2026-08)",
+    "release_lag": "~2–3 semanas (a 2026-09-28 el último mes publicado es 2026-08)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   }
  ],
  "notes": [
   "Incluye los dos aeropuertos con más tráfico estadounidense: Punta Cana (PUJ) y Las Américas / Santo Domingo (SDQ). No incluye Puerto Plata (POP), Santiago (STI), La Romana (LRM), Samaná (AZS) ni La Isabela (JBQ), que también tienen servicio a EE.UU.",
-  "Las cifras de BTS son de UNA sola dirección: tramos sin escala con ORIGIN_COUNTRY='US' y DEST=<aeropuerto>, es decir llegadas al destino desde Estados Unidos. El flujo inverso (destino→EE.UU.) es 1–2 % mayor o menor según el mes.",
-  "T-100 International cubre transportistas de EE.UU. (Form 41 T-100) y transportistas extranjeros que reportan al DOT (T-100(f)); incluye servicio regular y no regular/charter (CLASS F y L). No incluye aviación general ni privada.",
-  "'Estados Unidos' incluye Puerto Rico y las Islas Vírgenes estadounidenses (ORIGIN_COUNTRY='US'); San Juan (SJU) es un origen relevante hacia PUJ/SDQ.",
+  "Las cifras de BTS son de UNA sola dirección: tramos sin escala con origen en EE.UU. (World Area Code del aeropuerto < 100) y DEST=<aeropuerto>, es decir llegadas al destino desde Estados Unidos. El flujo inverso (destino→EE.UU.) es 1–2 % mayor o menor según el mes.",
+  "T-100 International cubre transportistas de EE.UU. (Form 41 T-100) y transportistas extranjeros que reportan al DOT (T-100(f)); incluye servicio regular y no regular/charter (CLASS F, G, L y P; en pasajeros cuentan F y L). No incluye aviación general ni privada, y el Data Bank 28IS excluye las clases de servicio militar y humanitario.",
+  "'Estados Unidos' incluye Puerto Rico y las Islas Vírgenes estadounidenses (WAC 3 y 4, dentro del rango EE.UU. < 100); San Juan (SJU) es un origen relevante hacia PUJ/SDQ.",
   "'Asientos' = SEATS de T-100, asientos disponibles en los vuelos efectivamente operados (no es capacidad programada).",
   "Los meses con 0 corresponden al cierre de fronteras/aeropuertos de 2020 (abr–jun): no hay tramos reportados porque no se operó, no es un hueco de la fuente.",
-  "BTS revisa meses anteriores cuando los transportistas corrigen sus reportes; reejecutar el extractor reescribe toda la serie.",
+  "BTS revisa meses anteriores cuando los transportistas corrigen sus reportes; cada mes se toma de la entrega Data Bank 28IS más reciente que lo contiene (ventana de 12 meses), así que las correcciones presentadas después de que el mes sale de esa ventana no se reflejan. Frente a la consulta en TranStats usada hasta 2026-09 las diferencias son nulas en casi todos los meses y de 0–4 % en unos pocos (p. ej. NAS may–dic 2022, CUN jun 2020).",
   "Validación cruzada: los pasajeros T-100 EE.UU.→PUJ equivalen al 43–48 % de las llegadas aéreas de no residentes por PUJ que publica el Banco Central (serie arrivals_air_nonresident_puj en data/DO.json). No son universos idénticos — T-100 cuenta pasajeros transportados (incluye residentes dominicanos y conexiones vía EE.UU.), el BCRD cuenta llegadas de no residentes desde cualquier origen — pero la proporción es estable y consistente con que EE.UU. sea el mayor mercado.",
   "JAC (República Dominicana) publica pasajeros y OPERACIONES por aeropuerto, no asientos. 'air_operations_*' cuenta entradas + salidas de aeronave, de modo que un vuelo redondo cuenta 2.",
   "Las cifras de JAC cubren transporte aéreo comercial regular y no regular (charter) en ambos sentidos y para cualquier origen/destino, no sólo EE.UU.; no son comparables directamente con las series air_us_* de BTS.",

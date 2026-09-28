@@ -375,18 +375,22 @@
     [
      "2026-07",
      32272
+    ],
+    [
+     "2026-08",
+     30490
     ]
    ],
    "source": {
     "org": "Oficina Nacional de Estadística e Información (ONEI), con datos de la Dirección de Identificación, Inmigración y Extranjería (DIIE)",
     "title": "Arribo de viajeros. Visitantes internacionales <Mes> <Año> (información preliminar mensual; cierre de diciembre) + Anuario Estadístico de Cuba 2023/2024, cap. 15 Turismo (Visitantes por meses) para 2019-2024",
-    "page_url": "https://www.onei.gob.cu/arribo-de-viajeros-visitantes-internacionales-julio-2026",
-    "file_url": "https://www.onei.gob.cu/sites/default/files/publicaciones/2026-08/arribo-de-viajeros-visitantes-internacionales-julio-2026.pdf",
+    "page_url": "https://onei.gob.cu/arribo-de-viajeros-visitantes-internacionales-agosto-2026",
+    "file_url": "https://onei.gob.cu/sites/default/files/publicaciones/2026-09/arribo-de-viajeros-visitantes-internacionales-agosto-2026.pdf",
     "format": "pdf",
     "update_frequency": "mensual",
     "release_lag": "~2-5 semanas tras cierre de mes (carpeta /publicaciones/<AAAA-MM> del mes de publicación)",
-    "last_period": "2026-07",
-    "retrieved": "2026-09-17",
+    "last_period": "2026-08",
+    "retrieved": "2026-09-28",
     "access_method": "Página de nodo https://onei.gob.cu/arribo-de-viajeros-visitantes-internacionales-<mes>-<año> enlaza PDF (+ .rar y visitantes-por-paises-<mes>-<año>.xlsx). Usar host sin \"www\" (www.onei.gob.cu HTTPS da error de proxy y HTTP sirve página JS intermedia); certificado TLS vencido y conexiones intermitentes → reintentos. El PDF (texto) solo trae acumulados en tabla; los valores mensuales del año en curso están como etiquetas de datos del gráfico de barras (texto rotado) → pdfplumber agrupando caracteres por x; se valida suma = acumulado oficial. Nombres de archivo varían (p.ej. \"arribo-de-viajeros.-visitantes-...\" en 2023-2024)."
    }
   },
@@ -431,7 +435,7 @@
     "update_frequency": "anual",
     "release_lag": "~8 meses tras cierre del año",
     "last_period": "2024",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Descargar PDF del capítulo 15 desde la página del Anuario; decodificar texto (cid:N)→chr(N+29) y regex sobre la tabla \"Ingresos asociados al turismo internacional\" (5 años por edición)."
    }
   },
@@ -468,7 +472,7 @@
     "update_frequency": "trimestral (acumulado ene-mar, ene-jun, ene-sep, ene-dic)",
     "release_lag": "~2-3 meses tras cierre del trimestre",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "PDF de texto con partes en (cid:N)→chr(N+29); regex fila \"Ingresos (Entidades Turísticas) MCUP\". Cargado solo el cierre anual (ene-dic); los acumulados trimestrales 2026 no se descargaron."
    }
   }
@@ -476,7 +480,7 @@
  "notes": [
   "Concepto: \"visitantes internacionales\" (no residentes que visitan Cuba por menos de un año, cualquier motivo salvo actividad remunerada), según registros migratorios (DIIE/MININT); incluye la \"Comunidad cubana en el exterior\". El Anuario muestra que casi todos pernoctan (turistas 2024: 2 202 540 de 2 203 117 visitantes), pero la serie mensual solo se publica para visitantes, por eso la clave es arrivals_visitors_total.",
   "Fuentes mensuales: 2019 del Anuario Estadístico de Cuba 2023 (tabla 15.5); 2020-2024 del Anuario 2024 (tabla 15.4, cifras revisadas: p.ej. 2020 = 1 085 920 vs 1 084 728 en ediciones previas); 2025-2026 de los PDF mensuales \"Arribo de viajeros\", donde los valores del año en curso figuran como etiquetas de datos oficiales del gráfico de barras; se validó suma de meses = acumulado oficial y coincidencia con el Anuario en 2023-2024.",
-  "2026 es preliminar (último informe: julio 2026; agosto 2026 aún no publicado al 2026-09-17). El informe de cierre de diciembre ajusta el año.",
+  "2026 es preliminar (último informe: agosto 2026, descargado el 2026-09-28). El informe de cierre de diciembre ajusta el año.",
   "Gasto: \"Ingresos por turismo internacional\" (Anuario, tabla 15.14/15.15) en millones de USD al tipo de cambio oficial vigente cada año (distorsionado tras la unificación monetaria de 2021, tasa oficial 1:24 y luego 1:120 desde dic-2022); excluye transporte internacional (12,5-41,8 MUSD). Incluye sector privado. Anual, rezago ~8 meses (Anuario 2024 publicado ago-2025).",
   "Gasto alterno más reciente: \"Ingresos (Entidades Turísticas)\" del turismo internacional en \"Turismo. Indicadores seleccionados\" (trimestral acumulado), en millones de CUP corrientes; no comparable en el tiempo por cambios cambiarios (2022→2023 +515%). Solo entidades turísticas.",
   "ONEI no publica gasto medio por visitante ni estadía media para visitantes internacionales (solo pernoctaciones en establecimientos de alojamiento); no se derivaron.",

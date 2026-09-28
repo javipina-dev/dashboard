@@ -136,9 +136,9 @@
     "file_url": "https://boj.org.jm/wp-content/uploads/2020/09/ES.BOP.00.xls",
     "format": "xlsx",
     "update_frequency": "trimestral (ver Advance Release Calendar del BOJ)",
-    "release_lag": "~1 trimestre (último dato 2026-T1 disponible a sep-2026)",
+    "release_lag": "~1 trimestre (último dato 2026-Q1 disponible al 2026-09-28)",
     "last_period": "2026-Q1",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "GET the fixed .xls URL (legacy Excel; read with xlrd). Sheet 'Services': row 1 = quarter-end dates, 'Travel' row under 'Credit' (equal to memo row 'Visitor Expenditure (US$MN)')."
    }
   },
@@ -167,7 +167,7 @@
     "update_frequency": "anual (ESSJ Overview publicado ~abril-mayo del año siguiente)",
     "release_lag": "~4-5 meses tras cierre del año",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Product page per edition (slug in ESSJ_PRODUCTS); free file obtained by POSTing the page's somdn form (fields somdn_download_key [url-encode], action=somdn_download_single, somdn_product) to the same URL with cookies. pdfplumber, crop each page into two columns, regex on the 'Accommodation & Food Service Activities' paragraph."
    }
   },
@@ -208,7 +208,7 @@
     "update_frequency": "anual (ESSJ Overview publicado ~abril-mayo del año siguiente)",
     "release_lag": "~4-5 meses tras cierre del año",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Product page per edition (slug in ESSJ_PRODUCTS); free file obtained by POSTing the page's somdn form (fields somdn_download_key [url-encode], action=somdn_download_single, somdn_product) to the same URL with cookies. pdfplumber, crop each page into two columns, regex on the 'Accommodation & Food Service Activities' paragraph."
    }
   },
@@ -253,7 +253,7 @@
     "update_frequency": "anual (ESSJ Overview publicado ~abril-mayo del año siguiente)",
     "release_lag": "~4-5 meses tras cierre del año",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Product page per edition (slug in ESSJ_PRODUCTS); free file obtained by POSTing the page's somdn form (fields somdn_download_key [url-encode], action=somdn_download_single, somdn_product) to the same URL with cookies. pdfplumber, crop each page into two columns, regex on the 'Accommodation & Food Service Activities' paragraph."
    }
   },
@@ -298,7 +298,7 @@
     "update_frequency": "anual (ESSJ Overview publicado ~abril-mayo del año siguiente)",
     "release_lag": "~4-5 meses tras cierre del año",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Product page per edition (slug in ESSJ_PRODUCTS); free file obtained by POSTing the page's somdn form (fields somdn_download_key [url-encode], action=somdn_download_single, somdn_product) to the same URL with cookies. pdfplumber, crop each page into two columns, regex on the 'Accommodation & Food Service Activities' paragraph."
    }
   },
@@ -347,7 +347,7 @@
     "update_frequency": "anual (archivo actualizado trimestralmente)",
     "release_lag": "'Last Business Day of the Quarter Following the Reporting Period' (2025 disponible en 2026, marcado revisado)",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "GET the fixed .xls URL; sheet 'ES.FDI.00', header row 'FDI Inflows By Sector' (years), row 'TOURISM'."
    }
   }

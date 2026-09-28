@@ -18,8 +18,14 @@ MEXICO - AFAC (Agencia Federal de Aviacion Civil, SICT)
 DOMINICAN REPUBLIC - JAC / IDAC: see notes in main(); resolved at runtime.
 
 Part (A) (BTS T-100) is produced by AIR_bts.py and imported here.
+
+Failure policy: any download or parse failure (BTS, AFAC or JAC) makes the
+script exit non-zero BEFORE writing anything, so the orchestrator keeps the
+previous data/air/*.json.  Before writing, every series already present in
+data/air/<ID>.json must still exist, be non-empty and have at least as many
+periods as before; otherwise the run aborts.
 """
-import glob
+import datetime
 import json
 import os
 import re
@@ -34,7 +40,7 @@ BASE = os.path.dirname(HERE)                 # .../data
 RAW_MX = os.path.join(BASE, "raw", "MX")
 RAW_DO = os.path.join(BASE, "raw", "DO")
 OUT = os.path.join(BASE, "air")
-TODAY = "2026-09-17"
+TODAY = datetime.date.today().isoformat()
 
 UA = "curl/8.4.0"   # plain curl UA passes Akamai on gob.mx; browser UAs get a JS challenge
 S = requests.Session()
@@ -48,22 +54,14 @@ NS = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}
 def afac_workbook(force=False):
     """Return (local path, file_url) of the current AFAC airport workbook."""
     os.makedirs(RAW_MX, exist_ok=True)
-    cached = sorted(glob.glob(os.path.join(RAW_MX, "producto-aeropuerto-2006-*.xlsx")))
-    html = None
-    try:
-        html = S.get(AFAC_PAGE, timeout=120).text
-    except Exception as e:                                       # noqa: BLE001
-        print("  !! AFAC page unreachable (%s)" % e)
-    url = None
-    if html:
-        m = re.search(r"/cms/uploads/attachment/file/\d+/"
-                      r"producto-aeropuerto-2006-[^\"]+\.xlsx", html)
-        if m:
-            url = "https://www.gob.mx" + m.group(0)
-    if url is None:
-        if not cached:
-            raise RuntimeError("AFAC workbook link not found and no local cache")
-        return cached[-1], AFAC_PAGE
+    r = S.get(AFAC_PAGE, timeout=120)
+    r.raise_for_status()
+    m = re.search(r"/cms/uploads/attachment/file/\d+/"
+                  r"producto-aeropuerto-2006-[^\"]+\.xlsx", r.text)
+    if not m:
+        raise RuntimeError("AFAC workbook link not found on " + AFAC_PAGE)
+    url = "https://www.gob.mx" + m.group(0)
+    # the file name carries the upload id, so a cached copy IS the linked file
     path = os.path.join(RAW_MX, os.path.basename(url))
     if not os.path.exists(path) or force:
         r = S.get(url, timeout=300)
@@ -173,10 +171,6 @@ def jac_workbook(force=False):
                 r"Reporte[-_ ]?Historico[^\"' ]*\.xlsx", html, re.I):
             cands.append((pg, u))
     if not cands:
-        cached = sorted(glob.glob(os.path.join(RAW_DO, "JAC-Reporte-Historico*.xlsx")))
-        if cached:
-            print("  !! JAC link not found, using cache", os.path.basename(cached[-1]))
-            return cached[-1], None, JAC_PAGE
         raise RuntimeError("JAC historical workbook not found on " + JAC_PAGE)
     # newest upload path (…/uploads/YYYY/MM/…) wins
     page, url = sorted(cands, key=lambda t: t[1])[-1]
@@ -275,11 +269,7 @@ JAC_ACCESS = (
 
 def jac_series(force=False):
     """JAC series for data/air/DO.json."""
-    try:
-        j, url, page = jac(force=force)
-    except Exception as e:                                   # noqa: BLE001
-        print("  !! JAC unavailable: %s" % e)
-        return []
+    j, url, page = jac(force=force)           # failures propagate (no silent drop)
     specs = [
         ("air_operations", "operations", "total",
          "Operaciones aéreas comerciales (entradas + salidas)",
@@ -304,8 +294,8 @@ def jac_series(force=False):
             "file_url": url or "",
             "format": "xlsx",
             "update_frequency": "mensual",
-            "release_lag": ("~2–3 semanas (a 2026-09-17 el último mes "
-                            "publicado es 2026-08)"),
+            "release_lag": ("~2–3 semanas (a %s el último mes "
+                            "publicado es %s)" % (TODAY, lp)),
             "last_period": lp, "retrieved": TODAY,
             "access_method": JAC_ACCESS,
         }
@@ -391,34 +381,40 @@ def last(d):
 
 
 # ------------------------------------------------------------------ assembly
-BTS_SRC_BASE = {
-    "org": "US DOT \u2013 Bureau of Transportation Statistics",
-    "title": "T-100 International Segment (All Carriers)",
-    "page_url": "https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE",
-    "file_url": ("https://www.transtats.bts.gov/DL_SelectFields.aspx?gnoyr_VQ=FJE"
-                 " (POST con btnDownload=Download \u2192 ZIP/CSV por a\u00f1o)"),
-    "format": "csv",
-    "update_frequency": "mensual",
-    "release_lag": "~3 meses (a 2026-09-17 el \u00faltimo mes completo es 2026-06)",
-    "retrieved": TODAY,
-    "access_method": (
-        "TranStats no expone T-100 ni en /PREZIP (s\u00f3lo exports de usuario de 2015) "
-        "ni en data.bts.gov. Ruta automatizable = postback ASP.NET: (1) GET "
-        "DL_SelectFields.aspx?gnoyr_VQ=FJE guardando cookies y extrayendo __VIEWSTATE, "
-        "__VIEWSTATEGENERATOR y __EVENTVALIDATION; (2) POST a la misma URL con esos 3 "
-        "tokens + cboGeography=All, cboYear=<AAAA>, cboPeriod=All, chkDownloadZip=on, "
-        "btnDownload=Download y un par '<CAMPO>=on' por columna (PASSENGERS, SEATS, "
-        "DEPARTURES_PERFORMED, ORIGIN, ORIGIN_COUNTRY, DEST, DEST_COUNTRY, YEAR, MONTH, "
-        "CLASS); (3) la respuesta es un ZIP con T_T100I_SEGMENT_ALL_CARRIER.csv. "
-        "Una petici\u00f3n por a\u00f1o. Filtrar ORIGIN_COUNTRY='US' y DEST=<IATA> para "
-        "llegadas. Ver data/scripts/AIR_bts.py.")
-}
+BTS_ACCESS = (
+    "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / "
+    "ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la "
+    "publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la "
+    "publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>."
+    "<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma "
+    "de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' "
+    "con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = "
+    "DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y "
+    "ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: "
+    "descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y "
+    "AIR_bts.py.")
 
 
 def bts_source(last_period):
-    d = dict(BTS_SRC_BASE)
-    d["last_period"] = last_period
-    return d
+    import AIR_bts
+    import _bts
+    used = AIR_bts.USED_RELEASES
+    newest = max(used, key=lambda u: u["months"][1])["file"] if used else ""
+    return {
+        "org": "US DOT \u2013 Bureau of Transportation Statistics (Office of Airline Information)",
+        "title": ("T-100 International Segment (All Carriers) \u2013 Data Bank 28IS: T-100 "
+                  "and T-100(f) International Segment Data, U.S. and Foreign Air Carriers "
+                  "(World Area Code)"),
+        "page_url": _bts.LISTING_URL,
+        "file_url": (_bts.FILE_BASE + newest + " (entrega más reciente; %d entregas "
+                     "usadas, una por mes)" % len(used)),
+        "format": "zip (ASCII separado por '|')",
+        "update_frequency": "mensual",
+        "release_lag": "~2–3 meses (a %s el último mes completo es %s)" % (TODAY, last_period),
+        "last_period": last_period,
+        "retrieved": TODAY,
+        "access_method": BTS_ACCESS,
+    }
 
 
 def bts_series(agg, months, airports, key_suffix, label_airports):
@@ -449,15 +445,58 @@ def bts_series(agg, months, airports, key_suffix, label_airports):
     return out
 
 
+PENDING = {}
+
+
 def write(dest_id, series, notes):
+    """Queue a destination file; nothing touches disk until commit()."""
+    PENDING[dest_id] = {"id": dest_id, "series": series, "notes": notes}
+
+
+def safeguard(pending):
+    """Abort if any series present in the current data/air/<ID>.json would be
+    dropped, emptied or shortened."""
+    errs = []
+    for dest_id, doc in pending.items():
+        path = os.path.join(OUT, dest_id + ".json")
+        if not os.path.exists(path):
+            continue
+        cur = {s["key"]: s for s in json.load(open(path, encoding="utf-8"))["series"]}
+        new = {s["key"]: s for s in doc["series"]}
+        for k, s in cur.items():
+            n_old = len(s.get("data") or [])
+            if k not in new:
+                errs.append("%s: series %s disappeared" % (dest_id, k))
+            elif not new[k]["data"]:
+                errs.append("%s: series %s is empty" % (dest_id, k))
+            elif set(p for p, _ in s.get("data") or []) - set(p for p, _ in new[k]["data"]):
+                lost = sorted(set(p for p, _ in s.get("data") or []) -
+                              set(p for p, _ in new[k]["data"]))
+                errs.append("%s: series %s lost periods %s"
+                            % (dest_id, k, lost[:6] + (["..."] if len(lost) > 6 else [])))
+            elif len(new[k]["data"]) < n_old:
+                errs.append("%s: series %s has %d periods (was %d)"
+                            % (dest_id, k, len(new[k]["data"]), n_old))
+            elif s.get("data") and new[k]["data"][-1][0] < s["data"][-1][0]:
+                errs.append("%s: series %s ends %s (was %s)"
+                            % (dest_id, k, new[k]["data"][-1][0], s["data"][-1][0]))
+    if errs:
+        raise SystemExit("ABORT, nothing written:\n  " + "\n  ".join(errs))
+
+
+def commit():
+    safeguard(PENDING)
     os.makedirs(OUT, exist_ok=True)
-    path = os.path.join(OUT, dest_id + ".json")
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump({"id": dest_id, "series": series, "notes": notes},
-                  f, ensure_ascii=False, indent=1)
-    print("wrote %-14s %d series  (%s .. %s)" %
-          (os.path.basename(path), len(series),
-           series[0]["data"][0][0], series[0]["data"][-1][0]))
+    for dest_id, doc in PENDING.items():
+        path = os.path.join(OUT, dest_id + ".json")
+        tmp = path + ".tmp"
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(doc, f, ensure_ascii=False, indent=1)
+        os.replace(tmp, path)
+        series = doc["series"]
+        print("wrote %-14s %d series  (%s .. %s)" %
+              (os.path.basename(path), len(series),
+               series[0]["data"][0][0], series[0]["data"][-1][0]))
 
 
 AFAC_ACCESS = (
@@ -493,7 +532,7 @@ def afac_series(a, apt, url, page, label_apt):
                           "producto-aeropuerto (operaciones por aeropuerto)"),
                 "page_url": page, "file_url": url, "format": "xlsx",
                 "update_frequency": "mensual",
-                "release_lag": "~1–2 meses (a 2026-09-17 el último mes es 2026-07)",
+                "release_lag": "~1–2 meses (a %s el último mes es %s)" % (TODAY, last(d)),
                 "last_period": last(d), "retrieved": TODAY,
                 "access_method": AFAC_ACCESS,
             }})
@@ -505,7 +544,7 @@ def main():
     import AIR_bts
 
     force = "--force" in sys.argv
-    print("== BTS T-100 ==")
+    print("== BTS T-100 (Data Bank 28IS) ==")
     agg = AIR_bts.aggregate(AIR_bts.load(force=force))
     months = AIR_bts.complete_months(agg)
     print("  complete months %s .. %s" % (months[0], months[-1]))
@@ -514,21 +553,28 @@ def main():
     a, afac_url, afac_page = afac(force=force)
 
     BTS_NOTE_DIR = ("Las cifras de BTS son de UNA sola dirección: tramos sin escala "
-                    "con ORIGIN_COUNTRY='US' y DEST=<aeropuerto>, es decir llegadas "
+                    "con origen en EE.UU. (World Area Code del aeropuerto < 100) y "
+                    "DEST=<aeropuerto>, es decir llegadas "
                     "al destino desde Estados Unidos. El flujo inverso "
                     "(destino→EE.UU.) es 1–2 % mayor o menor según el mes.")
     BTS_NOTE_COV = ("T-100 International cubre transportistas de EE.UU. (Form 41 T-100) y "
                     "transportistas extranjeros que reportan al DOT (T-100(f)); incluye "
-                    "servicio regular y no regular/charter (CLASS F y L). No incluye "
-                    "aviación general ni privada.")
+                    "servicio regular y no regular/charter (CLASS F, G, L y P; en pasajeros "
+                    "cuentan F y L). No incluye aviación general ni privada, y el Data Bank "
+                    "28IS excluye las clases de servicio militar y humanitario.")
     BTS_NOTE_PR = ("'Estados Unidos' incluye Puerto Rico y las Islas Vírgenes "
-                   "estadounidenses (ORIGIN_COUNTRY='US'); San Juan (SJU) es un origen "
+                   "estadounidenses (WAC 3 y 4, dentro del rango EE.UU. < 100); San Juan (SJU) es un origen "
                    "relevante hacia PUJ/SDQ.")
     BTS_NOTE_ZERO = ("Los meses con 0 corresponden al cierre de fronteras/aeropuertos de "
                      "2020 (abr–jun): no hay tramos reportados porque no se operó, "
                      "no es un hueco de la fuente.")
     BTS_NOTE_REV = ("BTS revisa meses anteriores cuando los transportistas corrigen sus "
-                    "reportes; reejecutar el extractor reescribe toda la serie.")
+                    "reportes; cada mes se toma de la entrega Data Bank 28IS más reciente "
+                    "que lo contiene (ventana de 12 meses), así que las correcciones "
+                    "presentadas después de que el mes sale de esa ventana no se reflejan. "
+                    "Frente a la consulta en TranStats usada hasta 2026-09 las diferencias "
+                    "son nulas en casi todos los meses y de 0–4 % en unos pocos (p. ej. "
+                    "NAS may–dic 2022, CUN jun 2020).")
     BTS_NOTE_SEAT = ("'Asientos' = SEATS de T-100, asientos disponibles en los vuelos "
                      "efectivamente operados (no es capacidad programada).")
 
@@ -593,7 +639,8 @@ def main():
     s += bts_series(agg, months, ["PUJ"], "_puj", "Punta Cana (PUJ)")[:1]
     s += bts_series(agg, months, ["SDQ"], "_sdq",
                     "Santo Domingo Las Am\u00e9ricas (SDQ)")[:1]
-    s += jac_series()
+    print("== JAC (República Dominicana) ==")
+    s += jac_series(force=force)
     write("DO", s, [
         "Incluye los dos aeropuertos con m\u00e1s tr\u00e1fico estadounidense: Punta Cana "
         "(PUJ) y Las Am\u00e9ricas / Santo Domingo (SDQ). No incluye Puerto Plata (POP), "
@@ -610,6 +657,7 @@ def main():
         "consistente con que EE.UU. sea el mayor mercado.",
     ] + JAC_NOTES)
 
+    commit()
     return agg, months, a, afac_url, afac_page
 
 

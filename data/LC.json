@@ -380,9 +380,9 @@
     "file_url": "https://www.eccb-centralbank.org/statistics/csv-export (POST; parámetros cifrados generados por el formulario)",
     "format": "csv",
     "update_frequency": "mensual",
-    "release_lag": "~2-3 meses (datos 'as at 01 September 2026': último jun-2026)",
+    "release_lag": "~2-3 meses (período de referencia publicado por ECCB: mensual 'Jan 2019 to Jun 2026', anual '2019 to 2025')",
     "last_period": "2026-06",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Sesión requests: GET página (cookie + _token CSRF) -> POST formulario (country_code[]=7, frequency=M|A, start_date/end_date dd/mm/yyyy) -> POST campos ocultos de #frmCsvDownload con format=csv a /statistics/csv-export. Ver scripts/ECCB_fetch.py."
    }
   },
@@ -761,9 +761,9 @@
     "file_url": "https://www.eccb-centralbank.org/statistics/csv-export (POST; parámetros cifrados generados por el formulario)",
     "format": "csv",
     "update_frequency": "mensual",
-    "release_lag": "~2-3 meses (datos 'as at 01 September 2026': último jun-2026)",
+    "release_lag": "~2-3 meses (período de referencia publicado por ECCB: mensual 'Jan 2019 to Jun 2026', anual '2019 to 2025')",
     "last_period": "2026-06",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Sesión requests: GET página (cookie + _token CSRF) -> POST formulario (country_code[]=7, frequency=M|A, start_date/end_date dd/mm/yyyy) -> POST campos ocultos de #frmCsvDownload con format=csv a /statistics/csv-export. Ver scripts/ECCB_fetch.py."
    }
   },
@@ -810,9 +810,9 @@
     "file_url": "https://www.eccb-centralbank.org/statistics/csv-export (POST; parámetros cifrados generados por el formulario)",
     "format": "csv",
     "update_frequency": "mensual",
-    "release_lag": "~2-3 meses (datos 'as at 01 September 2026': último jun-2026)",
+    "release_lag": "~2-3 meses (período de referencia publicado por ECCB: mensual 'Jan 2019 to Jun 2026', anual '2019 to 2025')",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Sesión requests: GET página (cookie + _token CSRF) -> POST formulario (country_code[]=7, frequency=M|A, start_date/end_date dd/mm/yyyy) -> POST campos ocultos de #frmCsvDownload con format=csv a /statistics/csv-export. Ver scripts/ECCB_fetch.py."
    }
   },
@@ -853,7 +853,7 @@
     "update_frequency": "irregular (última actualización 16/05/2024)",
     "release_lag": ">2 años a sep-2026 (último dato 2023)",
     "last_period": "2023",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "GET página WordPress y parseo de <table>, fila 'Average Length of Stay'."
    }
   }
@@ -862,7 +862,7 @@
   "Fuente principal: ECCB (compila datos de la Saint Lucia Tourism Authority / Ministerio de Turismo). Coincide con la CSO de Santa Lucía para 2019-2023 salvo diferencias menores (jul-2019: ECCB 42,773 vs CSO 42,778).",
   "Abr-jun 2020 = 0 llegadas y 0 gasto (cierre de fronteras COVID): valores publicados, no huecos.",
   "El gasto de ECCB es 'Total Visitor Expenditure' (todos los visitantes: stay-over, crucero, yates, excursionistas); es una estimación oficial, no el crédito 'Travel' de la balanza de pagos. Los totales anuales ECCB (p.ej. 2019: 2,696.15) difieren de la serie CSO/SLTA 'Tourist Expenditure' (2019: 2,604.5).",
-  "Julio-agosto 2026 aparecen como '---' (no publicados) en ECCB a sep-2026.",
+  "Período de referencia de la descarga ECCB del 2026-09-28: mensual 'Jan 2019 to Jun 2026', anual '2019 to 2025'. Los meses posteriores no están publicados (ECCB no informa fecha 'as at' en el CSV).",
   "Estancia media: CSO no especifica unidad (se asume noches); serie anual detenida en 2023 (2020 = 8.8 pese a pandemia). ECCB no publica estancia media ni gasto medio por visitante.",
   "Gasto medio por visitante: sin serie oficial publicada (no se calcula dividiendo series).",
   "CSO Santa Lucía publica también llegadas mensuales 2010-2023 (tabla HTML), sin actualizar desde mayo 2024."

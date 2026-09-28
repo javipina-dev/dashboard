@@ -5,20 +5,121 @@ Sources (downloaded to data/raw/JM/):
       - ES.BOP.00.xls  Balance of Payments Summary (BPM6), quarterly; sheet 'Services':
                         'Travel' credit row / 'Visitor Expenditure (US$MN)' (source: Jamaica Tourist Board)
       - ES.FDI.00.xls  FDI Inflows by Sector, annual; row 'TOURISM'
-Download:
-  curl -A "Mozilla/5.0" -o data/raw/JM/ES.BOP.00.xls https://boj.org.jm/wp-content/uploads/2020/09/ES.BOP.00.xls
-  curl -A "Mozilla/5.0" -o data/raw/JM/ES.FDI.00.xls https://boj.org.jm/wp-content/uploads/2020/09/ES.FDI.00.xls
-Run: .venv/bin/python data/scripts/JM_extract.py
+  * Planning Institute of Jamaica (PIOJ), free "Economic and Social Survey Jamaica - (Selected Indicators &) Overview"
+      PDFs, one per edition -> pioj_essj_<year>_overview.pdf (product pages in ESSJ_PRODUCTS)
+Download (automatic on every run; see download_all):
+  - BOJ .xls files are re-downloaded on every run (the file at the fixed URL is overwritten with each update):
+      https://boj.org.jm/wp-content/uploads/2020/09/ES.BOP.00.xls
+      https://boj.org.jm/wp-content/uploads/2020/09/ES.FDI.00.xls
+  - ESSJ PDFs: GET https://www.pioj.gov.jm/product/<slug>/ and POST its free-download (somdn) form with the session
+    cookies. Past editions are immutable -> cached in data/raw/JM once downloaded. Newer editions (year > last known,
+    up to last calendar year) are probed on the known slug patterns; HTTP 404 = not published yet.
+  Any download failure aborts the run with exit != 0 and data/JM.json is left untouched.
+Run: .venv/bin/python data/scripts/JM_extract.py [--no-download]   (--no-download: use files already in data/raw/JM)
 """
+import argparse
 import json
 import re
+import sys
+import time
+from datetime import date
 from pathlib import Path
 
 import pandas as pd
+import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 RAW = ROOT / "raw" / "JM"
-RETRIEVED = "2026-09-17"
+RETRIEVED = date.today().isoformat()  # overwritten in main() with the real download date (or file date with --no-download)
+UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+BOJ_FILES = {
+    "ES.BOP.00.xls": "https://boj.org.jm/wp-content/uploads/2020/09/ES.BOP.00.xls",
+    "ES.FDI.00.xls": "https://boj.org.jm/wp-content/uploads/2020/09/ES.FDI.00.xls",
+}
+PIOJ_PRODUCT = "https://www.pioj.gov.jm/product/{}/"
+XLS_MAGIC, PDF_MAGIC = b"\xd0\xcf\x11\xe0", b"%PDF"
+
+
+class DownloadError(RuntimeError):
+    pass
+
+
+def _get(sess, method, url, tries=3, **kw):
+    last = None
+    for i in range(tries):
+        try:
+            r = sess.request(method, url, timeout=180, **kw)
+            if r.status_code == 404 or (r.status_code == 200):
+                return r
+            last = f"HTTP {r.status_code}"
+        except requests.RequestException as e:
+            last = f"{type(e).__name__}: {e}"
+        if i < tries - 1:
+            time.sleep(10 * (i + 1))
+    raise DownloadError(f"{method} {url} failed after {tries} tries ({last})")
+
+
+def _save(content, dest, magic, url):
+    if not content.startswith(magic) or len(content) < 5000:
+        raise DownloadError(f"{url}: unexpected content ({len(content)} bytes, starts {content[:8]!r})")
+    tmp = dest.with_suffix(dest.suffix + ".part")
+    tmp.write_bytes(content)
+    tmp.replace(dest)
+    print(f"downloaded {dest.name} ({len(content):,} bytes) <- {url}")
+
+
+def download_boj(sess):
+    for name, url in BOJ_FILES.items():
+        r = _get(sess, "GET", url)
+        if r.status_code != 200:
+            raise DownloadError(f"{url}: HTTP {r.status_code}")
+        _save(r.content, RAW / name, XLS_MAGIC, url)
+
+
+def download_essj(sess, year, slug, required=True):
+    """Download the free ESSJ overview PDF of one edition. Returns False if the product page does not exist (404)
+    and required=False; raises DownloadError on any other problem."""
+    url = PIOJ_PRODUCT.format(slug)
+    r = _get(sess, "GET", url)
+    if r.status_code == 404:
+        if required:
+            raise DownloadError(f"{url}: HTTP 404")
+        return False
+    form = re.search(r'<form[^>]*class="somdn-download-form"[^>]*>(.*?)</form>', r.text, re.S)
+    if not form:
+        raise DownloadError(f"{url}: free-download form (somdn) not found")
+    fields = dict(re.findall(r'<input[^>]*name="([^"]+)"[^>]*value="([^"]*)"', form.group(1)))
+    if fields.get("action") != "somdn_download_single" or not fields.get("somdn_download_key"):
+        raise DownloadError(f"{url}: unexpected download form fields {sorted(fields)}")
+    r = _get(sess, "POST", url, data=fields)
+    if r.status_code != 200:
+        raise DownloadError(f"POST {url}: HTTP {r.status_code}")
+    _save(r.content, RAW / f"pioj_essj_{year}_overview.pdf", PDF_MAGIC, url)
+    return True
+
+
+def download_all():
+    """BOJ tables every run; ESSJ editions cached (immutable); probe for newer ESSJ editions."""
+    RAW.mkdir(parents=True, exist_ok=True)
+    sess = requests.Session()
+    sess.headers["User-Agent"] = UA
+    download_boj(sess)
+    for year, slug in sorted(ESSJ_PRODUCTS.items()):
+        f = RAW / f"pioj_essj_{year}_overview.pdf"
+        if f.exists() and f.stat().st_size > 5000 and f.read_bytes()[:4] == PDF_MAGIC:
+            print(f"cached {f.name}")
+            continue
+        download_essj(sess, year, slug)
+    for year in range(max(ESSJ_PRODUCTS) + 1, date.today().year):
+        for slug in (f"economic-and-social-survey-jamaica-{year}-selected-indicators-overview",
+                     f"economic-and-social-survey-jamaica-{year}-overview-and-selected-indicators",
+                     f"economic-and-social-survey-jamaica-{year}-overview"):
+            if download_essj(sess, year, slug, required=False):  # not cached until it is added to ESSJ_PRODUCTS
+                ESSJ_PRODUCTS[year] = slug
+                print(f"new ESSJ edition {year}: {PIOJ_PRODUCT.format(slug)}")
+                break
+        else:
+            print(f"ESSJ {year} overview not published yet (404 on known slugs)")
 
 
 def travel_credits():
@@ -124,7 +225,49 @@ def essj_tourism():
             dict(sorted(stop_exp.items())), dict(sorted(cruise_exp.items())))
 
 
+def check_against_current(series, path):
+    """Safeguard: abort if a series present in the current JSON disappears, comes out empty, has fewer periods
+    or ends earlier than before."""
+    if not path.exists():
+        return
+    old = {s["key"]: s["data"] for s in json.loads(path.read_text())["series"]}
+    new = {s["key"]: s["data"] for s in series}
+    problems = []
+    for k, od in old.items():
+        nd = new.get(k)
+        if not nd:
+            problems.append(f"{k}: missing or empty (was {len(od)} periods)")
+            continue
+        if len(nd) < len(od):
+            problems.append(f"{k}: {len(nd)} periods < {len(od)} in current JSON")
+        if od and nd[-1][0] < od[-1][0]:
+            problems.append(f"{k}: last period {nd[-1][0]} < {od[-1][0]} in current JSON")
+        lost = sorted({p for p, _ in od} - {p for p, _ in nd})
+        if lost:
+            problems.append(f"{k}: periods dropped {lost}")
+    if problems:
+        raise SystemExit(f"ABORT: {path.name} not written; new extraction is poorer than the current file:\n  "
+                         + "\n  ".join(problems))
+
+
 def main():
+    global RETRIEVED
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--no-download", action="store_true", help="use files already in data/raw/JM")
+    args = ap.parse_args()
+    if args.no_download:
+        files = [RAW / n for n in BOJ_FILES] + [RAW / f"pioj_essj_{y}_overview.pdf" for y in ESSJ_PRODUCTS]
+        missing = [f.name for f in files if not f.exists()]
+        if missing:
+            raise SystemExit(f"--no-download: missing raw files {missing}")
+        RETRIEVED = date.fromtimestamp(min(f.stat().st_mtime for f in files[:2])).isoformat()
+    else:
+        try:
+            download_all()
+        except (DownloadError, OSError) as e:
+            print(f"ERROR downloading Jamaica sources: {e}", file=sys.stderr)
+            sys.exit(2)
+        RETRIEVED = date.today().isoformat()
     e_stop, e_cruise, e_stop_exp, e_cruise_exp = essj_tourism()
     tc = {k: v for k, v in travel_credits().items() if k >= "2019-Q1"}
     fdi, fdi_flags = tourism_fdi()
@@ -139,20 +282,20 @@ def main():
                     "page_url": "https://boj.org.jm/statistics/external-sector/balance-of-payments/",
                     "file_url": "https://boj.org.jm/wp-content/uploads/2020/09/ES.BOP.00.xls",
                     "format": "xlsx", "update_frequency": "trimestral (ver Advance Release Calendar del BOJ)",
-                    "release_lag": "~1 trimestre (último dato 2026-T1 disponible a sep-2026)",
+                    "release_lag": f"~1 trimestre (último dato {max(tc)} disponible al {RETRIEVED})",
                     "last_period": max(tc), "retrieved": RETRIEVED,
                     "access_method": "GET the fixed .xls URL (legacy Excel; read with xlrd). Sheet 'Services': row 1 = quarter-end dates, "
                                      "'Travel' row under 'Credit' (equal to memo row 'Visitor Expenditure (US$MN)')."}},
     ]
     PIOJ_PAGE = "https://www.pioj.gov.jm/product-category/annual-publications/the-economic-social-survey-jamaica/"
-    PIOJ_2025 = "https://www.pioj.gov.jm/product/" + ESSJ_PRODUCTS[2025] + "/"
+    PIOJ_LATEST = PIOJ_PRODUCT.format(ESSJ_PRODUCTS[max(ESSJ_PRODUCTS)])
     how_essj = ("Product page per edition (slug in ESSJ_PRODUCTS); free file obtained by POSTing the page's somdn form "
                 "(fields somdn_download_key [url-encode], action=somdn_download_single, somdn_product) to the same URL with cookies. "
                 "pdfplumber, crop each page into two columns, regex on the 'Accommodation & Food Service Activities' paragraph.")
 
     def essj_src(title, last):
         return {"org": "Planning Institute of Jamaica (PIOJ), cifras del Jamaica Tourist Board",
-                "title": title, "page_url": PIOJ_PAGE, "file_url": PIOJ_2025, "format": "pdf",
+                "title": title, "page_url": PIOJ_PAGE, "file_url": PIOJ_LATEST, "format": "pdf",
                 "update_frequency": "anual (ESSJ Overview publicado ~abril-mayo del año siguiente)",
                 "release_lag": "~4-5 meses tras cierre del año", "last_period": last, "retrieved": RETRIEVED,
                 "access_method": how_essj}
@@ -208,6 +351,7 @@ def main():
     if fdi_flags:
         notes.append("FDI year flags from file: " + ", ".join(f"{k}: {v}" for k, v in fdi_flags.items()))
     doc = {"id": "JM", "name": "Jamaica", "type": "country", "lat": 18.1, "lon": -77.3, "series": series, "notes": notes}
+    check_against_current(series, ROOT / "JM.json")
     (ROOT / "JM.json").write_text(json.dumps(doc, ensure_ascii=False, indent=1))
     for s in series:
         print(f"{s['key']:32s} {s['frequency']:9s} {len(s['data']):3d} {s['data'][0]} -> {s['data'][-1]}")

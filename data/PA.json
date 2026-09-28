@@ -386,8 +386,8 @@
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas (julio 2026 publicado 15-09-2026)",
     "last_period": "2026-07",
-    "retrieved": "2026-09-17",
-    "access_method": "Scrapear la página \"Avance en cifras > Principales Indicadores Económicos Mensuales <año>\" (ID_CIFRAS por año) y tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
+    "retrieved": "2026-09-28",
+    "access_method": "Leer el listado INEC Avance en cifras > Indicadores de coyuntura (Default.aspx?ID_CATEGORIA=1) para obtener el ID_CIFRAS de cada \"Principales Indicadores Económicos Mensuales - <año>\"; en cada página Default2.aspx?ID_CIFRAS=<id> tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización) y descargarlo (año en curso y anterior en cada corrida). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
    }
   },
   {
@@ -771,8 +771,8 @@
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas (julio 2026 publicado 15-09-2026)",
     "last_period": "2026-07",
-    "retrieved": "2026-09-17",
-    "access_method": "Scrapear la página \"Avance en cifras > Principales Indicadores Económicos Mensuales <año>\" (ID_CIFRAS por año) y tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
+    "retrieved": "2026-09-28",
+    "access_method": "Leer el listado INEC Avance en cifras > Indicadores de coyuntura (Default.aspx?ID_CATEGORIA=1) para obtener el ID_CIFRAS de cada \"Principales Indicadores Económicos Mensuales - <año>\"; en cada página Default2.aspx?ID_CIFRAS=<id> tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización) y descargarlo (año en curso y anterior en cada corrida). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
    }
   },
   {
@@ -1156,8 +1156,8 @@
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas (julio 2026 publicado 15-09-2026)",
     "last_period": "2026-07",
-    "retrieved": "2026-09-17",
-    "access_method": "Scrapear la página \"Avance en cifras > Principales Indicadores Económicos Mensuales <año>\" (ID_CIFRAS por año) y tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
+    "retrieved": "2026-09-28",
+    "access_method": "Leer el listado INEC Avance en cifras > Indicadores de coyuntura (Default.aspx?ID_CATEGORIA=1) para obtener el ID_CIFRAS de cada \"Principales Indicadores Económicos Mensuales - <año>\"; en cada página Default2.aspx?ID_CIFRAS=<id> tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización) y descargarlo (año en curso y anterior en cada corrida). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
    }
   },
   {
@@ -1541,8 +1541,8 @@
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas (julio 2026 publicado 15-09-2026)",
     "last_period": "2026-07",
-    "retrieved": "2026-09-17",
-    "access_method": "Scrapear la página \"Avance en cifras > Principales Indicadores Económicos Mensuales <año>\" (ID_CIFRAS por año) y tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
+    "retrieved": "2026-09-28",
+    "access_method": "Leer el listado INEC Avance en cifras > Indicadores de coyuntura (Default.aspx?ID_CATEGORIA=1) para obtener el ID_CIFRAS de cada \"Principales Indicadores Económicos Mensuales - <año>\"; en cada página Default2.aspx?ID_CIFRAS=<id> tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización) y descargarlo (año en curso y anterior en cada corrida). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
    }
   }
  ],

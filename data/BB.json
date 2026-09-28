@@ -360,9 +360,9 @@
     "file_url": "https://stats.gov.bb/subjects/social-demographic-statistics/visitor-arrivals-statistics/visitor-arrival-statistics_stay-over-tourist-arrivals-visitor-market-by-month-2026/",
     "format": "html",
     "update_frequency": "mensual (tabla HTML anual que se va completando)",
-    "release_lag": "~3-5 meses (sep-2026: último dato abr-2026)",
+    "release_lag": "~3-5 meses (descarga 2026-09-28: último dato 2026-04)",
     "last_period": "2026-04",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "GET de las páginas WordPress por año (slug ...visitor-market-by-month-YYYY) y parseo de <table>; columna 'Total'; limpiar '(R)' y comas. Slugs no siempre predecibles (p.ej. '-2025-2'): descubrir desde la página índice."
    }
   },
@@ -409,10 +409,10 @@
     "file_url": "https://cdn.centralbank.org.bb/documents/2026-07-31-14-01-23-Central-Bank-of-Barbados-Review-of-Barbados-Economy-January-to-June-2026.pdf",
     "format": "pdf",
     "update_frequency": "trimestral (reviews acumuladas ene-mar, ene-jun, ene-sep, anual)",
-    "release_lag": "~1 mes tras cierre del periodo (review ene-jun 2026 publicada 31-jul-2026)",
+    "release_lag": "~1 mes tras cierre del periodo (reviews usadas: anual 2025, ene-jun 2026)",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
-    "access_method": "Descargar PDF del Economic Review más reciente (enlace cdn.centralbank.org.bb en la página de la review) y leer tabla del apéndice con pdfplumber; 2019 tomado de la review anual 2025 (ene-2026). Cifras 2022-2025 marcadas (e) estimadas."
+    "retrieved": "2026-09-28",
+    "access_method": "Descargar PDF del Economic Review más reciente (enlace cdn.centralbank.org.bb en la página de la review) y leer tabla del apéndice con pdfplumber; años ausentes de la review ene-jun se toman de la review anual 2025; review más reciente prevalece. Reviews localizadas en https://www.centralbank.org.bb/news/economic-reviews. Cifras 2022-2025 marcadas (e) estimadas."
    }
   },
   {
@@ -440,7 +440,7 @@
     "update_frequency": "trimestral (acumulado del año)",
     "release_lag": "~1 mes",
     "last_period": "2026-H1",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Igual que la serie anual; columnas 'Jun YYYY(e)'."
    }
   },
@@ -603,9 +603,9 @@
     "file_url": "https://stats.gov.bb/wp-content/uploads/2026/03/VA202512.pdf",
     "format": "pdf",
     "update_frequency": "mensual (boletín PDF)",
-    "release_lag": "~2-3 meses (dic-2025 subido mar-2026); boletines 2026 aún no enlazados a sep-2026",
+    "release_lag": "~2-3 meses (dic-2025 subido mar-2026); a 2026-09-28 el último boletín enlazado por BSS es 2025-12",
     "last_period": "2025-12",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Enlaces VAYYYYMM.pdf en la página índice de BSS; pdfplumber, buscar 'Intended Length of Stay' fuera del índice y leer la línea 'Average' (2ª cifra = mes actual)."
    }
   },
@@ -654,7 +654,7 @@
     "update_frequency": "trimestral (acumulado)",
     "release_lag": "~1 mes",
     "last_period": "2025",
-    "retrieved": "2026-09-17",
+    "retrieved": "2026-09-28",
     "access_method": "Igual que spending_tourism_receipts (misma tabla del apéndice)."
    }
   }

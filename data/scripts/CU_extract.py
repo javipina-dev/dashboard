@@ -6,17 +6,39 @@ Page 1 has cumulative totals (hasta el mes). Page 2 has a chart "Llegadas de vis
 unlabeled). We read those labels from the PDF text layer (no estimation), and validate that the sum of the monthly
 labels equals the official cumulative figure on page 1 (and prior-year cumulative in later reports).
 
-Files (WD/raw/CU), fetched with CU_fetch.py from https://onei.gob.cu (no www; expired TLS cert):
-  dic<YYYY>.pdf  -> December ("cierre") report for year YYYY  (full-year monthly labels)
-  jul2026.pdf    -> latest report (Jan-Jul 2026)
+Files (WD/raw/CU), downloaded on every run by download_all() with CU_fetch.py from https://onei.gob.cu
+(no www; expired TLS cert, intermittent outages -> retries; if ONEI does not answer the script exits != 0 and CU.json
+is not written):
+  dic<YYYY>.pdf  -> December ("cierre") report for year YYYY (2019..last closed year; immutable -> cached)
+  <mes><YYYY>.pdf (e.g. ago2026.pdf) -> latest monthly report, discovered from the ONEI home page / node aliases /
+                   site search; re-downloaded on every run
+  aec*_15_turismo.pdf, turismo_*dic*.pdf -> Anuario chapter 15 and "Turismo. Indicadores seleccionados" (cached)
+Run: .venv/bin/python data/scripts/CU_extract.py [--no-download]   (--no-download: use files already in data/raw/CU)
 """
-import glob, json, os, re
+import argparse, glob, json, os, re, sys
 from collections import defaultdict
+from datetime import date
 import pdfplumber
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import CU_fetch  # noqa: E402
 
 WD = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 RAW = os.path.join(WD, 'raw', 'CU')
-RETRIEVED = '2026-09-17'
+RETRIEVED = date.today().isoformat()  # set in __main__: real download date (file date with --no-download)
+# December ("cierre") reports: onei.gob.cu only has them from 2022 (2019-2021 not found by alias nor site search on
+# 2026-09-28; those years come from the Anuario anyway). The Dec-2022 PDF has an older layout that parse_report cannot
+# read (/turismo-arribo-de-viajeros-y-visitantes-internacionales-diciembre-2022), so it is not downloaded.
+# 2023-2024 cierres only cross-check the Anuario; 2025+ are the source of the monthly values.
+# Known node aliases (they vary); later years are discovered by CU_fetch.find_report.
+CIERRE_FIRST_YEAR = 2023
+KNOWN_CIERRES = {
+    2023: '/arribo-de-viajeros-y-visitantes-internacionales-diciembre-2023',
+    2024: '/arribo-de-viajeros-visitantes-internacionales-diciembre-2024',
+    2025: '/arribo-de-viajeros-visitantes-internacionales-diciembre-2025',
+}
+AEC_LAST_YEAR = 2024  # monthly values up to this year come from the Anuario; later years only from the monthly PDFs
+LATEST = {}  # filled by download_all(): year, month, node, pdf of the latest monthly report
 MESES = ['enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre']
 MON_ABBR = ['ENE', 'FEB', 'MAR', 'ABR', 'MAY', 'JUN', 'JUL', 'AGO', 'SEP', 'OCT', 'NOV', 'DIC']
 
@@ -83,15 +105,21 @@ def parse_report(path):
             'prev_cum_visitors': prev_cum, 'monthly': monthly}
 
 
-def main():
+def main(files=None, required_years=()):
+    """files: explicit list of monthly-report PDFs to parse (from download_all); None = every report PDF in RAW.
+    required_years: years whose monthly values must come from these PDFs (not covered by the Anuario) -> a parse
+    failure there is an error, not a skip."""
     reports = {}
-    for p in sorted(glob.glob(os.path.join(RAW, '*.pdf'))):
+    paths = files if files is not None else sorted(glob.glob(os.path.join(RAW, '*.pdf')))
+    for p in paths:
         b = os.path.basename(p)
         if not re.match(r'(ene|feb|mar|abr|may|jun|jul|ago|sep|oct|nov|dic)\w*\d{4}\.pdf$|arribo_', b):
             continue
         try:
             r = parse_report(p)
         except Exception as e:
+            if any(str(y) in b for y in required_years):
+                raise RuntimeError(f'no se pudo leer {b} (necesario para {list(required_years)}): {type(e).__name__} {e}')
             print('skip', b, type(e).__name__, e)
             continue
         print(b, r['year'], r['month'], 'cum', r['cum_visitors'], 'prev', r['prev_cum_visitors'], 'labels', len(r['monthly']))
@@ -115,6 +143,9 @@ def main():
             if all(v is not None for v in ms):
                 if sum(ms) != r['prev_cum_visitors']:
                     print('NOTE prior-year cum differs', os.path.basename(r['path']), py, sum(ms), r['prev_cum_visitors'])
+    missing = [y for y in required_years if y not in used]
+    if missing:
+        raise RuntimeError(f'faltan informes mensuales para {missing}')
     keys = sorted(data)
     print('used', used, 'range', keys[0], keys[-1], len(keys))
     series_data = [[f'{y}-{m:02d}', data[(y, m)]] for y, m in keys]
@@ -242,11 +273,14 @@ def aec_ingresos(fname, title_regex):
     return years, out
 
 
+ENTITIES_FILES = {'turismo_ind_dic2023.pdf': 'https://www.onei.gob.cu/sites/default/files/publicaciones/2024-03/turismo-indicadores-seleccionados-diciembre-2023.pdf',
+                  'turismo_trim_dic2024.pdf': 'https://www.onei.gob.cu/sites/default/files/publicaciones/2025-03/turismo-trimestral-diciembre-2024.pdf',
+                  'turismo_trim_dic2025.pdf': 'https://www.onei.gob.cu/sites/default/files/publicaciones/2026-03/turismo-trimestral-diciembre-2025_0.pdf'}
+
+
 def entities_revenue():
     """ONEI 'Turismo. Indicadores seleccionados' (enero-diciembre): Ingresos (Entidades Turísticas), turismo internacional, MCUP."""
-    files = {'turismo_ind_dic2023.pdf': 'https://www.onei.gob.cu/sites/default/files/publicaciones/2024-03/turismo-indicadores-seleccionados-diciembre-2023.pdf',
-             'turismo_trim_dic2024.pdf': 'https://www.onei.gob.cu/sites/default/files/publicaciones/2025-03/turismo-trimestral-diciembre-2024.pdf',
-             'turismo_trim_dic2025.pdf': 'https://www.onei.gob.cu/sites/default/files/publicaciones/2026-03/turismo-trimestral-diciembre-2025_0.pdf'}
+    files = ENTITIES_FILES
     res = {}
     for f in files:
         t = aec_text(f)
@@ -262,8 +296,8 @@ def entities_revenue():
 
 NOTES = [
     'Concepto: "visitantes internacionales" (no residentes que visitan Cuba por menos de un año, cualquier motivo salvo actividad remunerada), según registros migratorios (DIIE/MININT); incluye la "Comunidad cubana en el exterior". El Anuario muestra que casi todos pernoctan (turistas 2024: 2 202 540 de 2 203 117 visitantes), pero la serie mensual solo se publica para visitantes, por eso la clave es arrivals_visitors_total.',
-    'Fuentes mensuales: 2019 del Anuario Estadístico de Cuba 2023 (tabla 15.5); 2020-2024 del Anuario 2024 (tabla 15.4, cifras revisadas: p.ej. 2020 = 1 085 920 vs 1 084 728 en ediciones previas); 2025-2026 de los PDF mensuales "Arribo de viajeros", donde los valores del año en curso figuran como etiquetas de datos oficiales del gráfico de barras; se validó suma de meses = acumulado oficial y coincidencia con el Anuario en 2023-2024.',
-    '2026 es preliminar (último informe: julio 2026; agosto 2026 aún no publicado al 2026-09-17). El informe de cierre de diciembre ajusta el año.',
+    'Fuentes mensuales: 2019 del Anuario Estadístico de Cuba 2023 (tabla 15.5); 2020-2024 del Anuario 2024 (tabla 15.4, cifras revisadas: p.ej. 2020 = 1 085 920 vs 1 084 728 en ediciones previas); 2025-{latest_year} de los PDF mensuales "Arribo de viajeros", donde los valores del año en curso figuran como etiquetas de datos oficiales del gráfico de barras; se validó suma de meses = acumulado oficial y coincidencia con el Anuario en 2023-2024.',
+    '{latest_year} es preliminar (último informe: {latest_label}, descargado el {retrieved}). El informe de cierre de diciembre ajusta el año.',
     'Gasto: "Ingresos por turismo internacional" (Anuario, tabla 15.14/15.15) en millones de USD al tipo de cambio oficial vigente cada año (distorsionado tras la unificación monetaria de 2021, tasa oficial 1:24 y luego 1:120 desde dic-2022); excluye transporte internacional (12,5-41,8 MUSD). Incluye sector privado. Anual, rezago ~8 meses (Anuario 2024 publicado ago-2025).',
     'Gasto alterno más reciente: "Ingresos (Entidades Turísticas)" del turismo internacional en "Turismo. Indicadores seleccionados" (trimestral acumulado), en millones de CUP corrientes; no comparable en el tiempo por cambios cambiarios (2022→2023 +515%). Solo entidades turísticas.',
     'ONEI no publica gasto medio por visitante ni estadía media para visitantes internacionales (solo pernoctaciones en establecimientos de alojamiento); no se derivaron.',
@@ -271,15 +305,115 @@ NOTES = [
 ]
 
 
+MES_LABEL = [m.capitalize() for m in MESES]
+
+
+def download_all():
+    """Download every file the extractor reads. Returns the list of monthly-report PDFs to parse.
+    Raises CU_fetch.FetchError if ONEI does not answer or a file cannot be downloaded (never falls back to old files)."""
+    os.makedirs(RAW, exist_ok=True)
+    if not CU_fetch.wait_up(max_wait=600):
+        raise CU_fetch.FetchError('ONEI (https://onei.gob.cu) no responde tras 10 min de espera')
+    y, m, node, pdf = CU_fetch.latest_report(date.today())
+    LATEST.update(year=y, month=m, node=node, pdf=pdf)
+    with open(os.path.join(RAW, 'latest.json'), 'w') as f:  # lets --no-download report the right source URLs
+        json.dump(LATEST, f)
+    print(f'latest report: {MES_LABEL[m - 1]} {y} {CU_fetch.BASE}{node} -> {pdf}')
+    latest_name = f'{MESES[m - 1][:3]}{y}.pdf'
+    if not CU_fetch.fetch(pdf, latest_name, force=True):
+        raise CU_fetch.FetchError(f'no se pudo descargar el informe más reciente {pdf}')
+    files = []
+    last_closed = y - 1 if m < 12 else y
+    for yy in range(CIERRE_FIRST_YEAR, last_closed + 1):
+        name = f'dic{yy}.pdf'
+        if name == latest_name:
+            continue
+        dest = os.path.join(RAW, name)
+        if not (os.path.exists(dest) and os.path.getsize(dest) > 5000):
+            if yy in KNOWN_CIERRES:
+                pdf_y = CU_fetch.report_pdf(CU_fetch.get_html(KNOWN_CIERRES[yy]) or '')
+                r = (KNOWN_CIERRES[yy], pdf_y) if pdf_y else CU_fetch.find_report(12, yy)
+            else:
+                r = CU_fetch.find_report(12, yy)
+            if not r:
+                raise CU_fetch.FetchError(f'no se encontró en onei.gob.cu el informe de cierre "Arribo de viajeros ... Diciembre {yy}"')
+            print(f'cierre {yy}: {CU_fetch.BASE}{r[0]} -> {r[1]}')
+            if not CU_fetch.fetch(r[1], name):
+                raise CU_fetch.FetchError(f'no se pudo descargar {r[1]}')
+        else:
+            print('SKIP (cached, cierre anual inmutable)', name)
+        files.append(dest)
+    files.append(os.path.join(RAW, latest_name))
+    for name, url in list(AEC.items()) + list(ENTITIES_FILES.items()):
+        if not CU_fetch.fetch(url, name):
+            raise CU_fetch.FetchError(f'no se pudo descargar {url}')
+    return files
+
+
+def check_against_current(series, path):
+    """Safeguard: abort if a series present in the current JSON disappears, comes out empty, has fewer periods,
+    ends earlier or drops periods."""
+    if not os.path.exists(path):
+        return
+    with open(path, encoding='utf-8') as f:
+        old = {s['key']: s['data'] for s in json.load(f)['series']}
+    new = {s['key']: s['data'] for s in series}
+    problems = []
+    for k, od in old.items():
+        nd = new.get(k)
+        if not nd:
+            problems.append(f'{k}: falta o vacía (antes {len(od)} períodos)')
+            continue
+        if len(nd) < len(od):
+            problems.append(f'{k}: {len(nd)} períodos < {len(od)} en el JSON actual')
+        if od and nd[-1][0] < od[-1][0]:
+            problems.append(f'{k}: último período {nd[-1][0]} < {od[-1][0]} en el JSON actual')
+        lost = sorted({p for p, _ in od} - {p for p, _ in nd})
+        if lost:
+            problems.append(f'{k}: desaparecen períodos {lost}')
+    if problems:
+        raise SystemExit('ABORT: CU.json no se escribe; la nueva extracción es más pobre que el archivo actual:\n  '
+                         + '\n  '.join(problems))
+
+
 def build(series, extra_notes=()):
+    last = series[0]['data'][-1][0]
+    ly, lm = int(last[:4]), int(last[5:7])
+    fmt = dict(latest_year=ly, latest_label=f'{MES_LABEL[lm - 1].lower()} {ly}', retrieved=RETRIEVED)
     out = {'id': 'CU', 'name': 'Cuba', 'type': 'country', 'lat': 23.11, 'lon': -82.37,
-           'series': series, 'notes': NOTES + list(extra_notes)}
+           'series': series, 'notes': [n.format(**fmt) if '{' in n else n for n in NOTES] + list(extra_notes)}
+    check_against_current(series, os.path.join(WD, 'CU.json'))
     with open(os.path.join(WD, 'CU.json'), 'w', encoding='utf-8') as f:
         json.dump(out, f, ensure_ascii=False, indent=1)
 
 
 if __name__ == '__main__':
-    series, used = main()
+    ap = argparse.ArgumentParser()
+    ap.add_argument('--no-download', action='store_true', help='usar los archivos ya presentes en data/raw/CU')
+    args = ap.parse_args()
+    if args.no_download:
+        report_files = None
+        need = list(AEC) + list(ENTITIES_FILES)
+        missing = [n for n in need if not os.path.exists(os.path.join(RAW, n))]
+        if missing:
+            sys.exit(f'--no-download: faltan archivos en {RAW}: {missing}')
+        pdfs = glob.glob(os.path.join(RAW, '*.pdf'))
+        if os.path.exists(os.path.join(RAW, 'latest.json')):
+            with open(os.path.join(RAW, 'latest.json')) as f:
+                LATEST.update(json.load(f))
+        RETRIEVED = date.fromtimestamp(max(os.path.getmtime(p) for p in pdfs)).isoformat()
+    else:
+        try:
+            report_files = download_all()
+        except (CU_fetch.FetchError, OSError) as e:
+            print(f'ERROR descargando fuentes de Cuba (ONEI): {e}', file=sys.stderr)
+            sys.exit(2)
+        RETRIEVED = date.today().isoformat()
+    series, used = main(report_files, required_years=range(AEC_LAST_YEAR + 1, (LATEST.get('year') or max(
+        [int(m) for m in re.findall(r'(20\d\d)\.pdf', ' '.join(glob.glob(os.path.join(RAW, '*.pdf'))))])) + 1))
+    if LATEST:
+        series[0]['source']['page_url'] = CU_fetch.BASE + LATEST['node']
+        series[0]['source']['file_url'] = CU_fetch.to_base(LATEST['pdf']) if LATEST['pdf'].startswith('http') else CU_fetch.BASE + LATEST['pdf']
     pdf_data = {s[0]: s[1] for s in series[0]['data']}
     merged = {}
     # AEC 2023 -> 2019 ; AEC 2024 -> 2020-2024
