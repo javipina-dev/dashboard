@@ -1190,6 +1190,10 @@
     [
      "2026-06",
      470.98
+    ],
+    [
+     "2026-07",
+     519.06
     ]
    ],
    "source": {
@@ -1200,7 +1204,7 @@
     "format": "api",
     "update_frequency": "mensual",
     "release_lag": "~8 semanas (jun-2026 actualizado 27-ago-2026)",
-    "last_period": "2026-06",
+    "last_period": "2026-07",
     "retrieved": "2026-09-17",
     "access_method": "GET siturq.gob.mx/indicadores-turisticos, regex public bearer token; POST multipart to getCharData with indicators=[\"a002e94b-1db2-4e37-b09a-0191018c2556\"], destinations=[Cancún id 17766274-96f2-38c4-b164-ec2065452c31], conditions per year, isOnline=false; headers Authorization + Origin https://siturq.gob.mx. Page also offers 'Descargar Excel'."
    }

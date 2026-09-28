@@ -1,9 +1,9 @@
 {
- "updated": "2026-09-18",
+ "updated": "2026-09-28",
  "method_version": 1,
  "items": [
   {
-   "status": "nuevo",
+   "status": "escalando",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -11,11 +11,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "escalando",
+     "note": "El 26-sep EE.UU. rechazó el plan iraní para reabrir Ormuz, que sigue cerrado salvo tránsitos escoltados; United y American confirman recortes de diciembre."
     }
    ],
    "id": "combustible-aviacion-recortes-capacidad-eeuu",
    "title": "Turbosina cara por la guerra con Irán: aerolíneas de EE.UU. recortan vuelos y las tarifas aéreas suben 23,4% interanual",
-   "summary": "IATA prevé una turbosina promedio de 152 USD/barril en 2026 (+70% frente a 2025) y la EIA espera que las restricciones a la exportación de crudo por Ormuz persistan hasta fin de año, con Brent cerca de 90 USD en el segundo semestre. En agosto el índice de tarifas aéreas del IPC de EE.UU. subió 23,4% interanual, y United, American y Southwest anunciaron recortes en rutas de menor margen para diciembre y el primer trimestre de 2027. No se sabe aún qué rutas se recortan: los anuncios no mencionan el Caribe ni México de forma explícita.",
+   "summary": "IATA prevé una turbosina promedio de 152 USD/barril en 2026 (+70% frente a 2025) y la EIA suponía en septiembre un Brent cerca de 90 USD en el segundo semestre, pero el 26 de septiembre EE.UU. rechazó el plan de Irán para reabrir el estrecho de Ormuz, que sigue cerrado salvo tránsitos escoltados, lo que aleja el alivio en combustible. En agosto el índice de tarifas aéreas del IPC de EE.UU. subió 23,4% interanual, y United, American y Southwest recortan rutas de menor margen desde diciembre. Los anuncios todavía no nombran rutas al Caribe ni a México.",
    "category": "aviacion",
    "direction": "negativo",
    "destinations": [
@@ -26,7 +31,7 @@
    ],
    "horizon": "inmediato",
    "impact": "alto",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Short-Term Energy Outlook (septiembre 2026)",
@@ -62,6 +67,27 @@
      "org": "CNN Newsource (vía WTOC)",
      "date": "2026-09-17",
      "tier": "prensa"
+    },
+    {
+     "title": "Iran says choice on reopening Hormuz rests with US",
+     "url": "https://www.nbcnews.com/world/iran/iran-says-choice-reopening-hormuz-rests-united-states-offer-rcna599956",
+     "org": "NBC News",
+     "date": "2026-09-26",
+     "tier": "prensa"
+    },
+    {
+     "title": "Trump rejects plan to reopen Strait of Hormuz",
+     "url": "https://www.opb.org/article/2026/09/26/trump-rejects-plan-to-reopen-strait-of-hormuz/",
+     "org": "NPR (vía OPB)",
+     "date": "2026-09-26",
+     "tier": "prensa"
+    },
+    {
+     "title": "American, United and Southwest are all cutting 'marginal routes' as jet fuel prices spike",
+     "url": "https://fortune.com/2026/09/18/airlines-cut-least-profitable-flights-jet-fuel/",
+     "org": "Fortune",
+     "date": "2026-09-18",
+     "tier": "prensa"
     }
    ],
    "signal": {
@@ -77,7 +103,7 @@
    }
   },
   {
-   "status": "nuevo",
+   "status": "escalando",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -85,11 +111,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "escalando",
+     "note": "El FCDO (25-sep) informa que los aeropuertos internacionales no tienen turbosina y que Air France, Iberia, World2Fly y LATAM también suspendieron vuelos; las llegadas ene–ago caen a 35,6% de 2025."
     }
    ],
    "id": "crisis-energetica-cuba-colapso-turismo",
    "title": "Cuba: crisis de combustible y electricidad, aerolíneas canadienses suspendidas y llegadas internacionales en 37% del nivel de 2025",
-   "summary": "Canadá mantiene para Cuba el nivel 'evitar viajes no esenciales' por la escasez de combustible, electricidad, agua, alimentos y medicinas, y señala que todas las aerolíneas canadienses suspendieron el servicio; Sunwing y WestJet Vacations lo suspendieron por tiempo indefinido desde junio. Según datos de la ONEI difundidos en septiembre, Cuba recibió 419.863 visitantes internacionales en enero–julio de 2026, el 37,2% del mismo periodo de 2025, con 350.737 canadienses menos. No hay fecha de reanudación y depende de la evolución del suministro de combustible a la isla.",
+   "summary": "Canadá mantiene para Cuba el nivel 'evitar viajes no esenciales' y todas sus aerolíneas suspendieron el servicio; el 25 de septiembre el FCDO británico, que desaconseja todo viaje no esencial, añadió que según las autoridades cubanas los aeropuertos internacionales no tienen combustible de aviación y que Air France, Iberia, World2Fly y LATAM también suspendieron vuelos. Según la ONEI, Cuba recibió 450.353 visitantes internacionales en enero–agosto de 2026 (−64,4%) y solo 30.490 en agosto. No hay fecha de reanudación y depende del suministro de combustible a la isla.",
    "category": "geopolitica",
    "direction": "negativo",
    "destinations": [
@@ -101,7 +132,7 @@
    ],
    "horizon": "corto",
    "impact": "alto",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Travel advice and advisories: Cuba",
@@ -123,11 +154,32 @@
      "org": "Prensa Latina (datos ONEI)",
      "date": "2026-09-01",
      "tier": "prensa"
+    },
+    {
+     "title": "Cuba travel advice",
+     "url": "https://www.gov.uk/foreign-travel-advice/cuba",
+     "org": "FCDO",
+     "date": "2026-09-25",
+     "tier": "oficial"
+    },
+    {
+     "title": "El turismo a Cuba cae en 2026 un 64%, tras un agosto con apenas 30.490 visitantes",
+     "url": "https://www.infobae.com/america/agencias/2026/09/24/el-turismo-a-cuba-cae-en-2026-un-64-tras-un-agosto-con-apenas-30490-visitantes/",
+     "org": "EFE (vía Infobae)",
+     "date": "2026-09-24",
+     "tier": "prensa"
+    },
+    {
+     "title": "Significativo descenso del turismo en Cuba",
+     "url": "https://www.radio26.cu/destacadas/significativo-descenso-del-turismo-en-cuba/",
+     "org": "Radio 26 (datos ONEI)",
+     "date": "2026-09-27",
+     "tier": "prensa"
     }
    ]
   },
   {
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -135,11 +187,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "vigente",
+     "note": "Reconfirmado: Canadá ratificó el 24-sep la suspensión de vuelos a Cuba y Aerodom/MITUR anuncian más asientos y rutas desde Canadá para el invierno."
     }
    ],
    "id": "redistribucion-demanda-canadiense-tras-cuba",
    "title": "Aerolíneas y turoperadores canadienses redirigen capacidad de Cuba hacia República Dominicana, México y Jamaica",
-   "summary": "El Ministerio de Turismo dominicano informó en junio más de 100.000 asientos aéreos adicionales asegurados desde Canadá, y desde febrero los turoperadores canadienses añadieron vuelos a Punta Cana, Puerto Plata, Cancún y Montego Bay para reubicar a clientes de Cuba. Para el invierno 2026-27 WestJet abre, entre otras, Winnipeg–Punta Cana (28 nov), Regina–San José del Cabo (14 dic) y Ottawa–Liberia (20 dic). Falta saber cuánto de esta capacidad se mantiene si Cuba reabre y si la demanda canadiense total de viajes al sur crece o solo se redistribuye.",
+   "summary": "El Ministerio de Turismo dominicano informó en junio más de 100.000 asientos aéreos adicionales asegurados desde Canadá, y en septiembre Aerodom proyectó para el invierno ~20% más asientos desde Canadá a Puerto Plata y ~39% a Samaná, con rutas nuevas como Montreal–Santo Domingo (Air Canada) y Winnipeg–Puerto Plata (WestJet). WestJet abre además Winnipeg–Punta Cana, Regina–San José del Cabo y Ottawa–Liberia, y Canadá ratificó el 24 de septiembre que todas sus aerolíneas siguen sin volar a Cuba. Falta saber cuánto de esta capacidad se mantiene si Cuba reabre y si la demanda canadiense crece o solo se redistribuye.",
    "category": "competencia",
    "direction": "positivo",
    "destinations": [
@@ -154,7 +211,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Collado: “Tenemos asegurados más de 100 mil asientos aéreos desde Canadá”",
@@ -176,6 +233,13 @@
      "org": "Travelweek",
      "date": "2026-07-20",
      "tier": "prensa"
+    },
+    {
+     "title": "Aerodom anuncia nuevas rutas aéreas entre RD y Canadá y destaca crecimiento del mercado canadiense",
+     "url": "https://noticias.mitur.gob.do/noticias/aerodom-anuncia-nuevas-rutas-aereas-entre-rd-y-canada-y-destaca-crecimiento-del-mercado-canadiense/",
+     "org": "Ministerio de Turismo de República Dominicana",
+     "date": "2026-09-08",
+     "tier": "oficial"
     }
    ],
    "signal": {
@@ -185,7 +249,7 @@
    }
   },
   {
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -193,11 +257,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "vigente",
+     "note": "Reconfirmado: el ministro de Turismo reporta 6.000 de 15.000 habitaciones reabiertas; la asociación hotelera indica 28% de hoteles aún cerrados."
     }
    ],
    "id": "jamaica-recuperacion-habitaciones-melissa",
    "title": "Jamaica: cerca del 70% de las habitaciones afectadas por Melissa ya volvieron y el resto regresa entre octubre de 2026 y principios de 2027",
-   "summary": "Según la Oficina de Turismo, más de 11.000 habitaciones vuelven al inventario entre 2026 y 2027 (unas 1.900 en diciembre y unas 3.500 en el primer trimestre de 2027), y Jamaica recibió 2,3 millones de visitantes en enero–agosto de 2026. Más habitaciones abiertas en temporada alta deberían reducir la caída de llegadas, que en junio seguía en −22,7% en pasajeros desde EE.UU. Sigue incierto el calendario de las propiedades de Hyatt (unas 2.181 habitaciones), cuya reapertura se pospuso al primer semestre de 2027.",
+   "summary": "Según la Oficina de Turismo, más de 11.000 habitaciones vuelven al inventario entre 2026 y 2027 (unas 1.900 en diciembre y unas 3.500 en el primer trimestre de 2027); el 18 de septiembre el ministro Bartlett habló de 6.000 de 15.000 habitaciones ya reabiertas y de llegadas en torno al 80% del año anterior, cifras que no cuadran del todo con las del 15 de septiembre. La asociación hotelera reporta que 28% de los hoteles siguen cerrados y 61% de los reclamos de seguro sin resolver. Más habitaciones abiertas en temporada alta deberían moderar la caída de llegadas; sigue incierto el calendario de Hyatt, pospuesto al primer semestre de 2027.",
    "category": "clima",
    "direction": "positivo",
    "destinations": [
@@ -210,7 +279,7 @@
    ],
    "horizon": "corto",
    "impact": "alto",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "More Than 11,000 Hotel Rooms to Return to Inventory",
@@ -225,6 +294,20 @@
      "org": "Jamaica Gleaner",
      "date": "2026-09-16",
      "tier": "prensa"
+    },
+    {
+     "title": "Most Tourism Jobs Return As Sector Rebounds From Hurricane Melissa",
+     "url": "https://jis.gov.jm/most-tourism-jobs-return-as-sector-rebounds-from-hurricane-melissa/",
+     "org": "Jamaica Information Service",
+     "date": "2026-09-18",
+     "tier": "oficial"
+    },
+    {
+     "title": "Six in 10 tourism insurance claims still unresolved",
+     "url": "https://jamaica-gleaner.com/article/news/20260928/six-10-tourism-insurance-claims-still-unresolved",
+     "org": "Jamaica Gleaner",
+     "date": "2026-09-28",
+     "tier": "prensa"
     }
    ],
    "signal": {
@@ -234,7 +317,7 @@
    }
   },
   {
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -242,11 +325,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "vigente",
+     "note": "Reconfirmado: sin sistemas en el Caribe al 28-sep y el CPC mantiene El Niño muy fuerte."
     }
    ],
    "id": "temporada-huracanes-atlantico-bajo-normal",
    "title": "NOAA mantiene su pronóstico de temporada de huracanes del Atlántico por debajo de lo normal por un El Niño fuerte",
-   "summary": "La actualización de agosto de NOAA prevé 7–13 tormentas con nombre, 2–6 huracanes y 0–2 huracanes mayores, con 75% de probabilidad de una temporada por debajo de lo normal y 90% de probabilidad de un El Niño fuerte o muy fuerte; al 18 de septiembre el NHC no reporta ciclones activos. Esto reduce la probabilidad de interrupciones en el pico de la temporada (septiembre–octubre). NOAA aclara que no es un pronóstico de impactos en tierra: un solo huracán puede afectar a un destino aunque la temporada sea débil.",
+   "summary": "La actualización de agosto de NOAA prevé 7–13 tormentas con nombre, 2–6 huracanes y 0–2 huracanes mayores, con 75% de probabilidad de una temporada por debajo de lo normal, y el CPC mantiene más de 90% de probabilidad de un El Niño muy fuerte. Al 28 de septiembre el NHC solo sigue a la depresión Fay en el Atlántico central y un área al estenordeste de Bermudas, sin zonas vigiladas en el Caribe. NOAA aclara que no es un pronóstico de impactos en tierra: un solo huracán puede afectar a un destino aunque la temporada sea débil.",
    "category": "clima",
    "direction": "positivo",
    "destinations": [
@@ -255,7 +343,7 @@
    "markets": [],
    "horizon": "inmediato",
    "impact": "bajo",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "NOAA 2026 Atlantic Hurricane Season Outlook (August update)",
@@ -270,11 +358,25 @@
      "org": "NOAA National Hurricane Center",
      "date": "2026-09-18",
      "tier": "oficial"
+    },
+    {
+     "title": "Atlantic Tropical Weather Outlook",
+     "url": "https://www.nhc.noaa.gov/text/MIATWOAT.shtml",
+     "org": "NOAA National Hurricane Center",
+     "date": "2026-09-28",
+     "tier": "oficial"
+    },
+    {
+     "title": "ENSO Diagnostic Discussion",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+     "org": "NOAA Climate Prediction Center",
+     "date": "2026-09-10",
+     "tier": "oficial"
     }
    ]
   },
   {
-   "status": "nuevo",
+   "status": "perdiendo_fuerza",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -282,11 +384,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "perdiendo_fuerza",
+     "note": "La JAC califica el impacto en RD de moderado (~4% del tráfico RD–EE.UU.) y espera que otras aerolíneas absorban la capacidad."
     }
    ],
    "id": "cierre-spirit-airlines",
    "title": "Spirit Airlines cesó operaciones el 2 de mayo de 2026 y dejó de volar a República Dominicana y Cancún",
-   "summary": "Spirit, que era la novena aerolínea de EE.UU. por asientos, cerró tras no obtener un rescate federal, en parte por el alza del combustible. En 2025 transportó 470.146 pasajeros desde y hacia República Dominicana (Santo Domingo, Punta Cana y Santiago), y la dirección de ASUR la cita entre las causas de la caída de pasajeros en Cancún. Falta saber qué parte de esa capacidad de bajo costo recuperan otras aerolíneas, que además están recortando vuelos por el combustible.",
+   "summary": "Spirit, que era la novena aerolínea de EE.UU. por asientos, cerró el 2 de mayo de 2026 tras no obtener un rescate federal; en 2025 transportó 470.146 pasajeros desde y hacia República Dominicana, y la dirección de ASUR la cita entre las causas de la caída de pasajeros en Cancún. La Junta de Aviación Civil dominicana calificó el impacto de moderado: Spirit movió ~4% de los pasajeros entre RD y EE.UU. y operaba rutas donde siguen otras aerolíneas, que según la JAC absorberán la demanda. Falta saber qué parte recuperan, en plena ola de recortes por combustible.",
    "category": "aviacion",
    "direction": "negativo",
    "destinations": [
@@ -298,7 +405,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Spirit Airlines ceases operations after escalating financial struggles",
@@ -320,6 +427,20 @@
      "org": "Por Esto!",
      "date": "2026-08-09",
      "tier": "prensa"
+    },
+    {
+     "title": "¿Subirán los boletos aéreos? JAC responde tras la salida de JetBlue, Spirit y los ajustes de Wingo",
+     "url": "https://acento.com.do/turismo/subiran-los-boletos-aereos-jac-responde-tras-la-salida-de-jetblue-spirit-y-los-ajustes-de-wingo-9731238.html",
+     "org": "Acento",
+     "date": "2026-08-06",
+     "tier": "prensa"
+    },
+    {
+     "title": "JAC: salida de JetBlue podría incrementar boletos aéreos entre Newark y RD",
+     "url": "https://www.arecoa.com/aerolineas/2026/08/06/jac-salida-de-jetblue-podria-incrementar-boletos-aereos-entre-newark-y-rd/",
+     "org": "Arecoa",
+     "date": "2026-08-06",
+     "tier": "prensa"
     }
    ],
    "signal": {
@@ -335,7 +456,7 @@
    }
   },
   {
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -343,11 +464,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "vigente",
+     "note": "Reconfirmado: la confianza del consumidor (U. Michigan, sep final) cae a 48,1 y las expectativas de inflación a un año suben a 4,6%."
     }
    ],
    "id": "eeuu-inflacion-alza-tasas-fed",
    "title": "EE.UU.: la inflación de 3,4% supera el alza salarial de 3,1% y la Fed subió su tasa a 3,75–4%",
-   "summary": "El 16 de septiembre la Reserva Federal subió la tasa de fondos federales 25 puntos básicos, su primera alza desde 2023, porque la inflación sigue elevada. En agosto el IPC subió 3,4% interanual, con la energía en +16,3%, mientras el salario por hora creció 3,1%, así que el poder de compra real de los hogares se reduce; el empleo sigue sólido (+162.000 puestos, desempleo en 4,1%). Queda por ver si el ajuste se traduce en menos viajes de ocio al exterior o solo en viajes más cortos o más baratos.",
+   "summary": "El 16 de septiembre la Reserva Federal subió la tasa de fondos federales 25 puntos básicos, a 3,75–4%, porque la inflación sigue elevada: en agosto el IPC subió 3,4% interanual, con la energía en +16,3%, mientras el salario por hora creció 3,1%. El índice final de confianza del consumidor de la Universidad de Michigan cayó en septiembre a 48,1, mínimo en cuatro meses, y las expectativas de inflación a un año subieron de 4,0% a 4,6% por el combustible. Queda por ver si el ajuste se traduce en menos viajes de ocio al exterior en la temporada alta o solo en viajes más cortos o más baratos.",
    "category": "macro",
    "direction": "negativo",
    "destinations": [
@@ -358,7 +484,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Federal Reserve issues FOMC statement (September 16, 2026)",
@@ -380,6 +506,13 @@
      "org": "U.S. Bureau of Labor Statistics",
      "date": "2026-09-04",
      "tier": "oficial"
+    },
+    {
+     "title": "Surveys of Consumers – September 2026 (final)",
+     "url": "https://www.sca.isr.umich.edu/",
+     "org": "University of Michigan",
+     "date": "2026-09-25",
+     "tier": "institucional"
     }
    ],
    "scenario": {
@@ -390,7 +523,7 @@
    }
   },
   {
-   "status": "nuevo",
+   "status": "perdiendo_fuerza",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -398,11 +531,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "perdiendo_fuerza",
+     "note": "El FIX subió a 17,7100 el 25-sep (~3% de depreciación desde el 18-sep) tras el alza de la Fed y la pausa de Banxico."
     }
    ],
    "id": "peso-mexicano-fuerte",
    "title": "El peso mexicano se apreció ~6% frente al dólar en un año y encarece Cancún y Los Cabos para visitantes de EE.UU.",
-   "summary": "El tipo de cambio FIX publicado en el DOF pasó de 18,3257 pesos por dólar el 18 de septiembre de 2025 a 17,1872 el 18 de septiembre de 2026: un dólar compra ~6,2% menos pesos. Esto encarece el gasto local en destinos mexicanos frente a competidores dolarizados o con moneda más débil, en un año en que Cancún y Los Cabos pierden llegadas internacionales. No se conoce cuánto pesa el tipo de cambio frente a otros factores, ya que buena parte de la oferta todo incluido se vende en dólares.",
+   "summary": "El tipo de cambio FIX pasó de 18,3257 pesos por dólar el 18 de septiembre de 2025 a 17,1872 el 18 de septiembre de 2026, pero tras el alza de la Fed y la decisión de Banxico de mantener su tasa en 6,50% el peso se depreció ~3% en una semana, a 17,7100 el 25 de septiembre. Aun así sigue ~3,4% más fuerte que hace un año, lo que encarece el gasto local en Cancún y Los Cabos frente a destinos dolarizados. No se conoce cuánto pesa el tipo de cambio frente a otros factores, ya que buena parte de la oferta todo incluido se vende en dólares.",
    "category": "macro",
    "direction": "negativo",
    "destinations": [
@@ -415,13 +553,20 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Indicadores: tipo de cambio para solventar obligaciones en dólares (histórico)",
      "url": "https://dof.gob.mx/indicadores_detalle.php?cod_tipo_indicador=158&dfecha=15%2F09%2F2025&hfecha=18%2F09%2F2026",
      "org": "Diario Oficial de la Federación / Banco de México",
      "date": "2026-09-18",
+     "tier": "oficial"
+    },
+    {
+     "title": "Tipos de cambio: FIX del 25/09/2026",
+     "url": "https://www.banxico.org.mx/tipcamb/llenarTiposCambioAction.do?idioma=sp",
+     "org": "Banco de México",
+     "date": "2026-09-25",
      "tier": "oficial"
     }
    ],
@@ -432,7 +577,7 @@
    }
   },
   {
-   "status": "nuevo",
+   "status": "perdiendo_fuerza",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -440,11 +585,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "perdiendo_fuerza",
+     "note": "La TRM subió a 3.329,61 el 25-sep (~5,7% de depreciación del peso colombiano desde el 17-sep); el real cedió ~0,9%."
     }
    ],
    "id": "monedas-latam-fuertes-colombia-brasil",
    "title": "El peso colombiano se apreció ~24% y el real ~3% frente al dólar en un año, lo que abarata los viajes al exterior",
-   "summary": "La TRM oficial bajó de 3.881,92 pesos por dólar (17 sep 2025) a 3.128,46 (17 sep 2026), y el PTAX del real pasó de 5,3011 a 5,1527. Monedas más fuertes aumentan el poder de compra de colombianos y brasileños en destinos dolarizados o con precios en dólares como República Dominicana, Panamá, Cancún, Aruba y Curazao. Para Cartagena el efecto es el opuesto: resulta más cara para visitantes extranjeros. No hay datos oficiales recientes de viajes al exterior de estos mercados que confirmen el efecto.",
+   "summary": "La TRM oficial bajó de 3.881,92 pesos por dólar (17 sep 2025) a 3.128,46 (17 sep 2026), pero luego subió a 3.329,61 el 25 de septiembre (~5,7% de depreciación en una semana); el PTAX del real pasó de 5,1527 (16 sep) a 5,1991 (25 sep). Ambas monedas siguen más fuertes que hace un año (el peso colombiano ~15%), lo que aumenta el poder de compra de colombianos y brasileños en destinos con precios en dólares como República Dominicana, Panamá, Cancún, Aruba y Curazao, aunque la ventaja se reduce. Para Cartagena el efecto es el opuesto, y no hay datos oficiales recientes de viajes al exterior de estos mercados que confirmen el efecto.",
    "category": "mercado_emisor",
    "direction": "positivo",
    "destinations": [
@@ -460,7 +610,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Tasa de Cambio Representativa del Mercado (TRM) – datos abiertos",
@@ -475,6 +625,20 @@
      "org": "Banco Central do Brasil",
      "date": "2026-09-16",
      "tier": "oficial"
+    },
+    {
+     "title": "Tasa de Cambio Representativa del Mercado – histórico",
+     "url": "https://www.datos.gov.co/resource/mcec-87by.json",
+     "org": "Superintendencia Financiera de Colombia (datos.gov.co)",
+     "date": "2026-09-26",
+     "tier": "oficial"
+    },
+    {
+     "title": "SGS série 1 – dólar venda (PTAX)",
+     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json&dataInicial=15/09/2026&dataFinal=28/09/2026",
+     "org": "Banco Central do Brasil",
+     "date": "2026-09-25",
+     "tier": "oficial"
     }
    ],
    "signal": {
@@ -484,7 +648,7 @@
    }
   },
   {
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -492,11 +656,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "vigente",
+     "note": "Reconfirmado: 133.646 t retiradas en 2026 según la SEMA, con arribo en tendencia descendente."
     }
    ],
    "id": "sargazo-record-caribe-mexicano",
    "title": "Récord de sargazo en Quintana Roo: más de 123.000 toneladas recolectadas en 2026, frente a 92.782 en todo 2025",
-   "summary": "La Secretaría de Marina reportó a inicios de septiembre más de 123.400 toneladas retiradas en 2026, con arribos fuertes en Tulum, Playa del Carmen, Puerto Morelos, Cancún y Cozumel; el gobierno estatal dijo que la temporada empezó dos meses antes (5 de enero). El sargazo afecta la experiencia de playa y la percepción del destino en plena caída de llegadas internacionales. No hay una cuantificación oficial de su efecto sobre las llegadas y el pico se espera entre agosto y octubre.",
+   "summary": "En 2026 se han retirado 133.646 toneladas de sargazo en Quintana Roo (75.149 los municipios y 57.497 la Secretaría de Marina), por encima del récord de 2025, con arribos fuertes en Tulum, Playa del Carmen, Puerto Morelos, Cancún y Cozumel; la temporada empezó dos meses antes. A finales de septiembre el monitoreo estatal reporta una tendencia descendente, aunque con 16 playas en alerta roja. No hay una cuantificación oficial de su efecto sobre las llegadas.",
    "category": "clima",
    "direction": "negativo",
    "destinations": [
@@ -505,7 +674,7 @@
    "markets": [],
    "horizon": "inmediato",
    "impact": "medio",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Sargazo: Semar bate récord de recolección en Quintana Roo",
@@ -520,6 +689,13 @@
      "org": "Excélsior",
      "date": "2026-08-12",
      "tier": "prensa"
+    },
+    {
+     "title": "Quintana Roo rompe récord de recale de sargazo por segundo año consecutivo",
+     "url": "https://es-us.noticias.yahoo.com/quintana-roo-rompe-r%C3%A9cord-recale-231111573.html",
+     "org": "El Economista (vía Yahoo Noticias)",
+     "date": "2026-09-22",
+     "tier": "prensa"
     }
    ],
    "signal": {
@@ -529,7 +705,7 @@
    }
   },
   {
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -537,11 +713,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "vigente",
+     "note": "Reconfirmado: la reforma sigue en la Comisión de Hacienda de la Cámara de Diputados; plazo de votación en el pleno el 15-oct."
     }
    ],
    "id": "mexico-aumento-derecho-no-residente-2027",
    "title": "México propone subir 35,8% el Derecho de No Residente en 2027, de 983 a 1.334,80 pesos por visitante",
-   "summary": "El Paquete Económico 2027 enviado al Congreso incluye el aumento de la tarifa que pagan los visitantes extranjeros, que acumularía ~55% frente a 2025. Los hoteleros (ANCH, Consejo Hotelero del Caribe Mexicano) piden moderarlo y destinar parte a promoción, porque llega en un año de caída de tráfico internacional. Todavía es una propuesta: falta la aprobación del Congreso y el monto final.",
+   "summary": "El Paquete Económico 2027 incluye subir el Derecho de No Residente de 983 a 1.334,80 pesos (+35,8%, ~55% frente a 2025) y destina lo recaudado a Defensa, Migración y Hacienda, sin partida para promoción turística. Los hoteleros piden moderarlo porque llega en un año de caída de tráfico internacional; la Secretaría de Turismo sostiene que no afectará las llegadas. Todavía es una propuesta: sigue en la Comisión de Hacienda de la Cámara de Diputados, con votación en el pleno prevista a más tardar el 15 de octubre y luego el Senado.",
    "category": "regulacion",
    "direction": "negativo",
    "destinations": [
@@ -551,7 +732,7 @@
    "markets": [],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Preocupa a hoteleros alza en Derecho de No Residente en 2027",
@@ -566,11 +747,18 @@
      "org": "Azteca Noticias",
      "date": "2026-09-16",
      "tier": "prensa"
+    },
+    {
+     "title": "Comisión de Hacienda avanza en Paquete Económico 2027",
+     "url": "https://www.milenio.com/politica/comision-hacienda-avanza-paquete-economico-2027",
+     "org": "Milenio",
+     "date": "2026-09-27",
+     "tier": "prensa"
     }
    ]
   },
   {
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -578,11 +766,16 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "vigente",
+     "note": "Reconfirmado con los datos finales de julio de StatCan: viajes a EE.UU. +10,1% y a otros países −1,0%."
     }
    ],
    "id": "canada-retoma-viajes-a-eeuu",
    "title": "Los canadienses vuelven a viajar a EE.UU. mientras sus viajes aéreos a otros países caen por tercer mes",
-   "summary": "En agosto los viajes de regreso de canadienses desde EE.UU. subieron 8,8% interanual (quinto mes de alza; +3,6% por avión), aunque siguen 22,7% por debajo de agosto de 2024 en avión. Los regresos por avión desde otros países cayeron 2,8%, su tercer descenso mensual consecutivo. Si esta tendencia sigue, el desvío de canadienses hacia el Caribe y México observado en 2025 perdería fuerza. Es incierto porque la caída incluye el colapso de Cuba y agosto no es temporada alta de sol.",
+   "summary": "En agosto los viajes de regreso de canadienses desde EE.UU. subieron 8,8% interanual (quinto mes de alza), y los regresos por avión desde otros países cayeron 2,8%, su tercer descenso mensual consecutivo. Los datos finales de julio confirman el giro: viajes a EE.UU. +10,1% y a otros países −1,0%, con la primera alza de viajes aéreos desde EE.UU. desde agosto de 2023. Si sigue, el desvío de canadienses hacia el Caribe y México observado en 2025 perdería fuerza; es incierto porque la caída incluye el colapso de Cuba y agosto no es temporada alta de sol.",
    "category": "mercado_emisor",
    "direction": "incierto",
    "destinations": [
@@ -593,7 +786,7 @@
    ],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Leading indicator of international arrivals to Canada, August 2026",
@@ -601,11 +794,18 @@
      "org": "Statistics Canada",
      "date": "2026-09-11",
      "tier": "oficial"
+    },
+    {
+     "title": "Travel between Canada and other countries, July 2026",
+     "url": "https://www150.statcan.gc.ca/n1/daily-quotidien/260922/dq260922a-eng.htm",
+     "org": "Statistics Canada",
+     "date": "2026-09-22",
+     "tier": "oficial"
     }
    ]
   },
   {
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -613,6 +813,11 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "vigente",
+     "note": "Reconfirmado: el aviso de nivel 2 del CDC sigue sin cambios."
     }
    ],
    "id": "chikungunya-costa-rica",
@@ -628,7 +833,7 @@
    ],
    "horizon": "inmediato",
    "impact": "bajo",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "Chikungunya in Costa Rica – Level 2 Travel Health Notice",
@@ -640,7 +845,7 @@
    ]
   },
   {
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -648,6 +853,11 @@
      "date": "2026-09-18",
      "status": "nuevo",
      "note": "Alta en el primer barrido."
+    },
+    {
+     "date": "2026-09-28",
+     "status": "vigente",
+     "note": "Reconfirmado: no hay un Barómetro posterior al del 17-sep."
     }
    ],
    "id": "onu-turismo-rebaja-prevision-2026",
@@ -661,7 +871,7 @@
    "markets": [],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-09-18",
+   "last_confirmed": "2026-09-28",
    "evidence": [
     {
      "title": "International tourism holds steady with 0.4% growth in first half of 2026 as Middle East conflict and rising costs weigh on momentum",
@@ -669,6 +879,50 @@
      "org": "ONU Turismo",
      "date": "2026-09-17",
      "tier": "institucional"
+    }
+   ]
+  },
+  {
+   "status": "nuevo",
+   "first_seen": "2026-09-28",
+   "closed_on": null,
+   "history": [
+    {
+     "date": "2026-09-28",
+     "status": "nuevo",
+     "note": "Alta en el barrido del 28-sep."
+    }
+   ],
+   "id": "curazao-tasa-entrada-turistas-2027",
+   "title": "Curazao propone cobrar una tasa de entrada de 75 USD por visitante desde el 1 de enero de 2027",
+   "summary": "El proyecto de presupuesto 2027 incluye una tasa de 75 USD por visitante no residente (10 USD para algunos grupos) en sustitución del impuesto de alojamiento, con una recaudación prevista de ~82 millones de florines en 2027. El ministro de Finanzas reconoce que encarece los viajes cortos de brasileños, argentinos y colombianos, que suelen quedarse de 1 a 4 días, mientras abarata las estadías largas de europeos. La ley aún no está aprobada y el órgano de supervisión financiera (Cft) advierte que el trámite y la puesta en marcha no están cerrados.",
+   "category": "regulacion",
+   "direction": "negativo",
+   "destinations": [
+    "CW"
+   ],
+   "markets": [
+    "Brasil",
+    "Argentina",
+    "Colombia"
+   ],
+   "horizon": "corto",
+   "impact": "medio",
+   "last_confirmed": "2026-09-28",
+   "evidence": [
+    {
+     "title": "Toerist gaat vanaf 2027 75 dollar betalen bij aankomst op Curaçao",
+     "url": "https://nu.cw/2026/09/09/video-toerist-gaat-vanaf-2027-75-dollar-betalen-bij-aankomst-op-curacao/",
+     "org": "nu.cw",
+     "date": "2026-09-09",
+     "tier": "prensa"
+    },
+    {
+     "title": "Hogere begroting 2027 wordt vooral betaald uit meer belastinginkomsten",
+     "url": "https://www.curacao.nu/nieuws/overheid/95017/hogere-begroting-2027-wordt-vooral-betaald-uit-meer-belastinginkomsten",
+     "org": "Curaçao.nu",
+     "date": "2026-09-15",
+     "tier": "prensa"
     }
    ]
   }
