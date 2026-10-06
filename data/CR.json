@@ -390,7 +390,7 @@
     "update_frequency": "mensual (el mismo PDF se reemplaza cada mes; anuario y Excel de series anuales al cierre del año)",
     "release_lag": "~2-4 semanas tras cierre de mes (DGME entrega base en los primeros 10 días del mes siguiente)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-28",
+    "retrieved": "2026-10-06",
     "access_method": "Scrapear la página Movimientos Migratorios (informes-estadisticos.html), sección \"Información Reciente\": enlace DOCman /recientes/<id>-... con el año más alto; descargar <página>/file.html (PDF de texto nativo) en cada corrida; pdfplumber: página con Cuadros 11/12 (meses × años desde 2019), validada contra las filas acumuladas \"Ene - Dic\"/\"Ene - <mes>\", números con espacio como separador de miles → asignar palabras a columnas por posición x. Excel de series (3242-series-sitio-web-ict-2025) solo trae totales anuales."
    }
   },
@@ -779,7 +779,7 @@
     "update_frequency": "mensual (el mismo PDF se reemplaza cada mes; anuario y Excel de series anuales al cierre del año)",
     "release_lag": "~2-4 semanas tras cierre de mes (DGME entrega base en los primeros 10 días del mes siguiente)",
     "last_period": "2026-08",
-    "retrieved": "2026-09-28",
+    "retrieved": "2026-10-06",
     "access_method": "Scrapear la página Movimientos Migratorios (informes-estadisticos.html), sección \"Información Reciente\": enlace DOCman /recientes/<id>-... con el año más alto; descargar <página>/file.html (PDF de texto nativo) en cada corrida; pdfplumber: página con Cuadros 11/12 (meses × años desde 2019), validada contra las filas acumuladas \"Ene - Dic\"/\"Ene - <mes>\", números con espacio como separador de miles → asignar palabras a columnas por posición x. Excel de series (3242-series-sitio-web-ict-2025) solo trae totales anuales."
    }
   },
@@ -828,7 +828,7 @@
     "update_frequency": "anual (BCCR compila trimestral en balanza de pagos)",
     "release_lag": "~2-3 meses tras cierre del año (2025 preliminar)",
     "last_period": "2025",
-    "retrieved": "2026-09-28",
+    "retrieved": "2026-10-06",
     "access_method": "Enlace \"Divisas Turismo <año>\" más reciente en ICT > Estadísticas > Cifras turísticas (documento de la categoría Cifras económicas); PDF de texto descargado en cada corrida; regex sobre Cuadro 1. Alternativa trimestral: BCCR Indicadores Económicos, balanza de pagos, cuenta Viajes (crédito)."
    }
   },
@@ -877,7 +877,7 @@
     "update_frequency": "anual",
     "release_lag": "~3-6 meses tras cierre del año",
     "last_period": "2025",
-    "retrieved": "2026-09-28",
+    "retrieved": "2026-10-06",
     "access_method": "Enlace \"GMP TODAS VIAS <año> <año>\" más reciente en ICT > Cifras turísticas > Gasto y estadía media; PDF de texto descargado en cada corrida; regex fila \"GMP TOTAL\"."
    }
   },
@@ -926,7 +926,7 @@
     "update_frequency": "anual",
     "release_lag": "~3-6 meses tras cierre del año",
     "last_period": "2025",
-    "retrieved": "2026-09-28",
+    "retrieved": "2026-10-06",
     "access_method": "Enlace \"GMP y Estadia Media VIA AEREA <año> <año>\" más reciente en ICT > Cifras turísticas; PDF de texto descargado en cada corrida; regex \"año GMP estadía\" en Cuadro 1 (años 2020-2023 llevan superíndice de nota pegado al año)."
    }
   }

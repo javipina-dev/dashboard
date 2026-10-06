@@ -376,11 +376,15 @@
       ],
       [
        "2026-07",
-       537204
+       537103
+      ],
+      [
+       "2026-08",
+       418394
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Banco Central de la República Dominicana (BCRD); compilación MITUR desde sep-2021",
       "title": "Llegada mensual de pasajeros según residencia y aeropuerto utilizado, vía aérea (un archivo por año) - bloque 'NO RESIDENTES'",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -389,7 +393,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -762,10 +766,14 @@
       [
        "2026-07",
        84.5
+      ],
+      [
+       "2026-08",
+       70.1
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Asociación de Hoteles y Turismo de la República Dominicana (ASONAHORES), republicado por el BCRD",
       "title": "Tasa promedio de ocupación en establecimientos de alojamiento turístico según zonas (un archivo por año)",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -774,7 +782,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -867,7 +875,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -960,7 +968,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -1205,7 +1213,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -1450,15 +1458,15 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
    "notes": [
     "lat/lon (18.62, -68.42) son un punto de referencia aproximado del núcleo turístico del polo, puesto para poder graficar un mapa; NO son coordenadas oficiales ni el centroide del polo turístico definido por ley.",
-    "Corroboración MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01): 19 de 56 meses difieren del BCRD; diferencia máxima +100 personas en 2026-07 (0.02% del mes). Se publica la serie BCRD (serie larga desde 2019 y fuente de cuentas nacionales); MITUR es indicador adelantado.",
+    "Corroboración MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01): 19 de 56 meses difieren del BCRD; diferencia máxima +6 personas en 2026-02 (0.00% del mes). Se publica la serie BCRD (serie larga desde 2019 y fuente de cuentas nacionales); MITUR es indicador adelantado.",
     "hotel_occupancy_rate: los valores 0.0 de 2020-04, 2020-05, 2020-06 son ceros publicados (cierre de la actividad hotelera por COVID-19), no datos faltantes.",
-    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-07 (n=91); hotel_occupancy_rate 2019-01→2026-07 (n=91); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
+    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-08 (n=92); hotel_occupancy_rate 2019-01→2026-08 (n=92); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
     "Series ausentes en este polo: ninguna."
    ]
   },
@@ -1837,11 +1845,15 @@
       ],
       [
        "2026-07",
-       8645
+       8631
+      ],
+      [
+       "2026-08",
+       5752
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Banco Central de la República Dominicana (BCRD); compilación MITUR desde sep-2021",
       "title": "Llegada mensual de pasajeros según residencia y aeropuerto utilizado, vía aérea (un archivo por año) - bloque 'NO RESIDENTES'",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -1850,7 +1862,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -2223,10 +2235,14 @@
       [
        "2026-07",
        82.7
+      ],
+      [
+       "2026-08",
+       75.5
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Asociación de Hoteles y Turismo de la República Dominicana (ASONAHORES), republicado por el BCRD",
       "title": "Tasa promedio de ocupación en establecimientos de alojamiento turístico según zonas (un archivo por año)",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -2235,7 +2251,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -2328,7 +2344,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -2421,7 +2437,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -2514,7 +2530,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -2607,7 +2623,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -2852,7 +2868,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -3097,16 +3113,16 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
    "notes": [
     "lat/lon (18.4, -68.9) son un punto de referencia aproximado del núcleo turístico del polo, puesto para poder graficar un mapa; NO son coordenadas oficiales ni el centroide del polo turístico definido por ley.",
-    "Corroboración MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01): 22 de 56 meses difieren del BCRD; diferencia máxima +14 personas en 2026-07 (0.16% del mes). Se publica la serie BCRD (serie larga desde 2019 y fuente de cuentas nacionales); MITUR es indicador adelantado.",
+    "Corroboración MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01): 22 de 56 meses difieren del BCRD; diferencia máxima -7 personas en 2022-12 (0.08% del mes). Se publica la serie BCRD (serie larga desde 2019 y fuente de cuentas nacionales); MITUR es indicador adelantado.",
     "hotel_occupancy_rate: los valores 0.0 de 2020-04, 2020-05, 2020-06 son ceros publicados (cierre de la actividad hotelera por COVID-19), no datos faltantes.",
     "hotel_occupancy_rate_mitur / share_foreign_guests usan la zona combinada 'Romana - Bayahíbe' del cuadro por zonas tradicionales, para que cubran el mismo territorio que hotel_occupancy_rate (ASONAHORES). La versión 'zonas MITUR' del mismo cuadro publica La Romana y Bayahíbe por separado; no se suman aquí porque son tasas y el archivo no da el ponderador.",
-    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-07 (n=91); hotel_occupancy_rate 2019-01→2026-07 (n=91); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_rooms_la_romana 2022-Q1→2026-Q2 (n=18); hotel_rooms_bayahibe 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
+    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-08 (n=92); hotel_occupancy_rate 2019-01→2026-08 (n=92); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_rooms_la_romana 2022-Q1→2026-Q2 (n=18); hotel_rooms_bayahibe 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
     "Series ausentes en este polo: ninguna."
    ]
   },
@@ -3485,11 +3501,15 @@
       ],
       [
        "2026-07",
-       27826
+       27822
+      ],
+      [
+       "2026-08",
+       21150
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Banco Central de la República Dominicana (BCRD); compilación MITUR desde sep-2021",
       "title": "Llegada mensual de pasajeros según residencia y aeropuerto utilizado, vía aérea (un archivo por año) - bloque 'NO RESIDENTES'",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -3498,7 +3518,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -3871,10 +3891,14 @@
       [
        "2026-07",
        66.0
+      ],
+      [
+       "2026-08",
+       58.1
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Asociación de Hoteles y Turismo de la República Dominicana (ASONAHORES), republicado por el BCRD",
       "title": "Tasa promedio de ocupación en establecimientos de alojamiento turístico según zonas (un archivo por año)",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -3883,7 +3907,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -3976,7 +4000,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -4069,7 +4093,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -4314,7 +4338,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -4559,7 +4583,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
@@ -4567,7 +4591,7 @@
     "lat/lon (19.79, -70.69) son un punto de referencia aproximado del núcleo turístico del polo, puesto para poder graficar un mapa; NO son coordenadas oficiales ni el centroide del polo turístico definido por ley.",
     "Corroboración MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01): 17 de 56 meses difieren del BCRD; diferencia máxima -22 personas en 2025-05 (0.14% del mes). Se publica la serie BCRD (serie larga desde 2019 y fuente de cuentas nacionales); MITUR es indicador adelantado.",
     "hotel_occupancy_rate: los valores 0.0 de 2020-04, 2020-05, 2020-06 son ceros publicados (cierre de la actividad hotelera por COVID-19), no datos faltantes.",
-    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-07 (n=91); hotel_occupancy_rate 2019-01→2026-07 (n=91); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
+    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-08 (n=92); hotel_occupancy_rate 2019-01→2026-08 (n=92); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
     "Series ausentes en este polo: ninguna."
    ]
   },
@@ -4947,10 +4971,14 @@
       [
        "2026-07",
        49.8
+      ],
+      [
+       "2026-08",
+       39.0
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Asociación de Hoteles y Turismo de la República Dominicana (ASONAHORES), republicado por el BCRD",
       "title": "Tasa promedio de ocupación en establecimientos de alojamiento turístico según zonas (un archivo por año)",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -4959,7 +4987,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -5052,7 +5080,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -5145,7 +5173,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -5390,7 +5418,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -5635,14 +5663,14 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
    "notes": [
     "lat/lon (19.75, -70.46) son un punto de referencia aproximado del núcleo turístico del polo, puesto para poder graficar un mapa; NO son coordenadas oficiales ni el centroide del polo turístico definido por ley.",
     "hotel_occupancy_rate: los valores 0.0 de 2020-04, 2020-05, 2020-06 son ceros publicados (cierre de la actividad hotelera por COVID-19), no datos faltantes.",
-    "Cobertura extraída: hotel_occupancy_rate 2019-01→2026-07 (n=91); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
+    "Cobertura extraída: hotel_occupancy_rate 2019-01→2026-08 (n=92); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
     "Series ausentes en este polo: arrivals_air_nonresident (el polo no tiene aeropuerto propio; sus visitantes entran por otros aeropuertos y la fuente no publica llegadas por destino de hospedaje)."
    ]
   },
@@ -6022,10 +6050,14 @@
       [
        "2026-07",
        6242
+      ],
+      [
+       "2026-08",
+       6759
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Banco Central de la República Dominicana (BCRD); compilación MITUR desde sep-2021",
       "title": "Llegada mensual de pasajeros según residencia y aeropuerto utilizado, vía aérea (un archivo por año) - bloque 'NO RESIDENTES'",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -6034,7 +6066,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -6407,10 +6439,14 @@
       [
        "2026-07",
        73.5
+      ],
+      [
+       "2026-08",
+       74.5
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Asociación de Hoteles y Turismo de la República Dominicana (ASONAHORES), republicado por el BCRD",
       "title": "Tasa promedio de ocupación en establecimientos de alojamiento turístico según zonas (un archivo por año)",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -6419,7 +6455,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -6512,7 +6548,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -6605,7 +6641,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -6850,7 +6886,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -7095,7 +7131,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
@@ -7103,7 +7139,7 @@
     "lat/lon (19.26, -69.43) son un punto de referencia aproximado del núcleo turístico del polo, puesto para poder graficar un mapa; NO son coordenadas oficiales ni el centroide del polo turístico definido por ley.",
     "Corroboración MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01): 9 de 56 meses difieren del BCRD; diferencia máxima -3 personas en 2022-12 (0.05% del mes). Se publica la serie BCRD (serie larga desde 2019 y fuente de cuentas nacionales); MITUR es indicador adelantado.",
     "hotel_occupancy_rate: los valores 0.0 de 2020-04, 2020-05, 2020-06, 2020-07, 2020-08, 2020-09, 2020-10 son ceros publicados (cierre de la actividad hotelera por COVID-19), no datos faltantes.",
-    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-07 (n=91); hotel_occupancy_rate 2019-01→2026-07 (n=91); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
+    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-08 (n=92); hotel_occupancy_rate 2019-01→2026-08 (n=92); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
     "Series ausentes en este polo: ninguna."
    ]
   },
@@ -7482,11 +7518,15 @@
       ],
       [
        "2026-07",
-       222103
+       221780
+      ],
+      [
+       "2026-08",
+       174075
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Banco Central de la República Dominicana (BCRD); compilación MITUR desde sep-2021",
       "title": "Llegada mensual de pasajeros según residencia y aeropuerto utilizado, vía aérea (un archivo por año) - bloque 'NO RESIDENTES'",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -7495,7 +7535,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -7867,11 +7907,15 @@
       ],
       [
        "2026-07",
-       219493
+       219173
+      ],
+      [
+       "2026-08",
+       171789
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Banco Central de la República Dominicana (BCRD); compilación MITUR desde sep-2021",
       "title": "Llegada mensual de pasajeros según residencia y aeropuerto utilizado, vía aérea (un archivo por año) - bloque 'NO RESIDENTES'",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -7880,7 +7924,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -8252,11 +8296,15 @@
       ],
       [
        "2026-07",
-       2610
+       2607
+      ],
+      [
+       "2026-08",
+       2286
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Banco Central de la República Dominicana (BCRD); compilación MITUR desde sep-2021",
       "title": "Llegada mensual de pasajeros según residencia y aeropuerto utilizado, vía aérea (un archivo por año) - bloque 'NO RESIDENTES'",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -8265,7 +8313,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -8638,10 +8686,14 @@
       [
        "2026-07",
        63.0
+      ],
+      [
+       "2026-08",
+       55.3
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Asociación de Hoteles y Turismo de la República Dominicana (ASONAHORES), republicado por el BCRD",
       "title": "Tasa promedio de ocupación en establecimientos de alojamiento turístico según zonas (un archivo por año)",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -8650,7 +8702,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -8743,7 +8795,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -8836,7 +8888,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -9081,7 +9133,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -9326,16 +9378,16 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
    "notes": [
     "lat/lon (18.48, -69.93) son un punto de referencia aproximado del núcleo turístico del polo, puesto para poder graficar un mapa; NO son coordenadas oficiales ni el centroide del polo turístico definido por ley.",
-    "Corroboración MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01): 55 de 56 meses difieren del BCRD; diferencia máxima +4,523 personas en 2023-07 (2.16% del mes). Se publica la serie BCRD (serie larga desde 2019 y fuente de cuentas nacionales); MITUR es indicador adelantado.",
+    "Corroboración MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01): 56 de 56 meses difieren del BCRD; diferencia máxima +4,523 personas en 2023-07 (2.16% del mes). Se publica la serie BCRD (serie larga desde 2019 y fuente de cuentas nacionales); MITUR es indicador adelantado.",
     "MITUR no desglosa La Isabela ni María Montez (los agrupa en 'Resto'), por lo que esos aeropuertos solo se corroboran parcialmente.",
     "hotel_occupancy_rate: los valores 0.0 de 2020-04, 2020-05, 2020-06 son ceros publicados (cierre de la actividad hotelera por COVID-19), no datos faltantes.",
-    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-07 (n=91); arrivals_air_nonresident_las_americas 2019-01→2026-07 (n=91); arrivals_air_nonresident_la_isabela 2019-01→2026-07 (n=91); hotel_occupancy_rate 2019-01→2026-07 (n=91); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
+    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-08 (n=92); arrivals_air_nonresident_las_americas 2019-01→2026-08 (n=92); arrivals_air_nonresident_la_isabela 2019-01→2026-08 (n=92); hotel_occupancy_rate 2019-01→2026-08 (n=92); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
     "Series ausentes en este polo: ninguna."
    ]
   },
@@ -9715,10 +9767,14 @@
       [
        "2026-07",
        72.1
+      ],
+      [
+       "2026-08",
+       61.6
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Asociación de Hoteles y Turismo de la República Dominicana (ASONAHORES), republicado por el BCRD",
       "title": "Tasa promedio de ocupación en establecimientos de alojamiento turístico según zonas (un archivo por año)",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -9727,7 +9783,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -9820,7 +9876,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -9913,7 +9969,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -10158,7 +10214,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -10403,14 +10459,14 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
    "notes": [
     "lat/lon (18.44, -69.64) son un punto de referencia aproximado del núcleo turístico del polo, puesto para poder graficar un mapa; NO son coordenadas oficiales ni el centroide del polo turístico definido por ley.",
     "hotel_occupancy_rate: los valores 0.0 de 2020-04, 2020-05, 2020-06, 2020-07, 2020-08 son ceros publicados (cierre de la actividad hotelera por COVID-19), no datos faltantes.",
-    "Cobertura extraída: hotel_occupancy_rate 2019-01→2026-07 (n=91); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
+    "Cobertura extraída: hotel_occupancy_rate 2019-01→2026-08 (n=92); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
     "Series ausentes en este polo: arrivals_air_nonresident (el polo no tiene aeropuerto propio; sus visitantes entran por otros aeropuertos y la fuente no publica llegadas por destino de hospedaje)."
    ]
   },
@@ -10789,11 +10845,15 @@
       ],
       [
        "2026-07",
-       119662
+       119545
+      ],
+      [
+       "2026-08",
+       99348
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Banco Central de la República Dominicana (BCRD); compilación MITUR desde sep-2021",
       "title": "Llegada mensual de pasajeros según residencia y aeropuerto utilizado, vía aérea (un archivo por año) - bloque 'NO RESIDENTES'",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -10802,7 +10862,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -11175,10 +11235,14 @@
       [
        "2026-07",
        65.1
+      ],
+      [
+       "2026-08",
+       63.5
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Asociación de Hoteles y Turismo de la República Dominicana (ASONAHORES), republicado por el BCRD",
       "title": "Tasa promedio de ocupación en establecimientos de alojamiento turístico según zonas (un archivo por año)",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -11187,7 +11251,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -11280,7 +11344,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -11373,7 +11437,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -11618,7 +11682,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -11863,15 +11927,15 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
    "notes": [
     "lat/lon (19.45, -70.7) son un punto de referencia aproximado del núcleo turístico del polo, puesto para poder graficar un mapa; NO son coordenadas oficiales ni el centroide del polo turístico definido por ley.",
-    "Corroboración MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01): 26 de 56 meses difieren del BCRD; diferencia máxima +117 personas en 2026-07 (0.10% del mes). Se publica la serie BCRD (serie larga desde 2019 y fuente de cuentas nacionales); MITUR es indicador adelantado.",
+    "Corroboración MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01): 25 de 56 meses difieren del BCRD; diferencia máxima -6 personas en 2025-04 (0.01% del mes). Se publica la serie BCRD (serie larga desde 2019 y fuente de cuentas nacionales); MITUR es indicador adelantado.",
     "hotel_occupancy_rate: los valores 0.0 de 2020-04, 2020-05, 2020-06 son ceros publicados (cierre de la actividad hotelera por COVID-19), no datos faltantes.",
-    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-07 (n=91); hotel_occupancy_rate 2019-01→2026-07 (n=91); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
+    "Cobertura extraída: arrivals_air_nonresident 2019-01→2026-08 (n=92); hotel_occupancy_rate 2019-01→2026-08 (n=92); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
     "Series ausentes en este polo: ninguna."
    ]
   },
@@ -11899,10 +11963,14 @@
       [
        "2026-07",
        74.7
+      ],
+      [
+       "2026-08",
+       55.9
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Asociación de Hoteles y Turismo de la República Dominicana (ASONAHORES), republicado por el BCRD",
       "title": "Tasa promedio de ocupación en establecimientos de alojamiento turístico según zonas (un archivo por año)",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -11911,7 +11979,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -12004,7 +12072,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -12097,7 +12165,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -12342,7 +12410,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -12587,7 +12655,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
@@ -12595,7 +12663,7 @@
     "lat/lon (18.99, -69.05) son un punto de referencia aproximado del núcleo turístico del polo, puesto para poder graficar un mapa; NO son coordenadas oficiales ni el centroide del polo turístico definido por ley.",
     "hotel_occupancy_rate_mitur / share_foreign_guests provienen de la versión 'zonas MITUR' del cuadro de actividad hotelera (la versión 'zonas tradicionales' no incluye esta zona).",
     "hotel_occupancy_rate solo existe desde 2026-05: ASONAHORES/BCRD añadió la columna Miches en el archivo de 2026 y los meses ene-abr 2026 vienen con '-' (sin dato), que se omiten. La serie MITUR de este polo (hotel_occupancy_rate_mitur) sí arranca en 2022-01.",
-    "Cobertura extraída: hotel_occupancy_rate 2026-05→2026-07 (n=3); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
+    "Cobertura extraída: hotel_occupancy_rate 2026-05→2026-08 (n=4); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
     "Series ausentes en este polo: arrivals_air_nonresident (el polo no tiene aeropuerto propio; sus visitantes entran por otros aeropuertos y la fuente no publica llegadas por destino de hospedaje)."
    ]
   },
@@ -12695,7 +12763,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -12788,7 +12856,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -13033,7 +13101,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -13278,7 +13346,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
@@ -13569,10 +13637,14 @@
       [
        "2026-07",
        0
+      ],
+      [
+       "2026-08",
+       3
       ]
      ],
      "source": {
-      "last_period": "2026-07",
+      "last_period": "2026-08",
       "org": "Banco Central de la República Dominicana (BCRD); compilación MITUR desde sep-2021",
       "title": "Llegada mensual de pasajeros según residencia y aeropuerto utilizado, vía aérea (un archivo por año) - bloque 'NO RESIDENTES'",
       "page_url": "https://www.bancentral.gov.do/a/d/2537-sector-turismo",
@@ -13581,7 +13653,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -13674,7 +13746,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -13767,7 +13839,7 @@
       "update_frequency": "trimestral (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
       "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -14012,7 +14084,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     },
     {
@@ -14257,7 +14329,7 @@
       "update_frequency": "mensual (archivo actualizado 21 de septiembre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
       "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-09-28"
+      "retrieved": "2026-10-06"
      }
     }
    ],
@@ -14266,7 +14338,7 @@
     "MITUR no desglosa La Isabela ni María Montez (los agrupa en 'Resto'), por lo que esos aeropuertos solo se corroboran parcialmente.",
     "hotel_occupancy_rate_mitur / share_foreign_guests provienen de la versión 'zonas MITUR' del cuadro de actividad hotelera (la versión 'zonas tradicionales' no incluye esta zona).",
     "arrivals_air_nonresident empieza en 2021-01 porque los archivos del BCRD de 2019 y 2020 no traen la fila MARÍA MONTEZ (solo aparece desde el archivo de 2021). Casi todos los meses valen 0: son ceros publicados (el aeropuerto María Montez, Barahona, prácticamente no recibe vuelos comerciales internacionales; 4 no residentes en todo 2021, 21 en ene-jul 2026). No hay serie de ocupación de ASONAHORES/BCRD para este polo, ni columna para Pedernales/Cabo Rojo en ninguna de las tres fuentes, así que el nuevo desarrollo de Cabo Rojo no es medible aquí.",
-    "Cobertura extraída: arrivals_air_nonresident 2021-01→2026-07 (n=67); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
+    "Cobertura extraída: arrivals_air_nonresident 2021-01→2026-08 (n=68); hotel_rooms 2022-Q1→2026-Q2 (n=18); hotel_establishments 2022-Q1→2026-Q2 (n=18); hotel_occupancy_rate_mitur 2022-01→2026-08 (n=56); share_foreign_guests 2022-01→2026-08 (n=56)",
     "Series ausentes en este polo: hotel_occupancy_rate (la zona no aparece en el cuadro de ASONAHORES/BCRD)."
    ]
   }
@@ -14284,7 +14356,7 @@
   "Las llegadas aéreas de MITUR ('Entradas NR por aeropuerto', flujo migratorio, desde 2022-01) se usaron solo para corroborar la serie del BCRD; las diferencias encontradas se anotan en cada polo. MITUR no desglosa La Isabela ni María Montez (van en 'Resto').",
   "Los archivos del BCRD con año en el nombre (lleg_total_YYYY.xls, turismo_ocupacion_YYYY.xls) cambian cada enero y el BCRD re-publica los años anteriores: conviene volver a descargar todo en cada corrida mensual. Las cifras del año en curso están 'sujetas a rectificación'.",
   "Miches y Barahona-Pedernales aparecen con habitaciones/hoteles en el cuadro de zonas MITUR (Miches también con ocupación de ASONAHORES desde 2026-05), por lo que se incluyen esas series aunque sean polos emergentes con muy pocos establecimientos.",
-  "Validación (a): la suma de los 8 aeropuertos del bloque NO RESIDENTES coincide con la serie nacional arrivals_air_nonresident en 57 de 91 meses (2019-01..2026-07); difieren 34 meses, todos de 2022 en adelante y todos por +/-1 o +/-2 personas (máximo +2 en 2022-12: suma 765,937 vs nacional 765,935). La causa es SOLO el redondeo: desde 2022 el BCRD publica cifras ponderadas con decimales, y aquí se redondea cada aeropuerto por separado mientras la serie nacional redondea el total. Comprobado a precisión completa contra la propia fila 'NO RESIDENTES' del archivo: la suma de los aeropuertos la reproduce exactamente en los 91 meses (0 discrepancias), de modo que el desglose por aeropuerto es exhaustivo y no falta ningún aeropuerto.",
+  "Validación (a): la suma de los 8 aeropuertos del bloque NO RESIDENTES coincide con la serie nacional arrivals_air_nonresident en 58 de 92 meses (2019-01..2026-08); difieren 34 meses, todos de 2022 en adelante y todos por +/-1 o +/-2 personas (máximo +2 en 2022-12: suma 765,937 vs nacional 765,935). La causa es SOLO el redondeo: desde 2022 el BCRD publica cifras ponderadas con decimales, y aquí se redondea cada aeropuerto por separado mientras la serie nacional redondea el total. Comprobado a precisión completa contra la propia fila 'NO RESIDENTES' del archivo: la suma de los aeropuertos la reproduce exactamente en los 92 meses (0 discrepancias), de modo que el desglose por aeropuerto es exhaustivo y no falta ningún aeropuerto.",
   "Validación (b): la suma de TODAS las columnas de zona de 'Habitaciones por zona' reproduce exactamente la serie nacional hotel_rooms en los 18 trimestres (2022-Q1..2026-Q2), incluido el valor de 2026-Q2 (80,334 habitaciones). Los polos de este archivo cubren 77,572 de esas habitaciones en 2026-Q2; las restantes están en las columnas Cabrera (10), resto (2,752), que MITUR no asigna a ninguno de los polos construidos aquí."
  ]
 }

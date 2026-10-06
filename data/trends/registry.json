@@ -1,5 +1,5 @@
 {
- "updated": "2026-09-28",
+ "updated": "2026-10-06",
  "method_version": 1,
  "items": [
   {
@@ -20,7 +20,7 @@
    ],
    "id": "combustible-aviacion-recortes-capacidad-eeuu",
    "title": "Turbosina cara por la guerra con Irán: aerolíneas de EE.UU. recortan vuelos y las tarifas aéreas suben 23.4% interanual",
-   "summary": "IATA prevé una turbosina promedio de 152 USD/barril en 2026 (+70% frente a 2025) y la EIA suponía en septiembre un Brent cerca de 90 USD en el segundo semestre, pero el 26 de septiembre EE.UU. rechazó el plan de Irán para reabrir el estrecho de Ormuz, que sigue cerrado salvo tránsitos escoltados, lo que aleja el alivio en combustible. En agosto el índice de tarifas aéreas del IPC de EE.UU. subió 23.4% interanual, y United, American y Southwest recortan rutas de menor margen desde diciembre. Los anuncios todavía no nombran rutas al Caribe ni a México.",
+   "summary": "IATA prevé una turbosina promedio de 152 USD/barril en 2026 (+70% frente a 2025), pero el precio observado ya está muy por encima: la EIA registró el Brent spot en 113.96 USD y la turbosina de la Costa del Golfo en 4.399 USD/galón el 29 de septiembre, y el FMI señaló el 1 de octubre que el combustible de aviación está 60–97% por encima de antes del conflicto. Irán sostiene que el estrecho de Ormuz seguirá cerrado hasta que EE.UU. cumpla sus condiciones, y el 4 de octubre un tanquero fue alcanzado en la zona. En agosto el índice de tarifas aéreas del IPC de EE.UU. subió 23.4% interanual y United, American y Southwest recortan rutas de menor margen desde diciembre; los anuncios todavía no nombran rutas al Caribe ni a México.",
    "category": "aviacion",
    "direction": "negativo",
    "destinations": [
@@ -31,7 +31,7 @@
    ],
    "horizon": "inmediato",
    "impact": "alto",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Short-Term Energy Outlook (septiembre 2026)",
@@ -88,6 +88,41 @@
      "org": "Fortune",
      "date": "2026-09-18",
      "tier": "prensa"
+    },
+    {
+     "title": "Europe Brent Spot Price FOB",
+     "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=D",
+     "org": "U.S. Energy Information Administration",
+     "date": "2026-09-29",
+     "tier": "oficial"
+    },
+    {
+     "title": "Press Briefing Transcript: Julie Kozack, Director, Communications Department, October 1, 2026",
+     "url": "https://www.imf.org/en/news/articles/2026/10/01/tr-10012026-imf-press-briefing-transcript-october-01-2026",
+     "org": "FMI",
+     "date": "2026-10-01",
+     "tier": "oficial"
+    },
+    {
+     "title": "Air Passenger Demand Slips 0.8% in August",
+     "url": "https://www.iata.org/en/pressroom/2026-releases/09-30-air-passenger-demand-slips-august/",
+     "org": "IATA",
+     "date": "2026-09-30",
+     "tier": "institucional"
+    },
+    {
+     "title": "Iran says Hormuz to remain closed until US meets conditions",
+     "url": "https://www.aljazeera.com/news/2026/10/4/iran-says-strait-of-hormuz-to-remain-closed-until-us-meets-conditions",
+     "org": "Al Jazeera",
+     "date": "2026-10-04",
+     "tier": "prensa"
+    },
+    {
+     "title": "Iran Says Strait of Hormuz Will Stay Closed Until U.S. Meets Their Conditions",
+     "url": "https://www.haaretz.com/middle-east-news/iran/2026-10-04/ty-article/iran-says-strait-of-hormuz-will-stay-closed-until-u-s-meets-their-conditions/000001a1-0612-d2e8-afb1-163620570000",
+     "org": "Haaretz",
+     "date": "2026-10-04",
+     "tier": "prensa"
     }
    ],
    "signal": {
@@ -132,7 +167,7 @@
    ],
    "horizon": "corto",
    "impact": "alto",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Travel advice and advisories: Cuba",
@@ -175,6 +210,13 @@
      "org": "Radio 26 (datos ONEI)",
      "date": "2026-09-27",
      "tier": "prensa"
+    },
+    {
+     "title": "Sin combustible y con menos vuelos, pero a Cuba aún llegan aviones",
+     "url": "https://www.diariolibre.com/mundo/america-latina/2026/10/01/sin-combustible-y-con-menos-vuelos-pero-a-cuba-aun-llegan-aviones/3675686",
+     "org": "EFE (vía Diario Libre)",
+     "date": "2026-10-01",
+     "tier": "prensa"
     }
    ]
   },
@@ -211,7 +253,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Collado: “Tenemos asegurados más de 100 mil asientos aéreos desde Canadá”",
@@ -266,7 +308,7 @@
    ],
    "id": "jamaica-recuperacion-habitaciones-melissa",
    "title": "Jamaica: cerca del 70% de las habitaciones afectadas por Melissa ya volvieron y el resto regresa entre octubre de 2026 y principios de 2027",
-   "summary": "Según la Oficina de Turismo, más de 11,000 habitaciones vuelven al inventario entre 2026 y 2027 (unas 1,900 en diciembre y unas 3,500 en el primer trimestre de 2027); el 18 de septiembre el ministro Bartlett habló de 6,000 de 15,000 habitaciones ya reabiertas y de llegadas en torno al 80% del año anterior, cifras que no cuadran del todo con las del 15 de septiembre. La asociación hotelera reporta que 28% de los hoteles siguen cerrados y 61% de los reclamos de seguro sin resolver. Más habitaciones abiertas en temporada alta deberían moderar la caída de llegadas; sigue incierto el calendario de Hyatt, pospuesto al primer semestre de 2027.",
+   "summary": "Según la Oficina de Turismo, más de 11,000 habitaciones vuelven al inventario entre 2026 y 2027 (unas 1,900 en diciembre y unas 3,500 en el primer trimestre de 2027); el 18 de septiembre el ministro Bartlett habló de 6,000 de 15,000 habitaciones ya reabiertas y de llegadas en torno al 80% del año anterior, cifras que no cuadran del todo con las del 15 de septiembre. La asociación hotelera reporta que 28% de los hoteles siguen cerrados y 61% de los reclamos de seguro sin resolver; la asociación de aseguradoras responde que a fines de septiembre había liquidado 49% de los reclamos en dólares y 54% de los de daños no vehiculares. Más habitaciones abiertas en temporada alta deberían moderar la caída de llegadas; sigue incierto el calendario de Hyatt, pospuesto al primer semestre de 2027.",
    "category": "clima",
    "direction": "positivo",
    "destinations": [
@@ -279,7 +321,7 @@
    ],
    "horizon": "corto",
    "impact": "alto",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "More Than 11,000 Hotel Rooms to Return to Inventory",
@@ -308,6 +350,13 @@
      "org": "Jamaica Gleaner",
      "date": "2026-09-28",
      "tier": "prensa"
+    },
+    {
+     "title": "Insurance companies pushing to clear backlog of Melissa related claims -- IAJ",
+     "url": "https://jamaica-gleaner.com/article/news/20261003/insurance-companies-pushing-clear-backlog-melissa-related-claims-iaj",
+     "org": "Jamaica Gleaner",
+     "date": "2026-10-03",
+     "tier": "prensa"
     }
    ],
    "signal": {
@@ -334,7 +383,7 @@
    ],
    "id": "temporada-huracanes-atlantico-bajo-normal",
    "title": "NOAA mantiene su pronóstico de temporada de huracanes del Atlántico por debajo de lo normal por un El Niño fuerte",
-   "summary": "La actualización de agosto de NOAA prevé 7–13 tormentas con nombre, 2–6 huracanes y 0–2 huracanes mayores, con 75% de probabilidad de una temporada por debajo de lo normal, y el CPC mantiene más de 90% de probabilidad de un El Niño muy fuerte. Al 28 de septiembre el NHC solo sigue a la depresión Fay en el Atlántico central y un área al estenordeste de Bermudas, sin zonas vigiladas en el Caribe. NOAA aclara que no es un pronóstico de impactos en tierra: un solo huracán puede afectar a un destino aunque la temporada sea débil.",
+   "summary": "La actualización de agosto de NOAA prevé 7–13 tormentas con nombre, 2–6 huracanes y 0–2 huracanes mayores, con 75% de probabilidad de una temporada por debajo de lo normal, y el CPC mantiene más de 90% de probabilidad de un El Niño muy fuerte. Al 6 de octubre no hay ciclones activos en el Atlántico, pero el NHC da 90% de probabilidad de formación a una baja en el suroeste del Golfo de México que podría traer lluvias y ráfagas al oeste de la península de Yucatán antes de girar hacia la costa norte del Golfo. NOAA aclara que no es un pronóstico de impactos en tierra: un solo huracán puede afectar a un destino aunque la temporada sea débil.",
    "category": "clima",
    "direction": "positivo",
    "destinations": [
@@ -343,7 +392,7 @@
    "markets": [],
    "horizon": "inmediato",
    "impact": "bajo",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "NOAA 2026 Atlantic Hurricane Season Outlook (August update)",
@@ -363,7 +412,7 @@
      "title": "Atlantic Tropical Weather Outlook",
      "url": "https://www.nhc.noaa.gov/text/MIATWOAT.shtml",
      "org": "NOAA National Hurricane Center",
-     "date": "2026-09-28",
+     "date": "2026-10-06",
      "tier": "oficial"
     },
     {
@@ -405,7 +454,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Spirit Airlines ceases operations after escalating financial struggles",
@@ -456,7 +505,7 @@
    }
   },
   {
-   "status": "vigente",
+   "status": "escalando",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -469,11 +518,16 @@
      "date": "2026-09-28",
      "status": "vigente",
      "note": "Reconfirmado: la confianza del consumidor (U. Michigan, sep final) cae a 48.1 y las expectativas de inflación a un año suben a 4.6%."
+    },
+    {
+     "date": "2026-10-06",
+     "status": "escalando",
+     "note": "Empleo de septiembre en +29,000 con salario +3.0%, la confianza del Conference Board en mínimo desde 2014 con menos planes de viaje al exterior, y la Fed anticipa más ajustes."
     }
    ],
    "id": "eeuu-inflacion-alza-tasas-fed",
-   "title": "EE.UU.: la inflación de 3.4% supera el alza salarial de 3.1% y la Fed subió su tasa a 3.75–4%",
-   "summary": "El 16 de septiembre la Reserva Federal subió la tasa de fondos federales 25 puntos básicos, a 3.75–4%, porque la inflación sigue elevada: en agosto el IPC subió 3.4% interanual, con la energía en +16.3%, mientras el salario por hora creció 3.1%. El índice final de confianza del consumidor de la Universidad de Michigan cayó en septiembre a 48.1, mínimo en cuatro meses, y las expectativas de inflación a un año subieron de 4.0% a 4.6% por el combustible. Queda por ver si el ajuste se traduce en menos viajes de ocio al exterior en la temporada alta o solo en viajes más cortos o más baratos.",
+   "title": "EE.UU.: la inflación de 3.4% supera el alza salarial de 3.0%, la Fed subió su tasa a 3.75–4% y la confianza del consumidor cae a su mínimo desde 2014",
+   "summary": "El 16 de septiembre la Reserva Federal subió la tasa de fondos federales a 3.75–4% y los gobernadores Barr y Jefferson dijeron después que la inflación sigue demasiado alta y que probablemente harán falta más ajustes. En septiembre se crearon solo 29,000 empleos, el salario por hora creció 3.0% frente a una inflación de 3.4%, y el índice de confianza del Conference Board cayó a 81.9, su nivel más bajo desde 2014, con menos planes de viaje al exterior y más de viaje doméstico. Queda por ver si el ajuste se traduce en menos viajes de ocio al exterior en la temporada alta o solo en viajes más cortos o más baratos.",
    "category": "macro",
    "direction": "negativo",
    "destinations": [
@@ -484,7 +538,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Federal Reserve issues FOMC statement (September 16, 2026)",
@@ -501,10 +555,10 @@
      "tier": "oficial"
     },
     {
-     "title": "The Employment Situation – August 2026",
+     "title": "The Employment Situation - September 2026",
      "url": "https://www.bls.gov/news.release/empsit.nr0.htm",
      "org": "U.S. Bureau of Labor Statistics",
-     "date": "2026-09-04",
+     "date": "2026-10-02",
      "tier": "oficial"
     },
     {
@@ -512,6 +566,27 @@
      "url": "https://www.sca.isr.umich.edu/",
      "org": "University of Michigan",
      "date": "2026-09-25",
+     "tier": "institucional"
+    },
+    {
+     "title": "Economic Conditions and Monetary Policy",
+     "url": "https://www.federalreserve.gov/newsevents/speech/barr20260929a.htm",
+     "org": "Federal Reserve Board",
+     "date": "2026-09-29",
+     "tier": "oficial"
+    },
+    {
+     "title": "The U.S. Economy and Monetary Policy",
+     "url": "https://www.federalreserve.gov/newsevents/speech/jefferson20261001a.htm",
+     "org": "Federal Reserve Board",
+     "date": "2026-10-01",
+     "tier": "oficial"
+    },
+    {
+     "title": "US Consumer Confidence Fell in September",
+     "url": "https://www.prnewswire.com/news-releases/us-consumer-confidence-fell-in-september-302892867.html",
+     "org": "The Conference Board",
+     "date": "2026-09-29",
      "tier": "institucional"
     }
    ],
@@ -523,9 +598,9 @@
    }
   },
   {
-   "status": "perdiendo_fuerza",
+   "status": "cerrado",
    "first_seen": "2026-09-18",
-   "closed_on": null,
+   "closed_on": "2026-10-06",
    "history": [
     {
      "date": "2026-09-18",
@@ -536,11 +611,16 @@
      "date": "2026-09-28",
      "status": "perdiendo_fuerza",
      "note": "El FIX subió a 17.7100 el 25-sep (~3% de depreciación desde el 18-sep) tras el alza de la Fed y la pausa de Banxico."
+    },
+    {
+     "date": "2026-10-06",
+     "status": "cerrado",
+     "note": "Resuelto: el FIX subió a 18.1343 el 5-oct y el peso queda ~1% más fuerte que hace un año; la apreciación que motivó el ítem se revirtió."
     }
    ],
    "id": "peso-mexicano-fuerte",
    "title": "El peso mexicano se apreció ~6% frente al dólar en un año y encarece Cancún y Los Cabos para visitantes de EE.UU.",
-   "summary": "El tipo de cambio FIX pasó de 18.3257 pesos por dólar el 18 de septiembre de 2025 a 17.1872 el 18 de septiembre de 2026, pero tras el alza de la Fed y la decisión de Banxico de mantener su tasa en 6.50% el peso se depreció ~3% en una semana, a 17.7100 el 25 de septiembre. Aun así sigue ~3.4% más fuerte que hace un año, lo que encarece el gasto local en Cancún y Los Cabos frente a destinos dolarizados. No se conoce cuánto pesa el tipo de cambio frente a otros factores, ya que buena parte de la oferta todo incluido se vende en dólares.",
+   "summary": "El tipo de cambio FIX pasó de 18.3257 pesos por dólar el 18 de septiembre de 2025 a 17.1872 el 18 de septiembre de 2026, pero tras el alza de la Fed y la pausa de Banxico el peso fue la moneda más depreciada en septiembre y el FIX llegó a 18.3688 el 1 de octubre y 18.1343 el 5 de octubre. Con eso el peso queda apenas ~1% más fuerte que hace un año y deja de encarecer de forma relevante a Cancún y Los Cabos frente a destinos dolarizados.",
    "category": "macro",
    "direction": "negativo",
    "destinations": [
@@ -553,7 +633,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Indicadores: tipo de cambio para solventar obligaciones en dólares (histórico)",
@@ -568,6 +648,20 @@
      "org": "Banco de México",
      "date": "2026-09-25",
      "tier": "oficial"
+    },
+    {
+     "title": "Serie histórica diaria del tipo de cambio peso-dólar (CF373)",
+     "url": "https://www.banxico.org.mx/SieInternet/consultarDirectorioInternetAction.do?sector=6&accion=consultarCuadro&idCuadro=CF373&locale=es",
+     "org": "Banco de México",
+     "date": "2026-10-05",
+     "tier": "oficial"
+    },
+    {
+     "title": "Dólar 'arrastra por el suelo' al peso en septiembre: Es la moneda más depreciada del mundo",
+     "url": "https://www.elfinanciero.com.mx/mercados/2026/09/30/peso-es-la-moneda-mas-depreciada-del-mundo-que-provoco-su-caida/",
+     "org": "El Financiero",
+     "date": "2026-09-30",
+     "tier": "prensa"
     }
    ],
    "signal": {
@@ -577,7 +671,7 @@
    }
   },
   {
-   "status": "perdiendo_fuerza",
+   "status": "vigente",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -590,11 +684,16 @@
      "date": "2026-09-28",
      "status": "perdiendo_fuerza",
      "note": "La TRM subió a 3,329.61 el 25-sep (~5.7% de depreciación del peso colombiano desde el 17-sep); el real cedió ~0.9%."
+    },
+    {
+     "date": "2026-10-06",
+     "status": "vigente",
+     "note": "El peso colombiano volvió a apreciarse (TRM 3,209.78 el 6-oct) y el real subió 4.6% el 5-oct tras la primera vuelta en Brasil."
     }
    ],
    "id": "monedas-latam-fuertes-colombia-brasil",
    "title": "El peso colombiano se apreció ~24% y el real ~3% frente al dólar en un año, lo que abarata los viajes al exterior",
-   "summary": "La TRM oficial bajó de 3,881.92 pesos por dólar (17 sep 2025) a 3,128.46 (17 sep 2026), pero luego subió a 3,329.61 el 25 de septiembre (~5.7% de depreciación en una semana); el PTAX del real pasó de 5.1527 (16 sep) a 5.1991 (25 sep). Ambas monedas siguen más fuertes que hace un año (el peso colombiano ~15%), lo que aumenta el poder de compra de colombianos y brasileños en destinos con precios en dólares como República Dominicana, Panamá, Cancún, Aruba y Curazao, aunque la ventaja se reduce. Para Cartagena el efecto es el opuesto, y no hay datos oficiales recientes de viajes al exterior de estos mercados que confirmen el efecto.",
+   "summary": "La TRM oficial bajó de 3,881.92 pesos por dólar (17 sep 2025) a 3,128.46 (17 sep 2026); tras subir a 3,349.63 el 29 de septiembre volvió a 3,209.78 el 6 de octubre, ~17% más fuerte que hace un año. El real se apreció 4.6% en un día tras la primera vuelta electoral en Brasil (PTAX 4.9859 el 5 de octubre, frente a 5.2238 el 2 de octubre), con segunda vuelta el 25 de octubre. Monedas más fuertes aumentan el poder de compra de colombianos y brasileños en destinos con precios en dólares como República Dominicana, Panamá, Cancún, Aruba y Curazao; para Cartagena el efecto es el opuesto, y no hay datos oficiales recientes de viajes al exterior de estos mercados que confirmen el efecto.",
    "category": "mercado_emisor",
    "direction": "positivo",
    "destinations": [
@@ -610,7 +709,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Tasa de Cambio Representativa del Mercado (TRM) – datos abiertos",
@@ -639,6 +738,27 @@
      "org": "Banco Central do Brasil",
      "date": "2026-09-25",
      "tier": "oficial"
+    },
+    {
+     "title": "Tasa de Cambio Representativa del Mercado (TRM) – datos abiertos",
+     "url": "https://www.datos.gov.co/resource/32sa-8pi3.json",
+     "org": "Superintendencia Financiera de Colombia (datos.gov.co)",
+     "date": "2026-10-06",
+     "tier": "oficial"
+    },
+    {
+     "title": "SGS série 1 – dólar venda (PTAX)",
+     "url": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.1/dados?formato=json",
+     "org": "Banco Central do Brasil",
+     "date": "2026-10-05",
+     "tier": "oficial"
+    },
+    {
+     "title": "Brazil's presidential race: Three key takeaways from the first round",
+     "url": "https://www.aljazeera.com/news/2026/10/5/brazils-presidential-race-three-key-takeaways-from-the-first-round",
+     "org": "Al Jazeera",
+     "date": "2026-10-05",
+     "tier": "prensa"
     }
    ],
    "signal": {
@@ -648,7 +768,7 @@
    }
   },
   {
-   "status": "vigente",
+   "status": "perdiendo_fuerza",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -661,11 +781,16 @@
      "date": "2026-09-28",
      "status": "vigente",
      "note": "Reconfirmado: 133,646 t retiradas en 2026 según la SEMA, con arribo en tendencia descendente."
+    },
+    {
+     "date": "2026-10-06",
+     "status": "perdiendo_fuerza",
+     "note": "El recale disminuye desde el pico de junio–julio según la red de monitoreo estatal; el acumulado llega a ~138,000 t."
     }
    ],
    "id": "sargazo-record-caribe-mexicano",
-   "title": "Récord de sargazo en Quintana Roo: más de 123,000 toneladas recolectadas en 2026, frente a 92,782 en todo 2025",
-   "summary": "En 2026 se han retirado 133,646 toneladas de sargazo en Quintana Roo (75,149 los municipios y 57,497 la Secretaría de Marina), por encima del récord de 2025, con arribos fuertes en Tulum, Playa del Carmen, Puerto Morelos, Cancún y Cozumel; la temporada empezó dos meses antes. A finales de septiembre el monitoreo estatal reporta una tendencia descendente, aunque con 16 playas en alerta roja. No hay una cuantificación oficial de su efecto sobre las llegadas.",
+   "title": "Récord de sargazo en Quintana Roo: unas 138,000 toneladas recolectadas en 2026, frente a 92,782 en todo 2025",
+   "summary": "En 2026 se han retirado unas 138,000 toneladas de sargazo en Quintana Roo según la Secretaría de Ecología y Medio Ambiente estatal, 67% más que en todo 2025, con arribos fuertes en Tulum, Playa del Carmen, Puerto Morelos, Cancún y Cozumel; la temporada empezó dos meses antes. La red de monitoreo estatal indica que el recale disminuye desde el pico de junio y julio, aunque la SEMA no descarta superar las 150,000 toneladas en el año. No hay una cuantificación oficial de su efecto sobre las llegadas.",
    "category": "clima",
    "direction": "negativo",
    "destinations": [
@@ -674,7 +799,7 @@
    "markets": [],
    "horizon": "inmediato",
    "impact": "medio",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Sargazo: Semar bate récord de recolección en Quintana Roo",
@@ -695,6 +820,20 @@
      "url": "https://es-us.noticias.yahoo.com/quintana-roo-rompe-r%C3%A9cord-recale-231111573.html",
      "org": "El Economista (vía Yahoo Noticias)",
      "date": "2026-09-22",
+     "tier": "prensa"
+    },
+    {
+     "title": "Sargazo en Quintana Roo: 2026 rompe récord con 138 mil toneladas recolectadas",
+     "url": "https://www.poresto.com/quintana-roo/2026/10/1/sargazo-en-quintana-roo-2026-rompe-record-con-138-mil-toneladas-recolectadas.html",
+     "org": "Por Esto!",
+     "date": "2026-10-01",
+     "tier": "prensa"
+    },
+    {
+     "title": "¿Cuándo se va el sargazo? Esto dicen los pronósticos para octubre en Quintana Roo",
+     "url": "https://quintanaroo.heraldodemexico.com.mx/local/2026/10/3/cuando-se-va-el-sargazo-esto-dicen-los-pronosticos-para-octubre-en-quintana-roo-17173.html",
+     "org": "Heraldo de México",
+     "date": "2026-10-03",
      "tier": "prensa"
     }
    ],
@@ -732,7 +871,7 @@
    "markets": [],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Preocupa a hoteleros alza en Derecho de No Residente en 2027",
@@ -786,7 +925,7 @@
    ],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Leading indicator of international arrivals to Canada, August 2026",
@@ -833,7 +972,7 @@
    ],
    "horizon": "inmediato",
    "impact": "bajo",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Chikungunya in Costa Rica – Level 2 Travel Health Notice",
@@ -871,7 +1010,7 @@
    "markets": [],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "International tourism holds steady with 0.4% growth in first half of 2026 as Middle East conflict and rising costs weigh on momentum",
@@ -883,7 +1022,7 @@
    ]
   },
   {
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-09-28",
    "closed_on": null,
    "history": [
@@ -891,6 +1030,11 @@
      "date": "2026-09-28",
      "status": "nuevo",
      "note": "Alta en el barrido del 28-sep."
+    },
+    {
+     "date": "2026-10-06",
+     "status": "vigente",
+     "note": "Reconfirmado: la tasa sigue en el proyecto de presupuesto 2027, sin trámite parlamentario nuevo."
     }
    ],
    "id": "curazao-tasa-entrada-turistas-2027",
@@ -908,7 +1052,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-09-28",
+   "last_confirmed": "2026-10-06",
    "evidence": [
     {
      "title": "Toerist gaat vanaf 2027 75 dollar betalen bij aankomst op Curaçao",

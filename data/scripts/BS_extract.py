@@ -216,10 +216,18 @@ def mot_stopover_expenditure():
 
 def alos():
     out = {}
-    for l in pdf_texts(RAW / "alos.pdf")[0].split("\n"):
+    lines = pdf_texts(RAW / "alos.pdf")[0].split("\n")
+    for l in lines:
         m = re.match(r"^(\d{4})\s+([\d.]+)\s", l)
         if m and int(m.group(1)) >= 2019:
             out[m.group(1)] = float(m.group(2))
+    # layout since 2026-10: one column per year, one row per island ("All Bahamas" row)
+    years = next((l.split() for l in lines if re.fullmatch(r"(\d{4}\s+)+\d{4}", l.strip())), None)
+    row = next((l for l in lines if l.startswith("All Bahamas")), None)
+    if not out and years and row:
+        vals = row.split()[2:]
+        assert len(vals) == len(years), (years, vals)
+        out = {y: float(v) for y, v in zip(years, vals) if int(y) >= 2019}
     return out
 
 

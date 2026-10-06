@@ -568,17 +568,21 @@
     [
      "2026-07",
      336859
+    ],
+    [
+     "2026-08",
+     243870
     ]
    ],
    "source": {
     "org": "Agencia Federal de Aviación Civil (AFAC), SICT",
     "title": "Estadística Operacional de Aeropuertos / Statistics by Airport 2006-2026 (pasajeros, servicio regular y fletamento)",
     "page_url": "https://www.gob.mx/afac/acciones-y-programas/estadisticas-280404",
-    "file_url": "https://www.gob.mx/cms/uploads/attachment/file/1100275/producto-aeropuerto-2006-2026-jul-27082026.xlsx",
+    "file_url": "https://www.gob.mx/cms/uploads/attachment/file/1105543/producto-aeropuertos-2006-2026-ago-28092026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
     "release_lag": "~4 semanas (jul-2026 publicado 27-ago-2026)",
-    "last_period": "2026-07",
+    "last_period": "2026-08",
     "retrieved": "2026-09-17",
     "access_method": "Scrape gob.mx AFAC 'estadisticas-280404' page for link 'producto-aeropuerto-2006-*.xlsx'; download with UA 'curl/x' (browser UA gets Akamai JS challenge); parse xl/pivotCache/pivotCacheRecords1.xml (fields OPCIONES=PASAJEROS, TIPO, AÑO, GRUPO, AEROPUERTO, ENE..DIC)."
    }
@@ -953,17 +957,21 @@
     [
      "2026-07",
      304078
+    ],
+    [
+     "2026-08",
+     285909
     ]
    ],
    "source": {
     "org": "Agencia Federal de Aviación Civil (AFAC), SICT",
     "title": "Estadística Operacional de Aeropuertos / Statistics by Airport 2006-2026 (pasajeros, servicio regular y fletamento)",
     "page_url": "https://www.gob.mx/afac/acciones-y-programas/estadisticas-280404",
-    "file_url": "https://www.gob.mx/cms/uploads/attachment/file/1100275/producto-aeropuerto-2006-2026-jul-27082026.xlsx",
+    "file_url": "https://www.gob.mx/cms/uploads/attachment/file/1105543/producto-aeropuertos-2006-2026-ago-28092026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
     "release_lag": "~4 semanas (jul-2026 publicado 27-ago-2026)",
-    "last_period": "2026-07",
+    "last_period": "2026-08",
     "retrieved": "2026-09-17",
     "access_method": "Scrape gob.mx AFAC 'estadisticas-280404' page for link 'producto-aeropuerto-2006-*.xlsx'; download with UA 'curl/x' (browser UA gets Akamai JS challenge); parse xl/pivotCache/pivotCacheRecords1.xml (fields OPCIONES=PASAJEROS, TIPO, AÑO, GRUPO, AEROPUERTO, ENE..DIC)."
    }

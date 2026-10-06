@@ -63,7 +63,7 @@ def find_link(page, pattern):
 # ---------------------------------------------------------------- 1. AFAC airports
 def afac():
     page = "https://www.gob.mx/afac/acciones-y-programas/estadisticas-280404"
-    url = find_link(page, r"/cms/uploads/attachment/file/\d+/producto-aeropuerto-2006-[^\"]+\.xlsx")
+    url = find_link(page, r"/cms/uploads/attachment/file/\d+/producto-aeropuertos?-2006-[^\"]+\.xlsx")
     path = dl(url, os.path.join(RAW, os.path.basename(url)))
     z = zipfile.ZipFile(path)
     ns = {"m": "http://schemas.openxmlformats.org/spreadsheetml/2006/main"}

@@ -57,7 +57,7 @@ def afac_workbook(force=False):
     r = S.get(AFAC_PAGE, timeout=120)
     r.raise_for_status()
     m = re.search(r"/cms/uploads/attachment/file/\d+/"
-                  r"producto-aeropuerto-2006-[^\"]+\.xlsx", r.text)
+                  r"producto-aeropuertos?-2006-[^\"]+\.xlsx", r.text)
     if not m:
         raise RuntimeError("AFAC workbook link not found on " + AFAC_PAGE)
     url = "https://www.gob.mx" + m.group(0)
