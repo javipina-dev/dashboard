@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-06",
+ "updated": "2026-10-12",
  "method_version": 1,
  "items": [
   {
@@ -20,7 +20,7 @@
    ],
    "id": "combustible-aviacion-recortes-capacidad-eeuu",
    "title": "Turbosina cara por la guerra con Irán: aerolíneas de EE.UU. recortan vuelos y las tarifas aéreas suben 23.4% interanual",
-   "summary": "IATA prevé una turbosina promedio de 152 USD/barril en 2026 (+70% frente a 2025), pero el precio observado ya está muy por encima: la EIA registró el Brent spot en 113.96 USD y la turbosina de la Costa del Golfo en 4.399 USD/galón el 29 de septiembre, y el FMI señaló el 1 de octubre que el combustible de aviación está 60–97% por encima de antes del conflicto. Irán sostiene que el estrecho de Ormuz seguirá cerrado hasta que EE.UU. cumpla sus condiciones, y el 4 de octubre un tanquero fue alcanzado en la zona. En agosto el índice de tarifas aéreas del IPC de EE.UU. subió 23.4% interanual y United, American y Southwest recortan rutas de menor margen desde diciembre; los anuncios todavía no nombran rutas al Caribe ni a México.",
+   "summary": "IATA prevé una turbosina promedio de 152 USD/barril en 2026 (+70% frente a 2025), pero el precio observado ya está muy por encima: la EIA registró el Brent spot en 113.96 USD y la turbosina de la Costa del Golfo en 4.399 USD/galón el 29 de septiembre, y el FMI señaló el 1 de octubre que el combustible de aviación está 60–97% por encima de antes del conflicto. Irán sostiene que el estrecho de Ormuz seguirá cerrado hasta que EE.UU. cumpla sus condiciones, y el 4 de octubre un tanquero fue alcanzado en la zona. En agosto el índice de tarifas aéreas del IPC de EE.UU. subió 23.4% interanual y United, American y Southwest recortan rutas de menor margen desde diciembre; los anuncios todavía no nombran rutas al Caribe ni a México. Al 12 de octubre la turbosina de la Costa del Golfo cotiza en 4.42 USD por galón, más del doble que hace un año, y el STEO de octubre de la EIA eleva el Brent previsto para el cuarto trimestre a 105 USD por barril suponiendo flujos de Medio Oriente restringidos todo el trimestre.",
    "category": "aviacion",
    "direction": "negativo",
    "destinations": [
@@ -31,7 +31,7 @@
    ],
    "horizon": "inmediato",
    "impact": "alto",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Short-Term Energy Outlook (septiembre 2026)",
@@ -123,6 +123,34 @@
      "org": "Haaretz",
      "date": "2026-10-04",
      "tier": "prensa"
+    },
+    {
+     "title": "Short-Term Energy Outlook",
+     "url": "https://www.eia.gov/outlooks/steo/",
+     "org": "U.S. Energy Information Administration",
+     "date": "2026-10-06",
+     "tier": "oficial"
+    },
+    {
+     "title": "U.S. Gulf Coast Kerosene-Type Jet Fuel Spot Price FOB (Weekly)",
+     "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=EER_EPJK_PF4_RGC_DPG&f=W",
+     "org": "U.S. Energy Information Administration",
+     "date": "2026-10-02",
+     "tier": "oficial"
+    },
+    {
+     "title": "Hormuz ship attacks surge: Are increased oil exports sustainable?",
+     "url": "https://www.aljazeera.com/news/2026/10/6/hormuz-ship-attacks-surge-are-increased-oil-exports-sustainable",
+     "org": "Al Jazeera",
+     "date": "2026-10-06",
+     "tier": "prensa"
+    },
+    {
+     "title": "Iran Ramps Up Ship Attacks in Hormuz as Oil, Gas Flows Rise",
+     "url": "https://www.energyconnects.com/news/gas-lng/2026/october/iran-ramps-up-ship-attacks-in-hormuz-as-oil-gas-flows-rise/",
+     "org": "Bloomberg (vía Energy Connects)",
+     "date": "2026-10-07",
+     "tier": "prensa"
     }
    ],
    "signal": {
@@ -167,7 +195,7 @@
    ],
    "horizon": "corto",
    "impact": "alto",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Travel advice and advisories: Cuba",
@@ -217,6 +245,20 @@
      "org": "EFE (vía Diario Libre)",
      "date": "2026-10-01",
      "tier": "prensa"
+    },
+    {
+     "title": "Cuba",
+     "url": "https://travel.gc.ca/destinations/cuba",
+     "org": "Global Affairs Canada",
+     "date": "2026-10-05",
+     "tier": "oficial"
+    },
+    {
+     "title": "Cuba restableció el servicio eléctrico en el oriente tras un nuevo apagón parcial",
+     "url": "https://infobae.com/cuba/2026/10/10/cuba-restablecio-el-servicio-electrico-en-el-oriente-tras-un-nuevo-apagon-parcial",
+     "org": "EFE (vía Infobae)",
+     "date": "2026-10-10",
+     "tier": "prensa"
     }
    ]
   },
@@ -253,7 +295,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Collado: “Tenemos asegurados más de 100 mil asientos aéreos desde Canadá”",
@@ -281,6 +323,13 @@
      "url": "https://noticias.mitur.gob.do/noticias/aerodom-anuncia-nuevas-rutas-aereas-entre-rd-y-canada-y-destaca-crecimiento-del-mercado-canadiense/",
      "org": "Ministerio de Turismo de República Dominicana",
      "date": "2026-09-08",
+     "tier": "oficial"
+    },
+    {
+     "title": "RD recibe más 9,2 millones de visitantes hasta septiembre",
+     "url": "https://noticias.mitur.gob.do/ministro-noticias/rd-recibe-mas-92-millones-de-visitantes-hasta-septiembre/",
+     "org": "Ministerio de Turismo de República Dominicana",
+     "date": "2026-10-06",
      "tier": "oficial"
     }
    ],
@@ -321,7 +370,7 @@
    ],
    "horizon": "corto",
    "impact": "alto",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "More Than 11,000 Hotel Rooms to Return to Inventory",
@@ -383,7 +432,7 @@
    ],
    "id": "temporada-huracanes-atlantico-bajo-normal",
    "title": "NOAA mantiene su pronóstico de temporada de huracanes del Atlántico por debajo de lo normal por un El Niño fuerte",
-   "summary": "La actualización de agosto de NOAA prevé 7–13 tormentas con nombre, 2–6 huracanes y 0–2 huracanes mayores, con 75% de probabilidad de una temporada por debajo de lo normal, y el CPC mantiene más de 90% de probabilidad de un El Niño muy fuerte. Al 6 de octubre no hay ciclones activos en el Atlántico, pero el NHC da 90% de probabilidad de formación a una baja en el suroeste del Golfo de México que podría traer lluvias y ráfagas al oeste de la península de Yucatán antes de girar hacia la costa norte del Golfo. NOAA aclara que no es un pronóstico de impactos en tierra: un solo huracán puede afectar a un destino aunque la temporada sea débil.",
+   "summary": "La actualización de agosto de NOAA prevé 7–13 tormentas con nombre, 2–6 huracanes y 0–2 huracanes mayores, con 75% de probabilidad de una temporada por debajo de lo normal, y en octubre el CPC prevé un El Niño fuerte a muy fuerte hasta el primer trimestre de 2027. La baja del Golfo que vigilaba el NHC se convirtió en el huracán Isaias, pasó al norte de la península de Yucatán sin avisos para México y tocó tierra en el noroeste de Florida; al 12 de octubre no hay ciclones activos en el Atlántico. NOAA aclara que no es un pronóstico de impactos en tierra: un solo huracán puede afectar a un destino aunque la temporada sea débil.",
    "category": "clima",
    "direction": "positivo",
    "destinations": [
@@ -392,7 +441,7 @@
    "markets": [],
    "horizon": "inmediato",
    "impact": "bajo",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "NOAA 2026 Atlantic Hurricane Season Outlook (August update)",
@@ -420,6 +469,27 @@
      "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
      "org": "NOAA Climate Prediction Center",
      "date": "2026-09-10",
+     "tier": "oficial"
+    },
+    {
+     "title": "Hurricane Isaias Public Advisory Number 7",
+     "url": "https://www.nhc.noaa.gov/archive/2026/al09/al092026.public.007.shtml",
+     "org": "NOAA National Hurricane Center",
+     "date": "2026-10-08",
+     "tier": "oficial"
+    },
+    {
+     "title": "Post-Tropical Cyclone Isaias Public Advisory Number 20",
+     "url": "https://www.nhc.noaa.gov/archive/2026/al09/al092026.public.020.shtml",
+     "org": "NOAA National Hurricane Center",
+     "date": "2026-10-11",
+     "tier": "oficial"
+    },
+    {
+     "title": "ENSO Diagnostic Discussion",
+     "url": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/enso_advisory/ensodisc.shtml",
+     "org": "NOAA Climate Prediction Center",
+     "date": "2026-10-08",
      "tier": "oficial"
     }
    ]
@@ -454,7 +524,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Spirit Airlines ceases operations after escalating financial struggles",
@@ -527,7 +597,7 @@
    ],
    "id": "eeuu-inflacion-alza-tasas-fed",
    "title": "EE.UU.: la inflación de 3.4% supera el alza salarial de 3.0%, la Fed subió su tasa a 3.75–4% y la confianza del consumidor cae a su mínimo desde 2014",
-   "summary": "El 16 de septiembre la Reserva Federal subió la tasa de fondos federales a 3.75–4% y los gobernadores Barr y Jefferson dijeron después que la inflación sigue demasiado alta y que probablemente harán falta más ajustes. En septiembre se crearon solo 29,000 empleos, el salario por hora creció 3.0% frente a una inflación de 3.4%, y el índice de confianza del Conference Board cayó a 81.9, su nivel más bajo desde 2014, con menos planes de viaje al exterior y más de viaje doméstico. Queda por ver si el ajuste se traduce en menos viajes de ocio al exterior en la temporada alta o solo en viajes más cortos o más baratos.",
+   "summary": "El 16 de septiembre la Reserva Federal subió la tasa de fondos federales a 3.75–4% y los gobernadores Barr y Jefferson dijeron después que la inflación sigue demasiado alta y que probablemente harán falta más ajustes. En septiembre se crearon solo 29,000 empleos, el salario por hora creció 3.0% frente a una inflación de 3.4%, y el índice de confianza del Conference Board cayó a 81.9, su nivel más bajo desde 2014, con menos planes de viaje al exterior y más de viaje doméstico. Queda por ver si el ajuste se traduce en menos viajes de ocio al exterior en la temporada alta o solo en viajes más cortos o más baratos. En octubre el sentimiento preliminar de la Universidad de Michigan bajó a 46.3 desde 48.1 y la inflación esperada a un año subió a 4.7%; el IPC de septiembre sale el 14 de octubre.",
    "category": "macro",
    "direction": "negativo",
    "destinations": [
@@ -538,7 +608,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Federal Reserve issues FOMC statement (September 16, 2026)",
@@ -587,6 +657,13 @@
      "url": "https://www.prnewswire.com/news-releases/us-consumer-confidence-fell-in-september-302892867.html",
      "org": "The Conference Board",
      "date": "2026-09-29",
+     "tier": "institucional"
+    },
+    {
+     "title": "Surveys of Consumers – Preliminary Results for October 2026",
+     "url": "https://www.sca.isr.umich.edu/",
+     "org": "University of Michigan",
+     "date": "2026-10-09",
      "tier": "institucional"
     }
    ],
@@ -692,8 +769,8 @@
     }
    ],
    "id": "monedas-latam-fuertes-colombia-brasil",
-   "title": "El peso colombiano se apreció ~24% y el real ~3% frente al dólar en un año, lo que abarata los viajes al exterior",
-   "summary": "La TRM oficial bajó de 3,881.92 pesos por dólar (17 sep 2025) a 3,128.46 (17 sep 2026); tras subir a 3,349.63 el 29 de septiembre volvió a 3,209.78 el 6 de octubre, ~17% más fuerte que hace un año. El real se apreció 4.6% en un día tras la primera vuelta electoral en Brasil (PTAX 4.9859 el 5 de octubre, frente a 5.2238 el 2 de octubre), con segunda vuelta el 25 de octubre. Monedas más fuertes aumentan el poder de compra de colombianos y brasileños en destinos con precios en dólares como República Dominicana, Panamá, Cancún, Aruba y Curazao; para Cartagena el efecto es el opuesto, y no hay datos oficiales recientes de viajes al exterior de estos mercados que confirmen el efecto.",
+   "title": "El peso colombiano se apreció ~22% y el real ~7% frente al dólar en un año, lo que abarata los viajes al exterior",
+   "summary": "La TRM oficial bajó de 3,881.92 pesos por dólar (17 sep 2025) a 3,128.46 (17 sep 2026); tras subir a 3,349.63 el 29 de septiembre volvió a 3,209.78 el 6 de octubre, ~17% más fuerte que hace un año. El real se apreció 4.6% en un día tras la primera vuelta electoral en Brasil (PTAX 4.9859 el 5 de octubre, frente a 5.2238 el 2 de octubre), con segunda vuelta el 25 de octubre. Monedas más fuertes aumentan el poder de compra de colombianos y brasileños en destinos con precios en dólares como República Dominicana, Panamá, Cancún, Aruba y Curazao; para Cartagena el efecto es el opuesto, y no hay datos oficiales recientes de viajes al exterior de estos mercados que confirmen el efecto. Al 10 de octubre la TRM está en 3,194.44 pesos, frente a 3,894.99 un año antes, y la PTAX del 9 de octubre en 4.9892 reales, frente a 5.3538: el real se fortaleció tras la primera vuelta presidencial del 5 de octubre y la segunda vuelta es el 25 de octubre.",
    "category": "mercado_emisor",
    "direction": "positivo",
    "destinations": [
@@ -709,7 +786,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Tasa de Cambio Representativa del Mercado (TRM) – datos abiertos",
@@ -759,6 +836,20 @@
      "org": "Al Jazeera",
      "date": "2026-10-05",
      "tier": "prensa"
+    },
+    {
+     "title": "Tasa de Cambio Representativa del Mercado (TRM)",
+     "url": "https://www.datos.gov.co/resource/32sa-8pi3.json",
+     "org": "Superintendencia Financiera de Colombia (datos.gov.co)",
+     "date": "2026-10-10",
+     "tier": "oficial"
+    },
+    {
+     "title": "PTAX – CotacaoDolarPeriodo",
+     "url": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/",
+     "org": "Banco Central do Brasil",
+     "date": "2026-10-09",
+     "tier": "oficial"
     }
    ],
    "signal": {
@@ -790,7 +881,7 @@
    ],
    "id": "sargazo-record-caribe-mexicano",
    "title": "Récord de sargazo en Quintana Roo: unas 138,000 toneladas recolectadas en 2026, frente a 92,782 en todo 2025",
-   "summary": "En 2026 se han retirado unas 138,000 toneladas de sargazo en Quintana Roo según la Secretaría de Ecología y Medio Ambiente estatal, 67% más que en todo 2025, con arribos fuertes en Tulum, Playa del Carmen, Puerto Morelos, Cancún y Cozumel; la temporada empezó dos meses antes. La red de monitoreo estatal indica que el recale disminuye desde el pico de junio y julio, aunque la SEMA no descarta superar las 150,000 toneladas en el año. No hay una cuantificación oficial de su efecto sobre las llegadas.",
+   "summary": "En 2026 se han retirado unas 138,000 toneladas de sargazo en Quintana Roo según la Secretaría de Ecología y Medio Ambiente estatal, 67% más que en todo 2025, con arribos fuertes en Tulum, Playa del Carmen, Puerto Morelos, Cancún y Cozumel; la temporada empezó dos meses antes. La red de monitoreo estatal indica que el recale disminuye desde el pico de junio y julio, aunque la SEMA no descarta superar las 150,000 toneladas en el año. No hay una cuantificación oficial de su efecto sobre las llegadas. Al 8 de octubre la Secretaría de Marina clasifica el nivel de sargazo como muy bajo, aunque 21 de 140 playas monitoreadas aún tenían recale excesivo.",
    "category": "clima",
    "direction": "negativo",
    "destinations": [
@@ -799,7 +890,7 @@
    "markets": [],
    "horizon": "inmediato",
    "impact": "medio",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Sargazo: Semar bate récord de recolección en Quintana Roo",
@@ -834,6 +925,13 @@
      "url": "https://quintanaroo.heraldodemexico.com.mx/local/2026/10/3/cuando-se-va-el-sargazo-esto-dicen-los-pronosticos-para-octubre-en-quintana-roo-17173.html",
      "org": "Heraldo de México",
      "date": "2026-10-03",
+     "tier": "prensa"
+    },
+    {
+     "title": "Secretaría de Marina reporta bajo nivel de sargazo en Quintana Roo",
+     "url": "https://www.poresto.com/quintana-roo/2026/10/8/secretaria-marina-reporta-bajo-nivel-sargazo-quintana-roo.html",
+     "org": "Por Esto!",
+     "date": "2026-10-08",
      "tier": "prensa"
     }
    ],
@@ -871,7 +969,7 @@
    "markets": [],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Preocupa a hoteleros alza en Derecho de No Residente en 2027",
@@ -892,6 +990,13 @@
      "url": "https://www.milenio.com/politica/comision-hacienda-avanza-paquete-economico-2027",
      "org": "Milenio",
      "date": "2026-09-27",
+     "tier": "prensa"
+    },
+    {
+     "title": "Diputados alistan votación de ingresos 2027; proponen ampliar RESICO",
+     "url": "https://lasillarota.com/nacion/2026/10/11/diputados-votaran-paquete-economico-2027-y-ampliar-resico-532567.html",
+     "org": "La Silla Rota",
+     "date": "2026-10-11",
      "tier": "prensa"
     }
    ]
@@ -925,7 +1030,7 @@
    ],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Leading indicator of international arrivals to Canada, August 2026",
@@ -972,7 +1077,7 @@
    ],
    "horizon": "inmediato",
    "impact": "bajo",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Chikungunya in Costa Rica – Level 2 Travel Health Notice",
@@ -1010,7 +1115,7 @@
    "markets": [],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "International tourism holds steady with 0.4% growth in first half of 2026 as Middle East conflict and rising costs weigh on momentum",
@@ -1039,7 +1144,7 @@
    ],
    "id": "curazao-tasa-entrada-turistas-2027",
    "title": "Curazao propone cobrar una tasa de entrada de 75 USD por visitante desde el 1 de enero de 2027",
-   "summary": "El proyecto de presupuesto 2027 incluye una tasa de 75 USD por visitante no residente (10 USD para algunos grupos) en sustitución del impuesto de alojamiento, con una recaudación prevista de ~82 millones de florines en 2027. El ministro de Finanzas reconoce que encarece los viajes cortos de brasileños, argentinos y colombianos, que suelen quedarse de 1 a 4 días, mientras abarata las estadías largas de europeos. La ley aún no está aprobada y el órgano de supervisión financiera (Cft) advierte que el trámite y la puesta en marcha no están cerrados.",
+   "summary": "El proyecto de presupuesto 2027 incluye una tasa de 75 USD por visitante no residente (10 USD para algunos grupos) en sustitución del impuesto de alojamiento, con una recaudación prevista de ~82 millones de florines en 2027. El ministro de Finanzas reconoce que encarece los viajes cortos de brasileños, argentinos y colombianos, que suelen quedarse de 1 a 4 días, mientras abarata las estadías largas de europeos. La ley aún no está aprobada y el órgano de supervisión financiera (Cft) advierte que el trámite y la puesta en marcha no están cerrados. El borrador de ley citado por la prensa local menciona 65 USD, frente a los 75 USD anunciados por el ministro, y los Staten aún no lo han votado.",
    "category": "regulacion",
    "direction": "negativo",
    "destinations": [
@@ -1052,7 +1157,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-10-06",
+   "last_confirmed": "2026-10-12",
    "evidence": [
     {
      "title": "Toerist gaat vanaf 2027 75 dollar betalen bij aankomst op Curaçao",
@@ -1067,6 +1172,78 @@
      "org": "Curaçao.nu",
      "date": "2026-09-15",
      "tier": "prensa"
+    },
+    {
+     "title": "Begroting 2027: Tourist Entry Tax wordt dragende pijler onder begroting Curaçao",
+     "url": "https://www.curacao.nu/nieuws/overheid/94874/begroting-2027-tourist-entry-tax-wordt-dragende-pijler-onder-begroting-curacao",
+     "org": "Curaçao.nu",
+     "date": "2026-09-10",
+     "tier": "prensa"
+    }
+   ]
+  },
+  {
+   "id": "terremoto-panama-azuero-2026",
+   "title": "Terremoto de magnitud 7.7 en el centro de Panamá el 9 de octubre; Canadá pide evitar viajes no esenciales a tres zonas de Veraguas",
+   "summary": "El USGS registró un sismo de magnitud 7.7 cerca de Pitaloza Arriba, en la península de Azuero, con daños preliminares en viviendas, escuelas, puentes y siete hoteles según la prensa panameña, y más de 100 réplicas. Canadá agregó una zona regional a evitar en Veraguas y el FCDO actualizó su consejo, sin cambio de nivel general; el aeropuerto de Tocumen opera sin daños visibles en pistas. Falta un balance oficial consolidado y saber si las réplicas afectan reservas de corto plazo.",
+   "category": "clima",
+   "direction": "negativo",
+   "destinations": [
+    "PA"
+   ],
+   "markets": [
+    "Estados Unidos",
+    "Canadá",
+    "Reino Unido"
+   ],
+   "horizon": "inmediato",
+   "impact": "medio",
+   "status": "nuevo",
+   "first_seen": "2026-10-12",
+   "last_confirmed": "2026-10-12",
+   "closed_on": null,
+   "evidence": [
+    {
+     "title": "M 7.7 - 12 km WSW of Pitaloza Arriba, Panama",
+     "url": "https://earthquake.usgs.gov/earthquakes/eventpage/us6000u18k",
+     "org": "U.S. Geological Survey",
+     "date": "2026-10-09",
+     "tier": "oficial"
+    },
+    {
+     "title": "Panama travel advice",
+     "url": "https://travel.gc.ca/destinations/panama",
+     "org": "Global Affairs Canada",
+     "date": "2026-10-11",
+     "tier": "oficial"
+    },
+    {
+     "title": "Panama travel advice",
+     "url": "https://www.gov.uk/foreign-travel-advice/panama",
+     "org": "FCDO",
+     "date": "2026-10-09",
+     "tier": "oficial"
+    },
+    {
+     "title": "Aeropuerto de Tocumen en Panamá descarta daños visibles en sus pistas tras el terremoto de 7.5 grados",
+     "url": "https://www.infobae.com/panama/2026/10/11/aeropuerto-de-tocumen-en-panama-descarta-danos-visibles-en-sus-pistas-tras-el-terremoto-de-75-grados/",
+     "org": "Infobae",
+     "date": "2026-10-11",
+     "tier": "prensa"
+    },
+    {
+     "title": "Dan primer balance de heridos y edificios colapsados tras terremoto de 7,7 en Panamá y fuertes réplicas: descartan por ahora pedir ayuda internacional",
+     "url": "https://www.eltiempo.com/mundo/latinoamerica/dan-primer-balance-de-heridos-y-edificios-colapsados-tras-terremoto-de-7-7-en-panama-y-fuertes-replicas-descartan-por-ahora-pedir-ayuda-internacional-3592633",
+     "org": "El Tiempo",
+     "date": "2026-10-10",
+     "tier": "prensa"
+    }
+   ],
+   "history": [
+    {
+     "date": "2026-10-12",
+     "status": "nuevo",
+     "note": "Alta en el barrido del 12-oct."
     }
    ]
   }

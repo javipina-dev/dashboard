@@ -12,7 +12,7 @@
    "format": "xls",
    "update_frequency": "monthly",
    "release_lag": "~6-8 weeks after the end of the reference month",
-   "last_period": "2026-08",
+   "last_period": "2026-09",
    "retrieved": "2026-09-17",
    "access_method": "GET https://cdn.bancentral.gov.do/documents/estadisticas/sector-turismo/documents/lleg_residencia_{YYYY}.xls for each year 2019..current (no auth, stable names; the file list is on the 'Sector turismo' page, also served as https://www.bancentral.gov.do/a/CustomView/2537-sector-turismo). Legacy BIFF xls -> pandas.read_excel(sheet_name=0, header=None) with xlrd. Sheet 0 stacks several tables: take only the first one, 'TOTAL NACIONAL <year>' (the ones that follow are per-airport: Las Américas, Puerto Plata, Punta Cana, ...). Find the label column by looking for the 'RESIDENCIA' stub head (col 0 for 2022+ and 2026, col 1 for 2019 and 2021), then TOTAL is label_col+1 and ENE..DIC are label_col+2..label_col+13. Walk the rows keeping track of the RESIDENTES / NO RESIDENTES section and of the current region heading (AMERICA DEL NORTE, AMERICA CENTRAL Y EL CARIBE, AMERICA DEL SUR, ASIA, EUROPA, RESTO DEL MUNDO). In the current-year file months not yet released are written as 0 - drop them. Re-download every year on each run: the BCRD revises past years (the 2022-2025 files were re-published in Aug-2026)."
   },
@@ -377,15 +377,19 @@
     ],
     [
      "2026-06",
-     354665
+     351065
     ],
     [
      "2026-07",
-     369418
+     365353
     ],
     [
      "2026-08",
-     259871
+     257549
+    ],
+    [
+     "2026-09",
+     171571
     ]
    ],
    "Canadá": [
@@ -756,6 +760,10 @@
     [
      "2026-08",
      52731
+    ],
+    [
+     "2026-09",
+     48198
     ]
    ],
    "Argentina": [
@@ -1126,6 +1134,10 @@
     [
      "2026-08",
      29879
+    ],
+    [
+     "2026-09",
+     32454
     ]
    ],
    "Colombia": [
@@ -1496,6 +1508,10 @@
     [
      "2026-08",
      46685
+    ],
+    [
+     "2026-09",
+     38206
     ]
    ],
    "Puerto Rico": [
@@ -1857,15 +1873,19 @@
     ],
     [
      "2026-06",
-     31612
+     35211
     ],
     [
      "2026-07",
-     37561
+     41625
     ],
     [
      "2026-08",
-     18166
+     20488
+    ],
+    [
+     "2026-09",
+     15357
     ]
    ],
    "Reino Unido": [
@@ -2236,6 +2256,10 @@
     [
      "2026-08",
      21147
+    ],
+    [
+     "2026-09",
+     15553
     ]
    ],
    "España": [
@@ -2606,6 +2630,10 @@
     [
      "2026-08",
      21310
+    ],
+    [
+     "2026-09",
+     10418
     ]
    ],
    "Francia": [
@@ -2976,6 +3004,10 @@
     [
      "2026-08",
      9385
+    ],
+    [
+     "2026-09",
+     6218
     ]
    ],
    "Alemania": [
@@ -3346,6 +3378,10 @@
     [
      "2026-08",
      8046
+    ],
+    [
+     "2026-09",
+     7281
     ]
    ],
    "Brasil": [
@@ -3716,6 +3752,10 @@
     [
      "2026-08",
      11663
+    ],
+    [
+     "2026-09",
+     12666
     ]
    ],
    "Chile": [
@@ -4086,6 +4126,10 @@
     [
      "2026-08",
      7793
+    ],
+    [
+     "2026-09",
+     12575
     ]
    ],
    "Italia": [
@@ -4456,6 +4500,10 @@
     [
      "2026-08",
      10681
+    ],
+    [
+     "2026-09",
+     4466
     ]
    ],
    "México": [
@@ -4826,6 +4874,10 @@
     [
      "2026-08",
      20499
+    ],
+    [
+     "2026-09",
+     15843
     ]
    ],
    "Dominicanos no residentes": [
@@ -5191,11 +5243,15 @@
     ],
     [
      "2026-07",
-     166814
+     166815
     ],
     [
      "2026-08",
      134356
+    ],
+    [
+     "2026-09",
+     88982
     ]
    ],
    "Otros": [
@@ -5557,7 +5613,7 @@
     ],
     [
      "2026-06",
-     56818
+     56819
     ],
     [
      "2026-07",
@@ -5566,15 +5622,19 @@
     [
      "2026-08",
      73269
+    ],
+    [
+     "2026-09",
+     54005
     ]
    ]
   },
   "notes": [
-   "Fuente: BCRD, 'Llegada mensual de pasajeros, vía aérea, por país de residencia', cuadro TOTAL NACIONAL de lleg_residencia_{YYYY}.xls. Un archivo por año; aquí se unieron los años 2019-2026 (2019-01 a 2026-08).",
+   "Fuente: BCRD, 'Llegada mensual de pasajeros, vía aérea, por país de residencia', cuadro TOTAL NACIONAL de lleg_residencia_{YYYY}.xls. Un archivo por año; aquí se unieron los años 2019-2026 (2019-01 a 2026-09).",
    "Definición: pasajeros NO RESIDENTES llegados por vía aérea, clasificados por país de residencia (no por nacionalidad; el BCRD publica la nacionalidad en un archivo aparte, lleg_nacionalidad_{YYYY}.xls). Excluye residentes dominicanos y extranjeros residentes que regresan al país, y excluye la llegada marítima.",
    "Estructura de la fuente: el desglose por país de residencia cubre únicamente a los NO RESIDENTES EXTRANJEROS. Se verificó mes a mes, para los 91 meses, que la suma de los seis bloques regionales (América del Norte, América Central y el Caribe, América del Sur, Asia, Europa, Resto del Mundo) iguala exactamente la fila 'NO RESIDENTES - EXTRANJEROS'.",
    "Los dominicanos no residentes (la diáspora, 1.5 millones en 2025) no tienen desglose por país de residencia en este archivo, por lo que se incluyen como una serie propia y publicada, 'Dominicanos no residentes'. Con ella, las series suman el total publicado de NO RESIDENTES.",
-   "VALIDACIÓN: la suma de todos los mercados iguala EXACTAMENTE la serie 'arrivals_air_nonresident' de data/DO.json (misma fuente BCRD, archivo lleg_total.xls) en los 92 meses 2019-01-2026-08.",
+   "VALIDACIÓN: la suma de todos los mercados iguala EXACTAMENTE la serie 'arrivals_air_nonresident' de data/DO.json (misma fuente BCRD, archivo lleg_total.xls) en los 93 meses 2019-01-2026-09.",
    "Excluyendo 'Dominicanos no residentes', los 13 mercados por país más 'Otros' suman la serie 'arrivals_air_nonresident_foreign' de data/DO.json (no residentes extranjeros) con una diferencia máxima de 8 persona(s), atribuible al redondeo (ver nota siguiente).",
    "'Otros' = no residentes extranjeros publicados menos los 13 países nombrados. Contiene las filas 'Otros' que el propio BCRD publica en cada región más los países que no se nombran aquí (los mayores: Perú, Panamá, Holanda, Suiza, Portugal, Polonia, Guatemala, Ecuador, Uruguay, Costa Rica, China).",
    "El BCRD publica estas cifras con decimales porque son conteos ponderados (expansión de la muestra del formulario de entrada / e-ticket). Para que las series enteras sumen exactamente el total publicado se redondea con reparto por mayor resto (largest remainder): cada valor queda a menos de una persona de la cifra decimal de la fuente y la suma cuadra al entero exacto. Sin esto, redondear 15 componentes por separado desajusta el total en unas pocas unidades, lo que importa en el mínimo de abril-junio de 2020 (meses de apenas 217-1,021 no residentes por el cierre de fronteras).",
