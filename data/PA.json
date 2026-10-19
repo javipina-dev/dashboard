@@ -385,12 +385,12 @@
     "org": "Instituto Nacional de Estadística y Censo (INEC), Contraloría General de la República de Panamá – Sección de Balanza de Pagos (datos de Servicio Nacional de Migración, ATP, AMP)",
     "title": "Principales Indicadores Económicos Mensuales – Entrada de viajeros y sus gastos",
     "page_url": "https://www.inec.gob.pa/avance/Default2.aspx?ID_CATEGORIA=1&ID_CIFRAS=52&ID_IDIOMA=1",
-    "file_url": "https://www.inec.gob.pa/archivos/A0533424202610011328432026_entrada_pasajeros.xls",
+    "file_url": "https://www.inec.gob.pa/archivos/A02895625202610150821482026_entrada_pasajeros.xls",
     "format": "xlsx",
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas (julio 2026 publicado 15-09-2026)",
     "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "retrieved": "2026-10-19",
     "access_method": "Leer el listado INEC Avance en cifras > Indicadores de coyuntura (Default.aspx?ID_CATEGORIA=1) para obtener el ID_CIFRAS de cada \"Principales Indicadores Económicos Mensuales - <año>\"; en cada página Default2.aspx?ID_CIFRAS=<id> tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización) y descargarlo (año en curso y anterior en cada corrida). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
    }
   },
@@ -774,12 +774,12 @@
     "org": "Instituto Nacional de Estadística y Censo (INEC), Contraloría General de la República de Panamá – Sección de Balanza de Pagos (datos de Servicio Nacional de Migración, ATP, AMP)",
     "title": "Principales Indicadores Económicos Mensuales – Entrada de viajeros y sus gastos",
     "page_url": "https://www.inec.gob.pa/avance/Default2.aspx?ID_CATEGORIA=1&ID_CIFRAS=52&ID_IDIOMA=1",
-    "file_url": "https://www.inec.gob.pa/archivos/A0533424202610011328432026_entrada_pasajeros.xls",
+    "file_url": "https://www.inec.gob.pa/archivos/A02895625202610150821482026_entrada_pasajeros.xls",
     "format": "xlsx",
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas (julio 2026 publicado 15-09-2026)",
     "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "retrieved": "2026-10-19",
     "access_method": "Leer el listado INEC Avance en cifras > Indicadores de coyuntura (Default.aspx?ID_CATEGORIA=1) para obtener el ID_CIFRAS de cada \"Principales Indicadores Económicos Mensuales - <año>\"; en cada página Default2.aspx?ID_CIFRAS=<id> tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización) y descargarlo (año en curso y anterior en cada corrida). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
    }
   },
@@ -1163,12 +1163,12 @@
     "org": "Instituto Nacional de Estadística y Censo (INEC), Contraloría General de la República de Panamá – Sección de Balanza de Pagos (datos de Servicio Nacional de Migración, ATP, AMP)",
     "title": "Principales Indicadores Económicos Mensuales – Entrada de viajeros y sus gastos",
     "page_url": "https://www.inec.gob.pa/avance/Default2.aspx?ID_CATEGORIA=1&ID_CIFRAS=52&ID_IDIOMA=1",
-    "file_url": "https://www.inec.gob.pa/archivos/A0533424202610011328432026_entrada_pasajeros.xls",
+    "file_url": "https://www.inec.gob.pa/archivos/A02895625202610150821482026_entrada_pasajeros.xls",
     "format": "xlsx",
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas (julio 2026 publicado 15-09-2026)",
     "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "retrieved": "2026-10-19",
     "access_method": "Leer el listado INEC Avance en cifras > Indicadores de coyuntura (Default.aspx?ID_CATEGORIA=1) para obtener el ID_CIFRAS de cada \"Principales Indicadores Económicos Mensuales - <año>\"; en cada página Default2.aspx?ID_CIFRAS=<id> tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización) y descargarlo (año en curso y anterior en cada corrida). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
    }
   },
@@ -1552,12 +1552,12 @@
     "org": "Instituto Nacional de Estadística y Censo (INEC), Contraloría General de la República de Panamá – Sección de Balanza de Pagos (datos de Servicio Nacional de Migración, ATP, AMP)",
     "title": "Principales Indicadores Económicos Mensuales – Entrada de viajeros y sus gastos",
     "page_url": "https://www.inec.gob.pa/avance/Default2.aspx?ID_CATEGORIA=1&ID_CIFRAS=52&ID_IDIOMA=1",
-    "file_url": "https://www.inec.gob.pa/archivos/A0533424202610011328432026_entrada_pasajeros.xls",
+    "file_url": "https://www.inec.gob.pa/archivos/A02895625202610150821482026_entrada_pasajeros.xls",
     "format": "xlsx",
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas (julio 2026 publicado 15-09-2026)",
     "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "retrieved": "2026-10-19",
     "access_method": "Leer el listado INEC Avance en cifras > Indicadores de coyuntura (Default.aspx?ID_CATEGORIA=1) para obtener el ID_CIFRAS de cada \"Principales Indicadores Económicos Mensuales - <año>\"; en cada página Default2.aspx?ID_CIFRAS=<id> tomar el enlace ../archivos/*entrada_pasajeros.xls (también .csv/.pdf; nombre con timestamp cambia en cada actualización) y descargarlo (año en curso y anterior en cada corrida). Leer XLS (xlrd): filas de meses del año previo y del año en curso (P); cifras en miles de personas con 3 decimales."
    }
   }

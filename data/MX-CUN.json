@@ -183,17 +183,21 @@
     [
      "2026-07",
      700782
+    ],
+    [
+     "2026-08",
+     521288
     ]
    ],
    "source": {
     "org": "SECTUR – DataTur, con datos de la Unidad de Política Migratoria, Registro e Identidad de Personas (SEGOB) / INM",
     "title": "Entradas aéreas de turistas extranjeros por país de residencia y aeropuerto (reporte mensual RES_AAAA_MM)",
     "page_url": "https://datatur.sectur.gob.mx/SitePages/upmresidencia.aspx",
-    "file_url": "https://datatur.sectur.gob.mx/Documentoscompartidos/upm/RES_2026_07.pdf",
+    "file_url": "https://datatur.sectur.gob.mx/Documentoscompartidos/upm/RES_2026_08.pdf",
     "format": "pdf",
     "update_frequency": "mensual",
     "release_lag": "~5-7 semanas",
-    "last_period": "2026-07",
+    "last_period": "2026-08",
     "retrieved": "2026-09-17",
     "access_method": "Download https://datatur.sectur.gob.mx/Documentoscompartidos/upm/RES_YYYY_MM.pdf (UA curl) for each month since 2024-01; page 2 table 'por país de Residencia y Aeropuerto', third block (mes) gives prior-year and current month; prior-year (revised) value preferred over the preliminary one."
    }
@@ -2205,6 +2209,10 @@
     [
      "2026-07",
      2263.19
+    ],
+    [
+     "2026-08",
+     1772.79
     ]
    ],
    "source": {
@@ -2215,7 +2223,7 @@
     "format": "csv",
     "update_frequency": "mensual",
     "release_lag": "~6 semanas (jul-2026 publicado 14-sep-2026 en boletín INEGI EVI)",
-    "last_period": "2026-07",
+    "last_period": "2026-08",
     "retrieved": "2026-09-17",
     "access_method": "POST form to consultarSeries with idCuadro=CE36, series=SE28552&series=SE28570&series=SE28582, anoInicial/anoFinal, tipoInformacion=4,1, formatoCSV.x=5&formatoCSV.y=5 (no token). Alternative: Banxico SIE REST API (requires free token) or INEGI BIE API (token)."
    }
@@ -2590,6 +2598,10 @@
     [
      "2026-07",
      1223.18
+    ],
+    [
+     "2026-08",
+     1269.58
     ]
    ],
    "source": {
@@ -2600,7 +2612,7 @@
     "format": "csv",
     "update_frequency": "mensual",
     "release_lag": "~6 semanas (jul-2026 publicado 14-sep-2026 en boletín INEGI EVI)",
-    "last_period": "2026-07",
+    "last_period": "2026-08",
     "retrieved": "2026-09-17",
     "access_method": "POST form to consultarSeries with idCuadro=CE36, series=SE28552&series=SE28570&series=SE28582, anoInicial/anoFinal, tipoInformacion=4,1, formatoCSV.x=5&formatoCSV.y=5 (no token). Alternative: Banxico SIE REST API (requires free token) or INEGI BIE API (token)."
    }
@@ -2975,6 +2987,10 @@
     [
      "2026-07",
      1850258
+    ],
+    [
+     "2026-08",
+     1396364
     ]
    ],
    "source": {
@@ -2985,7 +3001,7 @@
     "format": "csv",
     "update_frequency": "mensual",
     "release_lag": "~6 semanas (jul-2026 publicado 14-sep-2026 en boletín INEGI EVI)",
-    "last_period": "2026-07",
+    "last_period": "2026-08",
     "retrieved": "2026-09-17",
     "access_method": "POST form to consultarSeries with idCuadro=CE36, series=SE28552&series=SE28570&series=SE28582, anoInicial/anoFinal, tipoInformacion=4,1, formatoCSV.x=5&formatoCSV.y=5 (no token). Alternative: Banxico SIE REST API (requires free token) or INEGI BIE API (token)."
    }
