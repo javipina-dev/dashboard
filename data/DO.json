@@ -395,7 +395,7 @@
     "update_frequency": "mensual",
     "release_lag": "~4-8 semanas tras el cierre del mes (julio 2026 publicado en agosto 2026)",
     "last_period": "2026-09",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -788,7 +788,7 @@
     "update_frequency": "mensual",
     "release_lag": "~4-8 semanas tras el cierre del mes (julio 2026 publicado en agosto 2026)",
     "last_period": "2026-09",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -1181,7 +1181,7 @@
     "update_frequency": "mensual",
     "release_lag": "~4-8 semanas tras el cierre del mes (julio 2026 publicado en agosto 2026)",
     "last_period": "2026-09",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -1574,7 +1574,7 @@
     "update_frequency": "mensual",
     "release_lag": "~4-8 semanas tras el cierre del mes (julio 2026 publicado en agosto 2026)",
     "last_period": "2026-09",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -1967,7 +1967,7 @@
     "release_lag": "~4-8 semanas tras el cierre del mes",
     "last_period": "2026-09",
     "access_method": "GET a lleg_maritima_1994-2025.xls (hojas por año) y lleg_maritima_mensual_{YYYY}.xls (año en curso). Fila 'TOTAL', columna PASAJEROS de cada mes. OJO: el nombre del histórico cambia cada año (1994-YYYY).",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -2212,11 +2212,11 @@
     "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
     "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Llegadas%20mar%C3%ADtimas.xlsx",
     "format": "xlsx",
-    "update_frequency": "mensual (Fecha de actualización: 7 de octubre del 2026)",
+    "update_frequency": "mensual (Fecha de actualización: 21 de octubre del 2026)",
     "release_lag": "~1 semana tras el cierre del mes",
     "last_period": "2026-09",
     "access_method": "GET directo al .xlsx (URL estable). Hoja 'Cruceristas por puerto': sumar columnas bajo 'Cruceros' (se verifica que Cruceros+Ferry = hoja 'Cruceristas' Pasajeros). Solo desde 2022.",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -2357,7 +2357,7 @@
     "release_lag": "~3-4 meses tras el cierre del trimestre (T1-2026 publicado 9-jul-2026)",
     "last_period": "2026-Q2",
     "access_method": "GET directo al .xlsx. Hoja 'Trim': fila 'C. Viajes' dentro del bloque 'I. CREDITO'; encabezados año (fila CONCEPTOS) y trimestre (E-M, A-J, J-S, O-D).",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -2498,7 +2498,7 @@
     "update_frequency": "trimestral",
     "release_lag": "~4 semanas tras el cierre del trimestre (T2-2026 publicado 28-jul-2026)",
     "access_method": "GET directo al .xls. Hoja 0: fila año seguida de filas t1..t4; col 1 = gasto promedio (US$), col 2 = estadía promedio (noches). La fila del año es el promedio anual ponderado (no se usa).",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -2639,7 +2639,7 @@
     "update_frequency": "trimestral",
     "release_lag": "~4 semanas tras el cierre del trimestre (T2-2026 publicado 28-jul-2026)",
     "access_method": "GET directo al .xls. Hoja 0: fila año seguida de filas t1..t4; col 1 = gasto promedio (US$), col 2 = estadía promedio (noches). La fila del año es el promedio anual ponderado (no se usa).",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -3020,7 +3020,7 @@
     "update_frequency": "mensual",
     "release_lag": "~4-8 semanas tras el cierre del mes",
     "access_method": "GET a turismo_ocupacion_{YYYY}.xls por año; columnas 'Total' y 'Punta Cana / Bávaro'; filas por mes (meses sin publicar vienen vacíos).",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -3401,7 +3401,7 @@
     "update_frequency": "mensual",
     "release_lag": "~4-8 semanas tras el cierre del mes",
     "access_method": "GET a turismo_ocupacion_{YYYY}.xls por año; columnas 'Total' y 'Punta Cana / Bávaro'; filas por mes (meses sin publicar vienen vacíos).",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -3485,7 +3485,7 @@
     ],
     [
      "2026-Q3",
-     80488
+     82040
     ]
    ],
    "source": {
@@ -3495,10 +3495,10 @@
     "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
     "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
     "format": "xlsx",
-    "update_frequency": "trimestral (Fecha de actualización: 7 de octubre del 2026)",
+    "update_frequency": "trimestral (Fecha de actualización: 21 de octubre del 2026)",
     "release_lag": "~5 semanas tras el cierre del trimestre (T2-2026 en archivo del 5-ago-2026)",
     "access_method": "GET directo al .xlsx. Hoja 'Habitaciones por zona'; filas Año/Trimestre; columnas por zona turística MITUR. Solo desde 2022.",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -3582,7 +3582,7 @@
     ],
     [
      "2026-Q3",
-     51552
+     52424
     ]
    ],
    "source": {
@@ -3592,10 +3592,10 @@
     "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
     "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
     "format": "xlsx",
-    "update_frequency": "trimestral (Fecha de actualización: 7 de octubre del 2026)",
+    "update_frequency": "trimestral (Fecha de actualización: 21 de octubre del 2026)",
     "release_lag": "~5 semanas tras el cierre del trimestre (T2-2026 en archivo del 5-ago-2026)",
     "access_method": "GET directo al .xlsx. Hoja 'Habitaciones por zona'; filas Año/Trimestre; columnas por zona turística MITUR. Solo desde 2022.",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   },
   {
@@ -3732,7 +3732,7 @@
     "release_lag": "~3-4 meses tras el cierre del trimestre (T1-2026 publicado 9-jul-2026)",
     "last_period": "2026-Q1",
     "access_method": "GET directo al .xls. Hoja 'IED por actividad trim': fila 'Turismo'; encabezados año (fila 'Actividad') y trimestre (E-M, A-J, J-S, O-D). Hoja 'IED por actividad anual' tiene totales anuales.",
-    "retrieved": "2026-10-19"
+    "retrieved": "2026-10-26"
    }
   }
  ],

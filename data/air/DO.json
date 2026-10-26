@@ -380,9 +380,9 @@
     "file_url": "https://www.bts.gov/sites/bts.dot.gov/files/docs/airline-data/international-segments/DB28SEG.FD.WAC.202508.202607.REL01.02OCT2026.zip (entrega más reciente; 80 entregas usadas, una por mes)",
     "format": "zip (ASCII separado por '|')",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 meses (a 2026-10-12 el último mes completo es 2026-07)",
+    "release_lag": "~2–3 meses (a 2026-10-26 el último mes completo es 2026-07)",
     "last_period": "2026-07",
-    "retrieved": "2026-10-12",
+    "retrieved": "2026-10-26",
     "access_method": "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>.<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y AIR_bts.py."
    }
   },
@@ -765,9 +765,9 @@
     "file_url": "https://www.bts.gov/sites/bts.dot.gov/files/docs/airline-data/international-segments/DB28SEG.FD.WAC.202508.202607.REL01.02OCT2026.zip (entrega más reciente; 80 entregas usadas, una por mes)",
     "format": "zip (ASCII separado por '|')",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 meses (a 2026-10-12 el último mes completo es 2026-07)",
+    "release_lag": "~2–3 meses (a 2026-10-26 el último mes completo es 2026-07)",
     "last_period": "2026-07",
-    "retrieved": "2026-10-12",
+    "retrieved": "2026-10-26",
     "access_method": "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>.<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y AIR_bts.py."
    }
   },
@@ -1150,9 +1150,9 @@
     "file_url": "https://www.bts.gov/sites/bts.dot.gov/files/docs/airline-data/international-segments/DB28SEG.FD.WAC.202508.202607.REL01.02OCT2026.zip (entrega más reciente; 80 entregas usadas, una por mes)",
     "format": "zip (ASCII separado por '|')",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 meses (a 2026-10-12 el último mes completo es 2026-07)",
+    "release_lag": "~2–3 meses (a 2026-10-26 el último mes completo es 2026-07)",
     "last_period": "2026-07",
-    "retrieved": "2026-10-12",
+    "retrieved": "2026-10-26",
     "access_method": "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>.<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y AIR_bts.py."
    }
   },
@@ -1535,9 +1535,9 @@
     "file_url": "https://www.bts.gov/sites/bts.dot.gov/files/docs/airline-data/international-segments/DB28SEG.FD.WAC.202508.202607.REL01.02OCT2026.zip (entrega más reciente; 80 entregas usadas, una por mes)",
     "format": "zip (ASCII separado por '|')",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 meses (a 2026-10-12 el último mes completo es 2026-07)",
+    "release_lag": "~2–3 meses (a 2026-10-26 el último mes completo es 2026-07)",
     "last_period": "2026-07",
-    "retrieved": "2026-10-12",
+    "retrieved": "2026-10-26",
     "access_method": "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>.<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y AIR_bts.py."
    }
   },
@@ -1920,9 +1920,9 @@
     "file_url": "https://www.bts.gov/sites/bts.dot.gov/files/docs/airline-data/international-segments/DB28SEG.FD.WAC.202508.202607.REL01.02OCT2026.zip (entrega más reciente; 80 entregas usadas, una por mes)",
     "format": "zip (ASCII separado por '|')",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 meses (a 2026-10-12 el último mes completo es 2026-07)",
+    "release_lag": "~2–3 meses (a 2026-10-26 el último mes completo es 2026-07)",
     "last_period": "2026-07",
-    "retrieved": "2026-10-12",
+    "retrieved": "2026-10-26",
     "access_method": "TranStats (DL_SelectFields.aspx?gnoyr_VQ=FJE) redirige a Maintenance.aspx?reason=db / ErrPage.asp desde 2026-09, y T-100 no está en /PREZIP ni en data.bts.gov. Se usa la publicación oficial de BTS 'Data Bank 28IS' (WAC): (1) leer la página de la publicación en bts.gov y extraer los enlaces DB28SEG.FD.WAC.<AAAAMM>.<AAAAMM>.REL<nn>.<ddMMMaaaa>.zip (ventana móvil de 12 meses, una entrega por mes); (2) cada mes se toma de la entrega MÁS RECIENTE que lo contiene; (3) cada zip trae un .asc separado por '|' con 28 campos (formato en el 'Reference File - DB28 SEGMENT Data Product'): 19 = DEPARTURES_PERFORMED, 22 = SEATS, 23 = PASSENGERS; (4) filtrar DEST=<IATA> y ORIGIN_WAC<100 (EE.UU. y territorios) para llegadas. bts.gov está tras Akamai: descargar con curl, HTTP/2 y cabeceras de navegador. Ver data/scripts/_bts.py y AIR_bts.py."
    }
   },
@@ -2300,18 +2300,22 @@
     [
      "2026-08",
      9432
+    ],
+    [
+     "2026-09",
+     7380
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -2689,18 +2693,22 @@
     [
      "2026-08",
      5897
+    ],
+    [
+     "2026-09",
+     4407
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -3078,18 +3086,22 @@
     [
      "2026-08",
      3535
+    ],
+    [
+     "2026-09",
+     2973
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -3467,18 +3479,22 @@
     [
      "2026-08",
      348
+    ],
+    [
+     "2026-09",
+     300
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -3856,18 +3872,22 @@
     [
      "2026-08",
      1692
+    ],
+    [
+     "2026-09",
+     1116
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -4245,18 +4265,22 @@
     [
      "2026-08",
      136
+    ],
+    [
+     "2026-09",
+     97
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -4634,18 +4658,22 @@
     [
      "2026-08",
      1445238
+    ],
+    [
+     "2026-09",
+     1061719
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -5023,18 +5051,22 @@
     [
      "2026-08",
      919259
+    ],
+    [
+     "2026-09",
+     659257
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -5412,18 +5444,22 @@
     [
      "2026-08",
      525979
+    ],
+    [
+     "2026-09",
+     402462
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -5801,18 +5837,22 @@
     [
      "2026-08",
      46458
+    ],
+    [
+     "2026-09",
+     36611
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -6190,18 +6230,22 @@
     [
      "2026-08",
      254209
+    ],
+    [
+     "2026-09",
+     157460
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -6579,18 +6623,22 @@
     [
      "2026-08",
      14334
+    ],
+    [
+     "2026-09",
+     9466
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -6968,18 +7016,22 @@
     [
      "2026-08",
      683742
+    ],
+    [
+     "2026-09",
+     510219
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -7357,18 +7409,22 @@
     [
      "2026-08",
      435682
+    ],
+    [
+     "2026-09",
+     321514
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -7746,18 +7802,22 @@
     [
      "2026-08",
      248060
+    ],
+    [
+     "2026-09",
+     188705
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -8135,18 +8195,22 @@
     [
      "2026-08",
      22711
+    ],
+    [
+     "2026-09",
+     17860
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -8524,18 +8588,22 @@
     [
      "2026-08",
      115461
+    ],
+    [
+     "2026-09",
+     68022
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   },
@@ -8913,18 +8981,22 @@
     [
      "2026-08",
      6835
+    ],
+    [
+     "2026-09",
+     4085
     ]
    ],
    "source": {
     "org": "Junta de Aviación Civil (JAC) – República Dominicana, Departamento de Economía, Sección Estadística",
     "title": "Informe de Pasajeros y Operaciones – Reporte Histórico 2005-<mes> <año> (hojas '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos')",
     "page_url": "https://jac.gob.do/transparencia/estadisticas-institucionales/",
-    "file_url": "https://jac.gob.do/wp-content/uploads/2026/09/Reporte-Historico-2005-Agosto-2026.xlsx",
+    "file_url": "https://jac.gob.do/wp-content/uploads/2023/06/Reporte-Historico-2005-septiembre-2026.xlsx",
     "format": "xlsx",
     "update_frequency": "mensual",
-    "release_lag": "~2–3 semanas (a 2026-10-12 el último mes publicado es 2026-08)",
-    "last_period": "2026-08",
-    "retrieved": "2026-10-12",
+    "release_lag": "~2–3 semanas (a 2026-10-26 el último mes publicado es 2026-09)",
+    "last_period": "2026-09",
+    "retrieved": "2026-10-26",
     "access_method": "Descargar el 'Reporte Histórico 2005-<mes> <año>.xlsx' enlazado en jac.gob.do/transparencia/estadisticas-institucionales/<año>/ (buscar por regex 'Reporte[-_ ]?Historico.*\\.xlsx'; requiere UA de navegador). Hoja '5. Pasajeros por Aeropuertos' y '17. Operaciones por Aeropuertos': bloques por año (col B = año), tres filas por aeropuerto (col B = nombre, col C = Entrada/Salida/Total) y columnas D..O = Enero..Diciembre. Recortar la cola de meses aún no publicados (vienen como 0). Ver data/scripts/AIR_national.py."
    }
   }

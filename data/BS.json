@@ -390,7 +390,7 @@
     "update_frequency": "mensual (PDF acumulado reemplazado cada mes)",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-08",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "Scrape page for 'Yearly Comparison of Stopover Visitors by Island and Month' PDF (one page per year, newest first); pdfplumber text rows 'Mon cur prev %chg' x4 regions; Out Islands prior-year column is split ('2 9,286') and must be re-joined."
    }
   },
@@ -779,7 +779,7 @@
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-08",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "Scrape page for 'Yearly Comparison of Stopover Visitors by Island and Month' PDF (one page per year, newest first); pdfplumber text rows 'Mon cur prev %chg' x4 regions; Out Islands prior-year column is split ('2 9,286') and must be re-joined."
    }
   },
@@ -1168,7 +1168,7 @@
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-08",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "Scrape page for 'Yearly Comparison of Stopover Visitors by Island and Month' PDF (one page per year, newest first); pdfplumber text rows 'Mon cur prev %chg' x4 regions; Out Islands prior-year column is split ('2 9,286') and must be re-joined."
    }
   },
@@ -1557,7 +1557,7 @@
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-08",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "Scrape page for 'Yearly Comparison of Stopover Visitors by Island and Month' PDF (one page per year, newest first); pdfplumber text rows 'Mon cur prev %chg' x4 regions; Out Islands prior-year column is split ('2 9,286') and must be re-joined."
    }
   },
@@ -1946,7 +1946,7 @@
     "update_frequency": "mensual (PDF anual acumulado)",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-08",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "Scrape the page for the current-year 'Air Sea Landed & Cruise Arrivals YYYY' PDF link (file name changes with each revision), download, pdfplumber: each monthly page 'Total Foreign Arrivals Summary Report <Month YYYY>' has a 'Grand Total air sea_landed cruise total' line and 'Island Group Subtotal' lines (GB, NP, Out Islands)."
    }
   },
@@ -2335,7 +2335,7 @@
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-08",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "Scrape the page for the current-year 'Air Sea Landed & Cruise Arrivals YYYY' PDF link (file name changes with each revision), download, pdfplumber: each monthly page 'Total Foreign Arrivals Summary Report <Month YYYY>' has a 'Grand Total air sea_landed cruise total' line and 'Island Group Subtotal' lines (GB, NP, Out Islands)."
    }
   },
@@ -2724,7 +2724,7 @@
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-08",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "Scrape the page for the current-year 'Air Sea Landed & Cruise Arrivals YYYY' PDF link (file name changes with each revision), download, pdfplumber: each monthly page 'Total Foreign Arrivals Summary Report <Month YYYY>' has a 'Grand Total air sea_landed cruise total' line and 'Island Group Subtotal' lines (GB, NP, Out Islands)."
    }
   },
@@ -3113,7 +3113,7 @@
     "update_frequency": "mensual",
     "release_lag": "~6-7 semanas tras el cierre del mes",
     "last_period": "2026-08",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "Scrape the page for the current-year 'Air Sea Landed & Cruise Arrivals YYYY' PDF link (file name changes with each revision), download, pdfplumber: each monthly page 'Total Foreign Arrivals Summary Report <Month YYYY>' has a 'Grand Total air sea_landed cruise total' line and 'Island Group Subtotal' lines (GB, NP, Out Islands)."
    }
   },
@@ -3246,7 +3246,7 @@
     "update_frequency": "trimestral (QSD publicado feb/may/ago/nov)",
     "release_lag": "~5 meses (QSD 2026-08 trae hasta 2026-Q1)",
     "last_period": "2026-Q1",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "List https://www.centralbankbahamas.com/publications/qsd, open newest digest page, take cdn.centralbankbahamas.com PDF; Table 7.1 Balance of Payments (quarterly page): second 'Travel' row = current-account receipts. Each digest carries ~10 quarters, so older quarters come from older digests."
    }
   },
@@ -3295,7 +3295,7 @@
     "update_frequency": "trimestral (revisión anual)",
     "release_lag": "~5-8 meses tras cierre del año",
     "last_period": "2025",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "List https://www.centralbankbahamas.com/publications/qsd, open newest digest page, take cdn.centralbankbahamas.com PDF; Table 7.1 Balance of Payments (annual page): second 'Travel' row = current-account receipts. Each digest carries ~10 quarters, so older quarters come from older digests."
    }
   },
@@ -3412,7 +3412,7 @@
     "update_frequency": "anual (un PDF por año con sus 4 trimestres, más el año previo revisado)",
     "release_lag": "~1,5 años tras el cierre del año",
     "last_period": "2024-Q4",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "Scrape the Expenditure page table (link text 'YYYY & YYYY-1'), download each PDF; 'All Bahamas' row under each quarter, first $ amount = stopover (current year), second = prior year. Each year is taken from the newest PDF containing it."
    }
   },
@@ -3449,7 +3449,7 @@
     "update_frequency": "anual (serie n.a. después de 2022)",
     "release_lag": "sin datos después de 2022",
     "last_period": "2022",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "QSD PDF, page titled 'Table 8.5 Tourism: Estimates of Visitor Expenditure'; column 'Average Annual Expenditure of Stopover Visitors – In Current Prices'."
    }
   },
@@ -3498,7 +3498,7 @@
     "update_frequency": "anual (último PDF publicado cubre hasta 2025)",
     "release_lag": "sin actualizaciones desde 2025",
     "last_period": "2025",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-06",
     "access_method": "Download PDF; row per year, first value = All Bahamas nights."
    }
   },
@@ -3547,7 +3547,7 @@
     "update_frequency": "trimestral",
     "release_lag": "~5 meses",
     "last_period": "2025",
-    "retrieved": "2026-10-19",
+    "retrieved": "2026-10-26",
     "access_method": "Annual BoP page of latest QSD; second 'Direct Investment' row (liabilities block). No tourism-sector breakdown is published."
    }
   }
@@ -3556,7 +3556,7 @@
   "Bahamian dollar is pegged 1:1 to the US dollar; B$ millions from CBOB/MoT are reported as US$ millones without conversion.",
   "arrivals_stopover = MoT 'stopover visitors' (stay >24h, by island of stay, from immigration cards; excludes excursionists). It is NOT equal to foreign air arrivals (arrivals_air counts air arrivals by first port of entry, incl. transit, and excludes sea-arriving stopovers).",
   "arrivals_cruise = cruise passenger arrivals by first port of entry (includes private-island calls: Coco Cay, Castaway Cay, Celebration Key, Ocean Cay, etc.). Cruise passengers visiting several Bahamian ports are counted once by first port of entry.",
-  "All MoT monthly figures are labelled preliminary and are revised within the current-year PDF; values here are from the latest PDF of each year (current-year PDF retrieved 2026-10-19).",
+  "All MoT monthly figures are labelled preliminary and are revised within the current-year PDF; values here are from the latest PDF of each year (current-year PDF retrieved 2026-10-26).",
   "Stopover monthly values from the combined 2016-2026 PDF; each year's own page was used (current-year columns); regional sums and annual totals validated. 2025 total there (1,838,168) differs from CBOB QSD Table 8.4 (1,826,103 / 1,821,076) — different vintages.",
   "Minor vintage differences vs CBOB QSD Table 8.4 annual totals: 2021 air arrivals (monthly sum 886,653 vs 886,629) and 2020 stopovers (440,594 vs 440,588); all other years 2019-2025 match exactly for air, cruise, total and stopover (except 2025 stopover, see above).",
   "April-May 2020: borders closed (COVID-19) — near-zero arrivals are genuine.",

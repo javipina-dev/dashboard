@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-12",
+ "updated": "2026-10-26",
  "method_version": 1,
  "items": [
   {
@@ -19,8 +19,8 @@
     }
    ],
    "id": "combustible-aviacion-recortes-capacidad-eeuu",
-   "title": "Turbosina cara por la guerra con Irán: aerolíneas de EE.UU. recortan vuelos y las tarifas aéreas suben 23.4% interanual",
-   "summary": "IATA prevé una turbosina promedio de 152 USD/barril en 2026 (+70% frente a 2025), pero el precio observado ya está muy por encima: la EIA registró el Brent spot en 113.96 USD y la turbosina de la Costa del Golfo en 4.399 USD/galón el 29 de septiembre, y el FMI señaló el 1 de octubre que el combustible de aviación está 60–97% por encima de antes del conflicto. Irán sostiene que el estrecho de Ormuz seguirá cerrado hasta que EE.UU. cumpla sus condiciones, y el 4 de octubre un tanquero fue alcanzado en la zona. En agosto el índice de tarifas aéreas del IPC de EE.UU. subió 23.4% interanual y United, American y Southwest recortan rutas de menor margen desde diciembre; los anuncios todavía no nombran rutas al Caribe ni a México. Al 12 de octubre la turbosina de la Costa del Golfo cotiza en 4.42 USD por galón, más del doble que hace un año, y el STEO de octubre de la EIA eleva el Brent previsto para el cuarto trimestre a 105 USD por barril suponiendo flujos de Medio Oriente restringidos todo el trimestre.",
+   "title": "Turbosina cara por la guerra con Irán: aerolíneas de EE.UU. recortan vuelos y las tarifas aéreas suben 22.4% interanual",
+   "summary": "Los ataques a tanqueros en el estrecho de Ormuz se intensificaron en octubre: Irán exige autorizar cada tránsito y, según Kpler, el flujo de crudo que sale del Golfo Pérsico cayó a 8.5 millones de barriles diarios, desde más de 20 millones dos semanas antes. La EIA registra el Brent spot entre 115 y 130 USD por barril en la primera mitad de octubre y la turbosina de la Costa del Golfo en 4.50 USD por galón al 16 de octubre; en septiembre el índice de tarifas aéreas del IPC de EE.UU. subió 22.4% interanual. United, American y Southwest recortan rutas de menor margen desde diciembre; los anuncios todavía no nombran rutas al Caribe ni a México.",
    "category": "aviacion",
    "direction": "negativo",
    "destinations": [
@@ -31,7 +31,7 @@
    ],
    "horizon": "inmediato",
    "impact": "alto",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Short-Term Energy Outlook (septiembre 2026)",
@@ -151,6 +151,41 @@
      "org": "Bloomberg (vía Energy Connects)",
      "date": "2026-10-07",
      "tier": "prensa"
+    },
+    {
+     "title": "Consumer Price Index – September 2026",
+     "url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+     "org": "U.S. Bureau of Labor Statistics",
+     "date": "2026-10-14",
+     "tier": "oficial"
+    },
+    {
+     "title": "U.S. Gulf Coast Kerosene-Type Jet Fuel Spot Price FOB (Weekly)",
+     "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=EER_EPJK_PF4_RGC_DPG&f=W",
+     "org": "U.S. Energy Information Administration",
+     "date": "2026-10-16",
+     "tier": "oficial"
+    },
+    {
+     "title": "Europe Brent Spot Price FOB (Daily)",
+     "url": "https://www.eia.gov/dnav/pet/hist/LeafHandler.ashx?n=PET&s=RBRTE&f=D",
+     "org": "U.S. Energy Information Administration",
+     "date": "2026-10-20",
+     "tier": "oficial"
+    },
+    {
+     "title": "Iran says two tankers catch fire after hitting mines in Strait of Hormuz",
+     "url": "https://www.aljazeera.com/news/2026/10/18/iran-says-two-tankers-catch-fire-after-hitting-mines-in-strait-of-hormuz",
+     "org": "Al Jazeera",
+     "date": "2026-10-18",
+     "tier": "prensa"
+    },
+    {
+     "title": "Brent Tops $110 as Tanker Attacks Threaten Persian Gulf Supply",
+     "url": "https://oilprice.com/Latest-Energy-News/World-News/Brent-Tops-110-as-Tanker-Attacks-Threaten-Persian-Gulf-Supply.html",
+     "org": "Oilprice.com",
+     "date": "2026-10-19",
+     "tier": "prensa"
     }
    ],
    "signal": {
@@ -195,7 +230,7 @@
    ],
    "horizon": "corto",
    "impact": "alto",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Travel advice and advisories: Cuba",
@@ -295,7 +330,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Collado: “Tenemos asegurados más de 100 mil asientos aéreos desde Canadá”",
@@ -370,7 +405,7 @@
    ],
    "horizon": "corto",
    "impact": "alto",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "More Than 11,000 Hotel Rooms to Return to Inventory",
@@ -441,7 +476,7 @@
    "markets": [],
    "horizon": "inmediato",
    "impact": "bajo",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "NOAA 2026 Atlantic Hurricane Season Outlook (August update)",
@@ -491,6 +526,13 @@
      "org": "NOAA Climate Prediction Center",
      "date": "2026-10-08",
      "tier": "oficial"
+    },
+    {
+     "title": "Tropical Weather Outlook",
+     "url": "https://www.nhc.noaa.gov/text/MIATWOAT.shtml",
+     "org": "NOAA National Hurricane Center",
+     "date": "2026-10-26",
+     "tier": "oficial"
     }
    ]
   },
@@ -524,7 +566,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Spirit Airlines ceases operations after escalating financial struggles",
@@ -596,8 +638,8 @@
     }
    ],
    "id": "eeuu-inflacion-alza-tasas-fed",
-   "title": "EE.UU.: la inflación de 3.4% supera el alza salarial de 3.0%, la Fed subió su tasa a 3.75–4% y la confianza del consumidor cae a su mínimo desde 2014",
-   "summary": "El 16 de septiembre la Reserva Federal subió la tasa de fondos federales a 3.75–4% y los gobernadores Barr y Jefferson dijeron después que la inflación sigue demasiado alta y que probablemente harán falta más ajustes. En septiembre se crearon solo 29,000 empleos, el salario por hora creció 3.0% frente a una inflación de 3.4%, y el índice de confianza del Conference Board cayó a 81.9, su nivel más bajo desde 2014, con menos planes de viaje al exterior y más de viaje doméstico. Queda por ver si el ajuste se traduce en menos viajes de ocio al exterior en la temporada alta o solo en viajes más cortos o más baratos. En octubre el sentimiento preliminar de la Universidad de Michigan bajó a 46.3 desde 48.1 y la inflación esperada a un año subió a 4.7%; el IPC de septiembre sale el 14 de octubre.",
+   "title": "EE.UU.: la inflación sube a 3.7%, el salario real cae 0.7% interanual y la Fed mantiene su tasa en 3.75–4% tras subirla en septiembre",
+   "summary": "El 16 de septiembre la Reserva Federal subió la tasa de fondos federales a 3.75–4% y sus gobernadores anticiparon más ajustes; la próxima decisión es el 28 de octubre. En septiembre la inflación anual subió a 3.7% y el salario real por hora cayó 0.7% interanual, mientras la confianza del consumidor sigue en mínimos de una década. Queda por ver si la pérdida de poder de compra se traduce en menos viajes de ocio al exterior en la temporada alta o solo en viajes más cortos o más baratos.",
    "category": "macro",
    "direction": "negativo",
    "destinations": [
@@ -608,7 +650,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Federal Reserve issues FOMC statement (September 16, 2026)",
@@ -665,6 +707,20 @@
      "org": "University of Michigan",
      "date": "2026-10-09",
      "tier": "institucional"
+    },
+    {
+     "title": "Consumer Price Index – September 2026",
+     "url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+     "org": "U.S. Bureau of Labor Statistics",
+     "date": "2026-10-14",
+     "tier": "oficial"
+    },
+    {
+     "title": "Real Earnings – September 2026",
+     "url": "https://www.bls.gov/news.release/realer.nr0.htm",
+     "org": "U.S. Bureau of Labor Statistics",
+     "date": "2026-10-14",
+     "tier": "oficial"
     }
    ],
    "scenario": {
@@ -748,7 +804,7 @@
    }
   },
   {
-   "status": "vigente",
+   "status": "perdiendo_fuerza",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -766,11 +822,16 @@
      "date": "2026-10-06",
      "status": "vigente",
      "note": "El peso colombiano volvió a apreciarse (TRM 3,209.78 el 6-oct) y el real subió 4.6% el 5-oct tras la primera vuelta en Brasil."
+    },
+    {
+     "date": "2026-10-26",
+     "status": "perdiendo_fuerza",
+     "note": "El real se depreció 9.2% entre el 23 y el 26-oct (PTAX 5.5007) y ya está más débil que hace un año; el efecto positivo queda limitado al peso colombiano."
     }
    ],
    "id": "monedas-latam-fuertes-colombia-brasil",
-   "title": "El peso colombiano se apreció ~22% y el real ~7% frente al dólar en un año, lo que abarata los viajes al exterior",
-   "summary": "La TRM oficial bajó de 3,881.92 pesos por dólar (17 sep 2025) a 3,128.46 (17 sep 2026); tras subir a 3,349.63 el 29 de septiembre volvió a 3,209.78 el 6 de octubre, ~17% más fuerte que hace un año. El real se apreció 4.6% en un día tras la primera vuelta electoral en Brasil (PTAX 4.9859 el 5 de octubre, frente a 5.2238 el 2 de octubre), con segunda vuelta el 25 de octubre. Monedas más fuertes aumentan el poder de compra de colombianos y brasileños en destinos con precios en dólares como República Dominicana, Panamá, Cancún, Aruba y Curazao; para Cartagena el efecto es el opuesto, y no hay datos oficiales recientes de viajes al exterior de estos mercados que confirmen el efecto. Al 10 de octubre la TRM está en 3,194.44 pesos, frente a 3,894.99 un año antes, y la PTAX del 9 de octubre en 4.9892 reales, frente a 5.3538: el real se fortaleció tras la primera vuelta presidencial del 5 de octubre y la segunda vuelta es el 25 de octubre.",
+   "title": "El peso colombiano sigue ~23% más fuerte frente al dólar que hace un año, pero el real perdió su apreciación y ya está más débil",
+   "summary": "La TRM oficial está en 3,158.43 pesos por dólar (24 oct 2026), frente a 3,888.76 un año antes, lo que abarata los viajes al exterior de los colombianos a destinos con precios en dólares como República Dominicana, Panamá, Cancún, Aruba y Curazao; para Cartagena el efecto es el opuesto. El real, en cambio, saltó de 5.0377 a 5.5007 por dólar en la PTAX entre el 23 y el 26 de octubre y ya está ~2.3% más débil que un año antes (5.3744). No hay datos oficiales recientes de viajes al exterior de estos mercados que confirmen el efecto.",
    "category": "mercado_emisor",
    "direction": "positivo",
    "destinations": [
@@ -786,7 +847,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Tasa de Cambio Representativa del Mercado (TRM) – datos abiertos",
@@ -850,6 +911,20 @@
      "org": "Banco Central do Brasil",
      "date": "2026-10-09",
      "tier": "oficial"
+    },
+    {
+     "title": "Tasa de Cambio Representativa del Mercado (TRM)",
+     "url": "https://www.datos.gov.co/resource/32sa-8pi3.json",
+     "org": "Superintendencia Financiera de Colombia (datos.gov.co)",
+     "date": "2026-10-24",
+     "tier": "oficial"
+    },
+    {
+     "title": "PTAX – CotacaoDolarPeriodo",
+     "url": "https://olinda.bcb.gov.br/olinda/servico/PTAX/versao/v1/odata/",
+     "org": "Banco Central do Brasil",
+     "date": "2026-10-26",
+     "tier": "oficial"
     }
    ],
    "signal": {
@@ -890,7 +965,7 @@
    "markets": [],
    "horizon": "inmediato",
    "impact": "medio",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Sargazo: Semar bate récord de recolección en Quintana Roo",
@@ -942,7 +1017,7 @@
    }
   },
   {
-   "status": "vigente",
+   "status": "perdiendo_fuerza",
    "first_seen": "2026-09-18",
    "closed_on": null,
    "history": [
@@ -955,11 +1030,16 @@
      "date": "2026-09-28",
      "status": "vigente",
      "note": "Reconfirmado: la reforma sigue en la Comisión de Hacienda de la Cámara de Diputados; plazo de votación en el pleno el 15-oct."
+    },
+    {
+     "date": "2026-10-26",
+     "status": "perdiendo_fuerza",
+     "note": "Diputados aprobaron el 13-oct un alza de 17.8% (a 1,158 pesos), la mitad de lo propuesto; pasa al Senado."
     }
    ],
    "id": "mexico-aumento-derecho-no-residente-2027",
-   "title": "México propone subir 35.8% el Derecho de No Residente en 2027, de 983 a 1,334.80 pesos por visitante",
-   "summary": "El Paquete Económico 2027 incluye subir el Derecho de No Residente de 983 a 1,334.80 pesos (+35.8%, ~55% frente a 2025) y destina lo recaudado a Defensa, Migración y Hacienda, sin partida para promoción turística. Los hoteleros piden moderarlo porque llega en un año de caída de tráfico internacional; la Secretaría de Turismo sostiene que no afectará las llegadas. Todavía es una propuesta: sigue en la Comisión de Hacienda de la Cámara de Diputados, con votación en el pleno prevista a más tardar el 15 de octubre y luego el Senado.",
+   "title": "Diputados aprueban subir 17.8% el Derecho de No Residente en 2027, de 983 a 1,158 pesos por visitante; falta el Senado",
+   "summary": "El 13 de octubre la Cámara de Diputados aprobó la Ley Federal de Derechos 2027 con el Derecho de No Residente en 1,158 pesos (+17.8%), por debajo de los 1,334.80 pesos (+35.8%) de la propuesta original, tras las objeciones del sector turístico. La reforma pasó al Senado; si se aprueba y se publica en el Diario Oficial, el nuevo cobro aplicaría desde el 1 de enero de 2027.",
    "category": "regulacion",
    "direction": "negativo",
    "destinations": [
@@ -969,7 +1049,7 @@
    "markets": [],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Preocupa a hoteleros alza en Derecho de No Residente en 2027",
@@ -997,6 +1077,20 @@
      "url": "https://lasillarota.com/nacion/2026/10/11/diputados-votaran-paquete-economico-2027-y-ampliar-resico-532567.html",
      "org": "La Silla Rota",
      "date": "2026-10-11",
+     "tier": "prensa"
+    },
+    {
+     "title": "Diputados aprueban Ley de Derechos 2027 con aumento en cuotas, trámites y permisos",
+     "url": "https://www.bloomberglinea.com/latinoamerica/mexico/diputados-aprueban-ley-de-derechos-2027-con-aumento-en-cuotas-tramites-y-permisos/",
+     "org": "Bloomberg Línea",
+     "date": "2026-10-13",
+     "tier": "prensa"
+    },
+    {
+     "title": "Entre insultos, diputados aprueban Ley de Derechos y la envían al Senado",
+     "url": "https://grupoanimal.mx/politica/diputados-aprueban-ley-de-derechos",
+     "org": "Grupo Animal",
+     "date": "2026-10-13",
      "tier": "prensa"
     }
    ]
@@ -1030,7 +1124,7 @@
    ],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Leading indicator of international arrivals to Canada, August 2026",
@@ -1077,7 +1171,7 @@
    ],
    "horizon": "inmediato",
    "impact": "bajo",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Chikungunya in Costa Rica – Level 2 Travel Health Notice",
@@ -1115,7 +1209,7 @@
    "markets": [],
    "horizon": "corto",
    "impact": "bajo",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "International tourism holds steady with 0.4% growth in first half of 2026 as Middle East conflict and rising costs weigh on momentum",
@@ -1157,7 +1251,7 @@
    ],
    "horizon": "corto",
    "impact": "medio",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "evidence": [
     {
      "title": "Toerist gaat vanaf 2027 75 dollar betalen bij aankomst op Curaçao",
@@ -1198,9 +1292,9 @@
    ],
    "horizon": "inmediato",
    "impact": "medio",
-   "status": "nuevo",
+   "status": "vigente",
    "first_seen": "2026-10-12",
-   "last_confirmed": "2026-10-12",
+   "last_confirmed": "2026-10-26",
    "closed_on": null,
    "evidence": [
     {
@@ -1237,6 +1331,13 @@
      "org": "El Tiempo",
      "date": "2026-10-10",
      "tier": "prensa"
+    },
+    {
+     "title": "Travel advice and advisories for Panama",
+     "url": "https://travel.gc.ca/destinations/panama",
+     "org": "Global Affairs Canada",
+     "date": "2026-10-16",
+     "tier": "oficial"
     }
    ],
    "history": [
@@ -1244,6 +1345,11 @@
      "date": "2026-10-12",
      "status": "nuevo",
      "note": "Alta en el barrido del 12-oct."
+    },
+    {
+     "date": "2026-10-26",
+     "status": "vigente",
+     "note": "Reconfirmado: Canadá mantiene (actualización del 16-oct) evitar viajes no esenciales a Arena, El Cacao y Quebro en Veraguas; aeropuertos internacionales operan."
     }
    ]
   }
