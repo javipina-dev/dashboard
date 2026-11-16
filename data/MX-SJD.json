@@ -1903,51 +1903,51 @@
     ],
     [
      "2025-01",
-     2795.84
+     2801.6
     ],
     [
      "2025-02",
-     2767.89
+     2766.91
     ],
     [
      "2025-03",
-     3131.96
+     3125.1
     ],
     [
      "2025-04",
-     2530.24
+     2524.21
     ],
     [
      "2025-05",
-     2056.36
+     2053.95
     ],
     [
      "2025-06",
-     2166.38
+     2158.53
     ],
     [
      "2025-07",
-     2341.17
+     2328.31
     ],
     [
      "2025-08",
-     1645.03
+     1642.49
     ],
     [
      "2025-09",
-     1295.48
+     1286.76
     ],
     [
      "2025-10",
-     1852.1
+     1843.83
     ],
     [
      "2025-11",
-     2372.69
+     2365.22
     ],
     [
      "2025-12",
-     2973.88
+     2963.56
     ],
     [
      "2026-01",
@@ -1980,6 +1980,10 @@
     [
      "2026-08",
      1772.79
+    ],
+    [
+     "2026-09",
+     1392.65
     ]
    ],
    "source": {
@@ -1990,7 +1994,7 @@
     "format": "csv",
     "update_frequency": "mensual",
     "release_lag": "~6 semanas (jul-2026 publicado 14-sep-2026 en boletín INEGI EVI)",
-    "last_period": "2026-08",
+    "last_period": "2026-09",
     "retrieved": "2026-09-17",
     "access_method": "POST form to consultarSeries with idCuadro=CE36, series=SE28552&series=SE28570&series=SE28582, anoInicial/anoFinal, tipoInformacion=4,1, formatoCSV.x=5&formatoCSV.y=5 (no token). Alternative: Banxico SIE REST API (requires free token) or INEGI BIE API (token)."
    }
@@ -2292,51 +2296,51 @@
     ],
     [
      "2025-01",
-     1306.76
+     1306.51
     ],
     [
      "2025-02",
-     1326.6
+     1326.13
     ],
     [
      "2025-03",
-     1302.38
+     1299.53
     ],
     [
      "2025-04",
-     1331.29
+     1328.12
     ],
     [
      "2025-05",
-     1222.82
+     1221.38
     ],
     [
      "2025-06",
-     1171.51
+     1171.96
     ],
     [
      "2025-07",
-     1193.64
+     1191.61
     ],
     [
      "2025-08",
-     1101.91
+     1104.59
     ],
     [
      "2025-09",
-     1110.89
+     1109.63
     ],
     [
      "2025-10",
-     1110.32
+     1109.51
     ],
     [
      "2025-11",
-     1218.13
+     1218.45
     ],
     [
      "2025-12",
-     1157.76
+     1158.67
     ],
     [
      "2026-01",
@@ -2369,6 +2373,10 @@
     [
      "2026-08",
      1269.58
+    ],
+    [
+     "2026-09",
+     1188.9
     ]
    ],
    "source": {
@@ -2379,7 +2387,7 @@
     "format": "csv",
     "update_frequency": "mensual",
     "release_lag": "~6 semanas (jul-2026 publicado 14-sep-2026 en boletín INEGI EVI)",
-    "last_period": "2026-08",
+    "last_period": "2026-09",
     "retrieved": "2026-09-17",
     "access_method": "POST form to consultarSeries with idCuadro=CE36, series=SE28552&series=SE28570&series=SE28582, anoInicial/anoFinal, tipoInformacion=4,1, formatoCSV.x=5&formatoCSV.y=5 (no token). Alternative: Banxico SIE REST API (requires free token) or INEGI BIE API (token)."
    }
@@ -2681,7 +2689,7 @@
     ],
     [
      "2025-01",
-     2139519
+     2144339
     ],
     [
      "2025-02",
@@ -2701,31 +2709,31 @@
     ],
     [
      "2025-06",
-     1849224
+     1841810
     ],
     [
      "2025-07",
-     1961382
+     1953910
     ],
     [
      "2025-08",
-     1492896
+     1486970
     ],
     [
      "2025-09",
-     1166162
+     1159629
     ],
     [
      "2025-10",
-     1668067
+     1661835
     ],
     [
      "2025-11",
-     1947818
+     1941169
     ],
     [
      "2025-12",
-     2568653
+     2557715
     ],
     [
      "2026-01",
@@ -2758,6 +2766,10 @@
     [
      "2026-08",
      1396364
+    ],
+    [
+     "2026-09",
+     1171373
     ]
    ],
    "source": {
@@ -2768,7 +2780,7 @@
     "format": "csv",
     "update_frequency": "mensual",
     "release_lag": "~6 semanas (jul-2026 publicado 14-sep-2026 en boletín INEGI EVI)",
-    "last_period": "2026-08",
+    "last_period": "2026-09",
     "retrieved": "2026-09-17",
     "access_method": "POST form to consultarSeries with idCuadro=CE36, series=SE28552&series=SE28570&series=SE28582, anoInicial/anoFinal, tipoInformacion=4,1, formatoCSV.x=5&formatoCSV.y=5 (no token). Alternative: Banxico SIE REST API (requires free token) or INEGI BIE API (token)."
    }
