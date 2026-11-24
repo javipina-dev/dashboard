@@ -397,7 +397,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -790,7 +790,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -882,12 +882,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -979,12 +979,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -1228,12 +1228,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -1477,12 +1477,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],
@@ -1890,7 +1890,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -2283,7 +2283,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -2375,12 +2375,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -2472,12 +2472,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -2569,12 +2569,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -2666,12 +2666,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -2915,12 +2915,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -3164,12 +3164,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],
@@ -3578,7 +3578,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -3971,7 +3971,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -4063,12 +4063,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -4160,12 +4160,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -4409,12 +4409,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -4658,12 +4658,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],
@@ -5071,7 +5071,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -5163,12 +5163,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -5260,12 +5260,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -5509,12 +5509,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -5758,12 +5758,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],
@@ -6170,7 +6170,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -6563,7 +6563,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -6655,12 +6655,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -6752,12 +6752,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -7001,12 +7001,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -7250,12 +7250,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],
@@ -7663,7 +7663,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -8056,7 +8056,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -8449,7 +8449,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -8842,7 +8842,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -8934,12 +8934,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -9031,12 +9031,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -9280,12 +9280,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -9529,12 +9529,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],
@@ -9943,7 +9943,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -10035,12 +10035,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -10132,12 +10132,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -10381,12 +10381,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -10630,12 +10630,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],
@@ -11042,7 +11042,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -11435,7 +11435,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -11527,12 +11527,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -11624,12 +11624,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -11873,12 +11873,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -12122,12 +12122,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas tradicionales (9 zonas, coinciden con la zonificación de ASONAHORES/BCRD)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],
@@ -12183,7 +12183,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes",
       "access_method": "GET directo al .xls por año. Hoja 0: fila de encabezado que empieza con 'Meses'; una columna por zona; filas por mes. Los meses sin publicar vienen vacíos y se omiten; los 0 de abr-jun 2020 (y de algunas zonas en 2020) son ceros reales por cierre de la actividad hotelera.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -12275,12 +12275,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -12372,12 +12372,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -12621,12 +12621,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -12870,12 +12870,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],
@@ -12982,12 +12982,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -13079,12 +13079,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -13328,12 +13328,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -13577,12 +13577,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],
@@ -13893,7 +13893,7 @@
       "update_frequency": "mensual",
       "release_lag": "~4-8 semanas tras el cierre del mes (jul-2026 publicado en ago-2026)",
       "access_method": "GET directo al .xls por año (2019..año en curso), sin auth, con User-Agent de navegador. Hoja 0: localizar la fila 'NO RESIDENTES' (columna de etiquetas = 1 en 2019-2020, = 0 desde 2021) y leer las filas de aeropuerto hasta la primera fila vacía; columnas ENERO..DICIEMBRE. En el año en curso los meses no publicados aparecen como 0 y se recortan con el último periodo de la serie nacional.",
-      "retrieved": "2026-10-26"
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -13985,12 +13985,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -14082,12 +14082,12 @@
       "last_period": "2026-Q3",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "trimestral (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-      "access_method": "GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -14331,12 +14331,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     },
     {
@@ -14580,12 +14580,12 @@
       "last_period": "2026-09",
       "org": "Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
       "page_url": "https://situr.mitur.gob.do/estadisticas/descargas/",
-      "file_url": "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
+      "file_url": "https://wp-situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx",
       "format": "xlsx",
       "update_frequency": "mensual (archivo actualizado 21 de octubre del 2026)",
       "release_lag": "~1-2 semanas tras el cierre del mes",
-      "access_method": "GET directo al .xlsx (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
-      "retrieved": "2026-10-26"
+      "access_method": "Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)). Hojas 'Ocupación por zona' y '% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo aparece en la fila de enero y se arrastra hacia abajo; los valores vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie disponible desde 2022-01.",
+      "retrieved": "2026-11-24"
      }
     }
    ],

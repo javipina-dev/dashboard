@@ -111,6 +111,25 @@ siguiente. En resumen:
   las tablas de balanza de pagos de la ESO (`eso_bop_iip_*_tables.xlsx`), y correr
   `run_all.py --only KY`. Sin esos archivos la tarea semanal marca KY como fallido y conserva el
   JSON anterior.
+- **MITUR/SITUR (República Dominicana)** se capturan **a mano** desde noviembre de 2026. El
+  sitio se rediseñó y movió sus Excel a `wp-situr.mitur.gob.do`, que rechaza descargas
+  automatizadas (HTTP 403). Sin estos archivos fallan `DO` y `DO_poles`, y con ellos dejan de
+  avanzar también las llegadas del Banco Central, porque salen del mismo extractor. Cada mes:
+  1. Abrir https://situr.mitur.gob.do/estadisticas/descargas/ en un navegador normal.
+  2. Descargar los cinco archivos siguientes, en su versión **mensual**:
+     - Llegadas marítimas: `1. Llegadas marítimas.xlsx`
+     - Llegadas aéreas: `1. Flujo migratorio.xlsx`
+     - Actividad hotelera: `1. Actividad hotelera - zonas tradicionales.xlsx`,
+       `2. Actividad hotelera - zonas MITUR.xlsx` y
+       `3. Hoteles y habitaciones hoteleras - zonas MITUR.xlsx`
+  3. Guardarlos en `data/raw/DO/mitur_manual/` con el mismo nombre con que los da el sitio.
+  4. Correr `.venv/bin/python run_all.py --only DO,DO_poles,DO_markets` o esperar la corrida
+     semanal.
+
+  Los extractores (`data/scripts/_situr.py`) usan primero la captura manual, después una
+  descarga directa si MITUR vuelve a permitirla, y por último la copia anterior válida, con
+  aviso. Un archivo que no sea Excel nunca reemplaza la copia buena. Si una captura tiene más
+  de 40 días, el registro de la corrida lo advierte.
 - **Los Cabos** no tiene gasto a nivel destino; solo existe el dato nacional de México.
 - **Cartagena** tampoco: ni MinCIT, ni DANE, ni Corpoturismo publican gasto por ciudad, así que
   solo está el dato nacional de Colombia (anual). Sus llegadas miden extranjeros no residentes

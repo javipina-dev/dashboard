@@ -40,6 +40,8 @@ from pathlib import Path
 import pandas as pd
 import requests
 
+import _situr as situr
+
 BASE = Path(__file__).resolve().parents[1]           # .../data
 RAW = BASE / "raw" / "DO"
 OUT_DIR = BASE / "poles"
@@ -56,13 +58,12 @@ UA = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit
 
 BCRD_TUR = "https://cdn.bancentral.gov.do/documents/estadisticas/sector-turismo/documents/"
 BCRD_TUR_PAGE = "https://www.bancentral.gov.do/a/d/2537-sector-turismo"
-SITUR = "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/"
-SITUR_PAGE = "https://situr.mitur.gob.do/estadisticas/descargas/"
+SITUR_PAGE = situr.SITUR_PAGE
 
-F_ROOMS = "3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx"
-F_HOTEL_TRAD = "1.%20Actividad%20hotelera%20-%20zonas%20tradicionales.xlsx"
-F_HOTEL_MZ = "2.%20Actividad%20hotelera%20-%20zonas%20MITUR.xlsx"
-F_MIGR = "1.%20Flujo%20migratorio.xlsx"
+F_ROOMS = "3. Hoteles y habitaciones hoteleras - zonas MITUR"
+F_HOTEL_TRAD = "1. Actividad hotelera - zonas tradicionales"
+F_HOTEL_MZ = "2. Actividad hotelera - zonas MITUR"
+F_MIGR = "1. Flujo migratorio"
 
 MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
           "septiembre", "octubre", "noviembre", "diciembre"]
@@ -287,7 +288,7 @@ def mitur_monthly(path, sheet, first_col=2, hdr_label="ano", scale=1.0, decimals
 
 def mitur_airports_nr():
     """{airport: {per: entries}} - Dominicano + Extranjero blocks summed."""
-    p = fetch(SITUR + F_MIGR, "mitur_flujo_migratorio.xlsx")
+    p = situr.fetch(F_MIGR, RAW, UA, DOWNLOAD)
     df = pd.read_excel(p, sheet_name="Entradas NR por aeropuerto", header=None)
     upd = situr_update_date(df)
     hr = next(i for i in range(20) if norm(df.iat[i, 0]) == "ano")
@@ -417,15 +418,14 @@ def main():
     occ = bcrd_occupancy_zones()
 
     print("MITUR rooms / hotels by zone")
-    p_rooms = fetch(SITUR + F_ROOMS, "mitur_hoteles_habitaciones.xlsx")
+    p_rooms = situr.fetch(F_ROOMS, RAW, UA, DOWNLOAD)
     rooms, upd_rooms = mitur_quarterly(p_rooms, "Habitaciones por zona")
     hotels, _ = mitur_quarterly(p_rooms, "Hoteles por zona")
 
     print("MITUR occupancy / foreign-guest share by zone (both zonings)")
     hot = {}
-    for tag, fname, local in (("trad", F_HOTEL_TRAD, "mitur_actividad_hotelera_tradicionales.xlsx"),
-                              ("mz", F_HOTEL_MZ, "mitur_actividad_hotelera_zonas_mitur.xlsx")):
-        ph = fetch(SITUR + fname, local)
+    for tag, fname in (("trad", F_HOTEL_TRAD), ("mz", F_HOTEL_MZ)):
+        ph = situr.fetch(fname, RAW, UA, DOWNLOAD)
         occ_h, upd_h, _, _ = mitur_monthly(ph, "Ocupación por zona", scale=100.0, decimals=1)
         ext_h, _, _, _ = mitur_monthly(ph, "% Extranjeros por zona", scale=100.0, decimals=1)
         hot[tag] = dict(occ=occ_h, ext=ext_h, upd=upd_h, file=fname)
@@ -462,10 +462,10 @@ def main():
                       "ceros reales por cierre de la actividad hotelera.")
     rooms_src = dict(
         org="Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
-        page_url=SITUR_PAGE, file_url=SITUR + F_ROOMS, format="xlsx",
+        page_url=SITUR_PAGE, file_url=situr.url(F_ROOMS), format="xlsx",
         update_frequency=f"trimestral (archivo actualizado {upd_rooms})",
         release_lag="~5 semanas tras el cierre del trimestre (2026-T2 en el archivo del 5-ago-2026)",
-        access_method="GET directo al .xlsx. Hojas 'Habitaciones por zona' / 'Hoteles por zona': "
+        access_method="Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hojas 'Habitaciones por zona' / 'Hoteles por zona': "
                       "encabezado en la fila 'Año | Trimestre | <zonas>'; el año solo aparece en la "
                       "fila T1 de cada año, se arrastra hacia abajo. Serie disponible desde 2022-T1.")
     def mitur_occ_src(tag):
@@ -474,10 +474,10 @@ def main():
              "zonas MITUR (14 zonas, coinciden con la zonificación del cuadro de habitaciones)")
         return dict(
             org="Ministerio de Turismo (MITUR) - Sistema de Inteligencia Turística (SIT)",
-            page_url=SITUR_PAGE, file_url=SITUR + hot[tag]["file"], format="xlsx",
+            page_url=SITUR_PAGE, file_url=situr.url(hot[tag]["file"]), format="xlsx",
             update_frequency=f"mensual (archivo actualizado {hot[tag]['upd']})",
             release_lag="~1-2 semanas tras el cierre del mes",
-            access_method=f"GET directo al .xlsx (versión por {z}). Hojas 'Ocupación por zona' y "
+            access_method=f"Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py) (versión por {z}). Hojas 'Ocupación por zona' y "
                           "'% Extranjeros por zona': encabezado 'Año | Mes | <zonas>'; el año solo "
                           "aparece en la fila de enero y se arrastra hacia abajo; los valores "
                           "vienen como fracción (0.751) y aquí se expresan en % (75.1). Serie "

@@ -24,6 +24,8 @@ from pathlib import Path
 import pandas as pd
 import requests
 
+import _situr as situr
+
 BASE = Path(__file__).resolve().parents[1]          # .../data
 RAW = BASE / "raw" / "DO"
 OUT = BASE / "DO.json"
@@ -39,8 +41,9 @@ BCRD_TUR = "https://cdn.bancentral.gov.do/documents/estadisticas/sector-turismo/
 BCRD_EXT = "https://cdn.bancentral.gov.do/documents/estadisticas/sector-externo/documents/"
 BCRD_TUR_PAGE = "https://www.bancentral.gov.do/a/d/2537-sector-turismo"
 BCRD_EXT_PAGE = "https://www.bancentral.gov.do/a/d/2532-sector-externo"
-SITUR = "https://situr.mitur.gob.do/wp-content/uploads/estadisticas/mensual/"
-SITUR_PAGE = "https://situr.mitur.gob.do/estadisticas/descargas/"
+SITUR_PAGE = situr.SITUR_PAGE
+F_CRUISE = "1. Llegadas marítimas"
+F_ROOMS = "3. Hoteles y habitaciones hoteleras - zonas MITUR"
 
 MONTHS = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto",
           "septiembre", "octubre", "noviembre", "diciembre"]
@@ -321,7 +324,7 @@ def situr_update_date(df):
 
 
 def mitur_cruise():
-    p = fetch(SITUR + "1.%20Llegadas%20mar%C3%ADtimas.xlsx", "mitur_llegadas_maritimas.xlsx")
+    p = situr.fetch(F_CRUISE, RAW, UA, DOWNLOAD)
     tot = pd.read_excel(p, sheet_name="Cruceristas", header=None)
     port = pd.read_excel(p, sheet_name="Cruceristas por puerto", header=None)
     upd = situr_update_date(port)
@@ -364,8 +367,7 @@ def mitur_cruise():
 
 
 def mitur_rooms():
-    p = fetch(SITUR + "3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
-              "mitur_hoteles_habitaciones.xlsx")
+    p = situr.fetch(F_ROOMS, RAW, UA, DOWNLOAD)
     df = pd.read_excel(p, sheet_name="Habitaciones por zona", header=None)
     upd = situr_update_date(df)
     hr = next(i for i in range(15) if norm(df.iat[i, 0]) == "ano")
@@ -462,11 +464,11 @@ def main():
                        source=src(org="Ministerio de Turismo (MITUR) - SITUR",
                                   title="Llegadas marítimas - hoja 'Cruceristas por puerto' (suma de columnas 'Cruceros')",
                                   page_url=SITUR_PAGE,
-                                  file_url=SITUR + "1.%20Llegadas%20mar%C3%ADtimas.xlsx",
+                                  file_url=situr.url(F_CRUISE),
                                   format="xlsx", update_frequency=f"mensual ({upd_c})",
                                   release_lag="~1 semana tras el cierre del mes",
                                   last_period=cruise[-1][0],
-                                  access_method="GET directo al .xlsx (URL estable). Hoja 'Cruceristas por puerto': sumar columnas bajo 'Cruceros' (se verifica que Cruceros+Ferry = hoja 'Cruceristas' Pasajeros). Solo desde 2022.")))
+                                  access_method="Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hoja 'Cruceristas por puerto': sumar columnas bajo 'Cruceros' (se verifica que Cruceros+Ferry = hoja 'Cruceristas' Pasajeros). Solo desde 2022.")))
 
     print("BCRD travel credit (BoP)")
     trav, trav_title = bcrd_travel_credit()
@@ -518,10 +520,10 @@ def main():
     print("MITUR rooms")
     rooms_tot, rooms_puj, upd_r = mitur_rooms()
     rooms_src = dict(org="Ministerio de Turismo (MITUR) - SITUR", page_url=SITUR_PAGE,
-                     file_url=SITUR + "3.%20Hoteles%20y%20habitaciones%20hoteleras%20-%20zonas%20MITUR.xlsx",
+                     file_url=situr.url(F_ROOMS),
                      format="xlsx", update_frequency=f"trimestral ({upd_r})",
                      release_lag="~5 semanas tras el cierre del trimestre (T2-2026 en archivo del 5-ago-2026)",
-                     access_method="GET directo al .xlsx. Hoja 'Habitaciones por zona'; filas Año/Trimestre; columnas por zona turística MITUR. Solo desde 2022.")
+                     access_method="Captura manual del .xlsx desde la página de descargas de SITUR (ver README y _situr.py). Hoja 'Habitaciones por zona'; filas Año/Trimestre; columnas por zona turística MITUR. Solo desde 2022.")
     series.append(dict(key="hotel_rooms", category="hotels",
                        label="Habitaciones hoteleras (suma de zonas MITUR)", unit="habitaciones", frequency="quarterly",
                        data=rooms_tot, source=src(title="Hoteles y habitaciones hoteleras - Habitaciones por zona (suma de todas las columnas, incl. 'Resto')",
